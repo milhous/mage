@@ -1,0 +1,19 @@
+:global {
+    @keyframes example {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .bit-dropdown {
+        position: absolute;
+        z-index: 1001;
+        transform: translateZ(10PX);
+        :local {
+            animation-name: example;
+            animation-duration: 1s;
+        }
+    }
+}

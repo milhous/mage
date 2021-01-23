@@ -1,0 +1,19 @@
+{
+    "name": "@packages/activity",
+    "version": "1.0.0",
+    "description": "活动",
+    "main": "btg.config.js",
+    "private": true,
+    "scripts": {
+        "start": "btg start",
+        "build": "btg build",
+        "update": "ncu -u"
+    },
+    "dependencies": {
+        "moment": "^2.29.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-redux": "^7.2.2",
+        "redux": "^4.0.5"
+    }
+}

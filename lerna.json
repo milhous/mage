@@ -1,0 +1,25 @@
+{
+    "version": "independent",
+    "packages": [
+        "packages/*",
+        "cli"
+    ],
+    "command": {
+        "bootstrap": {
+            "hoist": true
+        },
+        "version": {
+            "allowBranch": [
+                "master",
+                "main",
+                "release/*"
+            ],
+            "message": "chore(release): publish"
+        }
+    },
+    "ignoreChanges": [
+        "**/__fixtures__/**",
+        "**/__tests__/**",
+        "**/*.md"
+    ]
+}

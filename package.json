@@ -1,0 +1,28 @@
+{
+    "name": "git-website-v2",
+    "private": true,
+    "description": "主站2.0",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "http://gitlab.lan.com/front-end/website-v2.git"
+    },
+    "scripts": {
+        "setup": "lerna init --independent && lerna clean && lerna bootstrap --hoist",
+        "update": "lerna run --parallel update",
+        "start": "lerna run --scope @packages/* --parallel start",
+        "build": "lerna run --scope @packages/* build",
+        "start:name": "cross-var lerna run --scope=@packages/$name start",
+        "build:name": "cross-var lerna run --scope=@packages/$name build",
+        "analyze": "lerna run --scope @packages/* --parallel start",
+        "lint": "lerna run --scope @packages/* --parallel lint",
+        "clean": "lerna run --scope @packages/* --parallel clean"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cross-var": "^1.1.0",
+        "lerna": "^3.22.1"
+    }
+}

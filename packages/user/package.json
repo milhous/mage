@@ -1,0 +1,17 @@
+{
+    "name": "@packages/user",
+    "version": "1.0.0",
+    "description": "用户中心",
+    "main": "btg.config.js",
+    "private": true,
+    "scripts": {
+        "start": "btg start",
+        "build": "btg build",
+        "update": "ncu -u"
+    },
+    "dependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "moment": "^2.29.1"
+    }
+}

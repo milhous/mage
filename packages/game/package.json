@@ -1,0 +1,13 @@
+{
+    "name": "@packages/game",
+    "version": "1.0.0",
+    "description": "",
+    "main": "btg.config.js",
+    "scripts": {
+        "start": "btg start",
+        "build": "btg build",
+        "update": "ncu -u"
+    },
+    "author": "",
+    "license": "ISC"
+}
