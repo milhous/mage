@@ -1,5 +1,19 @@
 import React from 'react'
 
+import {BTGBroadcastChannel} from '@libs/broadcastChannel'
+
+const channel = new BTGBroadcastChannel('channelTest')
+
+const postmessage = () => {
+  const random = Math.random().toFixed(2)
+  const txt = `ID:${random} Point hello world!`
+
+  channel.postMessage({
+    type: 'test',
+    payload: txt,
+  })
+}
+
 function loadComponent(scope, module) {
   return async () => {
     // Initializes the share scope. This fills it with known provided modules from this build and all remotes
@@ -113,6 +127,7 @@ function App() {
         The Dynamic System will take advantage Module Federation <strong>remotes</strong> and <strong>exposes</strong>.
         It will no load components that have been loaded already.
       </p>
+      <button onClick={postmessage}>Post Message</button>
       <button onClick={setApp2}>Load App 2 Widget</button>
       <button onClick={setApp3}>Load App 3 Widget</button>
       <div style={{marginTop: '2em'}}>

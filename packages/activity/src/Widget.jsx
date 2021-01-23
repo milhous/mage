@@ -1,9 +1,23 @@
-import React from 'react'
+import React, {userState} from 'react'
 import moment from 'moment'
 
+import {BTGBroadcastChannel} from '@libs/broadcastChannel'
+
+const channel = new BTGBroadcastChannel('channelTest')
+
 export default function Widget() {
+  const [msg, setMsg] = React.useState({})
+
   React.useEffect(() => {
-    console.log('hooks')
+    channel.onMessage(msg => {
+      setMsg(msg)
+
+      console.log('Activity on message:', msg)
+    })
+
+    return () => {
+      channel.close()
+    }
   }, [])
   return (
     <div
@@ -18,6 +32,7 @@ export default function Widget() {
         Using <strong>momentjs</strong> for format the date
       </p>
       <p>{moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
+      <p>msg: {JSON.stringify(msg)}</p>
     </div>
   )
 }

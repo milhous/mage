@@ -49,7 +49,8 @@ module.exports = async(args) => {
                 '.svga'
             ],
             alias: {
-                '@app': resolveAppPath('./src')
+                '@app': resolveAppPath('./src/'),
+                '@libs': resolveAppPath('../librarys/'),
             }
         }
     };
