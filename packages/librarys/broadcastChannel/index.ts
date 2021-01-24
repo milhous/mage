@@ -19,23 +19,23 @@ export class BTGBroadcastChannel {
      * 发送消息
      * @param {IMessage} msg 消息
      */
-    public postMessage(msg: IMessage): void {
-        this._channel.postMessage(msg);
+    public postMessage(msg: IBTGBroadcastChannelMessage): void {
+        !!this._channel && this._channel.postMessage(msg);
     }
 
     /**
      * 监听消息
      * @param {IMessageCallback} fn 回调
      */
-    public onMessage(fn: IMessageCallback): void {
-        this._channel.onMessage(fn);
+    public onMessage(fn: IBTGBroadcastChannelCallback): void {
+        !!this._channel && this._channel.onMessage(fn);
     }
 
     /**
      * 关闭
      */
     public close(): void {
-        this._channel.close();
+        !!this._channel && this._channel.close();
     }
 
     /**
@@ -43,8 +43,8 @@ export class BTGBroadcastChannel {
      * @param {string} type 类型
      * @param {IMessageCallback} handler 事件
      */
-    public addEventListener(type: string, handler: IMessageCallback): void {
-
+    public addEventListener(type: string, handler: IBTGBroadcastChannelCallback): void {
+        !!this._channel && this._channel.addEventListener(type, handler);
     }
 
     /**
@@ -52,8 +52,8 @@ export class BTGBroadcastChannel {
      * @param {string} type 类型
      * @param {IMessageCallback} handler 事件
      */
-    public removeEventListener(type: string, handler: IMessageCallback): void {
-
+    public removeEventListener(type: string, handler: IBTGBroadcastChannelCallback): void {
+        !!this._channel && this._channel.removeEventListener(type, handler);
     }
 
     /**
@@ -71,5 +71,7 @@ export class BTGBroadcastChannel {
         if (!!method) {
             this._channel = new method(this._name);
         }
+
+        console.log('BTGBroadcastChannel method:', method.type);
     }
 }

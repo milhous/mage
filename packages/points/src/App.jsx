@@ -6,10 +6,20 @@ const channel = new BTGBroadcastChannel('channelTest')
 
 const postmessage = () => {
   const random = Math.random().toFixed(2)
-  const txt = `ID:${random} Point hello world!`
+  const txt = `ID:${random} Point App hello world!`
 
   channel.postMessage({
     type: 'test',
+    payload: txt,
+  })
+}
+
+const postmessageB = () => {
+  const random = Math.random().toFixed(2)
+  const txt = `ID:${random} Point App hello world B!`
+
+  channel.postMessage({
+    type: 'testb',
     payload: txt,
   })
 }
@@ -115,6 +125,18 @@ function App() {
     })
   }
 
+  const [msg, setMsg] = React.useState({})
+
+  React.useEffect(() => {
+    channel.onMessage(msg => {
+      setMsg(msg)
+    })
+
+    return () => {
+      channel.close()
+    }
+  }, [])
+
   return (
     <div
       style={{
@@ -128,6 +150,8 @@ function App() {
         It will no load components that have been loaded already.
       </p>
       <button onClick={postmessage}>Post Message</button>
+      <button onClick={postmessageB}>Post Message B</button>
+      <p>receive message: {JSON.stringify(msg)}</p>
       <button onClick={setApp2}>Load App 2 Widget</button>
       <button onClick={setApp3}>Load App 3 Widget</button>
       <div style={{marginTop: '2em'}}>

@@ -4,19 +4,38 @@ import {BTGBroadcastChannel} from '@libs/broadcastChannel'
 
 const channel = new BTGBroadcastChannel('channelTest')
 
-setTimeout(() => {
+const postmessage = () => {
+  const random = Math.random().toFixed(2)
+  const txt = `ID:${random} User App hello world!`
+
   channel.postMessage({
     type: 'test',
-    payload: `User say hello world!`,
+    payload: txt,
   })
-}, 1000)
+}
 
-const App = () => (
-  <div>
-    <h1>Dynamic System Host</h1>
-    <h2>App User</h2>
-    <LocalButton />
-  </div>
-)
+const App = () => {
+  const [msg, setMsg] = React.useState({})
+
+  React.useEffect(() => {
+    channel.onMessage(msg => {
+      setMsg(msg)
+    })
+
+    return () => {
+      channel.close()
+    }
+  }, [])
+
+  return (
+    <div>
+      <h1>Dynamic System Host</h1>
+      <h2>App User</h2>
+      <button onClick={postmessage}>Post Message</button>
+      <p>receive message: {JSON.stringify(msg)}</p>
+      <LocalButton />
+    </div>
+  )
+}
 
 export default App
