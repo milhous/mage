@@ -19,22 +19,22 @@
 |           |－ bin 可执行命令
 |           |－ config 构建配置
 |           |－ helpers 常用工具
-|           |－ public 模版页 
+|           |－ public 模版页
 |           |－ scripts 构建脚本
 |     |－ packages 应用包
-|           |－ main 主应用(包含头尾以及登录注册弹窗，包含lang/utc/loginStatus状态)
+|           |－ main 主应用(包含头尾以及登录注册弹窗，包含lang/utc/loginStatus状态) 开发端口号:9000
 |                 |－
-|           |－ home 首页
+|           |－ home 首页 开发端口号:9001
 |                 |－
-|           |－ match 赛事应用(包含DAPP，期望可以独立运行，是否独立成库待定)
+|           |－ match 赛事应用(包含DAPP，期望可以独立运行，是否独立成库待定) 开发端口号:9003
 |                 |－
-|           |－ game 游戏应用
+|           |－ game 游戏应用 开发端口号:9002
 |                 |－
-|           |－ points 幸运币应用
+|           |－ points 幸运币应用 开发端口号:9005
 |                 |－
-|           |－ activity 活动应用
+|           |－ promotion 活动应用 开发端口号:9004
 |                 |－
-|           |－ user 用户中心应用
+|           |－ user 用户中心应用 开发端口号:9006
 |                 |－
 |           |－ i18n 多语言库(每个app引用自己所需的翻译，并且按需加载)
 |                 |－
@@ -66,11 +66,11 @@ npm run update
 npm run setup
 ```
 
->  ps：每次有新应用加入时，都需执行npm run setup，每次更新依赖时，先执行npm run update，然后执行npm run setup
+> ps：每次有新应用加入时，都需执行 npm run setup，每次更新依赖时，先执行 npm run update，然后执行 npm run setup
 
 ### 第二步 构建初始化
 
-把btg复制到npm的全局模块安装文件夹node_modules内，并创建符号链接，那么可以在项目内以 btg xxx 方式运行
+把 btg 复制到 npm 的全局模块安装文件夹 node_modules 内，并创建符号链接，那么可以在项目内以 btg xxx 方式运行
 
 ```
 # 进入构建命令文件夹
@@ -84,7 +84,7 @@ npm link (PC)
 
 ### 第三步 运行命令
 
-可通过npm，btg，或者lerna 运行相关命令 
+可通过 npm，btg，或者 lerna 运行相关命令
 
 ```
 # 比如在项目根目录启动game应用开发服务器
@@ -148,7 +148,6 @@ lerna exec --scope=@packages/main npm outdated
 # --exact 安装准确版本，就是安装的包版本前面不带^, Eg: "^2.20.0" ➜ "2.20.0"
 lerna add i18next --scope=@packages/main --dev
 ```
-
 
 ## 项目提交代码
 

@@ -1,5 +1,6 @@
 /**
  * 生成 randomToken
+ * @return {string} token
  * https://stackoverflow.com/a/8084248
  */
 export function randomToken(): string {
@@ -8,7 +9,7 @@ export function randomToken(): string {
 
 /**
  * 生成 uuid
- * @return {string} result
+ * @return {string} uuid
  */
 export function uuid(): string {
     const s: any[] = [];
@@ -23,4 +24,21 @@ export function uuid(): string {
     s[8] = s[13] = s[18] = s[23] = '-';
 
     return s.join('');
+}
+
+/**
+ * 生成时间戳
+ * @return {number} timestamp
+ */
+export function timestamp(): number {
+    return new Date().getTime();
+}
+
+/**
+ * 生成 min ~ max 随机数
+ * @param {number} min 最小值 
+ * @param {number} max 最大值 
+ */
+export function randomInt(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }

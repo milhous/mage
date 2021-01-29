@@ -7,7 +7,7 @@ module.exports = (args) => {
 
     return {
         devServer: {
-            port: 9002
+            port: 9006
         },
         plugins: [
             new ModuleFederationPlugin({

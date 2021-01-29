@@ -7,15 +7,12 @@ module.exports = (args) => {
 
     return {
         devServer: {
-            port: 9004
+            port: 9001
         },
         plugins: [
             new ModuleFederationPlugin({
                 name: appname,
                 filename,
-                exposes: {
-                    "./Widget": "./src/Widget"
-                },
                 /**
                  * eager：不会生成额外的 chunk。
                  * 所有的模块都被当前的 chunk 引入，并且没有额外的网络请求。
@@ -23,11 +20,11 @@ module.exports = (args) => {
                  * 
                  * singleton: 确保运行时模块为单例，避免初始化多次。
                  */
-                shared: {
-                    ...dependencies,
-                    "react": { singleton: true },
-                    "react-dom": { singleton: true }
-                }
+                // shared: {
+                //     ...dependencies,
+                //     "react": { singleton: true },
+                //     "react-dom": { singleton: true }
+                // }
             }),
         ]
     }

@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       "module": "commonjs",
-      "lib": ["webworker", "es2015", "es2017", "dom"],
+      "lib": ["webworker", "es2015", "es2017", "esnext", "dom"],
       "target": "es5",
       "experimentalDecorators": true,
       "skipLibCheck": true,

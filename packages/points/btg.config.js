@@ -5,7 +5,7 @@ module.exports = (args) => {
     const [, appname] = name.split('/');
     return {
         devServer: {
-            port: 9001
+            port: 9005
         },
         plugins: [
             new ModuleFederationPlugin({

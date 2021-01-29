@@ -1,7 +1,7 @@
 {
     "name": "@packages/match",
     "version": "1.0.0",
-    "description": "",
+    "description": "赛事",
     "main": "btg.config.js",
     "scripts": {
         "start": "btg start",

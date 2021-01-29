@@ -18,7 +18,9 @@ module.exports = async(args) => {
         output: {
             filename: '[name].[contenthash].js',
             path: resolveAppPath(args.dist),
-            publicPath: "auto"
+            publicPath: "auto",
+            // 防止window is undefined的错误.
+            globalObject: 'this'
         },
         cache: {
             version: `${version}-${gitVersion}`,

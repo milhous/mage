@@ -1,7 +1,7 @@
 {
-    "name": "@packages/promotion",
+    "name": "@packages/home",
     "version": "1.0.0",
-    "description": "活动",
+    "description": "首页",
     "main": "btg.config.js",
     "private": true,
     "scripts": {

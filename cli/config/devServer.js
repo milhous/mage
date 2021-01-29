@@ -7,6 +7,7 @@ module.exports = (args) => {
             hot: true,
             compress: true,
             historyApiFallback: true,
+            host: '0.0.0.0',
             port: 3001,
             headers: {
                 'Access-Control-Allow-Origin': '*',
