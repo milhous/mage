@@ -31,7 +31,7 @@ import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 
 #### 在应用中创建频道 && 发送消息
 
-消息数据格式类似 Redux Action，由 type（消息类型）和 payload（消息数据）组成，type 用于监听事件数据分发。
+消息数据格式类似 Redux Action，由 type（消息类型）和 payload（消息数据）组成。在监听事件根据 type 进行数据分发。
 
 ```js
 import { BTGBroadcastChannel } from "@libs/broadcastChannel";
