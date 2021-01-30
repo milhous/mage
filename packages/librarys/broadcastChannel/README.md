@@ -12,7 +12,7 @@ web 领域可以实现的技术方案主要是类似于以下两种原理：
 - 获取句柄，定向通讯
 - 共享内存，结合轮询或者事件通知来完成业务逻辑
 
-对于同源页面，常见的方式包括：
+对于同源页面，常见的通讯方式：
 
 - **广播模式**：Broadcast Channel / Service Worker / LocalStorage
 - **共享存储模式**：Shared Worker / IndexedDB / cookie
