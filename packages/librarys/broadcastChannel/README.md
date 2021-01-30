@@ -126,9 +126,9 @@ const channel = new BroadcastChannel("test", options);
 
 - [BroadcastChannel](https://developer.mozilla.org/zh-CN/docs/Web/API/BroadcastChannel)
 
-- [IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)
+- [ServiceWorkers](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 
-- [LocalStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
+- [IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)
 
 - [LocalStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
 
