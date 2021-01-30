@@ -162,4 +162,22 @@ This module is optimised for:
 
 ## 参考：
 
-[pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+- [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+
+- [面试官：前端跨页面通信，你知道哪些方法？](https://juejin.cn/post/6844903811232825357)
+
+- [利用 Storage Event 实现页面间通信](https://juejin.cn/post/6844903641782943757)
+
+- [浏览器数据库 IndexedDB 入门教程](https://www.ruanyifeng.com/blog/2018/07/indexeddb.html)
+
+- [HTML5 indexedDB 前端本地存储数据库实例教程](https://www.zhangxinxu.com/wordpress/2017/07/html5-indexeddb-js-example/)
+
+- [BroadcastChannel](https://developer.mozilla.org/zh-CN/docs/Web/API/BroadcastChannel)
+
+- [IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)
+
+- [LocalStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
+
+- [LocalStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
+
+- [SharedWorker](https://developer.mozilla.org/zh-CN/docs/Web/API/SharedWorker)
