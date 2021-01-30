@@ -5,11 +5,18 @@
   <span>+ 对于不兼容的环境采用降级策略，支持的浏览器最低达IE11，不支持Opera Mini</span><br />
 </p>
 
-<p align="center">
-    <a href="https://twitter.com/pubkeypubkey">
-        <img src="https://img.shields.io/twitter/follow/pubkeypubkey.svg?style=social&logo=twitter"
-            alt="follow on Twitter"></a>
-</p>
+将跨页面通讯类比计算机进程间的通讯，web 领域可以实现的技术方案主要是类似于以下两种原理：
+
+- 获取句柄，定向通讯
+- 共享内存，结合轮询或者事件通知来完成业务逻辑
+
+| Method           | Used in                                                         | Description                                                                                                                                                                                        |
+| ---------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Native**       | [Modern Browsers](https://caniuse.com/broadcastchannel)         | If the browser supports the BroadcastChannel-API, this method will be used because it is the fastest                                                                                               |
+| **IndexedDB**    | [Browsers with WebWorkers](https://caniuse.com/#feat=indexeddb) | If there is no native BroadcastChannel support, the IndexedDB method is used because it supports messaging between browser-tabs, iframes and WebWorkers                                            |
+| **LocalStorage** | [Older Browsers](https://caniuse.com/#feat=namevalue-storage)   | In older browsers that do not support IndexedDb, a localstorage-method is used                                                                                                                     |
+| **Sockets**      | NodeJs                                                          | In NodeJs the communication is handled by sockets that send each other messages                                                                                                                    |
+| **Simulate**     | none per default                                                | This method simulates the behavior of the other methods but only runs in the current process without sharing data between processes. Use this method in your test-suite because it is much faster. |
 
 ![demo.gif](docs/files/demo.gif)
 
