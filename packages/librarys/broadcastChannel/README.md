@@ -31,6 +31,8 @@ import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 
 #### 在应用中创建频道 && 发送消息
 
+消息数据格式类似 Redux Action，由 type（消息类型）和 payload（消息数据）组成，type 用于监听事件数据分发。
+
 ```js
 import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 
@@ -78,11 +80,17 @@ channel.close();
 
 #### 设置配置
 
+ttl - 消息存活时间（Time To Live），默认 30 s，仅在 IndexedDB 方式中有效。
+
+loop - 轮询间隔时间，默认 150 ms，仅在 IndexedDB 方式中有效。
+
+throttle - 发送节流时间，默认 200 ms，在该时间内，同类型的消息会被最新的覆盖。
+
 ```js
 const options = {
-  ttl: 1000 * 30, // 消息存活时间（Time To Live），默认 30 s
-  loop: 150, // 轮询间隔时间，默认 150 ms
-  throttle: 200, // 发送节流时间，默认 200 ms
+  ttl: 1000 * 30,
+  loop: 150,
+  throttle: 200,
 };
 const channel = new BroadcastChannel("test", options);
 ```
