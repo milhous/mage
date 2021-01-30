@@ -12,13 +12,13 @@
 - 获取句柄，定向通讯
 - 共享内存，结合轮询或者事件通知来完成业务逻辑
 
-| Method           | Used in                                                         | Description                                                                                                                                                                                        |
-| ---------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Native**       | [Modern Browsers](https://caniuse.com/broadcastchannel)         | If the browser supports the BroadcastChannel-API, this method will be used because it is the fastest                                                                                               |
-| **IndexedDB**    | [Browsers with WebWorkers](https://caniuse.com/#feat=indexeddb) | If there is no native BroadcastChannel support, the IndexedDB method is used because it supports messaging between browser-tabs, iframes and WebWorkers                                            |
-| **LocalStorage** | [Older Browsers](https://caniuse.com/#feat=namevalue-storage)   | In older browsers that do not support IndexedDb, a localstorage-method is used                                                                                                                     |
-| **Sockets**      | NodeJs                                                          | In NodeJs the communication is handled by sockets that send each other messages                                                                                                                    |
-| **Simulate**     | none per default                                                | This method simulates the behavior of the other methods but only runs in the current process without sharing data between processes. Use this method in your test-suite because it is much faster. |
+| Method                | Used in                                                         | Description                                                                                                                                                                                        |
+| --------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **BroadCast Channel** | [Modern Browsers](https://caniuse.com/broadcastchannel)         | 创建一个用于广播的通信频道。当所有页面都监听同一频道的消息时，其中某一个页面通过它发送的消息就会被其他所有页面收到。                                                                               |
+| **IndexedDB**         | [Browsers with WebWorkers](https://caniuse.com/#feat=indexeddb) | If there is no native BroadcastChannel support, the IndexedDB method is used because it supports messaging between browser-tabs, iframes and WebWorkers                                            |
+| **LocalStorage**      | [Older Browsers](https://caniuse.com/#feat=namevalue-storage)   | In older browsers that do not support IndexedDb, a localstorage-method is used                                                                                                                     |
+| **Sockets**           | NodeJs                                                          | In NodeJs the communication is handled by sockets that send each other messages                                                                                                                    |
+| **Simulate**          | none per default                                                | This method simulates the behavior of the other methods but only runs in the current process without sharing data between processes. Use this method in your test-suite because it is much faster. |
 
 ![demo.gif](docs/files/demo.gif)
 
