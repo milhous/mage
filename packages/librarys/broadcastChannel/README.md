@@ -14,10 +14,10 @@ web 领域可以实现的技术方案主要是类似于以下两种原理：
 
 对于同源页面，常见的方式包括：
 
-- 广播模式：Broadcast Channel / Service Worker / LocalStorage
-- 共享存储模式：Shared Worker / IndexedDB / cookie
-- 口口相传模式：window.open + window.opener
-- 基于服务端：Websocket / Comet / SSE 等
+- **广播模式**：Broadcast Channel / Service Worker / LocalStorage
+- **共享存储模式**：Shared Worker / IndexedDB / cookie
+- **口口相传模式**：window.open + window.opener
+- **基于服务端**：Websocket / Comet / SSE 等
 
 对于非同源页面，则可以通过嵌入同源 iframe 作为“桥”，由于 iframe 与父页面间可以通过指定 origin 来忽略同源限制，将非同源页面通信转换为同源页面通信。
 
@@ -80,11 +80,11 @@ channel.close();
 
 #### 设置配置
 
-ttl - 消息存活时间（Time To Live），默认 30 s，仅在 IndexedDB 方式中有效。
+**ttl** - 消息存活时间（Time To Live），默认 30 s，仅在 IndexedDB 方式中有效。
 
-loop - 轮询间隔时间，默认 150 ms，仅在 IndexedDB 方式中有效。
+**loop** - 轮询间隔时间，默认 150 ms，仅在 IndexedDB 方式中有效。
 
-throttle - 发送节流时间，默认 200 ms，在该时间内，同类型的消息会被最新的覆盖。
+**throttle** - 发送节流时间，默认 200 ms，在该时间内，同类型的消息会被最新的覆盖。
 
 ```js
 const options = {
@@ -95,7 +95,7 @@ const options = {
 const channel = new BroadcastChannel("test", options);
 ```
 
-## BTGBroadcastChannel Methods:
+## 通讯方式:
 
 对于不兼容的环境采用降级策略，自动选择合适的方式（ BroadCast Channel -> Service Worker -> IndexedDB -> LocalStorage ），确保各应用之间通讯畅通。
 
@@ -106,59 +106,11 @@ const channel = new BroadcastChannel("test", options);
 | **IndexedDB**         | [Browsers with WebWorkers](https://caniuse.com/?search=IndexedDB)           | 消息发送方将消息存至 IndexedDB 中，接收方（例如所有页面）则通过轮询去获取最新的信息。                                                                                                                         |
 | **LocalStorage**      | [Older Browsers](https://caniuse.com/?search=LocalStorage)                  | 当 LocalStorage 变化时，会触发 storage 事件。利用这个特性，可以在发送消息时，把消息写入到某个 LocalStorage 中，然后在各个页面内，通过监听 storage 事件即可收到通知。Safari 隐身模式下无法设置 LocalStorage 值 |
 
-## Using the LeaderElection
+## 注意事项
 
-This module also comes with a leader-election which can be used so elect a leader between different BroadcastChannels.
-For example if you have a stable connection from the frontend to your server, you can use the LeaderElection to save server-side performance by only connecting once, even if the user has opened your website in multiple tabs.
-
-In this example the leader is marked with the crown ♛:
-![leader-election.gif](docs/files/leader-election.gif)
-
-Create a channel and an elector.
-
-```js
-const { BroadcastChannel, createLeaderElection } = require("broadcast-channel");
-const channel = new BroadcastChannel("foobar");
-const elector = createLeaderElection(channel);
-```
-
-Wait until the elector becomes leader.
-
-```js
-const { createLeaderElection } = require("broadcast-channel");
-const elector = createLeaderElection(channel);
-elector.awaitLeadership().then(() => {
-  console.log("this tab is now leader");
-});
-```
-
-If more than one tab is becoming leader adjust `LeaderElectionOptions` configuration.
-
-```js
-const { createLeaderElection } = require("broadcast-channel");
-const elector = createLeaderElection(channel, {
-  fallbackInterval: 2000, // optional configuration for how often will renegotiation for leader occur
-  responseTime: 1000, // optional configuration for how long will instances have to respond
-});
-elector.awaitLeadership().then(() => {
-  console.log("this tab is now leader");
-});
-```
-
-Let the leader die. (automatically happens if the tab is closed or the process exits).
-
-```js
-const elector = createLeaderElection(channel);
-await elector.die();
-```
-
-## What this is
-
-This module is optimised for:
-
-- **low latency**: When you postMessage on one channel, it should take as low as possible time until other channels recieve the message.
-- **lossless**: When you send a message, it should be impossible that the message is lost before other channels recieved it
-- **low idle workload**: During the time when no messages are send, there should be a low processor footprint.
+- 自己发的消息不会被自己监听。
+- 建议应用使用 onMessage 监听，组件使用 addEventListener 监听。
+- 及时关闭频道，节约系统资源。
 
 ## 参考：
 
