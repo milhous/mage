@@ -41,7 +41,7 @@
 |           |－ ui UI组件库
 |                 |－
 |           |－ librarys 共享库
-|                 |－ broadcastChannel [跨应用通讯模块](https://www.runoob.com)
+|                 |－ broadcastChannel 跨应用通讯模块<https://www.runoob.com>
 ```
 
 ## 项目初始化
