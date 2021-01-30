@@ -95,7 +95,7 @@ const options = {
 const channel = new BroadcastChannel("test", options);
 ```
 
-## Methods:
+## BTGBroadcastChannel Methods:
 
 对于不兼容的环境采用降级策略，自动选择合适的方式（ BroadCast Channel -> Service Worker -> IndexedDB -> LocalStorage ），确保各应用之间通讯畅通。
 
@@ -160,17 +160,6 @@ This module is optimised for:
 - **lossless**: When you send a message, it should be impossible that the message is lost before other channels recieved it
 - **low idle workload**: During the time when no messages are send, there should be a low processor footprint.
 
-## What this is not
+## 参考：
 
-- This is not a polyfill. Do not set this module to `window.BroadcastChannel`. This implementation behaves similiar to the [BroadcastChannel-Standard](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) with these limitations:
-  - You can only send data that can be `JSON.stringify`-ed.
-  - While the offical API emits [onmessage-events](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel/onmessage), this module directly emitts the data which was posted
-- This is not a replacement for a message queue. If you use this in NodeJs and want send more than 50 messages per second, you should use proper [IPC-Tooling](https://en.wikipedia.org/wiki/Message_queue)
-
-## Browser Support
-
-I have tested this in all browsers that I could find. For ie8 and ie9 you must transpile the code before you can use this. If you want to know if this works with your browser, [open the demo page](https://pubkey.github.io/broadcast-channel/e2e.html).
-
-## Thanks
-
-Thanks to [Hemanth.HM](https://github.com/hemanth) for the module name.
+[pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
