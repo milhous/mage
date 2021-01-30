@@ -21,15 +21,6 @@
 
 对于非同源页面，则可以通过嵌入同源 iframe 作为“桥”，由于 iframe 与父页面间可以通过指定 origin 来忽略同源限制，将非同源页面通信转换为同源页面通信。
 
-#### 跨页面通信的方式
-
-| Method                | Used in                                                            | Description                                                                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **BroadCast Channel** | [Modern Browsers](https://caniuse.com/?search=BroadCast%20Channel) | 创建一个用于广播的通信频道。当所有页面都监听同一频道的消息时，其中某一个页面通过它发送的消息就会被其他所有页面收到。                                                                                          |
-| **IndexedDB**         | [Browsers with WebWorkers](https://caniuse.com/?search=IndexedDB)  | 消息发送方将消息存至 IndexedDB 中，接收方（例如所有页面）则通过轮询去获取最新的信息。                                                                                                                         |
-| **Service Worker**    | [Older Browsers](https://caniuse.com/?search=Service%20Worker)     | 是一个可以长期运行在后台的 Worker，能够实现与页面的双向通信。多页面共享间的 Service Worker 可以共享，将 Service Worker 作为消息的处理中心（中央站）即可实现广播效果。                                         |
-| **LocalStorage**      | [Older Browsers](https://caniuse.com/?search=LocalStorage)         | 当 LocalStorage 变化时，会触发 storage 事件。利用这个特性，可以在发送消息时，把消息写入到某个 LocalStorage 中，然后在各个页面内，通过监听 storage 事件即可收到通知。Safari 隐身模式下无法设置 LocalStorage 值 |
-
 ---
 
 A BroadcastChannel that allows you to send data between different browser-tabs or nodejs-processes.
@@ -175,15 +166,14 @@ const createChannel = () => {
 
 ## Methods:
 
-Depending in which environment this is used, a proper method is automatically selected to ensure it always works.
+对于不兼容的环境采用降级策略，自动选择合适的方式（ BroadCast Channel -> Service Worker -> IndexedDB -> LocalStorage ），确保各应用之间通讯畅通。
 
-| Method           | Used in                                                         | Description                                                                                                                                                                                        |
-| ---------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Native**       | [Modern Browsers](https://caniuse.com/broadcastchannel)         | If the browser supports the BroadcastChannel-API, this method will be used because it is the fastest                                                                                               |
-| **IndexedDB**    | [Browsers with WebWorkers](https://caniuse.com/#feat=indexeddb) | If there is no native BroadcastChannel support, the IndexedDB method is used because it supports messaging between browser-tabs, iframes and WebWorkers                                            |
-| **LocalStorage** | [Older Browsers](https://caniuse.com/#feat=namevalue-storage)   | In older browsers that do not support IndexedDb, a localstorage-method is used                                                                                                                     |
-| **Sockets**      | NodeJs                                                          | In NodeJs the communication is handled by sockets that send each other messages                                                                                                                    |
-| **Simulate**     | none per default                                                | This method simulates the behavior of the other methods but only runs in the current process without sharing data between processes. Use this method in your test-suite because it is much faster. |
+| Method                | Used in                                                                     | Description                                                                                                                                                                                                   |
+| --------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **BroadCast Channel** | [Modern Browsers](https://caniuse.com/?search=BroadCast%20Channel)          | 创建一个用于广播的通信频道。当所有页面都监听同一频道的消息时，其中某一个页面通过它发送的消息就会被其他所有页面收到。                                                                                          |
+| **Service Worker**    | [Browsers with ServiceWorker](https://caniuse.com/?search=Service%20Worker) | 是一个可以长期运行在后台的 Worker，能够实现与页面的双向通信。多页面共享间的 Service Worker 可以共享，将 Service Worker 作为消息的处理中心（中央站）即可实现广播效果。                                         |
+| **IndexedDB**         | [Browsers with WebWorkers](https://caniuse.com/?search=IndexedDB)           | 消息发送方将消息存至 IndexedDB 中，接收方（例如所有页面）则通过轮询去获取最新的信息。                                                                                                                         |
+| **LocalStorage**      | [Older Browsers](https://caniuse.com/?search=LocalStorage)                  | 当 LocalStorage 变化时，会触发 storage 事件。利用这个特性，可以在发送消息时，把消息写入到某个 LocalStorage 中，然后在各个页面内，通过监听 storage 事件即可收到通知。Safari 隐身模式下无法设置 LocalStorage 值 |
 
 ## Using the LeaderElection
 
