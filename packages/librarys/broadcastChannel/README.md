@@ -1,12 +1,6 @@
-<p align="center">
-  <a href="https://github.com/pubkey/broadcast-channel">
-    <img src="./docs/files/icon.png" width="150px" />
-  </a>
-</p>
-
 <h1 align="center">BroadcastChannel</h1>
 <p align="center">
-  <strong>A BroadcastChannel to send data between different browser-tabs or nodejs-processes</strong>
+  <strong>应用于同源的不同浏览器窗口，Tab页，frame或者 iframe 下的不同文档之间相互通信</strong>
   <br/>
   <span>+ LeaderElection over the channels</span><br />
 </p>
