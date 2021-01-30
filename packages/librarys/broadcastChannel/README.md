@@ -19,7 +19,7 @@
 - 口口相传模式：window.open + window.opener
 - 基于服务端：Websocket / Comet / SSE 等
 
-而对于非同源页面，则可以通过嵌入同源 iframe 作为“桥”，将非同源页面通信转换为同源页面通信。由于 iframe 与父页面间可以通过指定 origin 来忽略同源限制，将非同源页面通信转换为同源页面通信。
+对于非同源页面，则可以通过嵌入同源 iframe 作为“桥”，由于 iframe 与父页面间可以通过指定 origin 来忽略同源限制，将非同源页面通信转换为同源页面通信。
 
 #### 跨页面通信的方式
 
@@ -27,6 +27,7 @@
 | --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **BroadCast Channel** | [Modern Browsers](https://caniuse.com/?search=BroadCast%20Channel) | 创建一个用于广播的通信频道。当所有页面都监听同一频道的消息时，其中某一个页面通过它发送的消息就会被其他所有页面收到。                                                                                          |
 | **IndexedDB**         | [Browsers with WebWorkers](https://caniuse.com/?search=IndexedDB)  | 消息发送方将消息存至 IndexedDB 中，接收方（例如所有页面）则通过轮询去获取最新的信息。                                                                                                                         |
+| **Service Worker**    | [Older Browsers](https://caniuse.com/?search=Service%20Worker)     | 是一个可以长期运行在后台的 Worker，能够实现与页面的双向通信。多页面共享间的 Service Worker 可以共享，将 Service Worker 作为消息的处理中心（中央站）即可实现广播效果。                                         |
 | **LocalStorage**      | [Older Browsers](https://caniuse.com/?search=LocalStorage)         | 当 LocalStorage 变化时，会触发 storage 事件。利用这个特性，可以在发送消息时，把消息写入到某个 LocalStorage 中，然后在各个页面内，通过监听 storage 事件即可收到通知。Safari 隐身模式下无法设置 LocalStorage 值 |
 
 ---
