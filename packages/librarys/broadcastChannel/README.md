@@ -2,7 +2,7 @@
 <p align="center">
   <strong>应用于同源的不同浏览器窗口，Tab页，frame或者 iframe 下的不同文档之间相互通信</strong>
   <br/>
-  <span>+ LeaderElection over the channels</span><br />
+  <span>+ 对于不兼容的环境采用降级策略，支持的浏览器最低达IE11，不支持Opera Mini</span><br />
 </p>
 
 <p align="center">
