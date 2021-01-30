@@ -1,20 +1,20 @@
-<h1 align="center">BroadcastChannel</h1>
+<h1 align="center">BTGBroadcastChannel</h1>
 <p align="center">
-  <strong>应用于同源的不同浏览器窗口，Tab页，frame或者 iframe 下的不同文档之间相互通信</strong>
+  <strong>仅支持同源的不同浏览器窗口，Tab页，frame或者 iframe 下的不同文档之间相互通信</strong>
   <br/>
   <span>+ 对于不兼容的环境采用降级策略，支持的浏览器最低达IE11，不支持Opera Mini</span><br />
 </p>
 
 ---
 
-将跨页面通讯类比计算机进程间的通讯，web 领域可以实现的技术方案主要是类似于以下两种原理：
+web 领域可以实现的技术方案主要是类似于以下两种原理：
 
 - 获取句柄，定向通讯
 - 共享内存，结合轮询或者事件通知来完成业务逻辑
 
 对于同源页面，常见的方式包括：
 
-- 广播模式：Broadcast Channe / Service Worker / LocalStorage
+- 广播模式：Broadcast Channel / Service Worker / LocalStorage
 - 共享存储模式：Shared Worker / IndexedDB / cookie
 - 口口相传模式：window.open + window.opener
 - 基于服务端：Websocket / Comet / SSE 等
@@ -23,145 +23,68 @@
 
 ---
 
-A BroadcastChannel that allows you to send data between different browser-tabs or nodejs-processes.
-
-- It works completely **client-side** and **offline**.
-- Tested on **old browsers**, **new browsers**, **WebWorkers**, **Iframes** and **NodeJs**
-
-This behaves similar to the [BroadcastChannel-API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API) which is currently only featured in [some browsers](https://caniuse.com/#feat=broadcastchannel).
-
-## Using the BroadcastChannel
-
-```bash
-npm install --save broadcast-channel
-```
-
-#### Create a channel in one tab/process and send a message.
+## 如何使用 BTGBroadcastChannel
 
 ```js
-const { BroadcastChannel } = require("broadcast-channel");
-const channel = new BroadcastChannel("foobar");
-channel.postMessage("I am not alone");
+import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 ```
 
-#### Create a channel with the same name in another tab/process and recieve messages.
+#### 在应用中创建频道 && 发送消息
 
 ```js
-const { BroadcastChannel } = require("broadcast-channel");
-const channel = new BroadcastChannel("foobar");
-channel.onmessage = (msg) => console.dir(msg);
-// > 'I am not alone'
+import { BTGBroadcastChannel } from "@libs/broadcastChannel";
+
+const channel = new BTGBroadcastChannel("channelTest");
+channel.postMessage({
+  type: "test",
+  payload: { txt: "Hello, world!" },
+});
 ```
 
-#### Add and remove multiple eventlisteners
+#### 在另外一个应用中创建相同名称频道 & 接收消息
 
 ```js
-const { BroadcastChannel } = require("broadcast-channel");
-const channel = new BroadcastChannel("foobar");
+import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 
+const channel = new BroadcastChannel("channelTest");
+
+channel.onMessage((msg) => {
+  console.log(msg);
+});
+
+// > { type: "test", payload: { txt: "Hello, world!" } }
+```
+
+#### 新增 & 移除 消息监听
+
+```js
+import { BTGBroadcastChannel } from "@libs/broadcastChannel";
+
+const channel = new BroadcastChannel("channelTest");
 const handler = (msg) => console.log(msg);
-channel.addEventListener("message", handler);
+
+// add ite
+channel.addEventListener("test", handler);
 
 // remove it
-channel.removeEventListener("message", handler);
+channel.removeEventListener("test", handler);
 ```
 
-#### Close the channel if you do not need it anymore.
+#### 关闭频道
 
 ```js
 channel.close();
 ```
 
-#### Set options when creating a channel (optional):
+#### 设置配置
 
 ```js
 const options = {
-    type: 'localstorage', // (optional) enforce a type, oneOf['native', 'idb', 'localstorage', 'node']
-    webWorkerSupport: true; // (optional) set this to false if you know that your channel will never be used in a WebWorker (increases performance)
+  ttl: 1000 * 30, // 消息存活时间（Time To Live），默认 30 s
+  loop: 150, // 轮询间隔时间，默认 150 ms
+  throttle: 200, // 发送节流时间，默认 200 ms
 };
-const channel = new BroadcastChannel('foobar', options);
-```
-
-#### Create a typed channel in typescript:
-
-```typescript
-import { BroadcastChannel } from "broadcast-channel";
-declare type Message = {
-  foo: string;
-};
-const channel: BroadcastChannel<Message> = new BroadcastChannel("foobar");
-channel.postMessage({
-  foo: "bar",
-});
-```
-
-#### Enforce a options globally
-
-When you use this module in a test-suite, it is recommended to enforce the fast `simulate` method on all channels so your tests run faster. You can do this with `enforceOptions()`. If you set this, all channels have the enforced options, no mather what options are given in the constructor.
-
-```typescript
-import { enforceOptions } from "broadcast-channel";
-
-// enforce this config for all channels
-enforceOptions({
-  type: "simulate",
-});
-
-// reset the enforcement
-enforceOptions(null);
-```
-
-#### Clear tmp-folder:
-
-When used in NodeJs, the BroadcastChannel will communicate with other processes over filesystem based sockets.
-When you create a huge amount of channels, like you would do when running unit tests, you might get problems because there are too many folders in the tmp-directory. Calling `BroadcastChannel.clearNodeFolder()` will clear the tmp-folder and it is recommended to run this at the beginning of your test-suite.
-
-```typescript
-import { clearNodeFolder } from "broadcast-channel";
-// jest
-beforeAll(async () => {
-  const hasRun = await clearNodeFolder();
-  console.log(hasRun); // > true on NodeJs, false on Browsers
-});
-```
-
-```typescript
-import { clearNodeFolder } from "broadcast-channel";
-// mocha
-before(async () => {
-  const hasRun = await clearNodeFolder();
-  console.log(hasRun); // > true on NodeJs, false on Browsers
-});
-```
-
-#### Handling IndexedDB onclose events
-
-IndexedDB databases can close unexpectedly for various reasons. This could happen, for example, if the underlying storage is removed or if the user clears the database in the browser's history preferences. Most often we have seen this happen in Mobile Safari. By default, we let the connection close and stop polling for changes. If you would like to continue listening you should close BroadcastChannel and create a new one.
-
-Example of how you might do this:
-
-```typescript
-const { BroadcastChannel } = require("broadcast-channel");
-
-let channel;
-
-const createChannel = () => {
-  channel = new BroadcastChannel(CHANNEL_NAME, {
-    idb: {
-      onclose: () => {
-        // the onclose event is just the IndexedDB closing.
-        // you should also close the channel before creating
-        // a new one.
-        channel.close();
-        createChannel();
-      },
-    },
-  });
-
-  channel.onmessage = (message) => {
-    // handle message
-  };
-};
+const channel = new BroadcastChannel("test", options);
 ```
 
 ## Methods:
