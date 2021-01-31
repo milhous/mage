@@ -6,6 +6,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const { appDir, resolveAppPath, existsAppPath } = require('../helpers/paths');
 
@@ -17,6 +18,8 @@ module.exports = async(args) => {
 
     // 判断应用是否存在public文件夹
     const isPathExist = await existsAppPath('./public');
+
+    console.log(resolveAppPath('../librarys/broadcastChannel/workers/serviceWorker.worker.ts'));
 
     // 判断应用public文件夹是否存在html & ico
     if (isPathExist) {
@@ -54,6 +57,15 @@ module.exports = async(args) => {
             threads: true,
             lintDirtyModulesOnly: false,
             outputReport: true
+        }),
+        // new GenerateSW({
+        //     // 这些选项帮助快速启用 ServiceWorkers
+        //     // 不允许遗留任何“旧的” ServiceWorkers
+        //     clientsClaim: true,
+        //     skipWaiting: true,
+        // }),
+        new InjectManifest({
+            swSrc: resolveAppPath('../librarys/broadcastChannel/workers/broadcastChannel.sw.ts')
         }),
         new WebpackBar({
             color: 'green'

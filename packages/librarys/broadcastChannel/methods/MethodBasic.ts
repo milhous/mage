@@ -13,7 +13,7 @@ abstract class MethodBasic {
     // 是否关闭
     protected _closed: boolean = false;
     // 频道
-    protected _channel: BroadcastChannel | Worker | Storage = null;
+    protected _channel: BroadcastChannel | ServiceWorker | Worker | Storage = null;
     // 配置信息
     protected _options: IBTGBroadcastChannelOptions = null;
     // 监听事件

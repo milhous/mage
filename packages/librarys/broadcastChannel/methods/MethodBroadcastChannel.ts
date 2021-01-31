@@ -45,7 +45,7 @@ export default class MethodBroadcastChannel extends MethodBasic {
 
     // 关闭频道
     protected _closeChannel(): void {
-        this._channel.close();
+        (this._channel as BroadcastChannel).close();
     }
 
     /**

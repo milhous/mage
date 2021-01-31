@@ -1,13 +1,17 @@
-// 原生Broadcast Channel API
+// Broadcast Channel
 import MethodBroadcastChannel from './methods/MethodBroadcastChannel';
-// 原生Localstorage API
-import MethodLocalStorage from './methods/MethodLocalStorage';
-// 原生IndexedDB API
+//  Service Worker
+import MethodServiceWorker from './methods/MethodServiceWorker';
+// IndexedDB + Web Worker
 import MethodIndexedDB from './methods/MethodIndexedDB';
+// Localstorage
+import MethodLocalStorage from './methods/MethodLocalStorage';
 
 export const chooseMethod = (): any => {
     if (MethodBroadcastChannel.canBeUsed()) {
         return MethodBroadcastChannel;
+    } else if (MethodServiceWorker.canBeUsed()) {
+        return MethodServiceWorker;
     } else if (MethodIndexedDB.canBeUsed()) {
         return MethodIndexedDB;
     } else if (MethodLocalStorage.canBeUsed()) {

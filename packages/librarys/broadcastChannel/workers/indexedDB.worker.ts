@@ -7,7 +7,7 @@ interface IBTGBroadcastChannelWorkerData {
     [key: string]: any;
 }
 
-// web worker
+// Web Worker
 const script = () => {
     // 数据库
     let _db: IDBDatabase = null;
