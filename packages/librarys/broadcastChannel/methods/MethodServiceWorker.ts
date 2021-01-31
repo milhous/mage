@@ -37,29 +37,27 @@ export default class MethodServiceWorker extends MethodBasic {
             this._messagesDispatch(data);
         };
 
-        window.addEventListener('load', () => {
-            if (navigator.serviceWorker.controller === null) {
-                navigator.serviceWorker.register('/broadcastChannel.sw.js?v=' + timestamp()).then((registration) => {
-                    console.log('SW registered');
-                }).catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
+        if (navigator.serviceWorker.controller === null) {
+            navigator.serviceWorker.register('/broadcastChannel.sw.js?v=' + timestamp()).then((registration) => {
+                console.log('SW registered');
+            }).catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
 
-                navigator.serviceWorker.ready.then((registration) => {
-                    if (!!registration.waiting) {
-                        this._channel = registration.waiting;
-                    } else if (!!registration.installing) {
-                        this._channel = registration.installing
-                    } else {
-                        this._channel = registration.active;
-                    }
-                  });
-            } else {
-                this._channel = navigator.serviceWorker.controller;
-            }
+            navigator.serviceWorker.ready.then((registration) => {
+                if (!!registration.waiting) {
+                    this._channel = registration.waiting;
+                } else if (!!registration.installing) {
+                    this._channel = registration.installing
+                } else {
+                    this._channel = registration.active;
+                }
+              });
+        } else {
+            this._channel = navigator.serviceWorker.controller;
+        }
 
-            navigator.serviceWorker.addEventListener('message', this._listener);
-        });
+        navigator.serviceWorker.addEventListener('message', this._listener);
     }
 
     // 关闭频道

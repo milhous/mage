@@ -112,6 +112,12 @@ const channel = new BroadcastChannel("test", options);
 - 建议应用使用 onMessage 监听，组件使用 addEventListener 监听。
 - 及时关闭频道，节约系统资源。
 
+## 延伸知识
+
+渐进式网络应用程序(progressive web application - PWA)，是一种可以提供类似于 native app(原生应用程序) 体验的 web app(网络应用程序)。
+
+PWA 可以用来做很多事。其中最重要的是，在**离线(offline)**时应用程序能够继续运行功能。这是通过使用名为 Service Workers 的 web 技术来实现的。
+
 ## 参考：
 
 - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
@@ -123,6 +129,20 @@ const channel = new BroadcastChannel("test", options);
 - [浏览器数据库 IndexedDB 入门教程](https://www.ruanyifeng.com/blog/2018/07/indexeddb.html)
 
 - [HTML5 indexedDB 前端本地存储数据库实例教程](https://www.zhangxinxu.com/wordpress/2017/07/html5-indexeddb-js-example/)
+
+- [如何与 Service Worker 通信](https://segmentfault.com/a/1190000022240909)
+
+- [service worker 实现离线缓存](https://www.infoq.cn/article/gevzkkhue8bki9pfvpxe)
+
+- [Workbox](https://developers.google.com/web/tools/workbox)
+
+- [PWA 之 workbox 学习](https://segmentfault.com/a/1190000019281388)
+
+- [CRA 如何集成 Workbox 进行离线缓存](https://zhuanlan.zhihu.com/p/279327194)
+
+- [React 如何通过 Webpack 优雅的接入 serviceWorker 的成熟方案 workBox && Google Analytics](https://juejin.cn/post/6844903845995216909)
+
+- [GoogleChrome/samples](https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker)
 
 - [BroadcastChannel](https://developer.mozilla.org/zh-CN/docs/Web/API/BroadcastChannel)
 

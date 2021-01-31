@@ -111,7 +111,7 @@ function App() {
 
   function setApp2() {
     setSystem({
-      url: 'http://localhost:9002/remoteEntry.js',
+      url: 'http://localhost:9006/remoteEntry.js',
       scope: 'user',
       module: './Widget',
     })
@@ -119,7 +119,7 @@ function App() {
 
   function setApp3() {
     setSystem({
-      url: 'http://localhost:9003/remoteEntry.js',
+      url: 'http://localhost:9004/remoteEntry.js',
       scope: 'activity',
       module: './Widget',
     })

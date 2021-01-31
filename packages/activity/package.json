@@ -1,5 +1,5 @@
 {
-    "name": "@packages/promotion",
+    "name": "@packages/activity",
     "version": "1.0.0",
     "description": "活动",
     "main": "btg.config.js",
