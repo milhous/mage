@@ -153,3 +153,5 @@ PWA 可以用来做很多事。其中最重要的是，在**离线(offline)**时
 - [LocalStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
 
 - [SharedWorker](https://developer.mozilla.org/zh-CN/docs/Web/API/SharedWorker)
+
+- [使用 Service Workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API/Using_Service_Workers)
