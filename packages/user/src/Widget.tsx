@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import styles from './main.scss'
+import styles from './widget.less'
 
 import {BTGBroadcastChannel} from '@libs/broadcastChannel'
 

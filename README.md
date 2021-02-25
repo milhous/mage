@@ -44,6 +44,9 @@
 |                 |－ broadcastChannel 跨应用通讯模块
 ```
 
+## 项目模块
+[broadcastChannel 跨应用通讯模块](./packages/librarys/broadcastChannel/README.md)
+
 ## 项目初始化
 
 ### 第一步 应用初始化

@@ -53,6 +53,7 @@ module.exports = async(args) => {
             alias: {
                 '@app': resolveAppPath('./src/'),
                 '@libs': resolveAppPath('../librarys/'),
+                '@ui': resolveAppPath('../ui/'),
             }
         }
     };
