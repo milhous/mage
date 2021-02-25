@@ -52,7 +52,7 @@ module.exports = async(args) => {
             files: ['src/**/*.{ts,tsx,js,jsx}'],
             eslintPath: require.resolve('eslint'),
             cache: true,
-            cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
+            cacheLocation: path.resolve(__dirname, './node_modules/.cache/.eslintcache'),
             fix: true,
             threads: true,
             lintDirtyModulesOnly: false,
