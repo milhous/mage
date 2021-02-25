@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssNormalize = require('postcss-normalize');
-const postcssPx2rem = require('postcss-px2rem');
+const pxtorem = require('postcss-pxtorem');
 
 /**
  * 获取样式通用配置
@@ -29,6 +29,15 @@ const getStyleLoader = ({ mode }) => {
         options: {
             postcssOptions: {
                 plugins: [
+                    pxtorem({
+                        rootValue: 100,
+                        unitPrecision: 2,
+                        propList: ['*'],
+                        replace: true,
+                        mediaQuery: false,
+                        minPixelValue: 2,
+                        exclude: /node_modules/i
+                    }),
                     autoprefixer({
                         grid: 'autoplace',
                         cascade: true,
@@ -42,10 +51,6 @@ const getStyleLoader = ({ mode }) => {
                             "iOS 7",
                             "last 3 iOS versions"
                         ]
-                    }),
-                    postcssPx2rem({
-                        remUnit: 100, // 100px = 1rem
-                        remPrecision: 2 // rem的小数点后位数
                     }),
                     postcssNormalize()
                 ],

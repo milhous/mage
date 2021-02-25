@@ -8,8 +8,6 @@ const gitVersion = child_process.execSync('git rev-parse --abbrev-ref HEAD').toS
 module.exports = async(args) => {
     const buildDependenciesConfigs = await getBuildDependenciesConfigs();
 
-    console.log(path.resolve(__dirname, '../node_modules/.cache/webpack'));
-
     return {
         entry: {
             index: resolveAppPath(args.src)

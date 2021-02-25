@@ -19,8 +19,6 @@ module.exports = async(args) => {
     // 判断应用是否存在public文件夹
     const isPathExist = await existsAppPath('./public');
 
-    console.log(resolveAppPath('../librarys/broadcastChannel/workers/serviceWorker.worker.ts'));
-
     // 判断应用public文件夹是否存在html & ico
     if (isPathExist) {
         const html = resolveAppPath('./public/index.html');

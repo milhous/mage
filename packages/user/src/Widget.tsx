@@ -28,7 +28,7 @@ export default function Widget() {
     return () => {
       channel.removeEventListener('test', messageHandler)
     }
-  }, [])
+  }, [messageHandler])
 
   return (
     <div className={styles.widget}>
