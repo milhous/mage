@@ -63,7 +63,8 @@ module.exports = async(args) => {
         //     skipWaiting: true,
         // }),
         new InjectManifest({
-            swSrc: resolveAppPath('../librarys/broadcastChannel/workers/broadcastChannel.sw.ts')
+            swSrc: resolveAppPath('../librarys/broadcastChannel/workers/broadcastChannel.sw.ts'),
+            mode: args.mode
         }),
         new WebpackBar({
             color: 'green'

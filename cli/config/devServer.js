@@ -3,7 +3,6 @@ const { resolveAppPath } = require('../helpers/paths');
 module.exports = (args) => {
     return {
         devServer: {
-            contentBase: resolveAppPath(args.dist),
             hot: true,
             compress: true,
             historyApiFallback: true,
