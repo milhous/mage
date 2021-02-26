@@ -52,7 +52,9 @@ const getStyleLoader = ({ mode }) => {
                             "last 3 iOS versions"
                         ]
                     }),
-                    postcssNormalize()
+                    postcssNormalize({
+                        browsers: 'last 2 versions'
+                    })
                 ],
             }
         },

@@ -20,5 +20,5 @@ window.onresize = function () {
 		flexible();
 
 		timer = null;
-	}, 20);
+	}, 40);
 };

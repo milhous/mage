@@ -1,0 +1,23 @@
+.responsive(@maxWidth; @rules) {
+    @media only screen and (max-width: @maxWidth) {
+        @rules();
+    }
+}
+
+.smallScreen(@rules) {
+    @media only screen and (max-width: 768px) {
+        @rules();
+    }
+}
+
+.mediumScreen(@rules) {
+    @media only screen and (min-width: 769px) and (max-width: 1599px) {
+        @rules();
+    }
+}
+
+.largeScreen(@rules) {
+    @media only screen and (min-width: 1600px) {
+        @rules();
+    }
+}
