@@ -1,6 +1,9 @@
 import LocalButton from '@app/Widget'
 import React from 'react'
+import '@libs/flexible'
 import {BTGBroadcastChannel} from '@libs/broadcastChannel'
+
+import './main.less'
 
 const channel = new BTGBroadcastChannel('channelTest')
 
