@@ -45,6 +45,7 @@
 ```
 
 ## 项目模块
+
 [broadcastChannel 跨应用通讯模块](./packages/librarys/broadcastChannel/README.md)
 
 ## 项目初始化
@@ -95,14 +96,14 @@ lerna run --scope=@packages/game build
 
 lerna exec --scope=@packages/game npm run start
 
-lerna exec --scope=@packages/game btg start -e dev -m development
+lerna exec --scope=@packages/game mage start -e dev -m development
 
 # 比如在game应用执行启动开发服务器
 cd packages/game
 
 npm run start
 
-btg start -e dev -m development
+mage start -e dev -m development
 ```
 
 ## 应用 Scripts 命令

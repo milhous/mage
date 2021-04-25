@@ -8,7 +8,7 @@
         "url": "http://gitlab.lan.com/front-end/website-v2.git"
     },
     "scripts": {
-        "setup": "lerna init --independent && lerna clean && lerna bootstrap --hoist",
+        "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap --hoist",
         "update": "lerna run --parallel update",
         "start": "lerna run --scope @packages/* --parallel start",
         "build": "lerna run --scope @packages/* build",
@@ -22,9 +22,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
         "cross-var": "^1.1.0",
-        "lerna": "^3.22.1"
+        "lerna": "^4.0.0",
+        "npm-check-updates": "^11.5.1"
     }
 }
