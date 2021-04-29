@@ -85,4 +85,12 @@ program
         require('../scripts/build')(config);
     });
 
+//初始化项目
+program
+    .command('init')
+    .description('初始化项目')
+    .action(() => {
+        require('../scripts/init')();
+    });
+
 program.parse(process.argv);

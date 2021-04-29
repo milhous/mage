@@ -19,6 +19,15 @@ module.exports = async(args) => {
             filename: '[name].[contenthash].js',
             path: resolveAppPath(args.dist),
             publicPath: "auto",
+            environment: {
+                arrowFunction: false,
+                bigIntLiteral: false,
+                const: false,
+                destructuring: false,
+                forOf: false,
+                dynamicImport: false,
+                module: false,
+            },
             // 防止window is undefined的错误.
             globalObject: 'this'
         },
