@@ -85,12 +85,12 @@ program
         require('../scripts/build')(config);
     });
 
-//初始化项目
+// 创建项目
 program
-    .command('init')
-    .description('初始化项目')
+    .command('create')
+    .description('创建项目')
     .action(() => {
-        require('../scripts/init')();
+        require('../scripts/create')();
     });
 
 program.parse(process.argv);

@@ -17,23 +17,37 @@ module.exports = async args => {
                 default: function () {
                     return ''
                 },
+                validate: function (input) {
+                    const done = this.async();
+                    let tips = null;
+
+                    if (input === '') {
+                        tips = '项目名不能为空';
+                    } else if (!(/^[A-Za-z]+$/g.test(input))) {
+                        tips = '项目名只能由字母组成';
+                    }
+
+                    done(tips, tips === null);
+                }
             },
             {
                 type: 'list',
                 name: 'type',
                 message: '请选择类型:',
-                choices: ['App', 'Other'],
+                choices: ['App', 'Libs']
             },
             {
                 type: 'confirm',
-                name: 'type',
-                message: '请选择类型:',
-                default:  true
+                name: 'confirm',
+                message: '确认创建项目？',
+                default: true
             } 
         ])
         .then(answers => {
+            if (!answers.confirm) {
+                return;
+            }
+
             console.log(answers);
         });
-
-    console.log('init');
 }
