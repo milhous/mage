@@ -31,10 +31,28 @@ module.exports = async args => {
                 }
             },
             {
+                type: 'input',
+                name: 'description',
+                message: '请输入描述:',
+                default: function () {
+                    return ''
+                },
+                validate: function (input) {
+                    const done = this.async();
+                    let tips = null;
+
+                    if (input === '') {
+                        tips = '描述不能为空';
+                    }
+
+                    done(tips, tips === null);
+                }
+            },
+            {
                 type: 'list',
                 name: 'type',
                 message: '请选择类型:',
-                choices: ['App', 'Libs']
+                choices: ['app', 'libs']
             },
             {
                 type: 'confirm',
