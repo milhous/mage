@@ -34,7 +34,7 @@ module.exports = async(args) => {
         cache: {
             version: `${version}-${gitVersion}`,
             type: 'filesystem',
-            cacheDirectory: path.resolve(__dirname, './node_modules/.cache/webpack'),
+            cacheDirectory: path.resolve(__dirname, '../node_modules/.cache/webpack'),
             // 缓存依赖，当缓存依赖修改时，缓存失效
             buildDependencies: {
                 // 将你的配置添加依赖，更改配置时，使得缓存失效

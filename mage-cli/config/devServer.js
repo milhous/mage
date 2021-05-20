@@ -5,12 +5,10 @@ module.exports = (args) => {
         devServer: {
             bonjour: true,
             port: 3001,
-            historyApiFallback: true,
-            hot: true,
+            hot: false,
             open: false,
-            compress: true,
+            firewall: false,
             historyApiFallback: true,
-            host: '0.0.0.0',
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',

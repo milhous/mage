@@ -11,7 +11,6 @@ const chalk = require('chalk');
 const inquirer = require('inquirer');
 // package配置信息
 const package = require('../package.json');
-const { option } = require('commander');
 
 program.version(package.version, '-v, --version').usage('<command> [options]');
 

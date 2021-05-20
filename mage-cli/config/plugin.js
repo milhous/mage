@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
@@ -13,7 +14,7 @@ const { appDir, resolveAppPath, existsAppPath } = require('../helpers/paths');
 // 默认public路径
 const defaultPublicPath = path.resolve(__dirname, '../public');
 
-module.exports = async(args) => {
+module.exports = async (args) => {
     let publicPath = defaultPublicPath;
 
     // 判断应用是否存在public文件夹
@@ -90,6 +91,10 @@ module.exports = async(args) => {
                 chunkFilename: '[id].[contenthash:8].chunk.css',
             })
         );
+    }
+
+    if (args.mode === 'development') {
+        plugins.push(new ReactRefreshWebpackPlugin());
     }
 
     return {
