@@ -16,9 +16,10 @@ module.exports = async(args) => {
         devtool: args.devtool,
         target: 'web',
         output: {
-            filename: '[name].[contenthash].js',
             path: resolveAppPath(args.dist),
-            publicPath: "auto",
+            filename: 'static/js/[name].[contenthash:8].js',
+            assetModuleFilename: 'static/asset/[name].[contenthash:8][ext][query]',
+            publicPath: 'auto',
             environment: {
                 arrowFunction: false,
                 bigIntLiteral: false,

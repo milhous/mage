@@ -51,7 +51,7 @@ module.exports = async (args) => {
             files: ['src/**/*.{ts,tsx,js,jsx}'],
             eslintPath: require.resolve('eslint'),
             cache: true,
-            cacheLocation: path.resolve(__dirname, './node_modules/.cache/.eslintcache'),
+            cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
             fix: true,
             threads: true,
             lintDirtyModulesOnly: false,
@@ -87,8 +87,8 @@ module.exports = async (args) => {
             // css分割
             new MiniCssExtractPlugin({
                 ignoreOrder: true,
-                filename: '[name].[contenthash:8].css',
-                chunkFilename: '[id].[contenthash:8].chunk.css',
+                filename: 'static/css/[name].[contenthash:8].css',
+                chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
             })
         );
     }

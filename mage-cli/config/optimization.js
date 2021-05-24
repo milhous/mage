@@ -3,9 +3,9 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = async(args) => {
     const minimizer = [];
-    const prodMode = args.mode === 'production';
+    const isDev = args.mode === 'development';
 
-    if (prodMode) {
+    if (!isDev) {
         minimizer.push(
             // js压缩
             new TerserPlugin({
@@ -47,7 +47,7 @@ module.exports = async(args) => {
         optimization: {
             // runtimeChunk: true,//启动后不支持 Module Federation
             usedExports: false,
-            minimize: prodMode,
+            minimize: !isDev,
             minimizer,
             splitChunks: {
                 cacheGroups: {
