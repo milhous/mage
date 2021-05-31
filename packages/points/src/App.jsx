@@ -144,7 +144,7 @@ function App() {
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
       }}>
       <h1>Dynamic System Host</h1>
-      <h2>App 1</h2>
+      <h2>App Points</h2>
       <p>
         The Dynamic System will take advantage Module Federation <strong>remotes</strong> and <strong>exposes</strong>.
         It will no load components that have been loaded already.

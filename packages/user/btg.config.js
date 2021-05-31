@@ -3,7 +3,7 @@ const { name, dependencies } = require("./package.json");
 
 module.exports = (args) => {
     const [, appname] = name.split('/');
-    const filename = args.mode === 'production' ? 'remoteEntry.[contenthash].js' : 'remoteEntry.js'
+    const filename = args.mode === 'production' ? 'remoteEntry.js' : 'remoteEntry.js'
 
     return {
         devServer: {

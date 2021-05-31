@@ -5,7 +5,7 @@ module.exports = (args) => {
         devServer: {
             bonjour: true,
             port: 3001,
-            hot: false,
+            hot: true,
             open: false,
             firewall: false,
             historyApiFallback: true,

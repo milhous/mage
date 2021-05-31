@@ -15,6 +15,7 @@ const { appDir, resolveAppPath, existsAppPath } = require('../helpers/paths');
 const defaultPublicPath = path.resolve(__dirname, '../public');
 
 module.exports = async (args) => {
+    const isDev = args.mode === 'development';
     let publicPath = defaultPublicPath;
 
     // 判断应用是否存在public文件夹
@@ -93,7 +94,7 @@ module.exports = async (args) => {
         );
     }
 
-    if (args.mode === 'development') {
+    if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
     }
 

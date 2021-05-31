@@ -33,7 +33,7 @@ module.exports = async(args) => {
             globalObject: 'this'
         },
         cache: {
-            version: `${version}-${gitVersion}`,
+            version: `${version}-${gitVersion}-${args.mode}`,
             type: 'filesystem',
             cacheDirectory: path.resolve(__dirname, '../node_modules/.cache/webpack'),
             // 缓存依赖，当缓存依赖修改时，缓存失效
