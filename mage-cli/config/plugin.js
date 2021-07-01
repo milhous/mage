@@ -1,38 +1,34 @@
-const path = require('path');
-const fs = require('fs-extra');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
-const WebpackBar = require('webpackbar');
-const { appDir, resolveAppPath, existsAppPath } = require('../helpers/paths');
+const path = require('path')
+const fs = require('fs-extra')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const WebpackBar = require('webpackbar')
+const { appDir, resolveAppPath, existsAppPath } = require('../helpers/paths')
 
 // 默认public路径
-const defaultPublicPath = path.resolve(__dirname, '../public');
+const defaultPublicPath = path.resolve(__dirname, '../public')
 
-module.exports = async (args) => {
-    const isDev = args.mode === 'development';
-    let publicPath = defaultPublicPath;
+module.exports = async args => {
+    const isDev = args.mode === 'development'
+    let publicPath = defaultPublicPath
 
     // 判断应用是否存在public文件夹
-    const isPathExist = await existsAppPath('./public');
+    const isPathExist = await existsAppPath('./public')
 
     // 判断应用public文件夹是否存在html & ico
     if (isPathExist) {
-        const html = resolveAppPath('./public/index.html');
-        const ico = resolveAppPath('./public/favicon.ico');
+        const html = resolveAppPath('./public/index.html')
+        const ico = resolveAppPath('./public/favicon.ico')
 
-        const [isHtmlExist, isIcoExist] = await Promise.all([
-            fs.pathExists(html),
-            fs.pathExists(ico),
-        ]);
+        const [isHtmlExist, isIcoExist] = await Promise.all([fs.pathExists(html), fs.pathExists(ico)])
 
         if (isHtmlExist && isIcoExist) {
-            publicPath = resolveAppPath('./public');
+            publicPath = resolveAppPath('./public')
         }
     }
 
@@ -56,26 +52,16 @@ module.exports = async (args) => {
             fix: true,
             threads: true,
             lintDirtyModulesOnly: false,
-            outputReport: true
+            outputReport: true,
         }),
-        // new GenerateSW({
-        //     // 这些选项帮助快速启用 ServiceWorkers
-        //     // 不允许遗留任何“旧的” ServiceWorkers
-        //     clientsClaim: true,
-        //     skipWaiting: true,
-        // }),
-        // new InjectManifest({
-        //     swSrc: resolveAppPath('../librarys/broadcastChannel/workers/broadcastChannel.sw.ts'),
-        //     mode: args.mode
-        // }),
         new WebpackBar({
-            color: 'green'
-        })
-    ];
+            color: 'green',
+        }),
+    ]
 
     // 判断是否生成分析报告
     if (args.analyze) {
-        plugins.push(new BundleAnalyzerPlugin());
+        plugins.push(new BundleAnalyzerPlugin())
     }
 
     // 判断是否是线上
@@ -83,22 +69,22 @@ module.exports = async (args) => {
         plugins.push(
             // 生成mainfest文件
             new WebpackManifestPlugin({
-                publicPath: ''
+                publicPath: '',
             }),
             // css分割
             new MiniCssExtractPlugin({
                 ignoreOrder: true,
                 filename: 'static/css/[name].[contenthash:8].css',
                 chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-            })
-        );
+            }),
+        )
     }
 
     if (isDev) {
-        plugins.push(new ReactRefreshWebpackPlugin());
+        plugins.push(new ReactRefreshWebpackPlugin())
     }
 
     return {
-        plugins
+        plugins,
     }
-};
+}
