@@ -1,41 +1,41 @@
-import LocalButton from './Widget'
-import React from 'react'
-import {BTGBroadcastChannel} from '@libs/broadcastChannel'
+import LocalButton from './Widget';
+import React from 'react';
+import { BTGBroadcastChannel } from '@libs/broadcastChannel';
 
-const channel = new BTGBroadcastChannel('channelTest')
+const channel = new BTGBroadcastChannel('channelTest');
 
 const postmessage = () => {
-  const random = Math.random().toFixed(2)
-  const txt = `ID:${random} Activity App hello world!`
+  const random = Math.random().toFixed(2);
+  const txt = `ID:${random} Activity App hello world!`;
 
   channel.postMessage({
     type: 'test',
     payload: txt,
-  })
-}
+  });
+};
 
 const postmessageB = () => {
-  const random = Math.random().toFixed(2)
-  const txt = `ID:${random} Point App hello world B!`
+  const random = Math.random().toFixed(2);
+  const txt = `ID:${random} Point App hello world B!`;
 
   channel.postMessage({
     type: 'testb',
     payload: txt,
-  })
-}
+  });
+};
 
 const App = () => {
-  const [msg, setMsg] = React.useState({})
+  const [msg, setMsg] = React.useState({});
 
   React.useEffect(() => {
     channel.onMessage(msg => {
-      setMsg(msg)
-    })
+      setMsg(msg);
+    });
 
     return () => {
-      channel.close()
-    }
-  }, [])
+      channel.close();
+    };
+  }, []);
 
   return (
     <div>
@@ -46,7 +46,7 @@ const App = () => {
       <p>receive message: {JSON.stringify(msg)}</p>
       <LocalButton />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

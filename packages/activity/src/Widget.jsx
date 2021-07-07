@@ -1,35 +1,35 @@
-import React, {userState} from 'react'
-import moment from 'moment'
+import React, { userState } from 'react';
+import moment from 'moment';
 
-import {BTGBroadcastChannel} from '@libs/broadcastChannel'
+import { BTGBroadcastChannel } from '@libs/broadcastChannel';
 
 const postmessage = channel => {
-  const random = Math.random().toFixed(2)
-  const txt = `ID:${random} Activity Widget hello world!`
+  const random = Math.random().toFixed(2);
+  const txt = `ID:${random} Activity Widget hello world!`;
 
   channel.postMessage({
     type: 'test',
     payload: txt,
-  })
-}
+  });
+};
 
 export default function Widget() {
-  const [channel, setChannel] = React.useState(null)
-  const [msg, setMsg] = React.useState({})
+  const [channel, setChannel] = React.useState(null);
+  const [msg, setMsg] = React.useState({});
 
   React.useEffect(() => {
-    const channel = new BTGBroadcastChannel('channelTest')
+    const channel = new BTGBroadcastChannel('channelTest');
 
     channel.onMessage(msg => {
-      setMsg(msg)
-    })
+      setMsg(msg);
+    });
 
-    setChannel(channel)
+    setChannel(channel);
 
     return () => {
-      channel.close()
-    }
-  }, [])
+      channel.close();
+    };
+  }, []);
 
   return (
     <div
@@ -38,7 +38,8 @@ export default function Widget() {
         padding: '2em',
         backgroundColor: 'purple',
         color: 'white',
-      }}>
+      }}
+    >
       <h2>App 3 Widget</h2>
       <p>
         Using <strong>momentjs</strong> for format the date
@@ -46,17 +47,19 @@ export default function Widget() {
       <p>{moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
       <button
         onClick={() => {
-          postmessage(channel)
-        }}>
+          postmessage(channel);
+        }}
+      >
         Post Message
       </button>
       <button
         onClick={() => {
-          channel.close()
-        }}>
+          channel.close();
+        }}
+      >
         close channel
       </button>
       <p>receive message: {JSON.stringify(msg)}</p>
     </div>
-  )
+  );
 }

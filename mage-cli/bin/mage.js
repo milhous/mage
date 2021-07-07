@@ -16,80 +16,82 @@ program.version(package.version, '-v, --version').usage('<command> [options]');
 
 // program option 配置
 const optionsConfig = {
-    'src': ['-s, --src <src>', '目标文件 默认为 ./src/index'],
-    'dist': ['-d, --dist <dist>', '目标 默认为 ./dist'],
-    'env': ['-e, --env <env>', '部署环境 dev、test、prod 默认为 prod'],
-    'mode': ['-m, --mode <mode>', '开发模式 development、production 默认 production'],
-    'devtool': ['-d, --devtool <devtool>', '是否使用source map， 默认为 none'],
-    'analyze': ['-a, --analyze', '生成分析报告 默认为 false'],
-    'progress': ['-p, --progress', '显示进度 默认为 false']
+  src: ['-s, --src <src>', '目标文件 默认为 ./src/index'],
+  dist: ['-d, --dist <dist>', '目标 默认为 ./dist'],
+  env: ['-e, --env <env>', '部署环境 dev、test、prod 默认为 prod'],
+  mode: ['-m, --mode <mode>', '开发模式 development、production 默认 production'],
+  devtool: ['-d, --devtool <devtool>', '是否使用source map， 默认为 none'],
+  analyze: ['-a, --analyze', '生成分析报告 默认为 false'],
+  progress: ['-p, --progress', '显示进度 默认为 false'],
 };
 
 // 获取配置
 const getConfig = ({
-    src = './src/index',
-    dist = './dist',
-    env = 'prod',
-    mode = 'production',
-    devtool = 'eval',
-    analyze = false,
-    progress = false
+  src = './src/index',
+  dist = './dist',
+  env = 'prod',
+  mode = 'production',
+  devtool = 'eval',
+  analyze = false,
+  progress = false,
 }) => {
-    if (typeof analyze === 'string') {
-        analyze = analyze === 'true';
-    }
+  if (typeof analyze === 'string') {
+    analyze = analyze === 'true';
+  }
 
-    if (typeof progress === 'string') {
-        progress = progress === 'true';
-    }
+  if (typeof progress === 'string') {
+    progress = progress === 'true';
+  }
 
-    return {
-        src,
-        dist,
-        env,
-        mode,
-        devtool,
-        analyze,
-        progress
-    }
+  return {
+    src,
+    dist,
+    env,
+    mode,
+    devtool,
+    analyze,
+    progress,
+  };
 };
 
 // 启动开发服务器
 program
-    .command('start')
-    .alias('s')
-    .description('启动开发服务器')
-    .option(...optionsConfig.env)
-    .option(...optionsConfig.mode)
-    .option(...optionsConfig.devtool)
-    .option(...optionsConfig.analyze)
-    .option(...optionsConfig.progress)
-    .action(({ mode = 'development', devtool = 'source-map' }) => {
-        const config = getConfig({ mode, devtool });
+  .command('start')
+  .alias('s')
+  .description('启动开发服务器')
+  .option(...optionsConfig.env)
+  .option(...optionsConfig.mode)
+  .option(...optionsConfig.devtool)
+  .option(...optionsConfig.analyze)
+  .option(...optionsConfig.progress)
+  .action(({ mode = 'development', devtool = 'source-map' }) => {
+    const config = getConfig({ mode, devtool });
 
-        require('../scripts/start')(config);
-    });
+    require('../scripts/start')(config);
+  });
 
 // 打包构建
 program
-    .command('build')
-    .alias('b')
-    .description('打包构建')
-    .option(...optionsConfig.env)
-    .option(...optionsConfig.mode)
-    .option(...optionsConfig.progress)
-    .action((option) => {
-        const config = getConfig(option);
+  .command('build')
+  .alias('b')
+  .description('打包构建')
+  .option(...optionsConfig.env)
+  .option(...optionsConfig.mode)
+  .option(...optionsConfig.progress)
+  .action(option => {
+    const config = getConfig(option);
 
-        require('../scripts/build')(config);
-    });
+    console.log('option', option);
+
+    require('../scripts/build')(config);
+  });
 
 // 创建项目
 program
-    .command('create')
-    .description('创建项目')
-    .action(() => {
-        require('../scripts/create')();
-    });
+  .command('create')
+  .description('创建项目')
+  .action(() => {
+    require('../scripts/create')();
+  });
 
 program.parse(process.argv);
