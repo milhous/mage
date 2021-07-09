@@ -30,9 +30,9 @@ declare interface IBTGBroadcastChannelOptions {
 declare interface IBTGBroadcastChannelMessage {
     type: string;
     payload: IBTGBroadcastChannelPayload;
-    uuid: string;
-    token: string;
-    time: number;
+    uuid?: string;
+    token?: string;
+    time?: number;
     id?: number;
 }
 

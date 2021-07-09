@@ -52,7 +52,6 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-var-requires': 0,
-    'react/react-in-jsx-scope': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/no-explicit-any': 0,
@@ -60,9 +59,10 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/class-name-casing': 0,
     '@typescript-eslint/triple-slash-reference': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/prop-types': 0,
     'react-hooks/rules-of-hooks': 'warn',
     'react-hooks/exhaustive-deps': 'off',
-    'react/prop-types': 0,
     'prettier/prettier': [
       'error',
       {

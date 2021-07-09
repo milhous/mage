@@ -1,4 +1,4 @@
-import React, { userState } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 import { BTGBroadcastChannel } from '@libs/broadcastChannel';
@@ -9,7 +9,7 @@ const postmessage = channel => {
 
   channel.postMessage({
     type: 'test',
-    payload: txt,
+    payload: { txt },
   });
 };
 

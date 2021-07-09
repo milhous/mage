@@ -10,7 +10,7 @@ const postmessage = () => {
 
   channel.postMessage({
     type: 'test',
-    payload: txt,
+    payload: { txt },
   });
 };
 
@@ -20,7 +20,7 @@ const postmessageB = () => {
 
   channel.postMessage({
     type: 'testb',
-    payload: txt,
+    payload: { txt },
   });
 };
 
