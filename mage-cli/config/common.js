@@ -39,7 +39,7 @@ module.exports = async args => {
       // 缓存依赖，当缓存依赖修改时，缓存失效
       buildDependencies: {
         // 将你的配置添加依赖，更改配置时，使得缓存失效
-        config: buildDependenciesConfigs,
+        config: [__filename, ...buildDependenciesConfigs],
       },
     },
     resolve: {

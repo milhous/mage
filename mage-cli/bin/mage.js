@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// package配置信息
+const package =  require('../package.json');
 
 // 命令行工具
 // import program from 'commander';
@@ -9,8 +11,6 @@ const ora = require('ora');
 const chalk = require('chalk');
 // 交互式命令行工具
 const inquirer = require('inquirer');
-// package配置信息
-const package = require('../package.json');
 
 program.version(package.version, '-v, --version').usage('<command> [options]');
 

@@ -4,5 +4,4 @@ build/
 dist/
 package-lock.json
 dll/
-webpack.vendor.js
 .DS_Store

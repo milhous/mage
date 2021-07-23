@@ -1,15 +1,22 @@
 {
     "name": "milhous",
-    "private": true,
+    "version": "1.0.0",
     "description": "主站2.0",
     "main": "index.js",
+    "private": true,
     "repository": {
         "type": "git",
         "url": "http://gitlab.lan.com/front-end/website-v2.git"
     },
+    "workspaces": {
+        "packages": [
+            "packages/*",
+            "mage-cli"
+        ]
+    },
     "scripts": {
         "create": "mage create",
-        "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap --hoist",
+        "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
         "update": "lerna run --parallel update",
         "start": "lerna run --scope @packages/* --parallel start",
         "build": "lerna run --scope @packages/* build",

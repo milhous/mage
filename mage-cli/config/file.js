@@ -1,3 +1,5 @@
+const svgToMiniDataURI = require('mini-svg-data-uri');
+
 module.exports = args => {
   return {
     module: {
@@ -9,7 +11,9 @@ module.exports = args => {
             {
               loader: 'url-loader', //解决 ReactComponent 无法获取问题
               options: {
-                esModule: false,
+                generator: content => {
+                  return svgToMiniDataURI(content.toString());
+                },
               },
             },
           ],
