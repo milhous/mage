@@ -28,39 +28,39 @@ const getStyleLoader = ({ mode }) => {
     },
     {
       loader: 'postcss-loader',
-      //   options: {
-      //     implementation: require('postcss'),
-      //     postcssOptions: {
-      //       plugins: [
-      //         pxtorem({
-      //           rootValue: 100,
-      //           unitPrecision: 2,
-      //           propList: ['*'],
-      //           replace: true,
-      //           mediaQuery: false,
-      //           minPixelValue: 2,
-      //           exclude: /node_modules/i,
-      //         }),
-      //         autoprefixer({
-      //           grid: 'autoplace',
-      //           cascade: true,
-      //           remove: true,
-      //           // 解决各个应用无需在package.json配置Browserslist
-      //           overrideBrowserslist: [
-      //             'defaults',
-      //             'not ie < 11',
-      //             'last 2 versions',
-      //             '> 1%',
-      //             'iOS 7',
-      //             'last 3 iOS versions',
-      //           ],
-      //         }),
-      //         postcssNormalize({
-      //           browsers: 'last 2 versions',
-      //         }),
-      //       ],
-      //     },
-      //   },
+      options: {
+        implementation: require('postcss'),
+        postcssOptions: {
+          plugins: [
+            pxtorem({
+              rootValue: 100,
+              unitPrecision: 2,
+              propList: ['*'],
+              replace: true,
+              mediaQuery: false,
+              minPixelValue: 2,
+              exclude: /node_modules/i,
+            }),
+            autoprefixer({
+              grid: 'autoplace',
+              cascade: true,
+              remove: true,
+              // 解决各个应用无需在package.json配置Browserslist
+              overrideBrowserslist: [
+                'defaults',
+                'not ie < 11',
+                'last 2 versions',
+                '> 1%',
+                'iOS 7',
+                'last 3 iOS versions',
+              ],
+            }),
+            postcssNormalize({
+              browsers: 'last 2 versions',
+            }),
+          ],
+        },
+      },
     }
   );
 
