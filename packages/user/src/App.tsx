@@ -3,6 +3,8 @@ import React from 'react';
 import '@libs/flexible';
 import { BTGBroadcastChannel } from '@libs/broadcastChannel';
 import contract from '@app/assets/contract.svg';
+import virtual from '@app/assets/virtual.svg';
+import virtual_current from '@app/assets/virtual_current.svg';
 import SVG from 'react-inlinesvg';
 
 import styles from './main.less';
@@ -41,6 +43,8 @@ const App = () => {
       <Widget />
       <div className={styles.svg}></div>
       <SVG src={contract} />
+      <SVG src={virtual} />
+      <SVG src={virtual_current} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 const svgToMiniDataURI = require('mini-svg-data-uri');
-const chalk = require('chalk');
+const { extendDefaultPlugins } = require('svgo');
 
 module.exports = args => {
   return {
@@ -15,7 +15,23 @@ module.exports = args => {
               return svgToMiniDataURI(content);
             },
           },
-          use: 'svgo-loader',
+          use: [
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: extendDefaultPlugins([
+                  {
+                    name: 'removeViewBox',
+                    active: false,
+                  },
+                  {
+                    name: 'cleanupIDs',
+                    active: false,
+                  },
+                ]),
+              },
+            },
+          ],
           // use: [
           //   {
           //     loader: 'url-loader', //解决 ReactComponent 无法获取问题
