@@ -9,58 +9,58 @@ const { copyFolder } = require('../helpers/build');
 chalk.level = 1;
 
 module.exports = async args => {
-    const { name } = require(resolveAppPath('./package.json'));
-    const config = await getProjectConfig(args);
+  const { name } = require(resolveAppPath('./package.json'));
+  const config = await getProjectConfig(args);
 
-    console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled with start.===\n`));
+  console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled with start.===\n`));
 
-    webpack(config, (err, stats) => {
-        if (err) {
-            console.error(err.stack || err);
-            if (err.details) {
-                console.error(err.details);
-            }
+  webpack(config, (err, stats) => {
+    if (err) {
+      console.error(err.stack || err);
+      if (err.details) {
+        console.error(err.details);
+      }
 
-            return;
-        }
+      return;
+    }
 
-        console.log(
-            stats.toString({
-                colors: true,
-                all: false,
-                assets: true
-            }),
-        );
+    console.log(
+      stats.toString({
+        colors: true,
+        all: false,
+        assets: true,
+      })
+    );
 
-        if (stats.hasWarnings()) {
-            console.log(chalk.yellow.bold(`\n=== BTG <${name}> Compiled with warnings.===\n`));
-            console.log(
-                stats.toString({
-                    all: false,
-                    colors: true,
-                    warnings: true,
-                }),
-            );
-        }
+    if (stats.hasWarnings()) {
+      console.log(chalk.yellow.bold(`\n=== BTG <${name}> Compiled with warnings.===\n`));
+      console.log(
+        stats.toString({
+          all: false,
+          colors: true,
+          warnings: true,
+        })
+      );
+    }
 
-        if (stats.hasErrors()) {
-            console.log(
-                stats.toString({
-                    all: false,
-                    colors: true,
-                    errors: true,
-                }),
-            );
-            console.log(chalk.red.bold(`\n=== BTG <${name}> Failed to compile.===\n`));
+    if (stats.hasErrors()) {
+      console.log(
+        stats.toString({
+          all: false,
+          colors: true,
+          errors: true,
+        })
+      );
+      console.log(chalk.red.bold(`\n=== BTG <${name}> Failed to compile.===\n`));
 
-            process.exit(1)
-        }
+      process.exit(1);
+    }
 
-        console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled successfully.===\n`));
+    console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled successfully.===\n`));
 
-        // 复制其他文件到build
-        const [, appname] = name.split('/');
+    // 复制其他文件到build
+    const [, appname] = name.split('/');
 
-        copyFolder(resolveAppPath(args.dist), path.resolve(__dirname, '../../build/' + appname));
-    });
-}
+    copyFolder(resolveAppPath(args.dist), path.resolve(__dirname, '../../build/' + appname));
+  });
+};

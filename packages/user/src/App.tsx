@@ -1,9 +1,11 @@
-import LocalButton from '@app/Widget';
+import Widget from '@app/Widget';
 import React from 'react';
 import '@libs/flexible';
 import { BTGBroadcastChannel } from '@libs/broadcastChannel';
+import contract from '@app/assets/contract.svg';
+import SVG from 'react-inlinesvg';
 
-import './main.less';
+import styles from './main.less';
 
 const channel = new BTGBroadcastChannel('channelTest');
 
@@ -36,7 +38,9 @@ const App = () => {
       <h2>App User</h2>
       <button onClick={postmessage}>Post Message</button>
       <p>receive message: {JSON.stringify(msg)}</p>
-      <LocalButton />
+      <Widget />
+      <div className={styles.svg}></div>
+      <SVG src={contract} />
     </div>
   );
 };

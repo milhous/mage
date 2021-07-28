@@ -1,4 +1,5 @@
 const svgToMiniDataURI = require('mini-svg-data-uri');
+const chalk = require('chalk');
 
 module.exports = args => {
   return {
@@ -7,16 +8,28 @@ module.exports = args => {
         // svg
         {
           test: /\.svg$/,
-          use: [
-            {
-              loader: 'url-loader', //解决 ReactComponent 无法获取问题
-              options: {
-                generator: content => {
-                  return svgToMiniDataURI(content.toString());
-                },
-              },
+          type: 'asset/inline',
+          generator: {
+            dataUrl(content) {
+              content = content.toString();
+              return svgToMiniDataURI(content);
             },
-          ],
+          },
+          use: 'svgo-loader',
+          // use: [
+          //   {
+          //     loader: 'url-loader', //解决 ReactComponent 无法获取问题
+          //     options: {
+          //       generator: (content, mimetype, encoding, resourcePath) => {
+          //         console.log('content', mimetype, encoding, resourcePath);
+
+          //         console.log(chalk.green.bold(`\n=== content <${11}> Compiled with start.===\n`));
+
+          //         return svgToMiniDataURI(content.toString());
+          //       },
+          //     },
+          //   },
+          // ],
         },
         // 图片
         {
