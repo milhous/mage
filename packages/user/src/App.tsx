@@ -5,6 +5,7 @@ import { BTGBroadcastChannel } from '@libs/broadcastChannel';
 import contract from '@app/assets/contract.svg';
 import virtual from '@app/assets/virtual.svg';
 import virtual_current from '@app/assets/virtual_current.svg';
+import icon1 from '@app/assets/icon1.svg';
 import SVG from 'react-inlinesvg';
 
 import styles from './main.less';
@@ -45,6 +46,8 @@ const App = () => {
       <SVG src={contract} />
       <SVG src={virtual} />
       <SVG src={virtual_current} />
+      {/* <i className={styles.icon}></i> */}
+      <SVG src={icon1} />
     </div>
   );
 };

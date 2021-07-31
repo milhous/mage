@@ -30,7 +30,6 @@ module.exports = async args => {
       // css压缩
       new CssMinimizerPlugin({
         parallel: true,
-        sourceMap: false,
         minimizerOptions: {
           preset: [
             'default',

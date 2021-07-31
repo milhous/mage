@@ -9,6 +9,8 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WebpackBar = require('webpackbar');
 const { appDir, resolveAppPath, existsAppPath } = require('../helpers/paths');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin();
 
 // 默认public路径
 const defaultPublicPath = path.resolve(__dirname, '../public');
@@ -84,7 +86,7 @@ module.exports = async args => {
     plugins.push(new ReactRefreshWebpackPlugin());
   }
 
-  return {
+  return smp.wrap({
     plugins,
-  };
+  });
 };

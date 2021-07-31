@@ -32,20 +32,6 @@ module.exports = args => {
               },
             },
           ],
-          // use: [
-          //   {
-          //     loader: 'url-loader', //解决 ReactComponent 无法获取问题
-          //     options: {
-          //       generator: (content, mimetype, encoding, resourcePath) => {
-          //         console.log('content', mimetype, encoding, resourcePath);
-
-          //         console.log(chalk.green.bold(`\n=== content <${11}> Compiled with start.===\n`));
-
-          //         return svgToMiniDataURI(content.toString());
-          //       },
-          //     },
-          //   },
-          // ],
         },
         // 图片
         {
