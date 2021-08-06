@@ -74,11 +74,7 @@ module.exports = async args => {
         publicPath: '',
       }),
       // css分割
-      new MiniCssExtractPlugin({
-        ignoreOrder: true,
-        filename: 'static/css/[name].[contenthash:8].css',
-        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-      })
+      new MiniCssExtractPlugin()
     );
   }
 

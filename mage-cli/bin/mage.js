@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // package配置信息
-const package =  require('../package.json');
+const package = require('../package.json');
 
 // 命令行工具
 // import program from 'commander';
@@ -84,6 +84,14 @@ program
     console.log('option', option);
 
     require('../scripts/build')(config);
+  });
+
+// 启动项目
+program
+  .command('launch')
+  .description('启动项目')
+  .action(() => {
+    require('../scripts/launch')();
   });
 
 // 创建项目

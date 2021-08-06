@@ -16,6 +16,7 @@
     },
     "scripts": {
         "create": "mage create",
+        "launch": "mage launch",
         "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
         "update": "lerna run --parallel update",
         "start": "lerna run --scope @packages/* --parallel start",

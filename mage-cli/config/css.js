@@ -7,11 +7,10 @@ const pxtorem = require('postcss-pxtorem');
  * 获取样式通用配置
  * @param {string} mode 模式
  */
-const getStyleLoader = ({ mode }) => {
-  const prodMode = mode === 'production';
+const getStyleLoader = args => {
   const rules = [];
 
-  if (prodMode) {
+  if (args.env === 'prod' && args.mode === 'production') {
     rules.push({
       loader: MiniCssExtractPlugin.loader,
     });
