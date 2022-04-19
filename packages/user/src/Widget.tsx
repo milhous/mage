@@ -32,7 +32,7 @@ export default function Widget() {
 
   return (
     <div className={styles.widget}>
-      <h2>App 2 Widget</h2>
+      <h2>App User Widget</h2>
       <p>App2 Moment Dep: {moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
       <button
         onClick={() => {

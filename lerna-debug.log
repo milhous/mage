@@ -1,0 +1,31 @@
+0 silly argv {
+0 silly argv   _: [ 'clean' ],
+0 silly argv   yes: true,
+0 silly argv   y: true,
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': '/Users/milhous/Documents/work/GitHub/btg/node_modules/.bin/lerna'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath /Users/milhous/Documents/work/GitHub/btg
+3 info versioning independent
+4 info clean removing /Users/milhous/Documents/work/GitHub/btg/cli/node_modules
+5 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/cli/node_modules
+6 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/activity/node_modules
+7 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/activity/node_modules
+8 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/game/node_modules
+9 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/game/node_modules
+10 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/home/node_modules
+11 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/home/node_modules
+12 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/main/node_modules
+13 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/main/node_modules
+14 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/match/node_modules
+15 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/match/node_modules
+16 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/points/node_modules
+17 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/points/node_modules
+18 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/ui/node_modules
+19 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/ui/node_modules
+20 info clean removing /Users/milhous/Documents/work/GitHub/btg/packages/user/node_modules
+21 silly rimrafDir /Users/milhous/Documents/work/GitHub/btg/packages/user/node_modules
+22 error Error: Command failed: /usr/local/bin/node /Users/milhous/Documents/work/GitHub/btg/node_modules/rimraf/bin.js --no-glob /Users/milhous/Documents/work/GitHub/btg/cli/node_modules/
+22 error     at makeError (/Users/milhous/Documents/work/GitHub/btg/node_modules/@lerna/child-process/node_modules/execa/index.js:174:9)
+22 error     at /Users/milhous/Documents/work/GitHub/btg/node_modules/@lerna/child-process/node_modules/execa/index.js:278:16

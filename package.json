@@ -8,7 +8,7 @@
         "url": "http://gitlab.lan.com/front-end/website-v2.git"
     },
     "scripts": {
-        "setup": "lerna init --independent && lerna clean && lerna bootstrap --hoist",
+        "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap --hoist",
         "update": "lerna run --parallel update",
         "start": "lerna run --scope @packages/* --parallel start",
         "build": "lerna run --scope @packages/* build",

@@ -33,7 +33,7 @@ const App = () => {
   return (
     <div>
       <h1>Dynamic System Host</h1>
-      <h2>App User</h2>
+      <h2>App User </h2>
       <button onClick={postmessage}>Post Message</button>
       <p>receive message: {JSON.stringify(msg)}</p>
       <LocalButton />

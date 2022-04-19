@@ -89,7 +89,7 @@ export class BTGBroadcastChannel {
             this._channel.init(this._name, this._options);
         }
 
-        console.log('BTGBroadcastChannel method:', method.type);
+        console.log('BTGBroadcastChannel method:', method.type, this._options);
     }
 
     /**
