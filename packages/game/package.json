@@ -4,8 +4,8 @@
     "description": "",
     "main": "btg.config.js",
     "scripts": {
-        "start": "btg start",
-        "build": "btg build",
+        "start": "mage start",
+        "build": "mage build",
         "update": "ncu -u"
     },
     "author": "",

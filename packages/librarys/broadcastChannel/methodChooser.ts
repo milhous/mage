@@ -10,8 +10,6 @@ import MethodLocalStorage from './methods/MethodLocalStorage';
 export const chooseMethod = (): any => {
     if (MethodBroadcastChannel.canBeUsed()) {
         return MethodBroadcastChannel;
-    } else if (MethodServiceWorker.canBeUsed()) {
-        return MethodServiceWorker;
     } else if (MethodIndexedDB.canBeUsed()) {
         return MethodIndexedDB;
     } else if (MethodLocalStorage.canBeUsed()) {

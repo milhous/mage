@@ -1,3 +1,3 @@
-document.write('game2')
+document.write('game2');
 
-console.log(1111222)
+console.log(1111222);

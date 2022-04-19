@@ -1,10 +1,3 @@
-import { CacheFirst } from 'workbox-strategies';
-import { NetworkFirst } from 'workbox-strategies';
-import { precacheAndRoute } from 'workbox-precaching';
-import { registerRoute } from 'workbox-routing';
-
-// Your other import statements go here
-precacheAndRoute((self as any).__WB_MANIFEST);
 
 const initialize = (service: ServiceWorkerGlobalScope): void => {
     // 通过 workbox 配置，指定根路径 / 下的资源是 NetworkFirst 的，意味着这部分资源都是网络优先，有新的资源文件会先请求网络，

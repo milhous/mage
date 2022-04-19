@@ -5,13 +5,14 @@
     "main": "btg.config.js",
     "private": true,
     "scripts": {
-        "start": "btg start",
-        "build": "btg build",
+        "start": "mage start",
+        "build": "mage build",
         "update": "ncu -u"
     },
     "dependencies": {
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "moment": "^2.29.1"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "moment": "^2.29.1",
+        "react-inlinesvg": "^2.3.0"
     }
 }
