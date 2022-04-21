@@ -1,4 +1,3 @@
-const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs-extra');
 // 交互式命令行工具
@@ -10,24 +9,30 @@ const exec = require('child_process').exec;
 chalk.level = 1;
 
 module.exports = async args => {
+  const reg = new RegExp(/\.DS_Store|node_modules$/);
   const entry = resolveAppPath('packages');
   const dirInfo = fs.readdirSync(entry);
-  const choices = dirInfo.map(item => {
-    return {
-      name: item,
-      checked: item === 'main',
-    };
-  });
-  const { scripts } = require(resolveAppPath('./package.json'));
+  const choices = [];
+  let launch = !!process.env.LAUNCH && process.env.LAUNCH.split(',');
+  launch = Array.isArray(launch) && launch.length ? launch : ['main', 'bitgame'];
 
-  console.log(scripts.start);
+  for (const item of dirInfo) {
+    if (!reg.test(item)) {
+      choices.push({
+        name: item,
+        checked: launch.includes(item),
+      });
+    }
+  }
+
+  const { scripts } = require(resolveAppPath('./package.json'));
 
   inquirer
     .prompt([
       {
         type: 'confirm',
         name: 'all',
-        message: '是否启动所有项目?',
+        message: '选择项目启动方式?（y:指定, n:所有）',
         default: true,
       },
       {
@@ -37,11 +42,11 @@ module.exports = async args => {
         choices: choices,
         loop: false,
         when(answers) {
-          return !answers.all;
+          return answers.all;
         },
         validate(answer) {
-          if (answer.length < 1) {
-            return '必须选择1个项目';
+          if (!answer.includes('main') || !answer.includes('bitgame')) {
+            return '必须选择 main & bitgame';
           }
 
           return true;
@@ -59,27 +64,34 @@ module.exports = async args => {
         return;
       }
 
-      if (answers.all) {
-        exec(scripts.start, { encoding: 'utf8' }, function (err, stdout, stderr) {
-          console.log(err);
+      if (!answers.all) {
+        const execStartAll = exec(scripts.start, { encoding: 'utf8' });
 
-          if (err) {
-            console.log(err);
-            return;
-          }
+        execStartAll.stdout.on('data', function (data) {
+          console.log(data);
+        });
 
-          console.log('stdout:' + stdout);
-          console.log('stderr:' + stderr);
+        execStartAll.stderr.on('data', function (data) {
+          console.log(data);
+        });
+
+        execStartAll.on('exit', function (code) {
+          console.log('child process exited with code ' + code);
         });
       } else {
         for (let name of answers.project) {
-          exec(scripts['start:name'].replace('$name', name), { encoding: 'utf8' }, function (err, stdout, stderr) {
-            if (err) {
-              console.log(err);
-              return;
-            }
-            console.log('stdout:' + stdout);
-            console.log('stderr:' + stderr);
+          const execStartSingle = exec(scripts['start:name'].replace('$name', name), { encoding: 'utf8' });
+
+          execStartSingle.stdout.on('data', function (data) {
+            console.log(data);
+          });
+
+          execStartSingle.stderr.on('data', function (data) {
+            console.log(data);
+          });
+
+          execStartSingle.on('exit', function (code) {
+            console.log('child process exited with code ' + code);
           });
         }
       }

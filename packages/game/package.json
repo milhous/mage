@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "btg.config.js",
+    "private": true,
     "scripts": {
         "start": "mage start",
         "build": "mage build",

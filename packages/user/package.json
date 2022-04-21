@@ -10,9 +10,9 @@
         "update": "ncu -u"
     },
     "dependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "moment": "^2.29.1",
-        "react-inlinesvg": "^2.3.0"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "moment": "^2.29.3",
+        "react-inlinesvg": "^3.0.0"
     }
 }
