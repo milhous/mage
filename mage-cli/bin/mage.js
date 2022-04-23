@@ -3,14 +3,7 @@
 const package = require('../package.json');
 
 // 命令行工具
-// import program from 'commander';
 const program = require('commander');
-// 实现node.js命令行环境的loading效果，和显示各种状态的图标等
-const ora = require('ora');
-// 支持修改控制台中字符串的样式 字体样式、字体颜色、背景颜色
-const chalk = require('chalk');
-// 交互式命令行工具
-const inquirer = require('inquirer');
 
 program.version(package.version, '-v, --version').usage('<command> [options]');
 

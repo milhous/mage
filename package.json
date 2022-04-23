@@ -8,17 +8,15 @@
         "type": "git",
         "url": "http://gitlab.lan.com/front-end/website-v2.git"
     },
-    "workspaces": {
-        "packages": [
-            "packages/*",
-            "mage-cli"
-        ]
-    },
+    "workspaces": [
+        "packages/*",
+        "mage-cli"
+    ],
     "scripts": {
         "create": "mage create",
         "launch": "mage launch",
         "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
-        "update": "lerna run --parallel update",
+        "update": "yarn workspaces foreach run update",
         "start": "lerna run --scope @packages/* --parallel start",
         "build": "lerna run --scope @packages/* build",
         "start:name": "cross-var lerna run --scope=@packages/$name start",
@@ -32,7 +30,7 @@
     "license": "ISC",
     "devDependencies": {
         "cross-var": "^1.1.0",
-        "lerna": "^4.0.0",
         "npm-check-updates": "^12.5.9"
-    }
+    },
+    "packageManager": "yarn@3.2.0"
 }
