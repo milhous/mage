@@ -29,7 +29,6 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "cross-var": "^1.1.0",
         "npm-check-updates": "^12.5.9"
     },
     "packageManager": "yarn@3.2.0"

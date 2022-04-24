@@ -37,9 +37,6 @@ import { readFile } from 'fs/promises';
 
 const json = JSON.parse(await readFile(new URL('../../package.json', import.meta.url)));
 
-
-
-
 yarn set version berry
 
 yarn config set httpsProxy http://127.0.0.1:7890
@@ -52,4 +49,10 @@ yarn plugin import typescript
 
 yarn plugin import workspace-tools
 
-yarn workspaces foreach run update
+yarn workspaces foreach -p run update
+
+// 更新依赖项 yarn set version latest
+yarn up
+
+// 单包安装
+yarn workspace @mage/cli add --dev webpack
