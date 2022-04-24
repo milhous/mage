@@ -36,3 +36,20 @@ console.log(fileURLToPath(urlStr3));
 import { readFile } from 'fs/promises';
 
 const json = JSON.parse(await readFile(new URL('../../package.json', import.meta.url)));
+
+
+
+
+yarn set version berry
+
+yarn config set httpsProxy http://127.0.0.1:7890
+
+yarn config set httpProxy http://127.0.0.1:7890
+
+yarn install
+
+yarn plugin import typescript
+
+yarn plugin import workspace-tools
+
+yarn workspaces foreach run update

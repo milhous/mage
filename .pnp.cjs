@@ -2589,7 +2589,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/mini-css-extract-plugin", "npm:2.5.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:5.20.0"],\
             ["@typescript-eslint/parser", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:5.20.0"],\
-            ["autoprefixer", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:10.4.4"],\
+            ["autoprefixer", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:10.4.5"],\
             ["babel-loader", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:8.2.5"],\
             ["chalk", "npm:5.0.1"],\
             ["clean-webpack-plugin", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:4.0.0"],\
@@ -4178,17 +4178,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["autoprefixer", [\
-        ["npm:10.4.4", {\
-          "packageLocation": "./.yarn/cache/autoprefixer-npm-10.4.4-19c80502dc-bd42e23d71.zip/node_modules/autoprefixer/",\
+        ["npm:10.4.5", {\
+          "packageLocation": "./.yarn/cache/autoprefixer-npm-10.4.5-0e8773bbfe-6c638d8f51.zip/node_modules/autoprefixer/",\
           "packageDependencies": [\
-            ["autoprefixer", "npm:10.4.4"]\
+            ["autoprefixer", "npm:10.4.5"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:10.4.4", {\
-          "packageLocation": "./.yarn/__virtual__/autoprefixer-virtual-68845caad1/0/cache/autoprefixer-npm-10.4.4-19c80502dc-bd42e23d71.zip/node_modules/autoprefixer/",\
+        ["virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:10.4.5", {\
+          "packageLocation": "./.yarn/__virtual__/autoprefixer-virtual-8787228f9d/0/cache/autoprefixer-npm-10.4.5-0e8773bbfe-6c638d8f51.zip/node_modules/autoprefixer/",\
           "packageDependencies": [\
-            ["autoprefixer", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:10.4.4"],\
+            ["autoprefixer", "virtual:2238277f4e92dca332de5a8c04ea8eb4c4d82c0dfadd30461147fa0bcc031832bdcdb3a2850f8d5272bf308ad4cb60413bb74e811b1a0181205dade553271a5f#npm:10.4.5"],\
             ["@types/postcss", null],\
             ["browserslist", "npm:4.20.2"],\
             ["caniuse-lite", "npm:1.0.30001332"],\

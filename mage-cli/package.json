@@ -43,7 +43,7 @@
         "@types/mini-css-extract-plugin": "^2.5.0",
         "@typescript-eslint/eslint-plugin": "^5.20.0",
         "@typescript-eslint/parser": "^5.20.0",
-        "autoprefixer": "^10.4.4",
+        "autoprefixer": "^10.4.5",
         "babel-loader": "^8.2.5",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^10.2.4",
