@@ -8,21 +8,24 @@
     "bin": {
         "mage": "./bin/mage.js"
     },
-    "browserslist": [
-        "defaults",
-        "not ie < 11",
-        "last 2 versions",
-        "> 1%",
-        "iOS 7",
-        "last 3 iOS versions"
-    ],
     "scripts": {
+        "dev": "rimraf dist && tsc -w",
+        "build": "rimraf dist && tsc",
         "update": "ncu -u"
     },
     "devDependencies": {
-        "webpack": "^5.72.0"
+        "webpack": "^5.72.0",
+        "webpack-dev-server": "^4.8.1"
     },
     "dependencies": {
-        "commander": "^9.2.0"
+        "@types/chalk": "^2.2.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/inquirer": "^8.2.1",
+        "@types/rimraf": "^3",
+        "chalk": "^5.0.1",
+        "commander": "^9.2.0",
+        "fs-extra": "^10.1.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.7.0-dev.20220427"
     }
 }

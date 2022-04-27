@@ -43,15 +43,24 @@ yarn config set httpsProxy http://127.0.0.1:7890
 
 yarn config set httpProxy http://127.0.0.1:7890
 
+// 解决 ERR_MODULE_NOT_FOUND
+yarn config set nodeLinker "node-modules"
+
+yarn config set nodeLinker "pnpm"
+
 yarn install
 
 yarn plugin import typescript
 
 yarn plugin import workspace-tools
 
-yarn workspaces foreach -p run update
+// 所有包依赖项版本更新
+yarn workspaces foreach -vtR run update
 
-// 更新依赖项 yarn set version latest
+// yarn 版本更新最新
+yarn set version latest
+
+// 更新依赖项
 yarn up
 
 // 单包安装

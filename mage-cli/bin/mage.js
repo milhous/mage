@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-// package配置信息
-const package = require('../package.json');
 
 // 命令行工具
-const program = require('commander');
+import { Command } from 'commander';
+// 初始化包
+import init from '../dist/cli/init.js';
 
-program.version(package.version, '-v, --version').usage('<command> [options]');
+const program = new Command();
+
+// package配置信息
+const version = '1.0.0';
 
 // program option 配置
 const optionsConfig = {
@@ -17,35 +20,46 @@ const optionsConfig = {
   analyze: ['-a, --analyze', '生成分析报告 默认为 false'],
   progress: ['-p, --progress', '显示进度 默认为 false'],
 };
-
-// 获取配置
+  
+  // 获取配置
 const getConfig = ({
-  src = './src/index',
-  dist = './dist',
-  env = 'prod',
-  mode = 'production',
-  devtool = 'eval',
-  analyze = false,
-  progress = false,
+    src = './src/index',
+    dist = './dist',
+    env = 'prod',
+    mode = 'production',
+    devtool = 'eval',
+    analyze = false,
+    progress = false,
 }) => {
-  if (typeof analyze === 'string') {
-    analyze = analyze === 'true';
-  }
-
-  if (typeof progress === 'string') {
-    progress = progress === 'true';
-  }
-
-  return {
-    src,
-    dist,
-    env,
-    mode,
-    devtool,
-    analyze,
-    progress,
-  };
+    if (typeof analyze === 'string') {
+        analyze = analyze === 'true';
+    }
+  
+    if (typeof progress === 'string') {
+        progress = progress === 'true';
+    }
+  
+    return {
+        src,
+        dist,
+        env,
+        mode,
+        devtool,
+        analyze,
+        progress,
+    };
 };
+
+// 获取版本号
+program.version(version, '-v, --version').usage('<command> [options]');
+
+// 初始化项目
+program
+  .command('init')
+  .description('创建项目')
+  .action(() => {
+    init();
+  });
 
 // 启动开发服务器
 program
@@ -60,7 +74,9 @@ program
   .action(({ mode = 'development', devtool = 'source-map' }) => {
     const config = getConfig({ mode, devtool });
 
-    require('../scripts/start')(config);
+    console.log('config', config);
+
+    // require('../scripts/start')(config);
   });
 
 // 打包构建
@@ -85,14 +101,6 @@ program
   .description('启动项目')
   .action(() => {
     require('../scripts/launch')();
-  });
-
-// 创建项目
-program
-  .command('create')
-  .description('创建项目')
-  .action(() => {
-    require('../scripts/create')();
   });
 
 program.parse(process.argv);

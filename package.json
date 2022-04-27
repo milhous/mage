@@ -4,6 +4,7 @@
     "description": "主站2.0",
     "main": "index.js",
     "private": true,
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "http://gitlab.lan.com/front-end/website-v2.git"
@@ -21,9 +22,7 @@
         "build": "lerna run --scope @packages/* build",
         "start:name": "cross-var lerna run --scope=@packages/$name start",
         "build:name": "cross-var lerna run --scope=@packages/$name build",
-        "analyze": "lerna run --scope @packages/* --parallel start",
-        "lint": "lerna run --scope @packages/* --parallel lint",
-        "clean": "lerna run --scope @packages/* --parallel clean"
+        "analyze": "lerna run --scope @packages/* --parallel start"
     },
     "keywords": [],
     "author": "",
@@ -31,5 +30,5 @@
     "devDependencies": {
         "npm-check-updates": "^12.5.9"
     },
-    "packageManager": "yarn@3.2.0"
+    "packageManager": "yarn@4.0.0-rc.3"
 }
