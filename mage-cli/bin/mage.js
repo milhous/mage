@@ -2,8 +2,8 @@
 
 // 命令行工具
 import { Command } from 'commander';
-// 初始化包
-import init from '../dist/cli/init.js';
+// 命令行
+import cli from '../dist/cli/index.js';
 
 const program = new Command();
 
@@ -56,9 +56,9 @@ program.version(version, '-v, --version').usage('<command> [options]');
 // 初始化项目
 program
   .command('init')
-  .description('创建项目')
+  .description('初始化项目')
   .action(() => {
-    init();
+    cli('init');
   });
 
 // 启动开发服务器
@@ -76,7 +76,7 @@ program
 
     console.log('config', config);
 
-    // require('../scripts/start')(config);
+    cli('start');
   });
 
 // 打包构建
@@ -92,7 +92,7 @@ program
 
     console.log('option', option);
 
-    require('../scripts/build')(config);
+    cli('build');
   });
 
 // 启动项目
@@ -100,7 +100,7 @@ program
   .command('launch')
   .description('启动项目')
   .action(() => {
-    require('../scripts/launch')();
+    cli('launch');
   });
 
 program.parse(process.argv);

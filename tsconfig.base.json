@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"target": "ESNext",
-		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
 		"strict": true,
 		"declaration": true,
 		"noImplicitOverride": true,

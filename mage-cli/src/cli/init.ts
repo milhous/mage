@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
+import path from 'path';
 // 交互式命令行工具
 import inquirer from 'inquirer';
 import { exec } from 'child_process';
@@ -7,83 +8,139 @@ import { exec } from 'child_process';
 // 解决chalk设置样式没有生效。
 chalk.level = 1;
 
-export default () => {
-    inquirer.prompt([
+/**
+ * 判断项目名是否同名
+ * @param {string} packageName 项目名
+ * @returns {boolean}
+ */
+const checkSameName = async (packageName: string): Promise<boolean> => {
+    const appPath = fs.realpathSync(process.cwd());
+    const packagesPath = path.resolve(appPath, 'packages');
+    const dirInfo = fs.readdirSync(packagesPath);
+    let result: boolean = false;
+
+    for (const item of dirInfo) {
+        if (item === packageName) {
+            result = true;
+
+            break;
+        }
+    }
+
+    return result;
+};
+
+/**
+ * 创建项目文件夹
+ * @param {string} packageName 项目名
+ */
+const createFolder = async (packageName: string): Promise<void> => {
+    const appPath = fs.realpathSync(process.cwd());
+    const packagePath = path.resolve(appPath, 'packages', packageName);
+
+    console.log('packagePath', packagePath);
+
+    await fs.ensureDir(packagePath);
+};
+
+// 初始化
+export default async (): Promise<void> => {
+    const { name }: any = await inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: '请输入包名?',
+            message: '请输入项目名?',
             validate(answer) {
                 if ((/^\s+|\s+$/g).test(answer) || !(/^[a-z]+$/.test(answer))) {
-                    return '包名只能由小写英文字母组成';
+                    return '项目名只能由小写英文字母组成';
                 }
 
                 return true;
             }
+        }
+    ]);
+    
+    const answers: any = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'desc',
+            message: '请输入描述?',
+            default: name,
         },
         {
             type: 'input',
-            name: 'name',
-            message: '请输入包名?',
+            name: 'port',
+            message: '请输入端口号?',
             validate(answer) {
-                if ((/^\s+|\s+$/g).test(answer) || !(/^[a-z]+$/.test(answer))) {
-                    return '包名只能由小写英文字母组成';
+                if ((/^\s+|\s+$/g).test(answer) || !(/^[0-9]+$/.test(answer))) {
+                    return '端口号只能由数字组成';
                 }
 
                 return true;
             }
-        },
-        {
-            type: 'confirm',
-            name: 'all',
-            message: '选择项目启动方式?（y:指定, n:所有）',
-            default: true,
         },
         {
             type: 'confirm',
             name: 'confirm',
-            message: '确认启动？',
+            message: '确定初始化？',
             default: true,
-        },
-    ])
-    .then(answers => {
-        if (!answers.confirm) {
-            return;
         }
-        
-        console.log('answers', answers);
+    ]);
 
-        if (!answers.all) {
-            // const execStartAll = exec(scripts.start, { encoding: 'utf8' });
+    if (!answers.confirm) {
+        return;
+    }
 
-            // execStartAll.stdout.on('data', function (data) {
-            //   console.log(data);
-            // });
+    // 判断项目名是否同名
+    const isSame = await checkSameName(name);
 
-            // execStartAll.stderr.on('data', function (data) {
-            //   console.log(data);
-            // });
+    if (isSame) {
+        console.log('初始化失败，项目名重名');
 
-            // execStartAll.on('exit', function (code) {
-            //   console.log('child process exited with code ' + code);
-            // });
-        } else {
-            // for (let name of answers.project) {
-            //   const execStartSingle = exec(scripts['start:name'].replace('$name', name), { encoding: 'utf8' });
+        return;
+    }
 
-            //   execStartSingle.stdout.on('data', function (data) {
-            //     console.log(data);
-            //   });
+    // 创建文件夹
+    await createFolder(name);
 
-            //   execStartSingle.stderr.on('data', function (data) {
-            //     console.log(data);
-            //   });
+    // .then(answers => {
+    //     if (!answers.confirm) {
+    //         return;
+    //     }
 
-            //   execStartSingle.on('exit', function (code) {
-            //     console.log('child process exited with code ' + code);
-            //   });
-            // }
-        }
-    });
+    //     if (!answers.all) {
+    //         // const execStartAll = exec(scripts.start, { encoding: 'utf8' });
+
+    //         // execStartAll.stdout.on('data', function (data) {
+    //         //   console.log(data);
+    //         // });
+
+    //         // execStartAll.stderr.on('data', function (data) {
+    //         //   console.log(data);
+    //         // });
+
+    //         // execStartAll.on('exit', function (code) {
+    //         //   console.log('child process exited with code ' + code);
+    //         // });
+    //     } else {
+    //         // for (let name of answers.project) {
+    //         //   const execStartSingle = exec(scripts['start:name'].replace('$name', name), { encoding: 'utf8' });
+
+    //         //   execStartSingle.stdout.on('data', function (data) {
+    //         //     console.log(data);
+    //         //   });
+
+    //         //   execStartSingle.stderr.on('data', function (data) {
+    //         //     console.log(data);
+    //         //   });
+
+    //         //   execStartSingle.on('exit', function (code) {
+    //         //     console.log('child process exited with code ' + code);
+    //         //   });
+    //         // }
+    //     }
+    // });
+
+    // answers.name = name;
 }
 
