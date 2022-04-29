@@ -1,13 +1,13 @@
 {
-    "name": "@packages/name",
+    "name": "name",
     "version": "1.0.0",
     "description": "description",
     "type": "module",
     "main": "btg.config.js",
     "private": true,
     "scripts": {
-        "start": "start",
-        "build": "build",
+        "start": "mage start",
+        "build": "mage build",
         "update": "ncu -u"
     },
     "dependencies": {},

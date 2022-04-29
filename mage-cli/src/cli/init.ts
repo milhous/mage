@@ -5,42 +5,76 @@ import path from 'path';
 import inquirer from 'inquirer';
 import { exec } from 'child_process';
 
+import * as url from 'url';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
 // 解决chalk设置样式没有生效。
 chalk.level = 1;
 
 /**
  * 判断项目名是否同名
- * @param {string} packageName 项目名
+ * @param {string} name 项目名
  * @returns {boolean}
  */
-const checkSameName = async (packageName: string): Promise<boolean> => {
-    const appPath = fs.realpathSync(process.cwd());
-    const packagesPath = path.resolve(appPath, 'packages');
-    const dirInfo = fs.readdirSync(packagesPath);
+const checkSameName = async (name: string): Promise<boolean> => {
     let result: boolean = false;
 
+    const packagesPath = path.resolve(__dirname, '../../../packages');
+    const dirInfo = fs.readdirSync(packagesPath);
+
     for (const item of dirInfo) {
-        if (item === packageName) {
+        if (item === name) {
             result = true;
 
             break;
         }
     }
-
+    
     return result;
 };
 
 /**
- * 创建项目文件夹
- * @param {string} packageName 项目名
+ * 拷贝模板
+ * @param {string} name 名称
  */
-const createFolder = async (packageName: string): Promise<void> => {
-    const appPath = fs.realpathSync(process.cwd());
-    const packagePath = path.resolve(appPath, 'packages', packageName);
+const copyTemplete = async (name: string): Promise<void> => {
+    const templetePath = path.resolve(__dirname, '../../template');
+    const packagePath = path.resolve(__dirname, '../../../packages', name);
 
-    console.log('packagePath', packagePath);
+    // const appPath = fs.realpathSync(process.cwd());
+    // const templetePath = path.resolve(appPath, 'template');
+    // const packagePath = path.resolve(appPath, 'packages', packageName);
 
-    await fs.ensureDir(packagePath);
+    // console.log(appPath);
+
+    await fs.copy(templetePath, packagePath)
+};
+
+/**
+ * 修改模板
+ * @param {string} name 名称
+ * @param {string} desc 描述
+ * @param {string} port 端口号
+ */
+ const modifyTemplete = async (name: string, desc: string, port: string): Promise<void> => {
+    const packagePath = path.resolve(__dirname, '../../../packages', name);
+    
+    // 修改 package.json
+    const packageJsonFile = path.resolve(packagePath, 'package.json');
+    const packageJsonContent = await fs.readJSON(packageJsonFile);
+    
+    packageJsonContent.name = '@packages/' + name;
+    packageJsonContent.description = desc;
+
+    await fs.writeJSON(packageJsonFile, packageJsonContent);
+
+    // 修改 btg.config.js
+    const btgConfigFile = path.resolve(packagePath, 'btg.config.js');
+    const btgConfigContent = await fs.readFile(btgConfigFile, 'utf8');
+    const content = btgConfigContent.replace(`'{name}'`, `'${name}'`).replace(`'{port}'`, `${port}`);
+
+    await fs.writeFile(btgConfigFile, content);
 };
 
 // 初始化
@@ -60,7 +94,7 @@ export default async (): Promise<void> => {
         }
     ]);
     
-    const answers: any = await inquirer.prompt([
+    const { desc, port, confirm }: any = await inquirer.prompt([
         {
             type: 'input',
             name: 'desc',
@@ -87,7 +121,7 @@ export default async (): Promise<void> => {
         }
     ]);
 
-    if (!answers.confirm) {
+    if (!confirm) {
         return;
     }
 
@@ -100,47 +134,12 @@ export default async (): Promise<void> => {
         return;
     }
 
-    // 创建文件夹
-    await createFolder(name);
+    // 拷贝模板
+    await copyTemplete(name);
 
-    // .then(answers => {
-    //     if (!answers.confirm) {
-    //         return;
-    //     }
+    // 修改模板
+    await modifyTemplete(name, desc, port);
 
-    //     if (!answers.all) {
-    //         // const execStartAll = exec(scripts.start, { encoding: 'utf8' });
-
-    //         // execStartAll.stdout.on('data', function (data) {
-    //         //   console.log(data);
-    //         // });
-
-    //         // execStartAll.stderr.on('data', function (data) {
-    //         //   console.log(data);
-    //         // });
-
-    //         // execStartAll.on('exit', function (code) {
-    //         //   console.log('child process exited with code ' + code);
-    //         // });
-    //     } else {
-    //         // for (let name of answers.project) {
-    //         //   const execStartSingle = exec(scripts['start:name'].replace('$name', name), { encoding: 'utf8' });
-
-    //         //   execStartSingle.stdout.on('data', function (data) {
-    //         //     console.log(data);
-    //         //   });
-
-    //         //   execStartSingle.stderr.on('data', function (data) {
-    //         //     console.log(data);
-    //         //   });
-
-    //         //   execStartSingle.on('exit', function (code) {
-    //         //     console.log('child process exited with code ' + code);
-    //         //   });
-    //         // }
-    //     }
-    // });
-
-    // answers.name = name;
+    console.log('初始化完成');
 }
 

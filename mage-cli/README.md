@@ -65,3 +65,9 @@ yarn up
 
 // 单包安装
 yarn workspace @mage/cli add --dev webpack
+
+// Alternatives to \_\_dirname in Node.js with ES modules
+https://blog.logrocket.com/alternatives-dirname-node-js-es-modules/
+
+const **filename = url.fileURLToPath(import.meta.url);
+const **dirname = url.fileURLToPath(new URL('.', import.meta.url));
