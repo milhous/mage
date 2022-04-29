@@ -140,6 +140,16 @@ export default async (): Promise<void> => {
     // 修改模板
     await modifyTemplete(name, desc, port);
 
-    console.log('初始化完成');
+    console.log('初始化完成，开始安装依赖');
+
+    exec('yarn install', { encoding: 'utf8' }, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            
+            return;
+        }
+
+        console.log(`${stdout}`);
+    });
 }
 

@@ -143,6 +143,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@packages/aa@workspace:packages/aa":
+  version: 0.0.0-use.local
+  resolution: "@packages/aa@workspace:packages/aa"
+  dependencies:
+    "@types/react": "npm:^18"
+    react: "npm:^18.1.0"
+    react-dom: "npm:^18.1.0"
+  languageName: unknown
+  linkType: soft
+
 "@packages/activity@workspace:packages/activity":
   version: 0.0.0-use.local
   resolution: "@packages/activity@workspace:packages/activity"
@@ -155,6 +165,7 @@ __metadata:
   dependencies:
     "@types/react": "npm:^18"
     react: "npm:^18.1.0"
+    react-dom: "npm:^18.1.0"
   languageName: unknown
   linkType: soft
 
@@ -3671,6 +3682,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "react-dom@npm:18.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-dom%2F-%2Freact-dom-18.1.0.tgz"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.22.0"
+  peerDependencies:
+    react: ^18.1.0
+  checksum: b8fdbb33e5462064e8a923b58ba529490c25f8680e040acc18b295f200fa2179ba01e1c94779a84c1c2a1d87339057bf716b061e53bd76db25dbd5c5e5d2755e
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.1.0":
   version: 18.1.0
   resolution: "react@npm:18.1.0"
@@ -3853,6 +3876,15 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: d4199666e9e792968c0b88c2c35dd400f56d3eecb9affbcf5207922822eadf30cc06995bae3c5d0a653851bbd40fc0af578bf046bbf734199ce22433ba4da659
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.22.0":
+  version: 0.22.0
+  resolution: "scheduler@npm:0.22.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fscheduler%2F-%2Fscheduler-0.22.0.tgz"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: de5e75075cf8de38e0dc0e04f834a4ac67e75481b72cacd56f57aff26bc4e4db46cc8388f646b25a39d32dde97780a13cc63f4e4727d61a496d49c639c8e527c
   languageName: node
   linkType: hard
 

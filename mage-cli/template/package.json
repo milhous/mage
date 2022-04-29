@@ -11,5 +11,9 @@
         "update": "ncu -u"
     },
     "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {
+        "@types/react": "^18",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0"
+    }
 }

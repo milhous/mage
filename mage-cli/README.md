@@ -71,3 +71,5 @@ https://blog.logrocket.com/alternatives-dirname-node-js-es-modules/
 
 const **filename = url.fileURLToPath(import.meta.url);
 const **dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+// yarn workspace @packages/home add -i --dev react react-dom
