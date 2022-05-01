@@ -1,0 +1,11 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+      "paths": {
+        "@libs/*": ["./packages/libraries/*"],
+        "@ui/*": ["./packages/ui/src/*"],
+        "@/*": ["./packages/referral/src/*"]
+      }
+    },
+    "include": ["../../packages", "../../cli/types/*.d.ts"]
+  }
