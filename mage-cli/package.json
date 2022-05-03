@@ -14,6 +14,8 @@
         "update": "ncu -u"
     },
     "devDependencies": {
+        "autoprefixer": "^10.4.7",
+        "browserslist": "^4.20.3",
         "css-loader": "^6.7.1",
         "css-minimizer-webpack-plugin": "^3.4.1",
         "less": "^4.1.2",
@@ -22,7 +24,8 @@
         "mini-svg-data-uri": "^1.4.4",
         "postcss": "^8.4.13",
         "postcss-loader": "^6.2.1",
-        "postcss-plugin-px2rem": "^0.8.1",
+        "postcss-normalize": "^10.0.1",
+        "postcss-pxtorem": "^6.0.0",
         "style-loader": "^3.3.1",
         "svgo": "^2.8.0",
         "svgo-loader": "^3.0.0",
@@ -39,6 +42,6 @@
         "commander": "^9.2.0",
         "fs-extra": "^10.1.0",
         "rimraf": "^3.0.2",
-        "typescript": "^4.6.3"
+        "typescript": "^4.6.4"
     }
 }
