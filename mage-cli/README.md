@@ -73,3 +73,6 @@ const **filename = url.fileURLToPath(import.meta.url);
 const **dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 // yarn workspace @packages/home add -i --dev react react-dom
+
+// Could not find a declaration file for module 'postcss-pxtorem'
+"compilerOptions" => "noImplicitAny": false

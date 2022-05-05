@@ -20,7 +20,6 @@ export default (args: any) => {
               '.svga',
             ],
             alias: {},
-          },
-        }
+        },
     };
 };
