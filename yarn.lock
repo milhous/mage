@@ -57,6 +57,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mage/cli@workspace:mage-cli"
   dependencies:
+    "@swc/core": "npm:^1.2.177"
     "@types/chalk": "npm:^2.2.0"
     "@types/fs-extra": "npm:^9.0.13"
     "@types/inquirer": "npm:^8.2.1"
@@ -80,10 +81,12 @@ __metadata:
     style-loader: "npm:^3.3.1"
     svgo: "npm:^2.8.0"
     svgo-loader: "npm:^3.0.0"
+    swc-loader: "npm:^0.2.0"
     typescript: "npm:^4.6.4"
     webpack: "npm:^5.72.0"
     webpack-dev-server: "npm:^4.8.1"
     webpack-merge: "npm:^5.8.0"
+    worker-loader: "npm:^3.0.8"
   bin:
     mage: ./bin/mage.js
   languageName: unknown
@@ -235,6 +238,147 @@ __metadata:
   version: 0.14.0
   resolution: "@sindresorhus/is@npm:0.14.0"
   checksum: e1bdaa32fb78c4c018dfc03f642635b417e4022817fb373997731942bc06c6b62b9be7270da4fc6ba19071af7cb724d7ceb1ede13166ff737a86b299ae83c361
+  languageName: node
+  linkType: hard
+
+"@swc/core-android-arm-eabi@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-android-arm-eabi@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-android-arm-eabi%2F-%2Fcore-android-arm-eabi-1.2.177.tgz"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-android-arm64@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-android-arm64@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-android-arm64%2F-%2Fcore-android-arm64-1.2.177.tgz"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-arm64@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-darwin-arm64@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-darwin-arm64%2F-%2Fcore-darwin-arm64-1.2.177.tgz"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-darwin-x64@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-darwin-x64%2F-%2Fcore-darwin-x64-1.2.177.tgz"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-freebsd-x64@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-freebsd-x64@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-freebsd-x64%2F-%2Fcore-freebsd-x64-1.2.177.tgz"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm-gnueabihf%2F-%2Fcore-linux-arm-gnueabihf-1.2.177.tgz"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm64-gnu%2F-%2Fcore-linux-arm64-gnu-1.2.177.tgz"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-linux-arm64-musl@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm64-musl%2F-%2Fcore-linux-arm64-musl-1.2.177.tgz"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-linux-x64-gnu@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-x64-gnu%2F-%2Fcore-linux-x64-gnu-1.2.177.tgz"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-linux-x64-musl@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-x64-musl%2F-%2Fcore-linux-x64-musl-1.2.177.tgz"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-arm64-msvc%2F-%2Fcore-win32-arm64-msvc-1.2.177.tgz"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-ia32-msvc%2F-%2Fcore-win32-ia32-msvc-1.2.177.tgz"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core-win32-x64-msvc@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-x64-msvc%2F-%2Fcore-win32-x64-msvc-1.2.177.tgz"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:^1.2.177":
+  version: 1.2.177
+  resolution: "@swc/core@npm:1.2.177::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore%2F-%2Fcore-1.2.177.tgz"
+  dependencies:
+    "@swc/core-android-arm-eabi": "npm:1.2.177"
+    "@swc/core-android-arm64": "npm:1.2.177"
+    "@swc/core-darwin-arm64": "npm:1.2.177"
+    "@swc/core-darwin-x64": "npm:1.2.177"
+    "@swc/core-freebsd-x64": "npm:1.2.177"
+    "@swc/core-linux-arm-gnueabihf": "npm:1.2.177"
+    "@swc/core-linux-arm64-gnu": "npm:1.2.177"
+    "@swc/core-linux-arm64-musl": "npm:1.2.177"
+    "@swc/core-linux-x64-gnu": "npm:1.2.177"
+    "@swc/core-linux-x64-musl": "npm:1.2.177"
+    "@swc/core-win32-arm64-msvc": "npm:1.2.177"
+    "@swc/core-win32-ia32-msvc": "npm:1.2.177"
+    "@swc/core-win32-x64-msvc": "npm:1.2.177"
+  dependenciesMeta:
+    "@swc/core-android-arm-eabi":
+      optional: true
+    "@swc/core-android-arm64":
+      optional: true
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-freebsd-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  bin:
+    swcx: run_swcx.js
+  checksum: 4526991e6c5cac61bf86c8d46d090c2e4b0d6555be8ee95efa93605b41459c2b163a8dd4e3f833edd0b7653fb7ec0a77f16faad8809cdbbd0c827182f5a09051
   languageName: node
   linkType: hard
 
@@ -3354,6 +3498,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loader-utils@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "loader-utils@npm:2.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Floader-utils%2F-%2Floader-utils-2.0.2.tgz"
+  dependencies:
+    big.js: "npm:^5.2.2"
+    emojis-list: "npm:^3.0.0"
+    json5: "npm:^2.1.2"
+  checksum: ccb4bf2d75ed9689688b93934e6659c2846b2de5e2c9a6e7e71b2b6863e54ba5c7e285a5c9936ad93b87a7a3323dc46380266858cbff3ae757f3a20611092304
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^3.0.0":
   version: 3.0.0
   resolution: "locate-path@npm:3.0.0"
@@ -5155,6 +5310,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"schema-utils@npm:^3.0.0":
+  version: 3.1.1
+  resolution: "schema-utils@npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fschema-utils%2F-%2Fschema-utils-3.1.1.tgz"
+  dependencies:
+    "@types/json-schema": "npm:^7.0.8"
+    ajv: "npm:^6.12.5"
+    ajv-keywords: "npm:^3.5.2"
+  checksum: f33eda6fc4def7012a3169cd97cd41b2fc0cc26219c456bbc3f49265bc00eec7d044484cfba330c20692091931901a2381a7f21c7e1f48c3106ff3dcef353bf9
+  languageName: node
+  linkType: hard
+
 "schema-utils@npm:^3.1.0, schema-utils@npm:^3.1.1":
   version: 3.1.1
   resolution: "schema-utils@npm:3.1.1"
@@ -5676,6 +5842,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swc-loader@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "swc-loader@npm:0.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswc-loader%2F-%2Fswc-loader-0.2.0.tgz"
+  peerDependencies:
+    "@swc/core": ^1.2.147
+    webpack: ">=2"
+  checksum: 60f81708c8e309faa1c98aa8a52da8d88ee81151b10f51b5985aed38a01bd4afd102597f87b9278bfcd2c2f0518cfe68403d9ccdde91e96066cc7bbf5979dc50
+  languageName: node
+  linkType: hard
+
 "tapable@npm:^2.1.1, tapable@npm:^2.2.0":
   version: 2.2.1
   resolution: "tapable@npm:2.2.1"
@@ -6143,6 +6319,18 @@ __metadata:
   version: 2.0.0
   resolution: "wildcard@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fwildcard%2F-%2Fwildcard-2.0.0.tgz"
   checksum: 3525725c42b61460155bdb346258c59229a6c6606e6349df5878f180986174ce5218fcb1095291e6c284cdf4c03b6841c477d1fc1fadb2f1fab61fa19ce8e575
+  languageName: node
+  linkType: hard
+
+"worker-loader@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "worker-loader@npm:3.0.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fworker-loader%2F-%2Fworker-loader-3.0.8.tgz"
+  dependencies:
+    loader-utils: "npm:^2.0.0"
+    schema-utils: "npm:^3.0.0"
+  peerDependencies:
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: 5fb5ec6ace3613250d1ee0510728f5c54f2f935f822ecf4b73521847a13705891c652e7ddc3208fb72df4a7ff62a4a0608588dd3054f87a9358e66e51c33e613
   languageName: node
   linkType: hard
 

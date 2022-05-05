@@ -72,7 +72,9 @@ const getPostcssLoaderConfig = (isDev: boolean = true) => {
                         minPixelValue: 2,
                         exclude: /node_modules/i,
                     }),
-                    postcssNormalize()
+                    postcssNormalize({
+                        browsers: browserslist.join(',')
+                    })
                 ]
             },
         },
@@ -86,7 +88,9 @@ const getLessLoaderConfig = (isModules: boolean = false) => {
         : {
             loader: 'less-loader',
             options: {
-                lessOptions: {javascriptEnabled: true},
+                lessOptions: {
+                    javascriptEnabled: true
+                },
             },
         }
 }
