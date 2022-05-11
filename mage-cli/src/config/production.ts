@@ -1,4 +1,6 @@
 // 生产
 export default (args: any) => {
-    return {};
+    return {
+        mode: 'production',
+    };
 };

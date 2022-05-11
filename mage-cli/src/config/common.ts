@@ -1,6 +1,7 @@
 // 通用
 export default (args: any) => {
     return {
+        target: 'web',
         resolve: {
             modules: ['node_modules'],
             extensions: [

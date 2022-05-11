@@ -1,5 +1,18 @@
 // 模块
 export default (args: any) => {
+    const { isDev } = args;
+    const browserslist = isDev ? [
+        'last 1 chrome version',
+        'last 1 firefox version',
+        'last 1 safari version',
+        'last 1 ie version'
+    ] : [
+        'last 1 version',
+        '> 1%',
+        'maintained node versions',
+        'not dead'
+    ];
+
     return {
         module: {
             rules: [{
@@ -10,11 +23,18 @@ export default (args: any) => {
                     options: {
                         // This makes swc-loader invoke swc synchronously.
                         sync: true,
+                        env: {
+                            targets: browserslist.join(',')
+                        },
                         jsc: {
-                            parser: {
-                                syntax: "typescript"
-                            }
-                        }
+                            transform: {
+                                react: {
+                                    runtime: 'automatic',
+                                    development: isDev,
+                                    refresh: isDev,
+                                },
+                            },
+                        },
                     }
                 }
             }]

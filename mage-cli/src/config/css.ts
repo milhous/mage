@@ -1,4 +1,4 @@
-import miniCssExtractPlugin from 'mini-css-extract-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import postcssPxtorem from 'postcss-pxtorem';
@@ -18,7 +18,7 @@ const getStyleLoaderConfig = (isDev: boolean = true) => {
             options: {},
         }
         : {
-            loader: miniCssExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader,
             options: {
                 publicPath: '',
             },
@@ -28,6 +28,7 @@ const getStyleLoaderConfig = (isDev: boolean = true) => {
 // 获取 css-loader 配置
 const getCssLoaderConfig = (isDev: boolean = true, isModules: boolean = false) => {
     const localIdentName = isDev ? '[path][name]-[local]-[hash:base64:5]' : '[local]-[hash:base64:5]';
+    
     return {
         loader: 'css-loader',
         options: {
@@ -84,7 +85,7 @@ const getPostcssLoaderConfig = (isDev: boolean = true) => {
 // 获取 less-loader 配置
 const getLessLoaderConfig = (isModules: boolean = false) => {
     return isModules
-        ? {loader: 'less-loader'}
+        ? { loader: 'less-loader' }
         : {
             loader: 'less-loader',
             options: {
