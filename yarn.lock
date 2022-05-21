@@ -58,28 +58,26 @@ __metadata:
   resolution: "@mage/cli@workspace:mage-cli"
   dependencies:
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.6"
-    "@swc/core": "npm:^1.2.182"
+    "@swc/core": "npm:^1.2.187"
     "@types/chalk": "npm:^2.2.0"
     "@types/fs-extra": "npm:^9.0.13"
     "@types/inquirer": "npm:^8.2.1"
     "@types/rimraf": "npm:^3"
-    "@types/webpack": "npm:^5.28.0"
-    "@types/webpack-dev-server": "npm:^4.7.2"
     autoprefixer: "npm:^10.4.7"
     browserslist: "npm:^4.20.3"
     chalk: "npm:^5.0.1"
     commander: "npm:^9.2.0"
     css-loader: "npm:^6.7.1"
-    css-minimizer-webpack-plugin: "npm:^3.4.1"
+    css-minimizer-webpack-plugin: "npm:^4.0.0"
     fork-ts-checker-webpack-plugin: "npm:^7.2.11"
     fs-extra: "npm:^10.1.0"
     html-webpack-plugin: "npm:^5.5.0"
     less: "npm:^4.1.2"
-    less-loader: "npm:^10.2.0"
+    less-loader: "npm:^11.0.0"
     mini-css-extract-plugin: "npm:^2.6.0"
     mini-svg-data-uri: "npm:^1.4.4"
-    postcss: "npm:^8.4.13"
-    postcss-loader: "npm:^6.2.1"
+    postcss: "npm:^8.4.14"
+    postcss-loader: "npm:^7.0.0"
     postcss-normalize: "npm:^10.0.1"
     postcss-pxtorem: "npm:^6.0.0"
     react-refresh: "npm:^0.13.0"
@@ -87,7 +85,7 @@ __metadata:
     style-loader: "npm:^3.3.1"
     svgo: "npm:^2.8.0"
     svgo-loader: "npm:^3.0.0"
-    swc-loader: "npm:^0.2.0"
+    swc-loader: "npm:^0.2.1"
     typescript: "npm:^4.6.4"
     webpack: "npm:^5.72.1"
     webpack-bundle-analyzer: "npm:^4.5.0"
@@ -215,7 +213,7 @@ __metadata:
   resolution: "@packages/home@workspace:packages/home"
   dependencies:
     "@types/react": "npm:^18"
-    "@types/react-dom": "npm:^18.0.3"
+    "@types/react-dom": "npm:^18.0.4"
     react: "npm:^18.1.0"
     react-dom: "npm:^18.1.0"
   languageName: unknown
@@ -224,6 +222,17 @@ __metadata:
 "@packages/points@workspace:packages/points":
   version: 0.0.0-use.local
   resolution: "@packages/points@workspace:packages/points"
+  languageName: unknown
+  linkType: soft
+
+"@packages/staking@workspace:packages/staking":
+  version: 0.0.0-use.local
+  resolution: "@packages/staking@workspace:packages/staking"
+  dependencies:
+    "@types/react": "npm:^18"
+    "@types/react-dom": "npm:^18.0.4"
+    react: "npm:^18.1.0"
+    react-dom: "npm:^18.1.0"
   languageName: unknown
   linkType: soft
 
@@ -295,114 +304,114 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-android-arm-eabi@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-android-arm-eabi@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-android-arm-eabi%2F-%2Fcore-android-arm-eabi-1.2.182.tgz"
+"@swc/core-android-arm-eabi@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-android-arm-eabi@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-android-arm-eabi%2F-%2Fcore-android-arm-eabi-1.2.187.tgz"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-android-arm64@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-android-arm64@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-android-arm64%2F-%2Fcore-android-arm64-1.2.182.tgz"
+"@swc/core-android-arm64@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-android-arm64@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-android-arm64%2F-%2Fcore-android-arm64-1.2.187.tgz"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-darwin-arm64@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-darwin-arm64%2F-%2Fcore-darwin-arm64-1.2.182.tgz"
+"@swc/core-darwin-arm64@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-darwin-arm64@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-darwin-arm64%2F-%2Fcore-darwin-arm64-1.2.187.tgz"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-darwin-x64@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-darwin-x64%2F-%2Fcore-darwin-x64-1.2.182.tgz"
+"@swc/core-darwin-x64@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-darwin-x64@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-darwin-x64%2F-%2Fcore-darwin-x64-1.2.187.tgz"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-freebsd-x64@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-freebsd-x64@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-freebsd-x64%2F-%2Fcore-freebsd-x64-1.2.182.tgz"
+"@swc/core-freebsd-x64@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-freebsd-x64@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-freebsd-x64%2F-%2Fcore-freebsd-x64-1.2.187.tgz"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm-gnueabihf%2F-%2Fcore-linux-arm-gnueabihf-1.2.182.tgz"
+"@swc/core-linux-arm-gnueabihf@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm-gnueabihf%2F-%2Fcore-linux-arm-gnueabihf-1.2.187.tgz"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm64-gnu%2F-%2Fcore-linux-arm64-gnu-1.2.182.tgz"
+"@swc/core-linux-arm64-gnu@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm64-gnu%2F-%2Fcore-linux-arm64-gnu-1.2.187.tgz"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-linux-arm64-musl@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm64-musl%2F-%2Fcore-linux-arm64-musl-1.2.182.tgz"
+"@swc/core-linux-arm64-musl@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-linux-arm64-musl@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-arm64-musl%2F-%2Fcore-linux-arm64-musl-1.2.187.tgz"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-linux-x64-gnu@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-x64-gnu%2F-%2Fcore-linux-x64-gnu-1.2.182.tgz"
+"@swc/core-linux-x64-gnu@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-linux-x64-gnu@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-x64-gnu%2F-%2Fcore-linux-x64-gnu-1.2.187.tgz"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-linux-x64-musl@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-x64-musl%2F-%2Fcore-linux-x64-musl-1.2.182.tgz"
+"@swc/core-linux-x64-musl@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-linux-x64-musl@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-linux-x64-musl%2F-%2Fcore-linux-x64-musl-1.2.187.tgz"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-arm64-msvc%2F-%2Fcore-win32-arm64-msvc-1.2.182.tgz"
+"@swc/core-win32-arm64-msvc@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-arm64-msvc%2F-%2Fcore-win32-arm64-msvc-1.2.187.tgz"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-ia32-msvc%2F-%2Fcore-win32-ia32-msvc-1.2.182.tgz"
+"@swc/core-win32-ia32-msvc@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-ia32-msvc%2F-%2Fcore-win32-ia32-msvc-1.2.187.tgz"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core-win32-x64-msvc@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-x64-msvc%2F-%2Fcore-win32-x64-msvc-1.2.182.tgz"
+"@swc/core-win32-x64-msvc@npm:1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core-win32-x64-msvc@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore-win32-x64-msvc%2F-%2Fcore-win32-x64-msvc-1.2.187.tgz"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.2.182":
-  version: 1.2.182
-  resolution: "@swc/core@npm:1.2.182::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore%2F-%2Fcore-1.2.182.tgz"
+"@swc/core@npm:^1.2.187":
+  version: 1.2.187
+  resolution: "@swc/core@npm:1.2.187::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40swc%2Fcore%2F-%2Fcore-1.2.187.tgz"
   dependencies:
-    "@swc/core-android-arm-eabi": "npm:1.2.182"
-    "@swc/core-android-arm64": "npm:1.2.182"
-    "@swc/core-darwin-arm64": "npm:1.2.182"
-    "@swc/core-darwin-x64": "npm:1.2.182"
-    "@swc/core-freebsd-x64": "npm:1.2.182"
-    "@swc/core-linux-arm-gnueabihf": "npm:1.2.182"
-    "@swc/core-linux-arm64-gnu": "npm:1.2.182"
-    "@swc/core-linux-arm64-musl": "npm:1.2.182"
-    "@swc/core-linux-x64-gnu": "npm:1.2.182"
-    "@swc/core-linux-x64-musl": "npm:1.2.182"
-    "@swc/core-win32-arm64-msvc": "npm:1.2.182"
-    "@swc/core-win32-ia32-msvc": "npm:1.2.182"
-    "@swc/core-win32-x64-msvc": "npm:1.2.182"
+    "@swc/core-android-arm-eabi": "npm:1.2.187"
+    "@swc/core-android-arm64": "npm:1.2.187"
+    "@swc/core-darwin-arm64": "npm:1.2.187"
+    "@swc/core-darwin-x64": "npm:1.2.187"
+    "@swc/core-freebsd-x64": "npm:1.2.187"
+    "@swc/core-linux-arm-gnueabihf": "npm:1.2.187"
+    "@swc/core-linux-arm64-gnu": "npm:1.2.187"
+    "@swc/core-linux-arm64-musl": "npm:1.2.187"
+    "@swc/core-linux-x64-gnu": "npm:1.2.187"
+    "@swc/core-linux-x64-musl": "npm:1.2.187"
+    "@swc/core-win32-arm64-msvc": "npm:1.2.187"
+    "@swc/core-win32-ia32-msvc": "npm:1.2.187"
+    "@swc/core-win32-x64-msvc": "npm:1.2.187"
   dependenciesMeta:
     "@swc/core-android-arm-eabi":
       optional: true
@@ -432,7 +441,7 @@ __metadata:
       optional: true
   bin:
     swcx: run_swcx.js
-  checksum: 50bfdaccb07e161e9c14146d0d55a819346a00d15bc0a36740a806710e322ae1eee5dc9132b411537caa3636ab88b3448d4971f11ebef9356e41b5ddb91b1c09
+  checksum: bc85b30ac00533f2fc5404d5ec510c6859704df25c64a98cd0463cfc1fd00b0988f95236a896a03a02aa124e4edd0bd431ef93d3aed4f40e40969dff3124561b
   languageName: node
   linkType: hard
 
@@ -666,12 +675,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.3":
-  version: 18.0.3
-  resolution: "@types/react-dom@npm:18.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2F-%2Freact-dom-18.0.3.tgz"
+"@types/react-dom@npm:^18.0.4":
+  version: 18.0.4
+  resolution: "@types/react-dom@npm:18.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2F-%2Freact-dom-18.0.4.tgz"
   dependencies:
     "@types/react": "npm:*"
-  checksum: a5a4029aa6646ecb6dc33acedebe781bd281eee7a73e9d706aaefb721b1aae5b57275ca30c40698666970c71ccedb571d1d0857e288ed146f587b7e1d31fcbba
+  checksum: 72e54014afe46d1efbaf6b518ea51e6ca1feb18fe537829f45110af53441a2ba2e3fd81207a49d8724fd68e37f57cbbc717386b655d492f8a1c6404deaa02f6f
   languageName: node
   linkType: hard
 
@@ -764,26 +773,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 0aded384fa021481c050499bfaccecc7ef0c81b62fb7779c397ffe7468f39eebf6617e2a553dee835ebd15fd03db86cecfdaf051af0ce510d9edb8e21639947b
-  languageName: node
-  linkType: hard
-
-"@types/webpack-dev-server@npm:^4.7.2":
-  version: 4.7.2
-  resolution: "@types/webpack-dev-server@npm:4.7.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fwebpack-dev-server%2F-%2Fwebpack-dev-server-4.7.2.tgz"
-  dependencies:
-    webpack-dev-server: "npm:*"
-  checksum: 0071d9bbf2bed626f297b1a6ecef553cb6ae4166e2e92cd212f7626bf9d7db3866eaa35f1a80ff1f66b8bd63affe0f7e148deb1a5e72db6f8276ae28864a9a22
-  languageName: node
-  linkType: hard
-
-"@types/webpack@npm:^5.28.0":
-  version: 5.28.0
-  resolution: "@types/webpack@npm:5.28.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fwebpack%2F-%2Fwebpack-5.28.0.tgz"
-  dependencies:
-    "@types/node": "npm:*"
-    tapable: "npm:^2.2.0"
-    webpack: "npm:^5"
-  checksum: f88a0aa34fbd4e56f0badde8d667e342d8c43d1627f9d58b4d2d52a50ebbd7a5059184e7b3e68e9d84bc3566b63d63b1b71b38b1847f95070371a3cc3b616ea1
   languageName: node
   linkType: hard
 
@@ -1889,13 +1878,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-minimizer-webpack-plugin@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "css-minimizer-webpack-plugin@npm:3.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcss-minimizer-webpack-plugin%2F-%2Fcss-minimizer-webpack-plugin-3.4.1.tgz"
+"css-minimizer-webpack-plugin@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "css-minimizer-webpack-plugin@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcss-minimizer-webpack-plugin%2F-%2Fcss-minimizer-webpack-plugin-4.0.0.tgz"
   dependencies:
-    cssnano: "npm:^5.0.6"
-    jest-worker: "npm:^27.0.2"
-    postcss: "npm:^8.3.5"
+    cssnano: "npm:^5.1.8"
+    jest-worker: "npm:^27.5.1"
+    postcss: "npm:^8.4.13"
     schema-utils: "npm:^4.0.0"
     serialize-javascript: "npm:^6.0.0"
     source-map: "npm:^0.6.1"
@@ -1910,7 +1899,7 @@ __metadata:
       optional: true
     esbuild:
       optional: true
-  checksum: 2a6dde0365f50c6183c1dcb971d6f3a6c79a5c50668e0f29ee9dca7bf2208ef7d20aafaea6456ae2a69e763e81b7244d6af177a71cb2c9bad42fe3709e0974c8
+  checksum: d282910535f6a4125886fa45cdcec8eceba6fb2007707c80ddc8ded8fe0ffee135dfa8aea189aa6d7607348c76e89b93c05506f1471ac0fc4b90aaaf99c6e10c
   languageName: node
   linkType: hard
 
@@ -1953,15 +1942,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano-preset-default@npm:^5.2.7":
-  version: 5.2.7
-  resolution: "cssnano-preset-default@npm:5.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcssnano-preset-default%2F-%2Fcssnano-preset-default-5.2.7.tgz"
+"cssnano-preset-default@npm:^5.2.8":
+  version: 5.2.8
+  resolution: "cssnano-preset-default@npm:5.2.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcssnano-preset-default%2F-%2Fcssnano-preset-default-5.2.8.tgz"
   dependencies:
     css-declaration-sorter: "npm:^6.2.2"
     cssnano-utils: "npm:^3.1.0"
     postcss-calc: "npm:^8.2.3"
     postcss-colormin: "npm:^5.3.0"
-    postcss-convert-values: "npm:^5.1.0"
+    postcss-convert-values: "npm:^5.1.1"
     postcss-discard-comments: "npm:^5.1.1"
     postcss-discard-duplicates: "npm:^5.1.0"
     postcss-discard-empty: "npm:^5.1.1"
@@ -1970,7 +1959,7 @@ __metadata:
     postcss-merge-rules: "npm:^5.1.1"
     postcss-minify-font-values: "npm:^5.1.0"
     postcss-minify-gradients: "npm:^5.1.1"
-    postcss-minify-params: "npm:^5.1.2"
+    postcss-minify-params: "npm:^5.1.3"
     postcss-minify-selectors: "npm:^5.2.0"
     postcss-normalize-charset: "npm:^5.1.0"
     postcss-normalize-display-values: "npm:^5.1.0"
@@ -1988,7 +1977,7 @@ __metadata:
     postcss-unique-selectors: "npm:^5.1.1"
   peerDependencies:
     postcss: ^8.2.15
-  checksum: cd4bc2c25758ae85b761b0f8d910842854f041e7e3c45f4027cf64adf4bf0422a370f8e96115fd38dc95f025a08f4acef60d891662cb384673f7706ddea598ba
+  checksum: 237cac7510cdda12a8a4d4c1837cfe6068ae55e2b25e5bcb7fd0531d4921a743bd861b4b92c0fc2f8a7a4f1476594661afac3141720cb5321ef4d85837dce330
   languageName: node
   linkType: hard
 
@@ -2001,16 +1990,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano@npm:^5.0.6":
-  version: 5.1.7
-  resolution: "cssnano@npm:5.1.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcssnano%2F-%2Fcssnano-5.1.7.tgz"
+"cssnano@npm:^5.1.8":
+  version: 5.1.8
+  resolution: "cssnano@npm:5.1.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcssnano%2F-%2Fcssnano-5.1.8.tgz"
   dependencies:
-    cssnano-preset-default: "npm:^5.2.7"
+    cssnano-preset-default: "npm:^5.2.8"
     lilconfig: "npm:^2.0.3"
     yaml: "npm:^1.10.2"
   peerDependencies:
     postcss: ^8.2.15
-  checksum: 53cf9d6c7523461ed54b79f74146c3d8e230bd1d72adf2ce2d2ffa9155e7444085c0ae8b86ee93fa7085f580639c23705b44aab5b8c77df0c0541df9753f362c
+  checksum: 83dc34a49967f0204c2d71efc95c884f8f28941d77e2d21dbe65c0cf3a1182406dff2566263643f8f4cafb128d6000e41dafcc73b8e94b59b3f49d3bba732ab3
   languageName: node
   linkType: hard
 
@@ -3508,9 +3497,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^27.0.2":
+"jest-worker@npm:^27.4.5":
   version: 27.5.1
-  resolution: "jest-worker@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjest-worker%2F-%2Fjest-worker-27.5.1.tgz"
+  resolution: "jest-worker@npm:27.5.1"
   dependencies:
     "@types/node": "npm:*"
     merge-stream: "npm:^2.0.0"
@@ -3519,9 +3508,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^27.4.5":
+"jest-worker@npm:^27.5.1":
   version: 27.5.1
-  resolution: "jest-worker@npm:27.5.1"
+  resolution: "jest-worker@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjest-worker%2F-%2Fjest-worker-27.5.1.tgz"
   dependencies:
     "@types/node": "npm:*"
     merge-stream: "npm:^2.0.0"
@@ -3685,15 +3674,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less-loader@npm:^10.2.0":
-  version: 10.2.0
-  resolution: "less-loader@npm:10.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fless-loader%2F-%2Fless-loader-10.2.0.tgz"
+"less-loader@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "less-loader@npm:11.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fless-loader%2F-%2Fless-loader-11.0.0.tgz"
   dependencies:
     klona: "npm:^2.0.4"
   peerDependencies:
     less: ^3.5.0 || ^4.0.0
     webpack: ^5.0.0
-  checksum: 0adf5f19e2c0b5f0ec56bda5e879b60af4c3aca4ee3afb10bb5a024e45d83d6e70cea7f8a8d5b417aadf18fc2ab28fc8474c4bdec317f0a59eb2bedea4404dc3
+  checksum: 1b29ce60d44fa6a0050840823ada6e4964bf1935b26e3b1672876b36fe8fef7d7b940b7d60d0c87cca881443ad45f2edd4e4e9f9bf773758b13b52c832cb3d6f
   languageName: node
   linkType: hard
 
@@ -4237,6 +4226,15 @@ __metadata:
   bin:
     nanoid: bin/nanoid.cjs
   checksum: c87b8384f305756695669e409ec54d5f2f2862f5cb5b138c8f539bbae102619a8e523cb074a24e6b501924d375fc80f860a5ce8fa566e3e5cee08f1f2d98bf30
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^3.3.4":
+  version: 3.3.4
+  resolution: "nanoid@npm:3.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnanoid%2F-%2Fnanoid-3.3.4.tgz"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 53d605377c76614170df4b5a8d3fa21f13c7077453a77e2393a9fe3df5722022f6b94a671f406b51f81e9c937a6928555c1589e3c46a0d9d29f31872d1362246
   languageName: node
   linkType: hard
 
@@ -4852,14 +4850,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-convert-values@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "postcss-convert-values@npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-convert-values%2F-%2Fpostcss-convert-values-5.1.0.tgz"
+"postcss-convert-values@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "postcss-convert-values@npm:5.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-convert-values%2F-%2Fpostcss-convert-values-5.1.1.tgz"
   dependencies:
+    browserslist: "npm:^4.20.3"
     postcss-value-parser: "npm:^4.2.0"
   peerDependencies:
     postcss: ^8.2.15
-  checksum: 813578f9e61e48f086e876c91f220ca4600fcfb00386e815845679a51847e897f0b0944a5fc261ffe62ed45c2026e0864553ddd03a976bcfd026324684f54751
+  checksum: ca7601282f5e9043d6e1be92a3c79df20dce589909fe7fd5196d3d7a59c1abe80dabcabc543d9b57b7b718d40a331bfc16105e3c2a1b39ec87f24c382cd83c14
   languageName: node
   linkType: hard
 
@@ -4899,17 +4898,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "postcss-loader@npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-loader%2F-%2Fpostcss-loader-6.2.1.tgz"
+"postcss-loader@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "postcss-loader@npm:7.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-loader%2F-%2Fpostcss-loader-7.0.0.tgz"
   dependencies:
     cosmiconfig: "npm:^7.0.0"
     klona: "npm:^2.0.5"
-    semver: "npm:^7.3.5"
+    semver: "npm:^7.3.7"
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^5.0.0
-  checksum: 073f009ed4fc11c4795d9ba47ee453201e1b147c3391ca69db13f1b67dc4db23911387ae3e6715b12a099184c6bc5c1de42e6471be9817c43763e9a5f3b4fab7
+  checksum: 0ebc9df2a5f742157a94521301cede5954eb189bc4dcf201de341fcc377e141677fb362061d2bb135ecf43b0bd0e6903d5cd98cf62f78e37e079c58ce51d75f8
   languageName: node
   linkType: hard
 
@@ -4963,16 +4962,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-minify-params@npm:^5.1.2":
-  version: 5.1.2
-  resolution: "postcss-minify-params@npm:5.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-minify-params%2F-%2Fpostcss-minify-params-5.1.2.tgz"
+"postcss-minify-params@npm:^5.1.3":
+  version: 5.1.3
+  resolution: "postcss-minify-params@npm:5.1.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-minify-params%2F-%2Fpostcss-minify-params-5.1.3.tgz"
   dependencies:
     browserslist: "npm:^4.16.6"
     cssnano-utils: "npm:^3.1.0"
     postcss-value-parser: "npm:^4.2.0"
   peerDependencies:
     postcss: ^8.2.15
-  checksum: 53402f8cf6cc50cb960e801ac1b84bd0dc648f711d521feef41e03e25f00c1ac6e107718725ddac17df2562cf615ceed60808808a8b34c6197a5f467b87c74f4
+  checksum: 142eb73bb9afd7720e45dbdb1c1b9ca15c6414e352ffe2441aa338f704710a3264dbe2273cc80eb5318d1cab4f3e90388cc7c0dd0768e89e091ff4c2fd88dde3
   languageName: node
   linkType: hard
 
@@ -5228,7 +5227,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.5, postcss@npm:^8.4.13, postcss@npm:^8.4.7":
+"postcss@npm:^8.4.13, postcss@npm:^8.4.7":
   version: 8.4.13
   resolution: "postcss@npm:8.4.13::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss%2F-%2Fpostcss-8.4.13.tgz"
   dependencies:
@@ -5236,6 +5235,17 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
   checksum: e925c84f7f78a8b31a2751405ee0c43be99e6db0e06dc9122879caa5483526fc1e0145e646ad856837d9deccc7250b1e47271fd02cc50fd945bdecbf0e785d76
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.14":
+  version: 8.4.14
+  resolution: "postcss@npm:8.4.14::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss%2F-%2Fpostcss-8.4.14.tgz"
+  dependencies:
+    nanoid: "npm:^3.3.4"
+    picocolors: "npm:^1.0.0"
+    source-map-js: "npm:^1.0.2"
+  checksum: 1e1e4a4cc235674bea79da18dd3e02ea8ffcd51546c7ddf1fc7ba4de5e89154a83988bb8c1b30bd9566df56fc0077dce6e620d8f9ce6ababf60f659ffc53f72c
   languageName: node
   linkType: hard
 
@@ -5773,6 +5783,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.3.7":
+  version: 7.3.7
+  resolution: "semver@npm:7.3.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsemver%2F-%2Fsemver-7.3.7.tgz"
+  dependencies:
+    lru-cache: "npm:^6.0.0"
+  bin:
+    semver: bin/semver.js
+  checksum: 67bcf24790dcba9c20b2cd4c8ade19eebbcb10c8868453570749b47b77bd5c7da503478997a7a3f663d5b2976ac39c545f38d2d9e7dfcc693cb87f4068f93f8e
+  languageName: node
+  linkType: hard
+
 "send@npm:0.18.0":
   version: 0.18.0
   resolution: "send@npm:0.18.0"
@@ -6251,13 +6272,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swc-loader@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "swc-loader@npm:0.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswc-loader%2F-%2Fswc-loader-0.2.0.tgz"
+"swc-loader@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "swc-loader@npm:0.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswc-loader%2F-%2Fswc-loader-0.2.1.tgz"
   peerDependencies:
     "@swc/core": ^1.2.147
     webpack: ">=2"
-  checksum: 60f81708c8e309faa1c98aa8a52da8d88ee81151b10f51b5985aed38a01bd4afd102597f87b9278bfcd2c2f0518cfe68403d9ccdde91e96066cc7bbf5979dc50
+  checksum: 6743aa50392e8ce61191cc0a03c75e526daf5798520d226343974dc8ecacb022fba08dfdfeb539216daa238817f852c85a1d8f9f26c5f611063ab43baa925839
   languageName: node
   linkType: hard
 
@@ -6649,7 +6670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:*, webpack-dev-server@npm:^4.9.0":
+"webpack-dev-server@npm:^4.9.0":
   version: 4.9.0
   resolution: "webpack-dev-server@npm:4.9.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fwebpack-dev-server%2F-%2Fwebpack-dev-server-4.9.0.tgz"
   dependencies:
@@ -6709,7 +6730,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5, webpack@npm:^5.72.1":
+"webpack@npm:^5.72.1":
   version: 5.72.1
   resolution: "webpack@npm:5.72.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fwebpack%2F-%2Fwebpack-5.72.1.tgz"
   dependencies:

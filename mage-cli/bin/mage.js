@@ -12,41 +12,25 @@ const version = '1.0.0';
 
 // program option 配置
 const optionsConfig = {
-  src: ['-s, --src <src>', '目标文件 默认为 ./src/index'],
-  dist: ['-d, --dist <dist>', '目标 默认为 ./dist'],
   env: ['-e, --env <env>', '部署环境 dev、test、prod 默认为 prod'],
   mode: ['-m, --mode <mode>', '开发模式 development、production 默认 production'],
-  devtool: ['-d, --devtool <devtool>', '是否使用source map， 默认为 none'],
-  analyze: ['-a, --analyze', '生成分析报告 默认为 false'],
-  progress: ['-p, --progress', '显示进度 默认为 false'],
+  analyze: ['-a, --analyze', '生成分析报告 默认为 false']
 };
   
   // 获取配置
 const getConfig = ({
-    src = './src/index',
-    dist = './dist',
     env = 'prod',
     mode = 'production',
-    devtool = 'eval',
-    analyze = false,
-    progress = false,
+    analyze = false
 }) => {
     if (typeof analyze === 'string') {
         analyze = analyze === 'true';
     }
   
-    if (typeof progress === 'string') {
-        progress = progress === 'true';
-    }
-  
     return {
-        src,
-        dist,
         env,
         mode,
-        devtool,
-        analyze,
-        progress,
+        analyze
     };
 };
 
@@ -68,15 +52,13 @@ program
   .description('启动开发服务器')
   .option(...optionsConfig.env)
   .option(...optionsConfig.mode)
-  .option(...optionsConfig.devtool)
   .option(...optionsConfig.analyze)
-  .option(...optionsConfig.progress)
   .action(({ mode = 'development', devtool = 'source-map' }) => {
     const config = getConfig({ mode, devtool });
 
-    console.log('config', config);
+    // console.log('config', config);
 
-    cli('start');
+    cli('start', config);
   });
 
 // 打包构建
@@ -86,7 +68,6 @@ program
   .description('打包构建')
   .option(...optionsConfig.env)
   .option(...optionsConfig.mode)
-  .option(...optionsConfig.progress)
   .action(option => {
     const config = getConfig(option);
 

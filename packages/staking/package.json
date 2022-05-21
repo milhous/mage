@@ -1,0 +1,19 @@
+{
+  "name": "@packages/staking",
+  "version": "1.0.0",
+  "description": "staking",
+  "type": "module",
+  "main": "btg.config.js",
+  "private": true,
+  "scripts": {
+    "start": "mage start",
+    "build": "mage build",
+    "update": "ncu -u"
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "@types/react-dom": "^18.0.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}

@@ -21,7 +21,7 @@ const CommandType = {
     'BUILD': 'build'
 };
 
-export default async (name: string): Promise<void> => {
+export default async (name: string, args: any): Promise<void> => {
     switch (name) {
         case CommandType.INIT:
             init();
@@ -32,7 +32,7 @@ export default async (name: string): Promise<void> => {
 
             break;
         case CommandType.START:
-            start();
+            start(args);
 
             break;
         case CommandType.BUILD:

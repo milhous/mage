@@ -15,6 +15,7 @@ import getDevelopmentConfig from './development.js';
 // 生成
 import getProductionConfig from './production.js';
 
+// webpack 配置
 export default (args: any) => {
     const commonConfig = getCommonConfig('111');
     const cssConfig = getCssConfig('111');

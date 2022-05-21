@@ -42,12 +42,6 @@ const copyTemplete = async (name: string): Promise<void> => {
     const templetePath = path.resolve(__dirname, '../../template');
     const packagePath = path.resolve(__dirname, '../../../packages', name);
 
-    // const appPath = fs.realpathSync(process.cwd());
-    // const templetePath = path.resolve(appPath, 'template');
-    // const packagePath = path.resolve(appPath, 'packages', packageName);
-
-    // console.log(appPath);
-
     await fs.copy(templetePath, packagePath)
 };
 

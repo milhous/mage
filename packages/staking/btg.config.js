@@ -1,7 +1,7 @@
 export default () => {
     return {
-        name: '{name}',
-        port: '{port}',
+        name: 'staking',
+        port: 9010,
         remotes: {},
         exposes: {},
         shared: {},
