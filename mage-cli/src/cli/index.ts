@@ -1,3 +1,6 @@
+// 类型
+import { CommandType } from '../helpers/types.js';
+
 // 初始化
 import init from './init.js';
 // 启动（单个项目）
@@ -6,20 +9,6 @@ import start from './start.js';
 import launch from './launch.js';
 // 构建
 import build from './build.js';
-
-/**
- * 命令类型
- * @property INIT 初始化
- * @property LAUNCH 启动（多个项目）
- * @property START 启动（单个项目）
- * @property BUILD 构建
- */
-const CommandType = {
-    'INIT': 'init',
-    'LAUNCH': 'launch',
-    'START': 'start',
-    'BUILD': 'build'
-};
 
 export default async (name: string, args: any): Promise<void> => {
     switch (name) {

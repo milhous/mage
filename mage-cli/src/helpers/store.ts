@@ -1,15 +1,21 @@
 import { resolveAppPath, existsAppPath, resolveCliPath } from './utils.js';
+import { ModeType } from './types.js';
 
 /**
  * 声明 - 配置
  * @property VERSION 版本号
- * @method getConfig 获取配置
+ * @method getBasicConfig 获取基础配置
+ * @method getDevConfig 获取开发配置
+ * @method getModuleFederationConfig 获取 Module federation 配置
  * @method init 初始化
  */
 interface IBTGStore {
     VERSION: string;
 
     getBasicConfig(): IBasicConfig;
+    getDevConfig(): IDevConfig;
+    getModuleFederationConfig(): IModuleFederationConfig;
+
     init(config: any): Promise<void>;
 }
 
@@ -29,6 +35,22 @@ interface IBasicConfig {
     dist: string;
     public: string;
     cache: string;
+}
+
+/**
+ * 声明 - 开发配置
+ * @property env 环境变量
+ * @property mode 构建模式
+ * @property analyze 生成分析报告
+ * @property isDev 是否是开发环境
+ * @property browserslist 目标浏览器版本范围
+ */
+ interface IDevConfig {
+    env: string;
+    mode: string;
+    analyze: boolean;
+    isDev: boolean;
+    browserslist: string[];
 }
 
 /**
@@ -56,6 +78,16 @@ class BTGStore implements IBTGStore {
     // 版本号
     public VERSION: string = '1.0.0';
     
+    // 环境变量 
+    private _env: string = '';
+    // 构建模式
+    private _mode: string = '';
+    // 是否是开发环境
+    private _isDev: boolean = false;
+    // 是否需要分析
+    private _analyze: boolean = false;
+    // browserslist 
+    private _browserslist: string[] = [];
     // 应用名称
     private _appName: string = 'bitgame';
     // 应用端口号
@@ -103,6 +135,20 @@ class BTGStore implements IBTGStore {
     }
 
     /**
+     * 获取开发配置
+     * @returns {IDevConfig}
+     */
+    public getDevConfig(): IDevConfig {
+        return {
+            env: this._env,
+            mode: this._mode,
+            analyze: this._analyze,
+            isDev: this._isDev,
+            browserslist: this._browserslist
+        }
+    }
+
+    /**
      * 获取 Module federation 配置
      * @returns {IModuleFederationConfig} 
      */
@@ -115,10 +161,36 @@ class BTGStore implements IBTGStore {
     }
 
     // 初始化
-    public async init(config: any): Promise<void> {
+    public async init(args: any): Promise<void> {
+        this._setDevConfig(args.env, args.mode, args.analyze);
+
         await this._getAppConfig();
 
         this._setAppPath();
+    }
+
+    /**
+     * 设置开发配置
+     * @param {string} env 环境变量 
+     * @param {string} mode 构建模式 
+     * @param {boolean} analyze 生成分析报告
+     */
+    private _setDevConfig(env: string, mode: string, analyze: boolean): void {
+        this._env = env;
+        this._mode = mode;
+        this._analyze = analyze;
+        this._isDev = mode === ModeType.DEVELOPMENT;
+        this._browserslist = this._isDev ? [
+            'last 1 chrome version',
+            'last 1 firefox version',
+            'last 1 safari version',
+            'last 1 ie version'
+        ] : [
+            'last 1 version',
+            '> 1%',
+            'maintained node versions',
+            'not dead'
+        ];
     }
 
     // 获取App配置
@@ -136,14 +208,12 @@ class BTGStore implements IBTGStore {
             this._appRemotes = config.remotes;
             this._appExposes = config.exposes;
             this._appShared = config.shared;
-
-            console.log('module', module.default());
         }
     }
 
     // 设置App路径
     private _setAppPath(): void {
-        this._appSrc = resolveAppPath('./src/index');
+        this._appSrc = resolveAppPath('./src');
         this._appDist = resolveAppPath('./dist');
         this._appCache = resolveAppPath('./.cache/webpack');
         this._appPublic = resolveCliPath('./public');

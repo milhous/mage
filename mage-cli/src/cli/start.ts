@@ -3,11 +3,10 @@
 import chalk from 'chalk';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import getConfig from '../config/index.js';
-// const { resolveAppPath } = require('../helpers/paths');
-// const { getProjectConfig } = require('../helpers/project');
 
 import store from '../helpers/store.js';
+
+import getWebpackConfig from '../webpack/index.js';
 
 chalk.level = 1;
 
@@ -25,23 +24,24 @@ export default async (args: any): Promise<void> => {
 
     const basicConfig = store.getBasicConfig();
 
+    const webpackConfig = getWebpackConfig();
+
+    const compiler = webpack(webpackConfig);
+
     console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Service is starting.===\n`));
 
-    console.log(basicConfig, args);
+    const server = new WebpackDevServer(compiler, webpackConfig.devServer);
+    const host = webpackConfig.devServer.host || 'localhost';
+    const port = webpackConfig.devServer.port;
+    server.listen(port, host, err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
 
-    // console.log('config', config);
-    // const server = new WebpackDevServer(compiler, config.devServer);
-    // const host = config.devServer.host || 'localhost';
-    // const port = config.devServer.port;
-    // server.listen(port, host, err => {
-    //     if (err) {
-    //         console.error(err);
-    //         return;
-    //     }
+        const protocol = webpackConfig.devServer.https ? 'https' : 'http';
+        const url = `${protocol}://${host}:${port}`;
 
-    //     const protocol = config.devServer.https ? 'https' : 'http';
-    //     const url = `${protocol}://${host}:${port}`;
-
-    //     console.log(chalk.green.bold(`\n=== BTG <${name}> Starting server on ${url} ===\n`));
-    // });
+        console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Starting server on ${url} ===\n`));
+    });
 };
