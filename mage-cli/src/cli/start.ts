@@ -30,18 +30,16 @@ export default async (args: any): Promise<void> => {
 
     console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Service is starting.===\n`));
 
-    const server = new WebpackDevServer(compiler, webpackConfig.devServer);
-    const host = webpackConfig.devServer.host || 'localhost';
-    const port = webpackConfig.devServer.port;
-    server.listen(port, host, err => {
-        if (err) {
-            console.error(err);
-            return;
-        }
+    const server = new WebpackDevServer(webpackConfig.devServer, compiler);
 
+    server.startCallback(() => {
+        const host = webpackConfig.devServer.host || 'localhost';
+        const port = webpackConfig.devServer.port;
         const protocol = webpackConfig.devServer.https ? 'https' : 'http';
         const url = `${protocol}://${host}:${port}`;
 
         console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Starting server on ${url} ===\n`));
+
+        console.log('Successfully started server on http://localhost:8080');
     });
 };

@@ -44,19 +44,8 @@ module.exports = async args => {
 
   return {
     optimization: {
-      // runtimeChunk: true,//启动后不支持 Module Federation
-      usedExports: false,
-      minimize: !isDev,
-      minimizer,
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-        },
-      },
+      chunkIds: 'deterministic',
+      minimize: true,
     },
   };
 };

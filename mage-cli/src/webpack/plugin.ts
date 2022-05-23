@@ -5,12 +5,19 @@ import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
+import { resolveAppPath } from '../helpers/utils.js';
+
 /**
  * 插件
- * @param {string} publicPath 应用静态文件目录
+ * @param {boolean} isDev 是否是开发环境
  * @param {boolean} analyze 生成分析报告 
+ * @param {string} publicPath 应用静态文件目录
  */
-export default (publicPath: string, analyze: boolean): any => {
+export default (isDev: boolean, analyze: boolean, publicPath: string): any => {
+    const configFile = resolveAppPath('./tsconfig.json');
+
+    console.log('configFile', configFile);
+
     const plugins: any[] = [
         new WebpackBar({
             color: 'green',
@@ -35,7 +42,15 @@ export default (publicPath: string, analyze: boolean): any => {
     }
 
     // 开启类型检查
-    plugins.push(new ForkTsCheckerWebpackPlugin());
+    plugins.push(new ForkTsCheckerWebpackPlugin({
+        async: isDev, // true dev环境下部分错误验证通过
+        typescript: {
+          configFile,
+          profile: false,
+          typescriptPath: 'typescript',
+        }
+      },
+    ));
 
     return {
         plugins,
