@@ -12,14 +12,6 @@ chalk.level = 1;
 
 // 启动（单个项目）
 export default async (args: any): Promise<void> => {
-    // const config = getConfig(111);
-
-    // const config = await getProjectConfig(args);
-    // const compiler = webpack(config);
-    // const { name } = require(resolveAppPath('./package.json'));
-
-    // const appDir = fs.realpathSync(process.cwd());
-
     await store.init(args);
 
     const basicConfig = store.getBasicConfig();
