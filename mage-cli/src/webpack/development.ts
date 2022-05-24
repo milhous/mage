@@ -1,5 +1,3 @@
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-
 /**
  * 开发
  * @param {number} port 端口号
@@ -32,7 +30,6 @@ export default (port: number, dist: string) => {
             client: {
                 overlay: true,
             }
-        },
-        plugins: [new ReactRefreshWebpackPlugin()],
+        }
     };
 };

@@ -37,20 +37,12 @@ const getCssLoaderConfig = (isDev: boolean = true, isModules: boolean = false) =
     }
 };
 
-// 获取 postcss-loader 配置
-const getPostcssLoaderConfig = (isDev: boolean = true) => {
-    const browserslist = isDev ? [
-        'last 1 chrome version',
-        'last 1 firefox version',
-        'last 1 safari version',
-        'last 1 ie version'
-    ] : [
-        'last 1 version',
-        '> 1%',
-        'maintained node versions',
-        'not dead'
-    ];
-
+/**
+ * 获取 postcss-loader 配置
+ * @param {boolean} isDev 是否是开发环境
+ * @param {Array<string>} browserslist 目标浏览器版本范围 
+ */
+const getPostcssLoaderConfig = (isDev: boolean = true, browserslist: string[]) => {
     return {
         loader: 'postcss-loader',
         options: {
@@ -99,8 +91,9 @@ const getLessLoaderConfig = (isModules: boolean = false) => {
 /**
  * 样式
  * @param {boolean} isDev 是否是开发环境
+ * @param {Array<string>} browserslist 目标浏览器版本范围
  */
-export default (isDev: boolean) => {
+export default (isDev: boolean, browserslist: string[]) => {
     return {
         module: {
             rules: [
@@ -111,7 +104,7 @@ export default (isDev: boolean) => {
                     use: [
                         getStyleLoaderConfig(isDev),
                         getCssLoaderConfig(isDev),
-                        getPostcssLoaderConfig(isDev)
+                        getPostcssLoaderConfig(isDev, browserslist)
                     ],
                 },
                 // css module
@@ -120,7 +113,7 @@ export default (isDev: boolean) => {
                     use: [
                         getStyleLoaderConfig(isDev),
                         getCssLoaderConfig(isDev, true),
-                        getPostcssLoaderConfig(isDev)
+                        getPostcssLoaderConfig(isDev, browserslist)
                     ],
                 },
                 // less
@@ -130,7 +123,7 @@ export default (isDev: boolean) => {
                     use: [
                         getStyleLoaderConfig(isDev),
                         getCssLoaderConfig(isDev),
-                        getPostcssLoaderConfig(isDev),
+                        getPostcssLoaderConfig(isDev, browserslist),
                         getLessLoaderConfig(false)
                     ],
                 },
@@ -140,7 +133,7 @@ export default (isDev: boolean) => {
                     use: [
                         getStyleLoaderConfig(isDev),
                         getCssLoaderConfig(isDev, true),
-                        getPostcssLoaderConfig(isDev),
+                        getPostcssLoaderConfig(isDev, browserslist),
                         getLessLoaderConfig(true)
                     ],
                 },

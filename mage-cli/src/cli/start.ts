@@ -31,7 +31,5 @@ export default async (args: any): Promise<void> => {
         const url = `${protocol}://${host}:${port}`;
 
         console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Starting server on ${url} ===\n`));
-
-        console.log('Successfully started server on http://localhost:8080');
     });
 };
