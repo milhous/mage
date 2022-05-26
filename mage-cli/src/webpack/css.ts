@@ -23,9 +23,7 @@ const getStyleLoaderConfig = (isDev: boolean = true) => {
         }
         : {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-                publicPath: '',
-            },
+            options: {},
         }
 };
 

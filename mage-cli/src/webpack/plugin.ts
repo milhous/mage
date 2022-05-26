@@ -18,8 +18,6 @@ import { resolveAppPath } from '../helpers/utils.js';
 export default (isDev: boolean, analyze: boolean, name: string, publicPath: string): any => {
     const configFile = resolveAppPath('./tsconfig.json');
 
-    console.log('configFile', configFile);
-
     const plugins: any[] = [
         new WebpackBar({
             color: 'green',
