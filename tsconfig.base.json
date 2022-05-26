@@ -4,6 +4,7 @@
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "node",
+		"lib": ["dom", "esnext"],
 		"strict": true,
 		"declaration": true,
 		"noImplicitOverride": true,
@@ -15,7 +16,7 @@
 		"experimentalDecorators": true,
 		"allowSyntheticDefaultImports": true,
 		"sourceMap": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
 	},
 	"exclude": [
 	  	"node_modules",

@@ -4,6 +4,10 @@ import autoprefixer from 'autoprefixer';
 import postcssPxtorem from 'postcss-pxtorem';
 import postcssNormalize from 'postcss-normalize';
 
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
 // 正则表达式
 const cssRegex = /\.css$/
 const cssModuleRegex = /\.module\.css$/
@@ -14,7 +18,7 @@ const lessModuleRegex = /\.module\.less$/
 const getStyleLoaderConfig = (isDev: boolean = true) => {
     return isDev
         ? {
-            loader: 'style-loader',
+            loader: require.resolve('style-loader'),
             options: {},
         }
         : {
@@ -30,7 +34,7 @@ const getCssLoaderConfig = (isDev: boolean = true, isModules: boolean = false) =
     const localIdentName = isDev ? '[path][name]-[local]-[hash:base64:5]' : '[local]-[hash:base64:5]';
     
     return {
-        loader: 'css-loader',
+        loader: require.resolve('css-loader'),
         options: {
             modules: isModules ? { localIdentName } : isModules,
         },
@@ -44,7 +48,7 @@ const getCssLoaderConfig = (isDev: boolean = true, isModules: boolean = false) =
  */
 const getPostcssLoaderConfig = (isDev: boolean = true, browserslist: string[]) => {
     return {
-        loader: 'postcss-loader',
+        loader: require.resolve('postcss-loader'),
         options: {
             postcssOptions: {
                 hideNothingWarning: true,
@@ -77,9 +81,9 @@ const getPostcssLoaderConfig = (isDev: boolean = true, browserslist: string[]) =
 // 获取 less-loader 配置
 const getLessLoaderConfig = (isModules: boolean = false) => {
     return isModules
-        ? { loader: 'less-loader' }
+        ? { loader: require.resolve('less-loader') }
         : {
-            loader: 'less-loader',
+            loader: require.resolve('less-loader'), 
             options: {
                 lessOptions: {
                     javascriptEnabled: true

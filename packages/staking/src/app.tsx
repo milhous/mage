@@ -1,8 +1,14 @@
 import React from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+
+import Home from './pages/Home';
 
 const app = () => {
   return (
-    <div>app</div>
+    <Routes>
+      <Route path="/staking" element={<Home />} />
+      <Route path="*" element={<Navigate replace to="/staking" />} />
+    </Routes>
   );
 };
 

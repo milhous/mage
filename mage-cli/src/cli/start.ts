@@ -5,9 +5,9 @@ import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
 import store from '../helpers/store.js';
-
 import getWebpackConfig from '../webpack/index.js';
 
+// 解决chalk设置样式没有生效
 chalk.level = 1;
 
 // 启动（单个项目）
@@ -15,12 +15,11 @@ export default async (args: any): Promise<void> => {
     await store.init(args);
 
     const basicConfig = store.getBasicConfig();
-
+    const name = basicConfig.name;
     const webpackConfig = getWebpackConfig();
-
     const compiler = webpack(webpackConfig);
 
-    console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Service is starting.===\n`));
+    console.log(chalk.green.bold(`\n=== BTG <${name}> Service is starting.===\n`));
 
     const server = new WebpackDevServer(webpackConfig.devServer, compiler);
 
@@ -30,6 +29,6 @@ export default async (args: any): Promise<void> => {
         const protocol = webpackConfig.devServer.https ? 'https' : 'http';
         const url = `${protocol}://${host}:${port}`;
 
-        console.log(chalk.green.bold(`\n=== BTG <${basicConfig.name}> Starting server on ${url} ===\n`));
+        console.log(chalk.green.bold(`\n=== BTG <${name}> Starting server on ${url} ===\n`));
     });
 };

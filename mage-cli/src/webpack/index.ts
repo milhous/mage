@@ -22,15 +22,15 @@ export default (): any => {
     const basicConfig = store.getBasicConfig();
     const devConfig = store.getDevConfig();
 
-    const commonConfig = getCommonConfig(devConfig.mode, devConfig.isDev, basicConfig.src, basicConfig.dist);
+    const commonConfig = getCommonConfig(devConfig, basicConfig);
     const cssConfig = getCssConfig(devConfig.isDev, devConfig.browserslist);
     const fileConfig = getFileConfig();
     const moduleConfig = getModuleConfig(devConfig.isDev, devConfig.browserslist);
     const pluginConfig = getPluginConfig(devConfig.isDev, devConfig.analyze, basicConfig.name, basicConfig.public);
     const developmentConfig = getDevelopmentConfig(basicConfig.port, basicConfig.dist);
-    const productionConfig = getProductionConfig(devConfig.isDev);
+    const productionConfig = getProductionConfig();
 
-    const config = merge(commonConfig, cssConfig, fileConfig, moduleConfig, pluginConfig, developmentConfig, productionConfig);
+    const config = merge(commonConfig, cssConfig, fileConfig, moduleConfig, pluginConfig, devConfig.isDev ? developmentConfig : productionConfig);
 
     return config;
 }

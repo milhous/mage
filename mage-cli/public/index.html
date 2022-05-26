@@ -4,12 +4,26 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no,email=no,address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="origin" />
     <title>
         <%= htmlWebpackPlugin.options.title %>
     </title>
+    <script>
+        window.isChristmasEle = false;
+        window.supportedLngs = ['en', 'ja', 'ko', 'tr', 'pt', 'es', 'vi', 'zh-Hant'];
+        window.USDT_CHAINS = ['TRC20', 'ERC20', 'BEP20'];
+
+        var setFontSize = function() {
+            var width = document.documentElement.clientWidth;
+            width = width > 768 ? 768 : width;
+            var fontSize = (width / 768) * 100;
+            document.getElementsByTagName('html')[0].style.fontSize = fontSize + 'px';
+        };
+        setFontSize();
+        window.addEventListener('resize', setFontSize);
+    </script>
 </head>
 
 <body>

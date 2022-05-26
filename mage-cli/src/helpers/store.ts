@@ -28,7 +28,7 @@ interface IBTGStore {
  * @property public 应用静态文件目录
  * @property cache 应用缓存目录
  */
-interface IBasicConfig {
+export interface IBasicConfig {
     name: string;
     port: number;
     src: string;
@@ -39,13 +39,15 @@ interface IBasicConfig {
 
 /**
  * 声明 - 开发配置
+ * @property version 版本
  * @property env 环境变量
  * @property mode 构建模式
  * @property analyze 生成分析报告
  * @property isDev 是否是开发环境
  * @property browserslist 目标浏览器版本范围
  */
- interface IDevConfig {
+export interface IDevConfig {
+    version: string;
     env: string;
     mode: string;
     analyze: boolean;
@@ -59,7 +61,7 @@ interface IBasicConfig {
  * @property exposes 暴露的模块
  * @property shared 共享的模块
  */
-interface IModuleFederationConfig {
+export interface IModuleFederationConfig {
     remotes: IBTGStoreMFRemotes;
     exposes: IBTGStoreMFExposes;
     shared: IBTGStoreMFShared;
@@ -140,6 +142,7 @@ class BTGStore implements IBTGStore {
      */
     public getDevConfig(): IDevConfig {
         return {
+            version: this.VERSION,
             env: this._env,
             mode: this._mode,
             analyze: this._analyze,

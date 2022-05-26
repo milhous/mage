@@ -17,17 +17,17 @@
         "create": "mage create",
         "launch": "mage launch",
         "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
-        "update": "yarn workspaces foreach run update",
+        "update": "yarn workspaces foreach -vtR run update",
         "start": "lerna run --scope @packages/* --parallel start",
         "build": "lerna run --scope @packages/* build",
-        "start:name": "cross-var lerna run --scope=@packages/$name start",
-        "build:name": "cross-var lerna run --scope=@packages/$name build",
-        "analyze": "lerna run --scope @packages/* --parallel start"
+        "start:name": "cross-var yarn workspace @packages/$name run start",
+        "build:name": "cross-var yarn workspace @packages/$name run build"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "cross-var": "^1.1.0",
         "npm-check-updates": "^12.5.9"
     },
     "packageManager": "yarn@3.2.1"

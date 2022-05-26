@@ -25,7 +25,7 @@ export default async (name: string, args: any): Promise<void> => {
 
             break;
         case CommandType.BUILD:
-            build();
+            build(args);
 
             break;
     }

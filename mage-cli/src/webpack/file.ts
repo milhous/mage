@@ -1,5 +1,9 @@
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
 // 文件
 export default () => {
     return {
@@ -17,7 +21,7 @@ export default () => {
                 },
                 use: [
                   {
-                    loader: 'svgo-loader',
+                    loader: require.resolve('svgo-loader'),
                     options: {
                         plugins: [
                             {

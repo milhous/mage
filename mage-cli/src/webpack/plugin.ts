@@ -1,4 +1,5 @@
 import WebpackBar from 'webpackbar';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -23,17 +24,20 @@ export default (isDev: boolean, analyze: boolean, name: string, publicPath: stri
         new WebpackBar({
             color: 'green',
         }),
-        new MiniCssExtractPlugin({
-            ignoreOrder: true,
-            filename: '[name].[contenthash:8].css',
-            chunkFilename: '[name].[contenthash:8].chunk.css',
-        }),
         new HtmlWebpackPlugin({
             title: 'Bitgame - ' + name,
             favicon: publicPath + '/favicon.ico',
             template: publicPath + '/index.html',
             inject: true,
             minify: false,
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            async: isDev, // true dev环境下部分错误验证通过
+            typescript: {
+              configFile,
+              profile: false,
+              typescriptPath: 'typescript',
+            }
         })
     ];
 
@@ -42,21 +46,18 @@ export default (isDev: boolean, analyze: boolean, name: string, publicPath: stri
         plugins.push(new BundleAnalyzerPlugin());
     }
 
-    // 是否开启热更新
     if (isDev) {
+        // 是否开启热更新
         plugins.push(new ReactRefreshWebpackPlugin()); 
-    }
+    } else {
+        plugins.push(new CleanWebpackPlugin());
 
-    // 开启类型检查
-    plugins.push(new ForkTsCheckerWebpackPlugin({
-        async: isDev, // true dev环境下部分错误验证通过
-        typescript: {
-          configFile,
-          profile: false,
-          typescriptPath: 'typescript',
-        }
-      },
-    ));
+        plugins.push(new MiniCssExtractPlugin({
+            ignoreOrder: true,
+            filename: `static/css/[name].[contenthash:8].css`,
+            chunkFilename: `static/css/[name].[contenthash:8].chunk.css`,
+        }));
+    }
 
     return {
         plugins,

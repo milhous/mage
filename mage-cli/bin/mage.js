@@ -56,8 +56,6 @@ program
   .action(({ mode = 'development', devtool = 'source-map' }) => {
     const config = getConfig({ mode, devtool });
 
-    // console.log('config', config);
-
     cli('start', config);
   });
 
@@ -71,9 +69,7 @@ program
   .action(option => {
     const config = getConfig(option);
 
-    console.log('option', option);
-
-    cli('build');
+    cli('build', config);
   });
 
 // 启动项目
