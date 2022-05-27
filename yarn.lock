@@ -2834,6 +2834,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^9.1.0":
+  version: 9.2.0
+  resolution: "commander@npm:9.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcommander%2F-%2Fcommander-9.2.0.tgz"
+  checksum: 7c82e4cd969712aa6d7c055b8351807a7230f9f31ef7ec7881e11a1147511de85adf5d6ccfd200240a118eecf693b220caf6865b8efbcea558a70d35aa9ed711
+  languageName: node
+  linkType: hard
+
 "commander@npm:^9.2.0":
   version: 9.2.0
   resolution: "commander@npm:9.2.0"
@@ -4123,6 +4130,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"figgy-pudding@npm:^3.5.1":
+  version: 3.5.2
+  resolution: "figgy-pudding@npm:3.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ffiggy-pudding%2F-%2Ffiggy-pudding-3.5.2.tgz"
+  checksum: 4090bd66193693dcda605e44d6b8715d8fb5c92a67acd57826e55cf816a342f550d57e5638f822b39366e1b2fdb244e99b3068a37213aa1d6c1bf602b8fde5ae
+  languageName: node
+  linkType: hard
+
 "file-entry-cache@npm:^6.0.1":
   version: 6.0.1
   resolution: "file-entry-cache@npm:6.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ffile-entry-cache%2F-%2Ffile-entry-cache-6.0.1.tgz"
@@ -4163,6 +4177,15 @@ __metadata:
     locate-path: "npm:^6.0.0"
     path-exists: "npm:^4.0.0"
   checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
+  languageName: node
+  linkType: hard
+
+"find-up@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "find-up@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ffind-up%2F-%2Ffind-up-3.0.0.tgz"
+  dependencies:
+    locate-path: ^3.0.0
+  checksum: 38eba3fe7a66e4bc7f0f5a1366dc25508b7cfc349f852640e3678d26ad9a6d7e2c43eff0a472287de4a9753ef58f066a0ea892a256fa3636ad51b3fe1e17fae9
   languageName: node
   linkType: hard
 
@@ -5081,6 +5104,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ini@npm:^1.3.5":
+  version: 1.3.8
+  resolution: "ini@npm:1.3.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fini%2F-%2Fini-1.3.8.tgz"
+  checksum: dfd98b0ca3a4fc1e323e38a6c8eb8936e31a97a918d3b377649ea15bdb15d481207a0dda1021efbd86b464cae29a0d33c1d7dcaf6c5672bee17fa849bc50a1b3
+  languageName: node
+  linkType: hard
+
 "ini@npm:~1.3.0":
   version: 1.3.8
   resolution: "ini@npm:1.3.8"
@@ -5759,6 +5789,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"libnpmconfig@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "libnpmconfig@npm:1.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Flibnpmconfig%2F-%2Flibnpmconfig-1.2.1.tgz"
+  dependencies:
+    figgy-pudding: ^3.5.1
+    find-up: ^3.0.0
+    ini: ^1.3.5
+  checksum: e6d740b8506914a332b7279e86959ae50aff1c9808c1260b72eba9ea2fec8fd8a8952c84f4947fa605f036fe819ad663724b0c5afd96d5323bb8dc5926455d5e
+  languageName: node
+  linkType: hard
+
 "lilconfig@npm:^2.0.3":
   version: 2.0.5
   resolution: "lilconfig@npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Flilconfig%2F-%2Flilconfig-2.0.5.tgz"
@@ -5799,6 +5840,16 @@ __metadata:
     emojis-list: "npm:^3.0.0"
     json5: "npm:^2.1.2"
   checksum: 9078d1ed47cadc57f4c6ddbdb2add324ee7da544cea41de3b7f1128e8108fcd41cd3443a85b7ee8d7d8ac439148aa221922774efe4cf87506d4fb054d5889303
+  languageName: node
+  linkType: hard
+
+"locate-path@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "locate-path@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Flocate-path%2F-%2Flocate-path-3.0.0.tgz"
+  dependencies:
+    p-locate: ^3.0.0
+    path-exists: ^3.0.0
+  checksum: 53db3996672f21f8b0bf2a2c645ae2c13ffdae1eeecfcd399a583bce8516c0b88dcb4222ca6efbbbeb6949df7e46860895be2c02e8d3219abd373ace3bfb4e11
   languageName: node
   linkType: hard
 
@@ -6040,7 +6091,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: 7.30.0
     eslint-plugin-react-hooks: ^4.5.0
-    npm-check-updates: ^13.0.3
+    npm-check-updates: ^12.5.12
     prettier: ^2.6.2
     typescript: ^4.7.2
   languageName: unknown
@@ -6458,14 +6509,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^13.0.3":
-  version: 13.0.3
-  resolution: "npm-check-updates@npm:13.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-13.0.3.tgz"
+"npm-check-updates@npm:^12.5.12":
+  version: 12.5.12
+  resolution: "npm-check-updates@npm:12.5.12::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-12.5.12.tgz"
   dependencies:
     chalk: ^4.1.2
     cint: ^8.2.1
     cli-table: ^0.3.11
-    commander: ^9.2.0
+    commander: ^9.1.0
     fast-memoize: ^2.5.2
     find-up: 5.0.0
     fp-and-or: ^0.1.3
@@ -6474,26 +6525,27 @@ __metadata:
     hosted-git-info: ^5.0.0
     json-parse-helpfulerror: ^1.0.3
     jsonlines: ^0.1.1
+    libnpmconfig: ^1.2.1
     lodash: ^4.17.21
     minimatch: ^5.0.1
     p-map: ^4.0.0
-    pacote: ^13.3.0
+    pacote: ^13.0.5
     parse-github-url: ^1.0.2
     progress: ^2.0.3
     prompts: ^2.4.2
     rc-config-loader: ^4.1.0
     remote-git-tags: ^3.0.0
     rimraf: ^3.0.2
-    semver: ^7.3.7
+    semver: ^7.3.5
     semver-utils: ^1.1.4
     source-map-support: ^0.5.21
     spawn-please: ^1.0.0
     update-notifier: ^5.1.0
-    yaml: ^2.1.0
+    yaml: ^1.10.2
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: a9f1846bb3ed488569586861f1e050317cf2c098c37f32134608fb62d03d1ec06246fae022112bfff59368dcf3a911854cc0ffdef2bd50b60eb57682910d6e94
+  checksum: ddfc300de5e02a788c467729a76c99aa1c8d138bf9a44b0c48913f999e8995214722982052f6d75b672c0f54f706b1575998b513783825e61a52e669c90ca4dd
   languageName: node
   linkType: hard
 
@@ -6774,12 +6826,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"p-limit@npm:^2.0.0":
+  version: 2.3.0
+  resolution: "p-limit@npm:2.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fp-limit%2F-%2Fp-limit-2.3.0.tgz"
+  dependencies:
+    p-try: ^2.0.0
+  checksum: 84ff17f1a38126c3314e91ecfe56aecbf36430940e2873dadaa773ffe072dc23b7af8e46d4b6485d302a11673fe94c6b67ca2cfbb60c989848b02100d0594ac1
+  languageName: node
+  linkType: hard
+
 "p-limit@npm:^3.0.2":
   version: 3.1.0
   resolution: "p-limit@npm:3.1.0"
   dependencies:
     yocto-queue: "npm:^0.1.0"
   checksum: 7c3690c4dbf62ef625671e20b7bdf1cbc9534e83352a2780f165b0d3ceba21907e77ad63401708145ca4e25bfc51636588d89a8c0aeb715e6c37d1c066430360
+  languageName: node
+  linkType: hard
+
+"p-locate@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "p-locate@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fp-locate%2F-%2Fp-locate-3.0.0.tgz"
+  dependencies:
+    p-limit: ^2.0.0
+  checksum: 83991734a9854a05fe9dbb29f707ea8a0599391f52daac32b86f08e21415e857ffa60f0e120bfe7ce0cc4faf9274a50239c7895fc0d0579d08411e513b83a4ae
   languageName: node
   linkType: hard
 
@@ -6818,6 +6888,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"p-try@npm:^2.0.0":
+  version: 2.2.0
+  resolution: "p-try@npm:2.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fp-try%2F-%2Fp-try-2.2.0.tgz"
+  checksum: f8a8e9a7693659383f06aec604ad5ead237c7a261c18048a6e1b5b85a5f8a067e469aa24f5bc009b991ea3b058a87f5065ef4176793a200d4917349881216cae
+  languageName: node
+  linkType: hard
+
 "package-json@npm:^6.3.0":
   version: 6.5.0
   resolution: "package-json@npm:6.5.0"
@@ -6830,7 +6907,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pacote@npm:^13.3.0":
+"pacote@npm:^13.0.5":
   version: 13.5.0
   resolution: "pacote@npm:13.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpacote%2F-%2Fpacote-13.5.0.tgz"
   dependencies:
@@ -6922,6 +6999,13 @@ __metadata:
     no-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: ba98bfd595fc91ef3d30f4243b1aee2f6ec41c53b4546bfa3039487c367abaa182471dcfc830a1f9e1a0df00c14a370514fa2b3a1aacc68b15a460c31116873e
+  languageName: node
+  linkType: hard
+
+"path-exists@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "path-exists@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpath-exists%2F-%2Fpath-exists-3.0.0.tgz"
+  checksum: 96e92643aa34b4b28d0de1cd2eba52a1c5313a90c6542d03f62750d82480e20bfa62bc865d5cfc6165f5fcd5aeb0851043c40a39be5989646f223300021bae0a
   languageName: node
   linkType: hard
 
@@ -9642,13 +9726,6 @@ __metadata:
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: ce4ada136e8a78a0b08dc10b4b900936912d15de59905b2bf415b4d33c63df1d555d23acb2a41b23cf9fb5da41c256441afca3d6509de7247daa062fd2c5ea5f
-  languageName: node
-  linkType: hard
-
-"yaml@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "yaml@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fyaml%2F-%2Fyaml-2.1.0.tgz"
-  checksum: 59323a8b51b10d9ad0eab951e7a1f315f1076c123b08ffe60441add1df4fa3433b1d5783b21c50a65536e9d853b23fa567921dbd4bc0d711be2dbf14a06be03b
   languageName: node
   linkType: hard
 

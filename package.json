@@ -2,6 +2,7 @@
     "name": "milhous",
     "version": "1.0.0",
     "description": "主站2.0",
+    "type": "module",
     "main": "index.js",
     "private": true,
     "repository": {
@@ -34,7 +35,7 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "7.30.0",
         "eslint-plugin-react-hooks": "^4.5.0",
-        "npm-check-updates": "^13.0.3",
+        "npm-check-updates": "^12.5.12",
         "prettier": "^2.6.2"
     },
     "dependencies": {
