@@ -5,7 +5,7 @@ import DB from 'svga.lite/db';
 // 数据集合
 const dataMap: Map<string, VideoEntity> = new Map();
 // IndexedDB
-let db: DB = null;
+let db: any = null;
 
 try {
   db = new DB();

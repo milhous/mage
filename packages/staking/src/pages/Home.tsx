@@ -8,7 +8,7 @@ import astrolabeLibra from '@app/assets/astrolabe-libra.svga';
 
 export default (): JSX.Element => {
     return <div className="staking">
-        Hello world!!!
+        Hello world!!
         <SVG src={iconFacebook} />
         <img src={howBg} />
         <i className="icon"></i>

@@ -1,25 +1,22 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"target": "ESNext",
-		"module": "ESNext",
-		"moduleResolution": "node",
-		"lib": ["dom", "esnext"],
-		"strict": true,
-		"declaration": true,
-		"noImplicitOverride": true,
-		"noUnusedLocals": false,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"skipDefaultLibCheck": true,
-		"resolveJsonModule": true,
-		"experimentalDecorators": true,
-		"allowSyntheticDefaultImports": true,
-		"sourceMap": true,
-		"jsx": "preserve",
-	},
-	"exclude": [
-	  	"node_modules",
-		".yarn"
-	]
-  }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "declaration": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "jsx": "preserve"
+  },
+  "exclude": ["node_modules", "./node_modules", "./node_modules/*", ".yarn"]
+}

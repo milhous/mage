@@ -1,9 +1,8 @@
 {
-    "extends": "../../tsconfig.base.json",
-    "compilerOptions": {
-        "paths": {
-          "@app/*": ["./packages/ui/src/*"]
-        }
-    },
-    "include": ["../../types/*.d.ts"]
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@app/*": ["./packages/ui/src/*"]
+    }
+  }
 }
