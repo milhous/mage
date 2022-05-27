@@ -14,3 +14,26 @@ export const appDir = fs.realpathSync(process.cwd());
 export const resolveAppPath = (appPath: string): string => path.resolve(appDir, appPath);
 // 检测应用路径是否存在
 export const existsAppPath = (appPath: string): Promise<boolean> => fs.pathExists(resolveAppPath(appPath));
+
+/**
+ * 复制文件夹
+ * @param {string} src 源路径
+ * @param {string} dist 目标路径
+ */
+export const copyFolder = async (src: string, dist: string): Promise<void> => {
+  const isSrcExist = await fs.pathExists(src);
+
+  if (!isSrcExist) {
+    return;
+  }
+
+  const isDestExist = await fs.pathExists(dist);
+
+  if (isDestExist) {
+    await fs.emptyDir(dist);
+  } else {
+    await fs.ensureDir(dist);
+  }
+
+  await fs.copy(src, dist);
+};

@@ -1,4 +1,4 @@
-import { createRequire } from 'module';
+import {createRequire} from 'module';
 
 const require = createRequire(import.meta.url);
 
@@ -8,31 +8,33 @@ const require = createRequire(import.meta.url);
  * @param {Array<string>} browserslist 目标浏览器版本范围
  */
 export default (isDev: boolean, browserslist: string[]) => {
-    return {
-        module: {
-            rules: [{
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: require.resolve('swc-loader'),
-                    options: {
-                        // This makes swc-loader invoke swc synchronously.
-                        sync: true,
-                        env: {
-                            targets: browserslist.join(',')
-                        },
-                        jsc: {
-                            transform: {
-                                react: {
-                                    runtime: 'automatic',
-                                    development: isDev,
-                                    refresh: isDev,
-                                },
-                            },
-                        },
-                    }
-                }
-            }]
-        }
-    }
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx|ts|tsx)$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: require.resolve('swc-loader'),
+            options: {
+              // This makes swc-loader invoke swc synchronously.
+              sync: true,
+              env: {
+                targets: browserslist.join(','),
+              },
+              jsc: {
+                transform: {
+                  react: {
+                    runtime: 'automatic',
+                    development: isDev,
+                    refresh: isDev,
+                  },
+                },
+              },
+            },
+          },
+        },
+      ],
+    },
+  };
 };

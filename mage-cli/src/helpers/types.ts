@@ -6,10 +6,10 @@
  * @property BUILD 构建
  */
 export const CommandType = {
-    'INIT': 'init',
-    'LAUNCH': 'launch',
-    'START': 'start',
-    'BUILD': 'build'
+  INIT: 'init',
+  LAUNCH: 'launch',
+  START: 'start',
+  BUILD: 'build',
 };
 
 /**
@@ -19,7 +19,7 @@ export const CommandType = {
  * @property NONE 不使用任何默认优化选项
  */
 export const ModeType = {
-    'DEVELOPMENT': 'development',
-    'PRODUCTION': 'production',
-    'NONE': 'none'
+  DEVELOPMENT: 'development',
+  PRODUCTION: 'production',
+  NONE: 'none',
 };
