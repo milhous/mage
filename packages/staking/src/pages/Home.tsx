@@ -1,6 +1,6 @@
 import SVG from 'react-inlinesvg';
 
-import { Svga } from '@ui/svga/Svga';
+import Svga from '@ui/svga/Svga';
 import './Home.less';
 import iconFacebook from '@app/assets/icon-facebook.svg';
 import howBg from '@app/assets/how-bg.jpg';

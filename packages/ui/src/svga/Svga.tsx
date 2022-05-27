@@ -132,13 +132,8 @@ type Props = {
   onStart?: (ele: HTMLCanvasElement) => void;
 };
 
-const defaultProps = {
-  time: 0,
-};
-
-export function Svga(props: Props) {
-  props = { ...defaultProps, ...props };
-  const { url, ref, time, onEnd, onStart, onProcess, ...otherProps } = props;
+const Svga = (props: Props) => {
+  const { url, ref, time = 0, onEnd, onStart, onProcess, ...otherProps } = props;
   const [id, setId] = useState<string>(uuid());
   const [player, setPlayer] = useState<Player | null>(null);
 
@@ -168,3 +163,5 @@ export function Svga(props: Props) {
     <canvas className="ui-svga" ref={ref} id={id}></canvas>
   );
 }
+
+export default Svga;
