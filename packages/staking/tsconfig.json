@@ -2,8 +2,9 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "paths": {
-          "@/*": ["./src/*"]
+          "@app/*": ["./packages/staking/src/*"],
+          "@ui/*": ["./packages/ui/src/*"],
         }
     },
-    "include": ["./types/*.d.ts"]
+    "include": ["types/*.d.ts"]
 }

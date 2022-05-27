@@ -264,6 +264,13 @@ __metadata:
 "@packages/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@packages/ui@workspace:packages/ui"
+  dependencies:
+    "@types/react": ^18
+    "@types/react-dom": ^18.0.5
+    react: ^18.1.0
+    react-dom: ^18.1.0
+    regenerator-runtime: ^0.13.9
+    svga.lite: ^1.6.1
   languageName: unknown
   linkType: soft
 
@@ -6965,7 +6972,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.4":
+"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.9":
   version: 0.13.9
   resolution: "regenerator-runtime@npm:0.13.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fregenerator-runtime%2F-%2Fregenerator-runtime-0.13.9.tgz"
   checksum: 65ed455fe5afd799e2897baf691ca21c2772e1a969d19bb0c4695757c2d96249eb74ee3553ea34a91062b2a676beedf630b4c1551cc6299afb937be1426ec55e
@@ -7817,6 +7824,13 @@ __metadata:
   dependencies:
     has-flag: "npm:^4.0.0"
   checksum: c052193a7e43c6cdc741eb7f378df605636e01ad434badf7324f17fb60c69a880d8d8fcdcb562cf94c2350e57b937d7425ab5b8326c67c2adc48f7c87c1db406
+  languageName: node
+  linkType: hard
+
+"svga.lite@npm:^1.6.1":
+  version: 1.6.1
+  resolution: "svga.lite@npm:1.6.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsvga.lite%2F-%2Fsvga.lite-1.6.1.tgz"
+  checksum: 2e2faad53ef9d49262be7ff155238f2727decd64c3e252f6ff4c55df2ec328df93679275d05a90a29aa6139c37b8e6f0dc01ed17205cc0edcdb97fbde35ed9af
   languageName: node
   linkType: hard
 

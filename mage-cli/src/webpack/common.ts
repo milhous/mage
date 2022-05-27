@@ -1,5 +1,6 @@
 import * as url from 'url';
 
+import { resolveAppPath } from '../helpers/utils.js';
 import { IDevConfig, IBasicConfig } from '../helpers/store.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
@@ -67,7 +68,8 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
               '.svga',
             ],
             alias: {
-                '@': basicConfig.src
+                '@app': basicConfig.src,
+                '@ui': resolveAppPath('../ui/src'),
             },
         },
     };
