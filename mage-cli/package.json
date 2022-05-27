@@ -15,7 +15,7 @@
     },
     "devDependencies": {
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
-        "@swc/core": "^1.2.192",
+        "@swc/core": "^1.2.194",
         "autoprefixer": "^10.4.7",
         "browserslist": "^4.20.3",
         "clean-webpack-plugin": "^4.0.0",
