@@ -14,6 +14,29 @@ export const appDir = fs.realpathSync(process.cwd());
 export const resolveAppPath = (appPath: string): string => path.resolve(appDir, appPath);
 // 检测应用路径是否存在
 export const existsAppPath = (appPath: string): Promise<boolean> => fs.pathExists(resolveAppPath(appPath));
+// 读取应用json文件
+export const readAppJson = (appPath: string): Promise<any> => fs.readJson(resolveAppPath(appPath));
+
+/**
+ * 获取目录信息
+ * @param {string} dirPath 目录路径
+ */
+export const readDirInfo = async (dirPath: string): Promise<string[]> => {
+  const reg = new RegExp(/\.DS_Store|node_modules$/);
+  let dirInfo = await fs.readdir(resolveCliPath('../' + dirPath));
+
+  dirInfo = dirInfo.filter((item: string) => {
+    return !reg.test(item);
+  });
+
+  return dirInfo;
+};
+
+/**
+ * 读取json文件
+ * @param filePath 文件路径
+ */
+export const readJson = (filePath: string): Promise<any> => fs.readJson(resolveCliPath('../' + filePath));
 
 /**
  * 复制文件夹

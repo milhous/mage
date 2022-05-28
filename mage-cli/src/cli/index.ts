@@ -1,3 +1,9 @@
+import fs from 'fs-extra';
+// 环境变量 .env
+import dotenv from 'dotenv';
+
+// 工具
+import {resolveAppPath} from '../helpers/utils.js';
 // 类型
 import {CommandType} from '../helpers/types.js';
 
@@ -9,6 +15,17 @@ import start from './start.js';
 import launch from './launch.js';
 // 构建
 import build from './build.js';
+
+// 初始化环境变量
+const initEnv = () => {
+  const envPath = resolveAppPath('.env');
+  const devEnvPath = resolveAppPath('.env.development');
+  const path = fs.pathExistsSync(devEnvPath) ? devEnvPath : envPath;
+
+  dotenv.config({path});
+};
+
+initEnv();
 
 export default async (name: string, args: any): Promise<void> => {
   switch (name) {

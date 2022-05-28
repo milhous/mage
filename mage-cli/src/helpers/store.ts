@@ -117,7 +117,7 @@ class BTGStore implements IBTGStore {
 
   constructor() {}
 
-  static instance: IBTGStore = null!;
+  static instance: IBTGStore;
 
   static getInstance(): IBTGStore {
     if (!BTGStore.instance) {

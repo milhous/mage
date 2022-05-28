@@ -14,13 +14,14 @@
         "mage-cli"
     ],
     "scripts": {
-        "create": "mage create",
+        "init": "mage init",
         "launch": "mage launch",
         "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
         "update": "yarn workspaces foreach -vt run update",
         "start": "lerna run --scope @packages/* --parallel start",
         "build": "lerna run --scope @packages/* build",
         "start:name": "cross-var yarn workspace @packages/$name run start",
+        "start:batch": "yarn workspace @packages/$name run start",
         "build:name": "cross-var yarn workspace @packages/$name run build"
     },
     "keywords": [],
