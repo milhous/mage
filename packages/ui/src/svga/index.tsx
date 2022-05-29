@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Downloader, Parser, Player, EVENT_TYPES, VideoEntity } from 'svga.lite';
+import React, {useEffect, useState} from 'react';
+import {Downloader, Parser, Player, EVENT_TYPES, VideoEntity} from 'svga.lite';
 import DB from 'svga.lite/db';
 
 // 数据集合
@@ -71,7 +71,7 @@ const play = async (params: {
   onEnd?: () => void;
   onProcess?: (progress: number) => void;
 }): Promise<void> => {
-  const { player, file, id = '', loop = 0, onStart, onEnd, onProcess } = params;
+  const {player, file, id = '', loop = 0, onStart, onEnd, onProcess} = params;
 
   let data = null;
 
@@ -103,7 +103,7 @@ const play = async (params: {
   }
 
   // 设置播放配置
-  player.set({ loop, cacheFrames: false, intersectionObserverRender: true });
+  player.set({loop, cacheFrames: false, intersectionObserverRender: true});
 
   // 清空动画
   player.clear();
@@ -133,7 +133,7 @@ type Props = {
 };
 
 const Svga = (props: Props) => {
-  const { url, ref, time = 0, onEnd, onStart, onProcess, ...otherProps } = props;
+  const {url, ref, time = 0, onEnd, onStart, onProcess, ...otherProps} = props;
   const [id, setId] = useState<string>(uuid());
   const [player, setPlayer] = useState<Player | null>(null);
 
@@ -159,9 +159,7 @@ const Svga = (props: Props) => {
     }
   }, [url, id, player, time]);
 
-  return (
-    <canvas className="ui-svga" ref={ref} id={id}></canvas>
-  );
-}
+  return <canvas className="ui-svga" ref={ref} id={id}></canvas>;
+};
 
 export default Svga;

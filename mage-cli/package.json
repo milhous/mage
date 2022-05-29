@@ -8,6 +8,10 @@
     "bin": {
         "mage": "./bin/mage.js"
     },
+    "files": [
+        "bin",
+        "client.d.ts"
+    ],
     "scripts": {
         "dev": "rimraf dist && tsc -w",
         "build": "rimraf dist && tsc",

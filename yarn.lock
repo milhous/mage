@@ -106,7 +106,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mage/cli@workspace:mage-cli":
+"@mage/cli@workspace:^, @mage/cli@workspace:mage-cli":
   version: 0.0.0-use.local
   resolution: "@mage/cli@workspace:mage-cli"
   dependencies:
@@ -286,6 +286,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@packages/staking@workspace:packages/staking"
   dependencies:
+    "@mage/cli": "workspace:^"
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
     i18next: ^21.8.4
@@ -301,6 +302,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@packages/ui@workspace:packages/ui"
   dependencies:
+    "@mage/cli": "workspace:^"
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
     react: ^18.1.0
