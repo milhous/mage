@@ -3,7 +3,7 @@ import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import Cookies from 'js-cookie';
-import {initReactI18next} from 'react-i18next';
+import {initReactI18next, useTranslation} from 'react-i18next';
 
 export type ILangType = 'en' | 'vi' | 'ja' | 'ko' | 'zh-Hans' | 'zh-Hant' | 'tr' | 'pt' | 'es';
 
@@ -49,6 +49,30 @@ export const getLang = (): string => {
   }
 };
 
+/**
+ * 获取翻译文案
+ * @param {string} key 翻译key
+ * @returns {string}
+ */
+export const getTranslate = (key: string): string => {
+  return i18n.t(key);
+};
+
+/**
+ * 获取 Translate Hook
+ * @param {Array<string>} ns 命名空间
+ * @returns {any}
+ */
+export const useTranslate = (ns: string[]): any => {
+  const {t} = useTranslation(ns, {i18n});
+  return t;
+};
+
+// 切换语言
+export const changeLang = (lang: string): void => {
+  i18n.changeLanguage(lang);
+};
+
 // 转换语言
 const convertLangs = (): void => {
   if (typeof navigator === 'undefined' || navigator.languages.length === 0) {
@@ -79,6 +103,8 @@ const convertLangs = (): void => {
   }
 };
 
+convertLangs();
+
 const i18n = i18next.createInstance();
 
 i18n
@@ -106,8 +132,8 @@ i18n
     initImmediate: false,
     // `/${APP_NAME}/locales/{{lng}}/{{ns}}.json`,
     backend: {
-      loadPath: `${__webpack_public_path__}locales/{{lng}}/{{ns}}.json`,
-      queryStringParams: {v: APP__GITHASH},
+      loadPath: `${__webpack_public_path__}static/locales/{{lng}}/{{ns}}.json`,
+      queryStringParams: {v: 'APP_GITHASH'},
     },
     detection: {
       htmlTag: document.documentElement,

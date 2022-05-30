@@ -106,55 +106,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mage/cli@workspace:^, @mage/cli@workspace:mage-cli":
-  version: 0.0.0-use.local
-  resolution: "@mage/cli@workspace:mage-cli"
-  dependencies:
-    "@pmmmwh/react-refresh-webpack-plugin": ^0.5.7
-    "@swc/core": ^1.2.194
-    "@types/chalk": ^2.2.0
-    "@types/fs-extra": ^9.0.13
-    "@types/inquirer": ^8.2.1
-    "@types/rimraf": ^3
-    autoprefixer: ^10.4.7
-    browserslist: ^4.20.3
-    chalk: ^5.0.1
-    clean-webpack-plugin: ^4.0.0
-    commander: ^9.3.0
-    copy-webpack-plugin: ^11.0.0
-    css-loader: ^6.7.1
-    css-minimizer-webpack-plugin: ^4.0.0
-    dotenv: ^16.0.1
-    fork-ts-checker-webpack-plugin: ^7.2.11
-    fs-extra: ^10.1.0
-    html-webpack-plugin: ^5.5.0
-    less: ^4.1.2
-    less-loader: ^11.0.0
-    mini-css-extract-plugin: ^2.6.0
-    mini-svg-data-uri: ^1.4.4
-    postcss: ^8.4.14
-    postcss-loader: ^7.0.0
-    postcss-normalize: ^10.0.1
-    postcss-pxtorem: ^6.0.0
-    react-refresh: ^0.13.0
-    rimraf: ^3.0.2
-    style-loader: ^3.3.1
-    svgo: ^2.8.0
-    svgo-loader: ^3.0.0
-    swc-loader: ^0.2.1
-    terser-webpack-plugin: ^5.3.1
-    typescript: ^4.7.2
-    webpack: ^5.72.1
-    webpack-bundle-analyzer: ^4.5.0
-    webpack-dev-server: ^4.9.0
-    webpack-merge: ^5.8.0
-    webpackbar: ^5.0.2
-    worker-loader: ^3.0.8
-  bin:
-    mage: ./bin/mage.js
-  languageName: unknown
-  linkType: soft
-
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -286,10 +237,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@packages/staking@workspace:packages/staking"
   dependencies:
-    "@mage/cli": "workspace:^"
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
     i18next: ^21.8.5
+    mage: "workspace:^"
     react: ^18.1.0
     react-dom: ^18.1.0
     react-i18next: ^11.16.9
@@ -302,7 +253,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@packages/ui@workspace:packages/ui"
   dependencies:
-    "@mage/cli": "workspace:^"
     "@types/js-cookie": ^3
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
@@ -310,6 +260,7 @@ __metadata:
     i18next-browser-languagedetector: ^6.1.4
     i18next-http-backend: ^1.4.1
     js-cookie: ^3.0.1
+    mage: "workspace:^"
     react: ^18.1.0
     react-dom: ^18.1.0
     react-i18next: ^11.16.9
@@ -3096,6 +3047,13 @@ __metadata:
   version: 2.0.0
   resolution: "crypto-random-string@npm:2.0.0"
   checksum: 0283879f55e7c16fdceacc181f87a0a65c53bc16ffe1d58b9d19a6277adcd71900d02bb2c4843dd55e78c51e30e89b0fec618a7f170ebcc95b33182c28f05fd6
+  languageName: node
+  linkType: hard
+
+"crypto@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "crypto@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcrypto%2F-%2Fcrypto-1.0.1.tgz"
+  checksum: 087fe3165bd94c333a49e6ed66a0193911f63eac38a24f379b3001a5fe260a59c413646e53a0f67875ba13902b2686d81dc703cb2c147a4ec727dcdc04e5645e
   languageName: node
   linkType: hard
 
@@ -6031,6 +5989,56 @@ __metadata:
   checksum: 31ea67388c9774300331d70f4affd5a433869bcf0fae5405f967d19d7b447930b713b0566a2e95362c9082034a8b496f3671ccf8f0c061d8e8048412663f9432
   languageName: node
   linkType: hard
+
+"mage@workspace:^, mage@workspace:mage-cli":
+  version: 0.0.0-use.local
+  resolution: "mage@workspace:mage-cli"
+  dependencies:
+    "@pmmmwh/react-refresh-webpack-plugin": ^0.5.7
+    "@swc/core": ^1.2.194
+    "@types/chalk": ^2.2.0
+    "@types/fs-extra": ^9.0.13
+    "@types/inquirer": ^8.2.1
+    "@types/rimraf": ^3
+    autoprefixer: ^10.4.7
+    browserslist: ^4.20.3
+    chalk: ^5.0.1
+    clean-webpack-plugin: ^4.0.0
+    commander: ^9.3.0
+    copy-webpack-plugin: ^11.0.0
+    crypto: ^1.0.1
+    css-loader: ^6.7.1
+    css-minimizer-webpack-plugin: ^4.0.0
+    dotenv: ^16.0.1
+    fork-ts-checker-webpack-plugin: ^7.2.11
+    fs-extra: ^10.1.0
+    html-webpack-plugin: ^5.5.0
+    less: ^4.1.2
+    less-loader: ^11.0.0
+    mini-css-extract-plugin: ^2.6.0
+    mini-svg-data-uri: ^1.4.4
+    postcss: ^8.4.14
+    postcss-loader: ^7.0.0
+    postcss-normalize: ^10.0.1
+    postcss-pxtorem: ^6.0.0
+    react-refresh: ^0.13.0
+    rimraf: ^3.0.2
+    style-loader: ^3.3.1
+    svgo: ^2.8.0
+    svgo-loader: ^3.0.0
+    swc-loader: ^0.2.1
+    terser-webpack-plugin: ^5.3.1
+    typescript: ^4.7.2
+    webpack: ^5.72.1
+    webpack-bundle-analyzer: ^4.5.0
+    webpack-dev-server: ^4.9.0
+    webpack-merge: ^5.8.0
+    webpackbar: ^5.0.2
+    worker-loader: ^3.0.8
+  bin:
+    mage: ./bin/mage.js
+  languageName: unknown
+  linkType: soft
 
 "make-dir@npm:^2.1.0":
   version: 2.1.0

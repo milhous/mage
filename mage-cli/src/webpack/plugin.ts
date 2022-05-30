@@ -6,39 +6,42 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
-import {resolveAppPath} from '../helpers/utils.js';
+import {resolveAppPath, getGitHash} from '../helpers/utils.js';
+import {IDevConfig, IBasicConfig} from '../helpers/store.js';
 
 /**
  * 插件
- * @param {boolean} isDev 是否是开发环境
- * @param {boolean} analyze 生成分析报告
- * @param {string} name 应用名称
- * @param {string} publicPath 应用静态文件目录
+ * @param {IDevConfig} devConfig 开发配置
+ * @param {IBasicConfig} basicConfig 基础配置
  */
-export default (isDev: boolean, analyze: boolean, name: string, publicPath: string): any => {
+export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
   const configFile = resolveAppPath('./tsconfig.json');
 
   const plugins: any[] = [
     new WebpackBar({
       color: 'green',
     }),
-    // new webpack.DefinePlugin({
-    //   APP__GITHASH: JSON.stringify(gitHash),
-    //   APP_NAME: JSON.stringify(appName),
-    //   'process.env.DEV_SERVER': JSON.stringify(process.env.DEV_SERVER),
-    //   'process.env.BTG_ENV': JSON.stringify(process.env.BTG_ENV),
-    //   __isDEV__: !prodMode,
-    // }),
+    new webpack.DefinePlugin({
+      APP_GITHASH: getGitHash(),
+      APP_NAME: basicConfig.name,
+      // 'process.env.DEV_SERVER': JSON.stringify(process.env.DEV_SERVER),
+      // 'process.env.BTG_ENV': JSON.stringify(process.env.BTG_ENV),
+      __isDEV__: devConfig.isDev,
+    }),
+    new CopyPlugin({
+      patterns: [{from: 'locales', to: 'static/locales'}],
+    }),
     new HtmlWebpackPlugin({
-      title: 'Bitgame - ' + name,
-      favicon: publicPath + '/favicon.ico',
-      template: publicPath + '/index.html',
+      title: 'Bitgame - ' + basicConfig.name,
+      favicon: basicConfig.public + '/favicon.ico',
+      template: basicConfig.public + '/index.html',
       inject: true,
       minify: false,
     }),
     new ForkTsCheckerWebpackPlugin({
-      async: isDev, // true dev环境下部分错误验证通过
+      async: devConfig.isDev, // true dev环境下部分错误验证通过
       typescript: {
         configFile,
         profile: false,
@@ -48,11 +51,11 @@ export default (isDev: boolean, analyze: boolean, name: string, publicPath: stri
   ];
 
   // 是否生成分析报告
-  if (analyze) {
+  if (devConfig.analyze) {
     plugins.push(new BundleAnalyzerPlugin());
   }
 
-  if (isDev) {
+  if (devConfig.isDev) {
     // 是否开启热更新
     plugins.push(new ReactRefreshWebpackPlugin());
   } else {

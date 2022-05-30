@@ -1,6 +1,8 @@
 import * as url from 'url';
 import path from 'path';
 import fs from 'fs-extra';
+import crypto from 'crypto';
+import {execSync} from 'child_process';
 
 export const __filename = url.fileURLToPath(import.meta.url);
 export const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -60,3 +62,24 @@ export const copyFolder = async (src: string, dist: string): Promise<void> => {
 
   await fs.copy(src, dist);
 };
+
+/**
+ * 获取文件 HASH
+ * @param {string} filePath 文件路径
+ * @returns {string}
+ */
+export const getFileHash = async (filePath: string): Promise<string> => {
+  const buffer = await fs.readFile(filePath);
+  const hash = crypto.createHash('md5');
+
+  hash.update(buffer);
+
+  const md5 = hash.digest('hex');
+  return md5;
+};
+
+/**
+ * 获取 Git Hash
+ * @returns {string}
+ */
+export const getGitHash = (): string => execSync('git rev-parse --short HEAD').toString().trim();

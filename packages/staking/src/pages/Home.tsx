@@ -1,15 +1,19 @@
 import SVG from 'react-inlinesvg';
 
 import Svga from '@ui/svga';
+import {useTranslate} from '@ui/i18n';
 import './Home.less';
 import iconFacebook from '@app/assets/icon-facebook.svg';
 import howBg from '@app/assets/how-bg.jpg';
 import astrolabeLibra from '@app/assets/astrolabe-libra.svga';
 
 export default function Home(): JSX.Element {
+  const t = useTranslate(['referral']);
+
   return (
     <div className="staking">
       Hello world!!!
+      <span>{t('operation')}</span>
       <SVG src={iconFacebook} />
       <img src={howBg} />
       <i className="icon"></i>

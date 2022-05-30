@@ -1,3 +1,8 @@
+declare const __webpack_public_path__: string;
+declare const __isDEV__: boolean;
+declare const APP_GITHASH: string;
+declare const APP_NAME: boolean;
+
 // files
 declare module '*.svga';
 
@@ -29,5 +34,3 @@ declare module '*?inline';
 
 // svga.lite
 declare module 'svga.lite/db';
-
-declare let __webpack_public_path__: string;

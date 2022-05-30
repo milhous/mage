@@ -26,7 +26,7 @@ export default (): any => {
   const cssConfig = getCssConfig(devConfig.isDev, devConfig.browserslist);
   const fileConfig = getFileConfig();
   const moduleConfig = getModuleConfig(devConfig.isDev, devConfig.browserslist);
-  const pluginConfig = getPluginConfig(devConfig.isDev, devConfig.analyze, basicConfig.name, basicConfig.public);
+  const pluginConfig = getPluginConfig(devConfig, basicConfig);
   const developmentConfig = getDevelopmentConfig(basicConfig.port, basicConfig.dist);
   const productionConfig = getProductionConfig();
 

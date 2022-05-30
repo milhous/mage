@@ -11,10 +11,10 @@
         "update": "ncu -u"
     },
     "devDependencies": {
-        "@mage/cli": "workspace:^",
         "@types/react": "^18",
         "@types/react-dom": "^18.0.5",
         "i18next": "^21.8.5",
+        "mage": "workspace:^",
         "react": "^18.1.0",
         "react-dom": "^18.1.0",
         "react-i18next": "^11.16.9",
