@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import WebpackBar from 'webpackbar';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
@@ -22,6 +23,13 @@ export default (isDev: boolean, analyze: boolean, name: string, publicPath: stri
     new WebpackBar({
       color: 'green',
     }),
+    // new webpack.DefinePlugin({
+    //   APP__GITHASH: JSON.stringify(gitHash),
+    //   APP_NAME: JSON.stringify(appName),
+    //   'process.env.DEV_SERVER': JSON.stringify(process.env.DEV_SERVER),
+    //   'process.env.BTG_ENV': JSON.stringify(process.env.BTG_ENV),
+    //   __isDEV__: !prodMode,
+    // }),
     new HtmlWebpackPlugin({
       title: 'Bitgame - ' + name,
       favicon: publicPath + '/favicon.ico',

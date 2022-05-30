@@ -1,72 +1,33 @@
 // files
-declare module '*.svga' {
-  const src: string;
-  export default src;
-}
+declare module '*.svga';
 
-declare module '*.avif' {
-  const src: string;
-  export default src;
-}
+declare module '*.avif';
 
-declare module '*.bmp' {
-  const src: string;
-  export default src;
-}
+declare module '*.bmp';
 
-declare module '*.gif' {
-  const src: string;
-  export default src;
-}
+declare module '*.gif';
 
-declare module '*.jpg' {
-  const src: string;
-  export default src;
-}
+declare module '*.jpg';
 
-declare module '*.jpeg' {
-  const src: string;
-  export default src;
-}
+declare module '*.jpeg';
 
-declare module '*.png' {
-  const src: string;
-  export default src;
-}
+declare module '*.png';
 
-declare module '*.webp' {
-  const src: string;
-  export default src;
-}
+declare module '*.webp';
 
-declare module '*.svg' {
-  const src: string;
-  export default src;
-}
+declare module '*.svg';
 
 // styles
-declare module '*.module.css' {
-  const classes: {[key: string]: string};
-  export default classes;
-}
+declare module '*.module.css';
 
-declare module '*.module.less' {
-  const classes: {[key: string]: string};
-  export default classes;
-}
+declare module '*.module.less';
 
 // web worker
-declare module '*?worker' {
-  const workerConstructor: {
-    new (): Worker;
-  };
-  export default workerConstructor;
-}
+declare module '*?worker';
 
-declare module '*?inline' {
-  const inlineStr: string;
-  export default inlineStr;
-}
+declare module '*?inline';
 
 // svga.lite
 declare module 'svga.lite/db';
+
+declare let __webpack_public_path__: string;
