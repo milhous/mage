@@ -64,7 +64,7 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
       type: 'checkbox',
       message: '选择启动项目:',
       name: 'packages',
-      choices: choices,
+      choices,
       loop: false,
       when(answers) {
         return answers.all;

@@ -1,0 +1,167 @@
+.responsive(@maxWidth; @rules) {
+  @media only screen and (max-width: @maxWidth) {
+    @rules();
+  }
+}
+
+.smallScreen(@rules) {
+  @media only screen and (max-width: 768px) {
+    @rules();
+  }
+}
+
+.mediumScreen(@rules) {
+  @media only screen and (min-width: 769px) and (max-width: 1599px) {
+    @rules();
+  }
+}
+
+.largeScreen(@rules) {
+  @media only screen and (min-width: 1600px) {
+    @rules();
+  }
+}
+
+@toastColor: #0ec68d;
+@errorColor: #ff3c3c;
+
+.Toastify {
+  .Toastify__toast-container--top-center {
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .Toastify__toast-container {
+    width: auto;
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+  }
+  .btg-toastify {
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 3.2rem;
+    min-height: 0.6rem;
+    margin: 0 0 0.1rem 0;
+    padding: 0.1rem 0.2rem;
+    border-left: 0.06rem solid @toastColor;
+    border-right: 0.06rem solid transparent;
+    border-radius: 0.06rem;
+    background-color: #29394f;
+    color: #fff;
+    font-size: 0.14rem;
+    line-height: 0.2rem;
+    &.btg-toastify_error {
+      border-left-color: @errorColor!important;
+
+      .btg-toastify_content {
+        svg {
+          fill: @errorColor!important;
+        }
+      }
+    }
+
+    .smallScreen({
+        width: 4.8rem;
+        min-height: 0.9rem;
+        margin-bottom: 0.15rem;
+        padding: 0.1rem 0.4rem;
+        border-left-width: 0.09rem;
+        border-right-width: 0.09rem;
+        border-radius: 0.09rem;
+        font-size: 0.24rem;
+        line-height: 0.46rem;
+    });
+
+    .Toastify__toast-body {
+      padding: 0;
+    }
+
+    .btg-toastify_content {
+      display: flex;
+
+      svg {
+        min-width: 0.18rem;
+        width: 0.18rem;
+        height: 0.18rem;
+        margin-right: 0.1rem;
+        fill: @toastColor;
+
+        .smallScreen({
+            min-width: 0.28rem;
+            width: 0.28rem;
+            height: 0.28rem;
+            margin-top: 0.08rem;
+        });
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .Toastify__close-button--default {
+      position: absolute;
+      right: 0;
+      top: 0.06rem;
+      color: #fff;
+      opacity: 1;
+
+      svg {
+        width: 0.14rem;
+        height: 0.16rem;
+      }
+
+      .smallScreen({
+        top: 0.09rem;
+
+        svg {
+            width: 0.28rem;
+            height: 0.32rem;
+        }
+      });
+    }
+  }
+}
+
+.btg-toastify_content_share {
+  .title {
+    text-align: center;
+    font-size: 0.18rem;
+    padding: 0.15rem 0;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 0.3rem;
+    }
+  }
+
+  .matchReward,
+  .lutReward {
+    padding: 0 0.1rem 0.05rem;
+    font-size: 0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: normal;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 0.24rem;
+    }
+
+    span {
+      color: #f7b500;
+      font-weight: bold;
+      margin-left: 0.1rem;
+      white-space: nowrap;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 0.24rem;
+      }
+    }
+  }
+}

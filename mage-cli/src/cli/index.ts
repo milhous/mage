@@ -9,6 +9,8 @@ import {CommandType} from '../helpers/types.js';
 
 // 初始化
 import init from './init.js';
+// 多语言
+import i18n from './i18n.js';
 // 启动（单个项目）
 import start from './start.js';
 // 启动（多个项目）
@@ -29,18 +31,27 @@ initEnv();
 
 export default async (name: string, args: any): Promise<void> => {
   switch (name) {
+    // 初始化
     case CommandType.INIT:
       init();
 
       break;
+    // 多语言
+    case CommandType.I18N:
+      i18n(args);
+
+      break;
+    // 启动（多个项目）
     case CommandType.LAUNCH:
       launch();
 
       break;
+    // 启动（单个项目）
     case CommandType.START:
       start(args);
 
       break;
+    // 构建
     case CommandType.BUILD:
       build(args);
 

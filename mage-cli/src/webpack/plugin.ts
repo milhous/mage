@@ -20,8 +20,6 @@ export default async (devConfig: IDevConfig, basicConfig: IBasicConfig): Promise
   const configFile = resolveAppPath('./tsconfig.json');
   const hash = await getGitHash();
 
-  console.log('hash', hash);
-
   const plugins: any[] = [
     new WebpackBar({
       color: 'green',

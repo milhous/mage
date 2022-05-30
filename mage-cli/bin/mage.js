@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // 命令行工具
-import { Command } from 'commander';
+import {Command} from 'commander';
 // 命令行
 import cli from '../dist/cli/index.js';
 
@@ -14,24 +14,20 @@ const version = '1.0.0';
 const optionsConfig = {
   env: ['-e, --env <env>', '部署环境 dev、test、prod 默认为 prod'],
   mode: ['-m, --mode <mode>', '开发模式 development、production 默认 production'],
-  analyze: ['-a, --analyze', '生成分析报告 默认为 false']
+  analyze: ['-a, --analyze', '生成分析报告 默认为 false'],
 };
-  
-  // 获取配置
-const getConfig = ({
-    env = 'prod',
-    mode = 'production',
-    analyze = false
-}) => {
-    if (typeof analyze === 'string') {
-        analyze = analyze === 'true';
-    }
-  
-    return {
-        env,
-        mode,
-        analyze
-    };
+
+// 获取配置
+const getConfig = ({env = 'prod', mode = 'production', analyze = false}) => {
+  if (typeof analyze === 'string') {
+    analyze = analyze === 'true';
+  }
+
+  return {
+    env,
+    mode,
+    analyze,
+  };
 };
 
 // 获取版本号
@@ -45,6 +41,14 @@ program
     cli('init');
   });
 
+// 多语言
+program
+  .command('i18n')
+  .description('多语言')
+  .action(() => {
+    cli('i18n');
+  });
+
 // 启动开发服务器
 program
   .command('start')
@@ -53,8 +57,8 @@ program
   .option(...optionsConfig.env)
   .option(...optionsConfig.mode)
   .option(...optionsConfig.analyze)
-  .action(({ mode = 'development', devtool = 'source-map' }) => {
-    const config = getConfig({ mode, devtool });
+  .action(({mode = 'development', devtool = 'source-map'}) => {
+    const config = getConfig({mode, devtool});
 
     cli('start', config);
   });

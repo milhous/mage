@@ -4,12 +4,14 @@
  * @property LAUNCH 启动（多个项目）
  * @property START 启动（单个项目）
  * @property BUILD 构建
+ * @property I18N 多语言
  */
 export const CommandType = {
   INIT: 'init',
   LAUNCH: 'launch',
   START: 'start',
   BUILD: 'build',
+  I18N: 'i18n',
 };
 
 /**
