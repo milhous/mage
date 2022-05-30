@@ -14,7 +14,7 @@ export default async (args: any): Promise<void> => {
 
   const basicConfig = store.getBasicConfig();
   const name = basicConfig.name;
-  const webpackConfig = getWebpackConfig();
+  const webpackConfig = await getWebpackConfig();
 
   console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled with start.===\n`));
 

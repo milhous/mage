@@ -2,7 +2,7 @@ import * as url from 'url';
 import path from 'path';
 import fs from 'fs-extra';
 import crypto from 'crypto';
-import {execSync} from 'child_process';
+import {exec} from 'child_process';
 
 export const __filename = url.fileURLToPath(import.meta.url);
 export const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -82,4 +82,18 @@ export const getFileHash = async (filePath: string): Promise<string> => {
  * 获取 Git Hash
  * @returns {string}
  */
-export const getGitHash = (): string => execSync('git rev-parse --short HEAD').toString().trim();
+export const getGitHash = (): Promise<string> => {
+  return new Promise(resolve => {
+    exec('git rev-parse --short HEAD', (error, stdout) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+
+        return '';
+      }
+
+      const hash = `${stdout}`.trim();
+
+      resolve(hash);
+    });
+  });
+};

@@ -18,7 +18,7 @@ import getDevelopmentConfig from './development.js';
 import getProductionConfig from './production.js';
 
 // webpack 配置
-export default (): any => {
+export default async (): Promise<any> => {
   const basicConfig = store.getBasicConfig();
   const devConfig = store.getDevConfig();
 
@@ -26,7 +26,7 @@ export default (): any => {
   const cssConfig = getCssConfig(devConfig.isDev, devConfig.browserslist);
   const fileConfig = getFileConfig();
   const moduleConfig = getModuleConfig(devConfig.isDev, devConfig.browserslist);
-  const pluginConfig = getPluginConfig(devConfig, basicConfig);
+  const pluginConfig = await getPluginConfig(devConfig, basicConfig);
   const developmentConfig = getDevelopmentConfig(basicConfig.port, basicConfig.dist);
   const productionConfig = getProductionConfig();
 

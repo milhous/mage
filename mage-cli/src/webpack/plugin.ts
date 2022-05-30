@@ -16,15 +16,18 @@ import {IDevConfig, IBasicConfig} from '../helpers/store.js';
  * @param {IDevConfig} devConfig 开发配置
  * @param {IBasicConfig} basicConfig 基础配置
  */
-export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
+export default async (devConfig: IDevConfig, basicConfig: IBasicConfig): Promise<any> => {
   const configFile = resolveAppPath('./tsconfig.json');
+  const hash = await getGitHash();
+
+  console.log('hash', hash);
 
   const plugins: any[] = [
     new WebpackBar({
       color: 'green',
     }),
     new webpack.DefinePlugin({
-      APP_GITHASH: getGitHash(),
+      APP_GITHASH: JSON.stringify(hash),
       APP_NAME: basicConfig.name,
       // 'process.env.DEV_SERVER': JSON.stringify(process.env.DEV_SERVER),
       // 'process.env.BTG_ENV': JSON.stringify(process.env.BTG_ENV),

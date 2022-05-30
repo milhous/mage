@@ -68,7 +68,10 @@ export const useTranslate = (ns: string[]): any => {
   return t;
 };
 
-// 切换语言
+/**
+ * 切换语言
+ * @param {string} lang 语言
+ */
 export const changeLang = (lang: string): void => {
   i18n.changeLanguage(lang);
 };
@@ -133,7 +136,7 @@ i18n
     // `/${APP_NAME}/locales/{{lng}}/{{ns}}.json`,
     backend: {
       loadPath: `${__webpack_public_path__}static/locales/{{lng}}/{{ns}}.json`,
-      queryStringParams: {v: 'APP_GITHASH'},
+      queryStringParams: {v: APP_GITHASH},
     },
     detection: {
       htmlTag: document.documentElement,

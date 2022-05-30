@@ -7,8 +7,7 @@
     ],
     "bin": "./bin/mage.js",
     "files": [
-        "bin",
-        "client.d.ts",
+        "types/client.d.ts",
         "tsconfig.base.json"
     ],
     "scripts": {
