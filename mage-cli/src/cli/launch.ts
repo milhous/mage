@@ -57,7 +57,7 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
     {
       type: 'confirm',
       name: 'all',
-      message: '选择项目启动方式?（y:指定, n:所有）',
+      message: '选择启动方式?（y:指定, n:所有）',
       default: true,
     },
     {
@@ -80,7 +80,7 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
     {
       type: 'confirm',
       name: 'confirm',
-      message: '确认启动？',
+      message: '确认执行？',
       default: true,
     },
   ]);
@@ -90,10 +90,11 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
 
 /**
  * 启动服务
+ * @param {string} name 应用名
  * @param {string} command 命令
  * @param {string} args 参数
  */
-const startServer = (command: string, args: string[]) => {
+const startServer = (name: string, command: string, args: string[]) => {
   const ls = spawn(command, args);
 
   ls.stdout.on('data', data => {
@@ -122,7 +123,7 @@ const batchStartServer = async (packages: string[]): Promise<void> => {
   for (const name of packages) {
     args[index] = temp.replace('$name', name);
 
-    startServer(command, args);
+    startServer(name, command, args);
   }
 };
 

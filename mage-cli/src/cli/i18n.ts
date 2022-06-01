@@ -7,6 +7,8 @@ import {exec} from 'child_process';
 
 // 工具
 import {readDirInfo, readJson} from '../helpers/utils.js';
+// cvs
+import csv from '../helpers/cvs.js';
 
 /**
  * 声明 - 选项
@@ -17,13 +19,16 @@ type IChoices = {name: string; checked: boolean}[];
 
 /**
  * 声明 - 答案
- * @property {boolean} all 选择项目启动方式?（y:指定, n:所有）
+ * @property {number} type 行为类型 0:导入, 1:导出
+ * @property {string} dir csv文件目录
  * @property {Array<string>} packages 应用名
  * @property {boolean} confirm 确认启动
  */
 type IAnswers = {
-  all: boolean;
-  packages?: string[];
+  type: number;
+  dir: string;
+  packages: string[];
+  mode: number;
   confirm: boolean;
 };
 
@@ -35,6 +40,18 @@ type IAnswers = {
 enum ActionType {
   IMPORT = 0,
   EXPORT,
+}
+
+/**
+ * 模式类型
+ * @property NULL 无
+ * @property FULL 全量
+ * @property EMPTY 空项
+ */
+enum ModeType {
+  NULL = 0,
+  FULL,
+  EMPTY,
 }
 
 /**
@@ -59,69 +76,111 @@ const getChoices = (packages: string[]): IChoices => {
  * 获取答案
  * @param {IChoices} choices 选项
  */
-const getAnswers = async (choices: IChoices): Promise<any> => {
-  const {all, packages, type} = await inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'all',
-      message: '选择项目启动方式?（y:所有, n:指定）',
-      default: false,
-    },
-    {
-      type: 'checkbox',
-      message: '选择应用（必选）:',
-      name: 'packages',
-      choices: choices,
-      loop: false,
-      when(answers) {
-        return !answers.all;
-      },
-      validate(answer) {
-        if (answer.length === 0) {
-          return '必须选择至少一个应用';
-        }
+const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
+  let packages: string[] = [];
+  let dir = '';
+  let mode = ModeType.NULL;
 
-        return true;
-      },
-    },
+  const {type} = await inquirer.prompt([
     {
       type: 'list',
-      message: '选择操作:',
+      message: '选择导入/导出:',
       name: 'type',
       choices: [
         {name: 'import(导入)', value: ActionType.IMPORT, description: '导入'},
         {name: 'export(导出)', value: ActionType.EXPORT, description: '导出'},
       ],
     },
-    //   {
-    //     type: 'checkbox',
-    //     message: '选择应用:',
-    //     name: 'packages',
-    //     choices: choices,
-    //     loop: false,
-    //     when(answers) {
-    //       return answers.all;
-    //     },
-    //     validate(answer) {
-    //       // if (!answer.includes('main') || !answer.includes('bitgame')) {
-    //       //   return '必须选择 main & bitgame';
-    //       // }
+  ]);
 
-    //       return true;
-    //     },
-    //   },
+  if (type === ActionType.IMPORT) {
+    const answer = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'dir',
+        message: '选择导入路径:',
+        validate(answer) {
+          if (answer === '') {
+            return '路径不能为空';
+          }
+
+          const stat = fs.lstatSync(answer);
+
+          if (stat.isFile()) {
+            return '路径不能为文件';
+          }
+
+          return true;
+        },
+      },
+    ]);
+
+    dir = answer.dir;
+
+    for (const {name} of choices) {
+      packages.push(name);
+    }
+  } else {
+    const answer = await inquirer.prompt([
+      {
+        message: '选择导出模式:',
+        name: 'mode',
+        type: 'list',
+        choices: [
+          {name: '空项', value: ModeType.EMPTY, description: '空项'},
+          {name: '全量', value: ModeType.FULL, description: '全量'},
+        ],
+      },
+      {
+        type: 'confirm',
+        name: 'all',
+        message: '选择应用方式?(y:所有, n:指定)',
+        default: false,
+      },
+      {
+        type: 'checkbox',
+        message: '选择应用(必选):',
+        name: 'packages',
+        choices: choices,
+        loop: false,
+        when(answers) {
+          return !answers.all;
+        },
+        validate(answer) {
+          if (answer.length === 0) {
+            return '选择至少一个应用';
+          }
+          return true;
+        },
+      },
+    ]);
+
+    mode = answer.mode;
+
+    if (answer.all) {
+      for (const {name} of choices) {
+        packages.push(name);
+      }
+    } else {
+      packages = answer.packages;
+    }
+  }
+
+  const {confirm} = await inquirer.prompt([
     {
       type: 'confirm',
       name: 'confirm',
-      message: '确认启动？',
+      message: '确认执行?',
       default: true,
     },
   ]);
 
-  console.log(all, packages, type);
-
   return {
+    type,
+    dir,
     packages,
+    mode,
+    confirm,
   };
 };
 
@@ -134,7 +193,17 @@ export default async (args: any): Promise<void> => {
     return;
   }
 
-  const answers = await getAnswers(choices);
+  const answers: IAnswers = await getAnswers(choices);
 
-  console.log('i18n', answers);
+  if (!answers.confirm) {
+    return;
+  }
+
+  if (answers.type === ActionType.IMPORT) {
+    // 导入
+    csv.import(answers.packages, answers.dir);
+  } else {
+    // 导出
+    csv.export(answers.packages, answers.mode);
+  }
 };

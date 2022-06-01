@@ -9,7 +9,7 @@ import {ModeType} from './types.js';
  * @method getModuleFederationConfig 获取 Module federation 配置
  * @method init 初始化
  */
-interface IBTGStore {
+interface IStore {
   VERSION: string;
 
   getBasicConfig(): IBasicConfig;
@@ -62,27 +62,27 @@ export interface IDevConfig {
  * @property shared 共享的模块
  */
 export interface IModuleFederationConfig {
-  remotes: IBTGStoreMFRemotes;
-  exposes: IBTGStoreMFExposes;
-  shared: IBTGStoreMFShared;
+  remotes: IStoreMFRemotes;
+  exposes: IStoreMFExposes;
+  shared: IStoreMFShared;
 }
 
 // 声明 - Module Federation Shared
-interface IBTGStoreMFRemotes {
+interface IStoreMFRemotes {
   [propName: string]: string;
 }
 
 // 声明 - Module Federation Exposes
-interface IBTGStoreMFExposes {
+interface IStoreMFExposes {
   [propName: string]: string;
 }
 
 // 声明 - Module Federation Shared
-interface IBTGStoreMFShared {
+interface IStoreMFShared {
   [propName: string]: string;
 }
 
-class BTGStore implements IBTGStore {
+class Store implements IStore {
   // 版本号
   public VERSION = '1.0.0';
 
@@ -109,22 +109,22 @@ class BTGStore implements IBTGStore {
   // 应用缓存目录 绝对路径
   private _appCache = '';
   // Module federation Remotes
-  private _appRemotes: IBTGStoreMFRemotes = {};
+  private _appRemotes: IStoreMFRemotes = {};
   // Module federation Exposes
-  private _appExposes: IBTGStoreMFExposes = {};
+  private _appExposes: IStoreMFExposes = {};
   // Module federation Shared
-  private _appShared: IBTGStoreMFShared = {};
+  private _appShared: IStoreMFShared = {};
 
   constructor() {}
 
-  static instance: IBTGStore;
+  static instance: IStore;
 
-  static getInstance(): IBTGStore {
-    if (!BTGStore.instance) {
-      BTGStore.instance = new BTGStore();
+  static getInstance(): IStore {
+    if (!Store.instance) {
+      Store.instance = new Store();
     }
 
-    return BTGStore.instance;
+    return Store.instance;
   }
 
   /**
@@ -222,6 +222,6 @@ class BTGStore implements IBTGStore {
 }
 
 // 定义全局变量
-const store: IBTGStore = BTGStore.getInstance();
+const store: IStore = Store.getInstance();
 
 export default store;

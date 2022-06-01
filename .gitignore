@@ -2,6 +2,7 @@
 node_modules/
 build/
 dist/
+csv/
 package-lock.json
 dll/
 .DS_Store

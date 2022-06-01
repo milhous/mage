@@ -74,7 +74,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fast-csv/format@npm:4.3.5":
+"@fast-csv/format@npm:4.3.5, @fast-csv/format@npm:^4.3.5":
   version: 4.3.5
   resolution: "@fast-csv/format@npm:4.3.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40fast-csv%2Fformat%2F-%2Fformat-4.3.5.tgz"
   dependencies:
@@ -88,7 +88,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fast-csv/parse@npm:4.3.6":
+"@fast-csv/parse@npm:4.3.6, @fast-csv/parse@npm:^4.3.6":
   version: 4.3.6
   resolution: "@fast-csv/parse@npm:4.3.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40fast-csv%2Fparse%2F-%2Fparse-4.3.6.tgz"
   dependencies:
@@ -6098,6 +6098,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mage@workspace:mage-cli"
   dependencies:
+    "@fast-csv/format": ^4.3.5
+    "@fast-csv/parse": ^4.3.6
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.7
     "@swc/core": ^1.2.194
     "@types/chalk": ^2.2.0

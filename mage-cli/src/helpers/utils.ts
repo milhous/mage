@@ -25,6 +25,13 @@ export const readAppJson = (appPath: string): Promise<any> => fs.readJson(resolv
  */
 export const readDirInfo = async (dirPath: string): Promise<string[]> => {
   const reg = new RegExp(/\.DS_Store|node_modules|librarys|ui$/);
+  const path = resolveCliPath('../' + dirPath);
+  const isExist = await fs.pathExists(path);
+
+  if (!isExist) {
+    return [];
+  }
+
   let dirInfo = await fs.readdir(resolveCliPath('../' + dirPath));
 
   dirInfo = dirInfo.filter((item: string) => {
@@ -96,4 +103,22 @@ export const getGitHash = (): Promise<string> => {
       resolve(hash);
     });
   });
+};
+
+/**
+ * 格式化日期 YYYY-MM-DD
+ * @param {string} template 格式模板
+ * @param {Date} date 日期对象
+ * @return {string}
+ */
+export const formatDate = (template: string, date?: Date): string => {
+  const specs = 'YYYY:MM:DD:HH:mm:ss'.split(':');
+  date = new Date(date || Date.now() - new Date().getTimezoneOffset() * 6e4);
+
+  return date
+    .toISOString()
+    .split(/[-:.TZ]/)
+    .reduce(function (template, item, i) {
+      return template.split(specs[i]).join(item);
+    }, template);
 };

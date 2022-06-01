@@ -57,22 +57,4 @@ export default async (name: string, args: any): Promise<void> => {
 
       break;
   }
-
-  // if (name === 'init') {
-  //   const cilScript = await import(`./${name}`)
-  //   await cilScript.default.setup(cliOptions)
-  //   return
-  // }
-  // // 全局变量实例化 store & config
-  // await store.setup(mode, cliOptions, pkg)
-  // //webpack 实例化
-  // await wpConfig.setup()
-  // // 初始化所有 EMP Plugins
-  // await configPlugins.setup()
-  // // webpack Chain
-  // await configChain.setup()
-  // // 执行cli脚本
-  // name = !!store.config.build.lib ? 'build' : name
-  // const cilScript = await import(`./${name}`)
-  // await cilScript.default.setup(cliOptions)
 };
