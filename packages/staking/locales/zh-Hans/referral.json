@@ -70,5 +70,6 @@
     "details": "详情",
     "login_desc": "好友注册成功后，除了双方均可获{{lutPrize}}的奖励外，该好友完成投注要求时，您还可获得{{rebateLimit}}奖励！邀请好友，共享奖励！",
     "tips_limit": "邀请链接数量已达上限",
-    "share": "与我一起在Bitgame上获得USDT奖励！在Bitgame上享受极致体验并获得高额返水！我的邀请码是：{{code}}"
+    "share": "与我一起在Bitgame上获得USDT奖励！在Bitgame上享受极致体验并获得高额返水！我的邀请码是：{{code}}",
+    "i18n_text": ""
 }

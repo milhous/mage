@@ -70,5 +70,6 @@
     "details": "Chi tiết",
     "login_desc": "Ngoài phần thưởng {{lutPrize}} cho cả hai, khi bạn bè hoàn thành yêu cầu đặt cược, bạn cũng sẽ nhận được phần thưởng {{rebateLimit}}! Mời bạn bè cùng chia sẻ phần thưởng!",
     "tips_limit": "Đã đạt đến số lượng liên kết lời mời tối đa",
-    "share": "Đăng ký với liên kết giới thiệu của tôi và nhận phần thưởng mã thông báo LUT! Và được hoàn lại tiền đặt cược của bạn trên tất cả các cược thể thao và trò chơi! Mã giới thiệu của tôi: {{code}}"
+    "share": "Đăng ký với liên kết giới thiệu của tôi và nhận phần thưởng mã thông báo LUT! Và được hoàn lại tiền đặt cược của bạn trên tất cả các cược thể thao và trò chơi! Mã giới thiệu của tôi: {{code}}",
+    "i18n_text": ""
 }

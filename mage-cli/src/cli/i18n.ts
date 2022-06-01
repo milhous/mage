@@ -7,6 +7,8 @@ import {exec} from 'child_process';
 
 // 工具
 import {readDirInfo, readJson} from '../helpers/utils.js';
+// 类型
+import {ExportModeType} from '../helpers/types.js';
 // cvs
 import csv from '../helpers/cvs.js';
 
@@ -43,18 +45,6 @@ enum ActionType {
 }
 
 /**
- * 模式类型
- * @property NULL 无
- * @property FULL 全量
- * @property EMPTY 空项
- */
-enum ModeType {
-  NULL = 0,
-  FULL,
-  EMPTY,
-}
-
-/**
  * 获取选项
  * @param {Array<string>} packages 应用名
  * @returns {IChoices}
@@ -79,7 +69,7 @@ const getChoices = (packages: string[]): IChoices => {
 const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
   let packages: string[] = [];
   let dir = '';
-  let mode = ModeType.NULL;
+  let mode = ExportModeType.NULL;
 
   const {type} = await inquirer.prompt([
     {
@@ -127,8 +117,8 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
         name: 'mode',
         type: 'list',
         choices: [
-          {name: '空项', value: ModeType.EMPTY, description: '空项'},
-          {name: '全量', value: ModeType.FULL, description: '全量'},
+          {name: 'empty item(空项)', value: ExportModeType.EMPTY, description: '空项'},
+          {name: 'full item(全量)', value: ExportModeType.FULL, description: '全量'},
         ],
       },
       {

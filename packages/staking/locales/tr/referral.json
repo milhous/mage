@@ -70,5 +70,6 @@
     "details": "Detaylar",
     "login_desc": "Hem davet edenin hem de davet edilenin alacağı {{lutPrize}} dışında, referansınız bahis şartlarını tamamladıktan sonra {{rebateLimit}} alacaksınız! Arkadaşlarını Davet Edin, Ödülleri Paylaşın!",
     "tips_limit": "Referans bağlantı numaraları üst sınıra ulaştı",
-    "share": "Tavsiye bağlantımla kaydolun ve LUT jeton ödülleri kazanın! Ve tüm spor ve oyun bahislerinde yatırdığınız parayı iade edin! Referans kodum: {{code}}"
+    "share": "Tavsiye bağlantımla kaydolun ve LUT jeton ödülleri kazanın! Ve tüm spor ve oyun bahislerinde yatırdığınız parayı iade edin! Referans kodum: {{code}}",
+    "i18n_text": ""
 }

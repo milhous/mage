@@ -25,3 +25,15 @@ export const ModeType = {
   PRODUCTION: 'production',
   NONE: 'none',
 };
+
+/**
+ * 导出模式类型
+ * @property NULL 无
+ * @property FULL 全量
+ * @property EMPTY 空项
+ */
+export enum ExportModeType {
+  NULL = 0,
+  FULL,
+  EMPTY,
+}

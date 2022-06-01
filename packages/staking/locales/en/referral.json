@@ -70,5 +70,6 @@
     "details": "Details",
     "login_desc": "In addition to {{lutPrize}} for both of you, you will also get {{rebateLimit}} after your referral completes the betting requirements! Invite friends, share rewards!",
     "tips_limit": "Referral link numbers reach the upper limit",
-    "share": "Register with my referral link and bag LUT token rewards! And get refunded your stake on all sports and gaming bets! My referral code: {{code}}"
+    "share": "Register with my referral link and bag LUT token rewards! And get refunded your stake on all sports and gaming bets! My referral code: {{code}}",
+    "i18n_text": "测试多语言导出"
 }

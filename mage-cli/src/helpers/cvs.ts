@@ -2,6 +2,8 @@ import path from 'path';
 import fs from 'fs-extra';
 import {format, writeToPath} from '@fast-csv/format';
 
+// 类型
+import {ExportModeType} from '../helpers/types.js';
 // 工具
 import {resolveCliPath, readDirInfo, formatDate} from './utils.js';
 
@@ -59,7 +61,7 @@ class Csv implements ICsv {
 
       const localesData = await this._readLocalesInfo(name, localesInfo);
 
-      this._create(name, localesData);
+      this._create(name, this._filterLocalesInfo(mode, localesData));
     }
   }
 
@@ -71,6 +73,12 @@ class Csv implements ICsv {
   private _create(name: string, rows: string[][]): Promise<void> {
     return new Promise((resolve, reject) => {
       const time = formatDate('MMDDHHmm');
+
+      if (rows.length < 2) {
+        console.log('rows', rows);
+
+        return;
+      }
 
       writeToPath(path.resolve(this._exportDir, `${name}_${time}.csv`), rows, {
         writeBOM: true,
@@ -177,6 +185,33 @@ class Csv implements ICsv {
     }
 
     return arr;
+  }
+
+  /**
+   * 过滤多语言信息
+   * @param {number} mode 模式 0:无, 1:空项, 2:全量
+   */
+  private _filterLocalesInfo(mode: number, info: string[][]): string[][] {
+    if (mode === ExportModeType.EMPTY) {
+      const arr = info.filter((data: string[]) => {
+        let counter = 0;
+        let isHeader = false;
+
+        for (const str of data) {
+          if (str.includes(':translationId')) {
+            isHeader = true;
+          } else if (str === '') {
+            counter++;
+          }
+        }
+
+        return isHeader || counter > 0;
+      });
+
+      return arr;
+    } else {
+      return info;
+    }
   }
 }
 
