@@ -1,16 +1,13 @@
-import chalk from 'chalk';
 import fs from 'fs-extra';
 import path from 'path';
 // 交互式命令行工具
 import inquirer from 'inquirer';
 import {exec} from 'child_process';
 
-import * as url from 'url';
-
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-
-// 解决chalk设置样式没有生效。
-chalk.level = 1;
+// 日志
+import logger from '../helpers/logger.js';
+// 工具
+import {readDirInfo, resolveCliPath} from '../helpers/utils.js';
 
 /**
  * 判断项目名是否同名
@@ -20,8 +17,7 @@ chalk.level = 1;
 const checkSameName = async (name: string): Promise<boolean> => {
   let result = false;
 
-  const packagesPath = path.resolve(__dirname, '../../../packages');
-  const dirInfo = fs.readdirSync(packagesPath);
+  const dirInfo = await readDirInfo('packages');
 
   for (const item of dirInfo) {
     if (item === name) {
@@ -39,8 +35,8 @@ const checkSameName = async (name: string): Promise<boolean> => {
  * @param {string} name 名称
  */
 const copyTemplete = async (name: string): Promise<void> => {
-  const templetePath = path.resolve(__dirname, '../../template');
-  const packagePath = path.resolve(__dirname, '../../../packages', name);
+  const templetePath = resolveCliPath('./template');
+  const packagePath = path.resolve(resolveCliPath('../packages'), name);
 
   await fs.copy(templetePath, packagePath);
 };
@@ -52,7 +48,7 @@ const copyTemplete = async (name: string): Promise<void> => {
  * @param {string} port 端口号
  */
 const modifyTemplete = async (name: string, desc: string, port: string): Promise<void> => {
-  const packagePath = path.resolve(__dirname, '../../../packages', name);
+  const packagePath = path.resolve(resolveCliPath('../packages'), name);
 
   // 修改 package.json
   const packageJsonFile = path.resolve(packagePath, 'package.json');
@@ -123,7 +119,7 @@ export default async (): Promise<void> => {
   const isSame = await checkSameName(name);
 
   if (isSame) {
-    console.log('初始化失败，项目名重名');
+    logger.error('初始化失败，项目名重名');
 
     return;
   }
@@ -134,15 +130,15 @@ export default async (): Promise<void> => {
   // 修改模板
   await modifyTemplete(name, desc, port);
 
-  console.log('初始化完成，开始安装依赖');
+  logger.info('初始化完成，开始安装依赖');
 
   exec('yarn install', {encoding: 'utf8'}, (error, stdout, stderr) => {
     if (error) {
-      console.error(`exec error: ${error}`);
+      logger.error(`exec error: ${error}`);
 
       return;
     }
 
-    console.log(`${stdout}`);
+    logger.default(`${stdout}`);
   });
 };

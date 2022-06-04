@@ -1,12 +1,9 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
-import logger from 'src/helpers/logger.js';
+import logger from '../helpers/logger.js';
 import store from '../helpers/store.js';
 import getWebpackConfig from '../webpack/index.js';
-
-// 解决chalk设置样式没有生效
-// chalk.level = 1;
 
 // 启动（单个项目）
 export default async (args: any): Promise<void> => {
