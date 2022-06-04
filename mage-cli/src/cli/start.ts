@@ -1,12 +1,12 @@
-import chalk from 'chalk';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
+import logger from 'src/helpers/logger.js';
 import store from '../helpers/store.js';
 import getWebpackConfig from '../webpack/index.js';
 
 // 解决chalk设置样式没有生效
-chalk.level = 1;
+// chalk.level = 1;
 
 // 启动（单个项目）
 export default async (args: any): Promise<void> => {
@@ -17,7 +17,7 @@ export default async (args: any): Promise<void> => {
   const webpackConfig = await getWebpackConfig();
   const compiler = webpack(webpackConfig);
 
-  console.log(chalk.green.bold(`\n=== BTG <${name}> Service is starting.===\n`));
+  logger.info(`\n=== Package <${name}> Service is starting.===\n`);
 
   const server = new WebpackDevServer(webpackConfig.devServer, compiler);
 
@@ -27,6 +27,6 @@ export default async (args: any): Promise<void> => {
     const protocol = webpackConfig.devServer.https ? 'https' : 'http';
     const url = `${protocol}://${host}:${port}`;
 
-    console.log(chalk.green.bold(`\n=== BTG <${name}> Starting server on ${url} ===\n`));
+    logger.info(`\n=== Package <${name}> Starting server on ${url} ===\n`);
   });
 };

@@ -1,51 +1,89 @@
-// import chalk from 'chalk'
-// import store from './store'
-// export type LoggerType = 'debug' | 'info' | 'warn' | 'error'
-// // const prefix = `[EMP]`
+import chalk from 'chalk';
 
-// const logger = {
-//   info: (...args: any[]) => ['debug', 'info'].includes(store.config.debug.level) && console.log(...args),
-//   debug: (...args: any[]) => ['debug'].includes(store.config.debug.level) && console.log(...args),
-//   warn: (...args: any[]) => ['debug', 'info', 'warn'].includes(store.config.debug.level) && console.warn(...args),
-//   error: (...args: any[]) =>
-//     ['debug', 'info', 'warn', 'error'].includes(store.config.debug.level) && console.error(...args),
-// }
-// /**
-//  * begin logger
-//  * @param title
-//  * @returns
-//  */
-// export const logTitle = (title: string) =>
-//   console.log(`${chalk.cyan(`EMP v${store.empPkg.version}`)} ${chalk.green(title)} \n`)
-// /**
-//  * tag log
-//  * @param msg
-//  * @param tag
-//  */
-// type tagType = 'green' | 'blue' | 'yellow' | 'red' | 'purple' | 'black'
-// const logTagStyle = (msg: any, c1: string, c2: string, w = '#ecf0f1') =>
-//   console.log(`${chalk.bgHex(w).hex(c1)(` EMP v${store.empPkg.version} `)}${chalk.hex(w).bgHex(c2)(` ${msg} `)}\n`)
-// export const logTag = (msg: string, tag: tagType = 'blue') => {
-//   switch (tag) {
-//     case 'green':
-//       logTagStyle(msg, '#27ae60', '#2ecc71')
-//       break
-//     case 'blue':
-//       logTagStyle(msg, '#2980b9', '#3498db')
+/**
+ * 类型 -日志颜色
+ * @property WHITE 白色
+ * @property GREEN 绿色
+ * @property YELLOW 黄色
+ * @property RED 红色
+ */
+enum LoggerColorType {
+  'GREEN' = 0,
+  'YELLOW',
+  'RED',
+}
 
-//       break
-//     case 'red':
-//       logTagStyle(msg, '#c0392b', '#e74c3c')
-//       break
-//     case 'yellow':
-//       logTagStyle(msg, '#f39c12', '#f1c40f')
-//       break
-//     case 'purple':
-//       logTagStyle(msg, '#8e44ad', '#9b59b6')
-//       break
-//     case 'black':
-//       logTagStyle(msg, '#2c3e50', '#34495e')
-//       break
-//   }
-// }
-// export default logger
+/**
+ * 声明 - 日志
+ * @method show 显示
+ * @method info 信息
+ * @method warn 警告
+ * @method error 错误
+ */
+interface ILogger {
+  show(msg: string, type: number): void;
+  info(msg: string): void;
+  warn(msg: string): void;
+  error(msg: string): void;
+}
+
+// 日志
+class Logger {
+  constructor() {}
+
+  static instance: ILogger;
+
+  static getInstance(): ILogger {
+    if (!Logger.instance) {
+      Logger.instance = new Logger();
+    }
+
+    return Logger.instance;
+  }
+
+  /**
+   * 显示
+   * @param {string} msg 消息
+   * @param {number} type 类型
+   */
+  public show(msg: string, type: number): void {
+    const color = LoggerColorType[type].toLowerCase();
+
+    console.log(chalk[color].bold(msg));
+  }
+
+  /**
+   * 信息
+   * @param {string} msg 消息
+   */
+  public info(msg: string): void {
+    const colorType = LoggerColorType.GREEN;
+
+    this.show(msg, colorType);
+  }
+
+  /**
+   * 警告
+   * @param {string} msg 消息
+   */
+  public warn(msg: string): void {
+    const colorType = LoggerColorType.YELLOW;
+
+    this.show(`⚠️ ${msg}`, colorType);
+  }
+
+  /**
+   * 错误
+   * @param {string} msg 消息
+   */
+  public error(msg: string): void {
+    const colorType = LoggerColorType.RED;
+
+    this.show(`❎ ${msg}`, colorType);
+  }
+}
+
+// 定义全局变量
+const logger: ILogger = Logger.getInstance();
+
+export default logger;
