@@ -17,7 +17,7 @@
     },
     "devDependencies": {
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
-        "@swc/core": "^1.2.194",
+        "@swc/core": "^1.2.196",
         "autoprefixer": "^10.4.7",
         "browserslist": "^4.20.3",
         "clean-webpack-plugin": "^4.0.0",
@@ -39,10 +39,10 @@
         "svgo": "^2.8.0",
         "svgo-loader": "^3.0.0",
         "swc-loader": "^0.2.1",
-        "terser-webpack-plugin": "^5.3.1",
-        "webpack": "^5.72.1",
+        "terser-webpack-plugin": "^5.3.3",
+        "webpack": "^5.73.0",
         "webpack-bundle-analyzer": "^4.5.0",
-        "webpack-dev-server": "^4.9.0",
+        "webpack-dev-server": "^4.9.1",
         "webpack-merge": "^5.8.0",
         "webpackbar": "^5.0.2",
         "worker-loader": "^3.0.8"
@@ -61,6 +61,6 @@
         "fast-csv": "^4.3.6",
         "fs-extra": "^10.1.0",
         "rimraf": "^3.0.2",
-        "typescript": "^4.7.2"
+        "typescript": "^4.7.3"
     }
 }

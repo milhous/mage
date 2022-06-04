@@ -29,19 +29,19 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.26.0",
-        "@typescript-eslint/parser": "^5.26.0",
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
         "cross-var": "^1.1.0",
-        "eslint": "^8.16.0",
+        "eslint": "^8.17.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "7.30.0",
         "eslint-plugin-react-hooks": "^4.5.0",
-        "npm-check-updates": "^12.5.12",
+        "npm-check-updates": "^13.1.1",
         "prettier": "^2.6.2"
     },
     "dependencies": {
-        "typescript": "^4.7.2"
+        "typescript": "^4.7.3"
     },
     "packageManager": "yarn@3.2.1"
 }

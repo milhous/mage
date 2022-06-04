@@ -10,7 +10,7 @@ import {readDirInfo, readJson} from '../helpers/utils.js';
 // 类型
 import {ExportModeType} from '../helpers/types.js';
 // cvs
-import csv from '../helpers/cvs.js';
+import csv from '../helpers/csv.js';
 
 /**
  * 声明 - 选项
@@ -191,7 +191,7 @@ export default async (args: any): Promise<void> => {
 
   if (answers.type === ActionType.IMPORT) {
     // 导入
-    csv.import(answers.packages, answers.dir);
+    csv.import(answers.dir);
   } else {
     // 导出
     csv.export(answers.packages, answers.mode);
