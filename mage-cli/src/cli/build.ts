@@ -1,12 +1,13 @@
-import chalk from 'chalk';
 import webpack from 'webpack';
 
+// 日志
+import logger from '../helpers/logger.js';
+// 工具
 import {resolveCliPath, copyFolder} from '../helpers/utils.js';
+// 配置
 import store from '../helpers/store.js';
+// webpack
 import getWebpackConfig from '../webpack/index.js';
-
-// 解决chalk设置样式没有生效。
-chalk.level = 1;
 
 // 构建
 export default async (args: any): Promise<void> => {
@@ -16,7 +17,7 @@ export default async (args: any): Promise<void> => {
   const name = basicConfig.name;
   const webpackConfig = await getWebpackConfig();
 
-  console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled with start.===\n`));
+  logger.info(`\n=== Package <${name}> compiled with start.===\n`);
 
   webpack(webpackConfig, (err, stats) => {
     if (err) {
@@ -35,8 +36,9 @@ export default async (args: any): Promise<void> => {
       );
 
       if (stats.hasWarnings()) {
-        console.log(chalk.yellow.bold(`\n=== BTG <${name}> Compiled with warnings.===\n`));
-        console.log(
+        logger.warn(`\n=== Package <${name}> compiled with warnings.===\n`);
+
+        logger.warn(
           stats.toString({
             all: false,
             colors: true,
@@ -46,14 +48,15 @@ export default async (args: any): Promise<void> => {
       }
 
       if (stats.hasErrors()) {
-        console.log(
+        logger.error(`\n=== Package <${name}> failed to compile.===\n`);
+
+        logger.error(
           stats.toString({
             all: false,
             colors: true,
             errors: true,
           }),
         );
-        console.log(chalk.red.bold(`\n=== BTG <${name}> Failed to compile.===\n`));
 
         process.exit(1);
       }
@@ -62,7 +65,7 @@ export default async (args: any): Promise<void> => {
         (async () => {
           await copyFolder(basicConfig.dist, resolveCliPath('../build/' + basicConfig.name));
 
-          console.log(chalk.green.bold(`\n=== BTG <${name}> Compiled successfully.===\n`));
+          logger.info(`\n=== Package <${name}> Compiled successfully.===\n`);
         })();
       }
     }

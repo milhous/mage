@@ -85,7 +85,7 @@ class Logger {
   public warn(msg: string): void {
     const colorType = LoggerColorType.YELLOW;
 
-    this.show(`⚠️ ${msg}`, colorType);
+    this.show(`${msg}`, colorType);
   }
 
   /**
@@ -95,7 +95,7 @@ class Logger {
   public error(msg: string): void {
     const colorType = LoggerColorType.RED;
 
-    this.show(`❎ ${msg}`, colorType);
+    this.show(`${msg}`, colorType);
   }
 }
 

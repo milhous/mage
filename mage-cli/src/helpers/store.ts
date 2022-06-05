@@ -82,6 +82,7 @@ interface IStoreMFShared {
   [propName: string]: string;
 }
 
+// 配置
 class Store implements IStore {
   // 版本号
   public VERSION = '1.0.0';

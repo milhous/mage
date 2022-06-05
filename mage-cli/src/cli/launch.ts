@@ -1,11 +1,9 @@
-import chalk from 'chalk';
-import fs from 'fs-extra';
-import path from 'path';
 // 交互式命令行工具
 import inquirer from 'inquirer';
 import {spawn} from 'child_process';
-import * as url from 'url';
 
+// 日志
+import logger from '../helpers/logger.js';
 // 工具
 import {readDirInfo, readJson} from '../helpers/utils.js';
 
@@ -98,15 +96,15 @@ const startServer = (name: string, command: string, args: string[]) => {
   const ls = spawn(command, args);
 
   ls.stdout.on('data', data => {
-    console.log(`${data}`);
+    logger.info(`${data}`);
   });
 
   ls.stderr.on('data', data => {
-    console.error(`${data}`);
+    logger.error(`${data}`);
   });
 
   ls.on('close', code => {
-    console.log(`=== BTG <${name}> child process exited with code ${code} ===`);
+    logger.error(`=== Package <${name}> child process exited with code ${code} ===`);
   });
 };
 
