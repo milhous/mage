@@ -32,7 +32,15 @@ export default async (devConfig: IDevConfig, basicConfig: IBasicConfig): Promise
       __isDEV__: devConfig.isDev,
     }),
     new CopyPlugin({
-      patterns: [{from: 'locales', to: 'static/locales'}],
+      patterns: [
+        {
+          from: 'locales',
+          to: 'static/locales',
+          globOptions: {
+            ignore: ['**/.DS_Store'],
+          },
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
       title: 'Bitgame - ' + basicConfig.name,
