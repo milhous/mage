@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
-import {format, writeToPath} from '@fast-csv/format';
+import {writeToPath} from '@fast-csv/format';
 import {parseFile} from '@fast-csv/parse';
 
 // 类型

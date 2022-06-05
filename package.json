@@ -21,6 +21,7 @@
         "update": "ncu -u --deep",
         "start": "yarn workspaces foreach -vtR run start",
         "start:name": "cross-var yarn workspace @packages/$name run start",
+        "start:batch": "yarn workspace @packages/$name run start",
         "build": "yarn workspaces foreach -vtR run build",
         "build:name": "cross-var yarn workspace @packages/$name run build"
     },

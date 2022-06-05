@@ -1,21 +1,29 @@
+import path from 'path';
+import fs from 'fs-extra';
+
+// 工具
+import {resolveCliPath} from '../helpers/utils.js';
+
 /**
  * 开发
  * @param {number} port 端口号
  * @param {string} dist 应用源码生成目录
  */
 export default (port: number, dist: string) => {
+  const keyPath = resolveCliPath('./cat/www.local.devbitgame.com-key.pem');
+  const certPath = resolveCliPath('./cat/www.local.devbitgame.com.pem');
+
   return {
     devServer: {
       static: dist,
       hot: true,
-      https: false,
-      // https:
-      //   process.env.HTTPS && process.env.HTTPS.toLowerCase() !== 'false'
-      //     ? {
-      //         key: fs.readFileSync(path.join(__dirname, './cat/www.local.devbitgame.com-key.pem')),
-      //         cert: fs.readFileSync(path.join(__dirname, './cat/www.local.devbitgame.com.pem')),
-      //       }
-      //     : false,
+      server: {
+        type: 'https',
+        options: {
+          key: fs.readFileSync(keyPath),
+          cert: fs.readFileSync(certPath),
+        },
+      },
       host: '0.0.0.0',
       port,
       compress: true,

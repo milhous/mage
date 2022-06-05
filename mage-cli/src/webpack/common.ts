@@ -11,6 +11,12 @@ const __filename = url.fileURLToPath(import.meta.url);
  * @param {IBasicConfig} basicConfig 基础配置
  */
 export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
+  let publicPath = 'auto';
+
+  if (devConfig.isDev) {
+    publicPath = `//www.local.devbitgame.com:${basicConfig.port}/`;
+  }
+
   return {
     entry: {
       index: {
@@ -24,7 +30,7 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
       path: basicConfig.dist,
       filename: 'static/js/[name].[contenthash:8].js',
       assetModuleFilename: 'static/assets/[name].[contenthash:8][ext][query]',
-      publicPath: 'auto',
+      publicPath,
       environment: {
         arrowFunction: false,
         bigIntLiteral: false,
@@ -40,14 +46,14 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
       clean: true,
     },
     // cache: {
-    //     version: `${basicConfig.name}-${devConfig.mode}`,
-    //     type: 'filesystem',
-    //     cacheDirectory: basicConfig.cache,
-    //     // 缓存依赖，当缓存依赖修改时，缓存失效
-    //     buildDependencies: {
-    //       // 将你的配置添加依赖，更改配置时，使得缓存失效
-    //       config: [__filename],
-    //     }
+    //   version: `${basicConfig.name}-${devConfig.mode}`,
+    //   type: 'filesystem',
+    //   cacheDirectory: basicConfig.cache,
+    //   // 缓存依赖，当缓存依赖修改时，缓存失效
+    //   buildDependencies: {
+    //     // 将你的配置添加依赖，更改配置时，使得缓存失效
+    //     config: [__filename],
+    //   },
     // },
     resolve: {
       modules: ['node_modules'],
