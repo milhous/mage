@@ -5,6 +5,7 @@
  * @property START 启动（单个项目）
  * @property BUILD 构建
  * @property I18N 多语言
+ * @property INFO 信息（应用）
  */
 export const CommandType = {
   INIT: 'init',
@@ -12,6 +13,7 @@ export const CommandType = {
   START: 'start',
   BUILD: 'build',
   I18N: 'i18n',
+  INFO: 'info',
 };
 
 /**

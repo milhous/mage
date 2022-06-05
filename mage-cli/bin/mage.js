@@ -33,7 +33,7 @@ const getConfig = ({env = 'prod', mode = 'production', analyze = false}) => {
 // 获取版本号
 program.version(version, '-v, --version').usage('<command> [options]');
 
-// 初始化项目
+// 初始化
 program
   .command('init')
   .description('初始化项目')
@@ -49,11 +49,19 @@ program
     cli('i18n');
   });
 
-// 启动开发服务器
+// 启动（多个项目）
+program
+  .command('launch')
+  .description('启动项目')
+  .action(() => {
+    cli('launch');
+  });
+
+// 启动（单个项目）
 program
   .command('start')
   .alias('s')
-  .description('启动开发服务器')
+  .description('启动项目')
   .option(...optionsConfig.env)
   .option(...optionsConfig.mode)
   .option(...optionsConfig.analyze)
@@ -63,7 +71,7 @@ program
     cli('start', config);
   });
 
-// 打包构建
+// 构建
 program
   .command('build')
   .alias('b')
@@ -76,12 +84,12 @@ program
     cli('build', config);
   });
 
-// 启动项目
+// 信息（应用）
 program
-  .command('launch')
-  .description('启动项目')
+  .command('info')
+  .description('应用信息')
   .action(() => {
-    cli('launch');
+    cli('info');
   });
 
 program.parse(process.argv);

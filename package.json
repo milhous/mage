@@ -19,10 +19,9 @@
         "launch": "mage launch",
         "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
         "update": "ncu -u --deep",
-        "start": "lerna run --scope @packages/* --parallel start",
-        "build": "lerna run --scope @packages/* build",
+        "start": "yarn workspaces foreach -vtR run start",
         "start:name": "cross-var yarn workspace @packages/$name run start",
-        "start:batch": "yarn workspace @packages/$name run start",
+        "build": "yarn workspaces foreach -vtR run build",
         "build:name": "cross-var yarn workspace @packages/$name run build"
     },
     "keywords": [],

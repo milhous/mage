@@ -2,6 +2,7 @@
     "name": "@packages/points",
     "version": "1.0.0",
     "description": "幸运币",
+    "type": "module",
     "main": "btg.config.js",
     "private": true,
     "scripts": {

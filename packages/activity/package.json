@@ -2,6 +2,7 @@
     "name": "@packages/activity",
     "version": "1.0.0",
     "description": "活动",
+    "type": "module",
     "main": "btg.config.js",
     "private": true,
     "scripts": {

@@ -17,6 +17,8 @@ import start from './start.js';
 import launch from './launch.js';
 // 构建
 import build from './build.js';
+// 信息（应用）
+import info from './info.js';
 
 // 初始化环境变量
 const initEnv = () => {
@@ -54,6 +56,11 @@ export default async (name: string, args: any): Promise<void> => {
     // 构建
     case CommandType.BUILD:
       build(args);
+
+      break;
+    // 信息（应用）
+    case CommandType.INFO:
+      info();
 
       break;
   }

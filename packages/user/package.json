@@ -2,6 +2,7 @@
     "name": "@packages/user",
     "version": "1.0.0",
     "description": "用户中心",
+    "type": "module",
     "main": "btg.config.js",
     "private": true,
     "scripts": {

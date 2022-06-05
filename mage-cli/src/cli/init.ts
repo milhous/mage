@@ -73,10 +73,10 @@ export default async (): Promise<void> => {
     {
       type: 'input',
       name: 'name',
-      message: '请输入项目名?',
+      message: '请输入应用名?',
       validate(answer) {
         if (/^\s+|\s+$/g.test(answer) || !/^[a-z]+$/.test(answer)) {
-          return '项目名只能由小写英文字母组成';
+          return '应用名只能由小写英文字母组成';
         }
 
         return true;
@@ -116,9 +116,9 @@ export default async (): Promise<void> => {
   }
 
   // 判断项目名是否同名
-  const isSame = await checkSameName(name);
+  const isSameName = await checkSameName(name);
 
-  if (isSame) {
+  if (isSameName) {
     logger.error('初始化失败，项目名重名');
 
     return;

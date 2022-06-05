@@ -27,7 +27,7 @@ export const readAppJson = (appPath: string): Promise<any> => fs.readJson(resolv
  * @param {string} dirPath 目录路径
  */
 export const readDirInfo = async (dirPath: string): Promise<string[]> => {
-  const reg = new RegExp(/\.DS_Store|node_modules|librarys|ui$/);
+  const reg = new RegExp(/\.DS_Store|node_modules$/);
   const path = resolveCliPath('../' + dirPath);
   const isExist = await fs.pathExists(path);
 
