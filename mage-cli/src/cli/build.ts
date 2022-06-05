@@ -65,7 +65,7 @@ export default async (args: any): Promise<void> => {
         (async () => {
           await copyFolder(basicConfig.dist, resolveCliPath('../build/' + basicConfig.name));
 
-          logger.info(`\n=== Package <${name}> Compiled successfully.===\n`);
+          logger.info(`\n=== Package <${name}> compiled successfully.===\n`);
         })();
       }
     }

@@ -5,6 +5,8 @@ import {parseFile} from '@fast-csv/parse';
 
 // 类型
 import {ExportModeType} from './types.js';
+// 日志
+import logger from './logger.js';
 // 工具
 import {resolveCliPath, readDirInfo, formatDate} from './utils.js';
 
@@ -53,7 +55,7 @@ class Csv implements ICsv {
       await this._replace(csvData);
     }
 
-    console.log(`import done.`);
+    logger.info(`import done.`);
   }
 
   /**
@@ -82,7 +84,7 @@ class Csv implements ICsv {
       const time = formatDate('MMDDHHmm');
 
       if (rows.length < 2) {
-        console.log(`${name} 无数据可导出`);
+        logger.warn(`${name} 无数据可导出`);
 
         return;
       }
@@ -91,12 +93,12 @@ class Csv implements ICsv {
         writeBOM: true,
       })
         .on('error', err => {
-          console.error(err);
+          logger.error(`${err}`);
 
           reject(err);
         })
         .on('finish', () => {
-          console.log(`${name} done writing.`);
+          logger.info(`Package ${name} done writing.`);
 
           resolve();
         });
@@ -145,7 +147,7 @@ class Csv implements ICsv {
     return new Promise((resolve, reject) => {
       fs.writeJson(csvPath, csvData, err => {
         if (err) {
-          console.error(err);
+          logger.error(`${err}`);
 
           reject(err);
         }
@@ -186,7 +188,7 @@ class Csv implements ICsv {
       const csvData: string[][] = [];
 
       parseFile(file)
-        .on('error', error => console.error(error))
+        .on('error', err => logger.error(`${err}`))
         .on('data', row => csvData.push(row))
         .on('end', () => resolve(this._formatCsvInfo(csvData)));
     });

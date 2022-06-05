@@ -4,6 +4,9 @@ import fs from 'fs-extra';
 import crypto from 'crypto';
 import {exec} from 'child_process';
 
+// 日志
+import logger from './logger.js';
+
 export const __filename = url.fileURLToPath(import.meta.url);
 export const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
@@ -93,7 +96,7 @@ export const getGitHash = (): Promise<string> => {
   return new Promise(resolve => {
     exec('git rev-parse --short HEAD', (error, stdout) => {
       if (error) {
-        console.error(`exec error: ${error}`);
+        logger.error(`exec error: ${error}`);
 
         return '';
       }

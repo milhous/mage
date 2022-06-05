@@ -1,12 +1,9 @@
-import chalk from 'chalk';
 import fs from 'fs-extra';
-import path from 'path';
 // 交互式命令行工具
 import inquirer from 'inquirer';
-import {exec} from 'child_process';
 
 // 工具
-import {readDirInfo, readJson} from '../helpers/utils.js';
+import {readDirInfo} from '../helpers/utils.js';
 // 类型
 import {ExportModeType} from '../helpers/types.js';
 // cvs
@@ -88,16 +85,16 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
       {
         type: 'input',
         name: 'dir',
-        message: '选择导入路径:',
+        message: '选择导入目录:',
         validate(answer) {
           if (answer === '') {
-            return '路径不能为空';
+            return '目录不能为空';
           }
 
           const stat = fs.lstatSync(answer);
 
           if (stat.isFile()) {
-            return '路径不能为文件';
+            return '目录不能为文件';
           }
 
           return true;
