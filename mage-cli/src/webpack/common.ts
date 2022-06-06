@@ -49,6 +49,10 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
     //     config: [__filename],
     //   },
     // },
+    experiments: {
+      topLevelAwait: true,
+      backCompat: true,
+    },
     resolve: {
       modules: ['node_modules'],
       extensions: [
