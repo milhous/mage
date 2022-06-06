@@ -29,5 +29,9 @@ export default async (): Promise<void> => {
     }
   }
 
+  if (table.length) {
+    table.sort((a, b) => a.port - b.port);
+  }
+
   console.table(table);
 };

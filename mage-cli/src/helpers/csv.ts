@@ -188,7 +188,11 @@ class Csv implements ICsv {
       const csvData: string[][] = [];
 
       parseFile(file)
-        .on('error', err => logger.error(`${err}`))
+        .on('error', err => {
+          logger.error(`${err}`);
+
+          reject(err);
+        })
         .on('data', row => csvData.push(row))
         .on('end', () => resolve(this._formatCsvInfo(csvData)));
     });
