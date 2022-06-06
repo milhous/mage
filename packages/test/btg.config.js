@@ -1,7 +1,7 @@
 export default () => {
   return {
-    name: '{name}',
-    port: '{port}',
+    name: 'test',
+    port: 9011,
     remotes: {},
     exposes: {
       './App': '@app/App',

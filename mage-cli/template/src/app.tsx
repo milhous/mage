@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
-import './app.less';
+import './App.less';
 import Home from './pages/Home';
 
 const app = () => {

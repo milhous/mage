@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BTGBroadcastChannel } from '@libs/broadcastChannel';
+import {BTGBroadcastChannel} from '@libs/broadcastChannel';
 
 const channel = new BTGBroadcastChannel('channelTest');
 
@@ -10,7 +10,7 @@ const postmessage = () => {
 
   channel.postMessage({
     type: 'test',
-    payload: { txt },
+    payload: {txt},
   });
 };
 
@@ -20,7 +20,7 @@ const postmessageB = () => {
 
   channel.postMessage({
     type: 'testb',
-    payload: { txt },
+    payload: {txt},
   });
 };
 
@@ -80,8 +80,8 @@ const useDynamicScript = args => {
   };
 };
 
-function System({ system }) {
-  const { ready, failed } = useDynamicScript({
+function System({system}) {
+  const {ready, failed} = useDynamicScript({
     url: system && system.url,
   });
 
@@ -155,7 +155,7 @@ function App() {
       <p>receive message: {JSON.stringify(msg)}</p>
       <button onClick={setApp2}>Load App 2 Widget</button>
       <button onClick={setApp3}>Load App 3 Widget</button>
-      <div style={{ marginTop: '2em' }}>
+      <div style={{marginTop: '2em'}}>
         <System system={system} />
       </div>
     </div>
