@@ -1,9 +1,9 @@
 export default () => {
-    return {
-        name: '{name}',
-        port: '{port}',
-        remotes: {},
-        exposes: {},
-        shared: {},
-    }
+  return {
+    name: '{name}',
+    port: '{port}',
+    remotes: {},
+    exposes: {},
+    shared: {},
+  };
 };

@@ -39,6 +39,7 @@ export default async (devConfig: IDevConfig, basicConfig: IBasicConfig): Promise
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
+          noErrorOnMissing: true,
         },
       ],
     }),

@@ -59,12 +59,21 @@ const modifyTemplete = async (name: string, desc: string, port: string): Promise
 
   await fs.writeJSON(packageJsonFile, packageJsonContent);
 
+  // 修改 tsconfig
+  const tsconfigJsonFile = path.resolve(packagePath, 'tsconfig.json');
+  let tsconfigJsonContent = await fs.readFile(tsconfigJsonFile, 'utf8');
+
+  tsconfigJsonContent = tsconfigJsonContent.replace('{name}', name);
+
+  await fs.writeFile(tsconfigJsonFile, tsconfigJsonContent);
+
   // 修改 btg.config.js
   const btgConfigFile = path.resolve(packagePath, 'btg.config.js');
-  const btgConfigContent = await fs.readFile(btgConfigFile, 'utf8');
-  const content = btgConfigContent.replace(`'{name}'`, `'${name}'`).replace(`'{port}'`, `${port}`);
+  let btgConfigContent = await fs.readFile(btgConfigFile, 'utf8');
 
-  await fs.writeFile(btgConfigFile, content);
+  btgConfigContent = btgConfigContent.replace(`'{name}'`, `'${name}'`).replace(`'{port}'`, `${port}`);
+
+  await fs.writeFile(btgConfigFile, btgConfigContent);
 };
 
 // 初始化
