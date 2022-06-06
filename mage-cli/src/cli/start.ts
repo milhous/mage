@@ -11,6 +11,7 @@ export default async (args: any): Promise<void> => {
 
   const basicConfig = store.getBasicConfig();
   const name = basicConfig.name;
+  const devConfig = store.getDevConfig();
   const webpackConfig = await getWebpackConfig();
   const compiler = webpack(webpackConfig);
 
@@ -19,11 +20,6 @@ export default async (args: any): Promise<void> => {
   const server = new WebpackDevServer(webpackConfig.devServer, compiler);
 
   server.startCallback(() => {
-    const host = webpackConfig.devServer.host || 'localhost';
-    const port = webpackConfig.devServer.port;
-    const protocol = webpackConfig.devServer.https ? 'https' : 'http';
-    const url = `${protocol}://${host}:${port}`;
-
-    logger.info(`\n=== Package <${name}> Starting server on ${url} ===\n`);
+    logger.info(`\n=== Package <${name}> Starting server on https:${devConfig.publicPath} ===\n`);
   });
 };

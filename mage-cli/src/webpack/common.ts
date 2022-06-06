@@ -11,12 +11,6 @@ const __filename = url.fileURLToPath(import.meta.url);
  * @param {IBasicConfig} basicConfig 基础配置
  */
 export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
-  let publicPath = 'auto';
-
-  if (devConfig.isDev) {
-    publicPath = `//www.local.devbitgame.com:${basicConfig.port}/`;
-  }
-
   return {
     entry: {
       index: {
@@ -30,7 +24,7 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
       path: basicConfig.dist,
       filename: 'static/js/[name].[contenthash:8].js',
       assetModuleFilename: 'static/assets/[name].[contenthash:8][ext][query]',
-      publicPath,
+      publicPath: devConfig.publicPath,
       environment: {
         arrowFunction: false,
         bigIntLiteral: false,

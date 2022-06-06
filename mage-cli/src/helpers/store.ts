@@ -45,6 +45,7 @@ export interface IBasicConfig {
  * @property analyze 生成分析报告
  * @property isDev 是否是开发环境
  * @property browserslist 目标浏览器版本范围
+ * @property publicPath 公共路径
  */
 export interface IDevConfig {
   version: string;
@@ -53,6 +54,7 @@ export interface IDevConfig {
   analyze: boolean;
   isDev: boolean;
   browserslist: string[];
+  publicPath: string;
 }
 
 /**
@@ -96,7 +98,10 @@ class Store implements IStore {
   // 是否需要分析
   private _analyze = false;
   // browserslist
-  private _browserslist: string[] = [];
+  private _browserslist: string[] = ['last 1 version', '> 1%', 'maintained node versions', 'not dead'];
+  // 公共路径
+  private _publicPath = 'auto';
+
   // 应用名称
   private _appName = 'bitgame';
   // 应用端口号
@@ -155,6 +160,7 @@ class Store implements IStore {
       analyze: this._analyze,
       isDev: this._isDev,
       browserslist: this._browserslist,
+      publicPath: this._publicPath,
     };
   }
 
@@ -172,11 +178,11 @@ class Store implements IStore {
 
   // 初始化
   public async init(args: any): Promise<void> {
-    this._setDevConfig(args.env, args.mode, args.analyze);
-
     await this._getAppConfig();
 
     this._setAppPath();
+
+    this._setDevConfig(args.env, args.mode, args.analyze);
   }
 
   /**
@@ -190,9 +196,17 @@ class Store implements IStore {
     this._mode = mode;
     this._analyze = analyze;
     this._isDev = mode === ModeType.DEVELOPMENT;
-    this._browserslist = this._isDev
-      ? ['last 1 chrome version', 'last 1 firefox version', 'last 1 safari version', 'last 1 ie version']
-      : ['last 1 version', '> 1%', 'maintained node versions', 'not dead'];
+
+    if (this._isDev) {
+      this._browserslist = [
+        'last 1 chrome version',
+        'last 1 firefox version',
+        'last 1 safari version',
+        'last 1 ie version',
+      ];
+
+      this._publicPath = `//www.local.devbitgame.com:${this._appPort}/`;
+    }
   }
 
   // 获取App配置

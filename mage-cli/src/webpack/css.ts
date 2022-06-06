@@ -41,10 +41,9 @@ const getCssLoaderConfig = (isDev = true, isModules = false) => {
 
 /**
  * 获取 postcss-loader 配置
- * @param {boolean} isDev 是否是开发环境
  * @param {Array<string>} browserslist 目标浏览器版本范围
  */
-const getPostcssLoaderConfig = (isDev = true, browserslist: string[]) => {
+const getPostcssLoaderConfig = (browserslist: string[]) => {
   return {
     loader: require.resolve('postcss-loader'),
     options: {
@@ -103,16 +102,12 @@ export default (isDev: boolean, browserslist: string[]) => {
         {
           test: cssRegex,
           exclude: cssModuleRegex,
-          use: [getStyleLoaderConfig(isDev), getCssLoaderConfig(isDev), getPostcssLoaderConfig(isDev, browserslist)],
+          use: [getStyleLoaderConfig(isDev), getCssLoaderConfig(isDev), getPostcssLoaderConfig(browserslist)],
         },
         // css module
         {
           test: cssModuleRegex,
-          use: [
-            getStyleLoaderConfig(isDev),
-            getCssLoaderConfig(isDev, true),
-            getPostcssLoaderConfig(isDev, browserslist),
-          ],
+          use: [getStyleLoaderConfig(isDev), getCssLoaderConfig(isDev, true), getPostcssLoaderConfig(browserslist)],
         },
         // less
         {
@@ -121,7 +116,7 @@ export default (isDev: boolean, browserslist: string[]) => {
           use: [
             getStyleLoaderConfig(isDev),
             getCssLoaderConfig(isDev),
-            getPostcssLoaderConfig(isDev, browserslist),
+            getPostcssLoaderConfig(browserslist),
             getLessLoaderConfig(false),
           ],
         },
@@ -131,7 +126,7 @@ export default (isDev: boolean, browserslist: string[]) => {
           use: [
             getStyleLoaderConfig(isDev),
             getCssLoaderConfig(isDev, true),
-            getPostcssLoaderConfig(isDev, browserslist),
+            getPostcssLoaderConfig(browserslist),
             getLessLoaderConfig(true),
           ],
         },
