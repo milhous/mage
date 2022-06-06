@@ -7,8 +7,8 @@ import Home from './pages/Home';
 const app = () => {
   return (
     <Routes>
-      <Route path="/staking" element={<Home />} />
-      <Route path="*" element={<Navigate replace to="/staking" />} />
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
 };

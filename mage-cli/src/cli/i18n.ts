@@ -138,6 +138,7 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
           if (answer.length === 0) {
             return '选择至少一个应用';
           }
+
           return true;
         },
       },

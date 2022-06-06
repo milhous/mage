@@ -70,9 +70,9 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
         return answers.all;
       },
       validate(answer) {
-        // if (!answer.includes('main') || !answer.includes('bitgame')) {
-        //   return '必须选择 main & bitgame';
-        // }
+        if (answer.length === 0) {
+          return '选择至少一个应用';
+        }
 
         return true;
       },
