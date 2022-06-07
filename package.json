@@ -18,7 +18,7 @@
         "i18n": "mage i18n",
         "launch": "mage launch",
         "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
-        "update": "ncu -u --deep",
+        "update": "concurrently 'ncu -u --deep'",
         "start": "yarn workspaces foreach -vtR run start",
         "start:name": "cross-var yarn workspace @packages/$name run start",
         "start:batch": "yarn workspace @packages/$name run start",
@@ -41,6 +41,7 @@
         "prettier": "^2.6.2"
     },
     "dependencies": {
+        "concurrently": "^7.2.1",
         "typescript": "^4.7.3"
     },
     "packageManager": "yarn@3.2.1"

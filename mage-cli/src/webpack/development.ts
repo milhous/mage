@@ -16,6 +16,8 @@ export default (port: number, dist: string) => {
   return {
     devServer: {
       static: dist,
+      // 开启liveReload, 关闭hot, 解决 HMR for federated modules 报错
+      liveReload: false,
       hot: true,
       server: {
         type: 'https',

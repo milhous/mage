@@ -8,7 +8,6 @@ export default () => {
     },
     exposes: {
       './App': '@app/App',
-      './Test': '@app/App',
     },
   };
 };

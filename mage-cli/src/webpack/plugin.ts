@@ -75,6 +75,8 @@ export default async (
       template: basicConfig.public + '/index.html',
       inject: true,
       minify: false,
+      // 解决 HMR for federated modules 报错
+      chunks: ['main'],
     }),
     new ForkTsCheckerWebpackPlugin({
       async: devConfig.isDev, // true dev环境下部分错误验证通过
@@ -86,7 +88,7 @@ export default async (
     }),
     new ModuleFederationPlugin({
       name: basicConfig.name, // 必须，唯一 ID，作为输出的模块名，使用的时通过 {name}/name/{expose} 的方式使用
-      filename: devConfig.isDev ? 'remoteEntry.js' : 'remoteEntry.[contenthash:6].js',
+      filename: 'remoteEntry.js', // devConfig.isDev ? 'remoteEntry.js' : 'remoteEntry.[contenthash:6].js',
       exposes: mfConfig.exposes,
       shared,
     }),
@@ -99,7 +101,11 @@ export default async (
 
   if (devConfig.isDev) {
     // 是否开启热更新
-    plugins.push(new ReactRefreshWebpackPlugin());
+    plugins.push(
+      new ReactRefreshWebpackPlugin({
+        exclude: [/node_modules/, /bootstrap\.js$/],
+      }),
+    );
   } else {
     plugins.push(new CleanWebpackPlugin());
 

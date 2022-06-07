@@ -11,20 +11,29 @@ const __filename = url.fileURLToPath(import.meta.url);
  * @param {IBasicConfig} basicConfig 基础配置
  */
 export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
+  let devtool: boolean | string = false;
+  let filename = 'static/js/[name].[fullhash:8].js';
+  let chunkFilename = 'static/js/[name].[contenthash:8].js';
+  let assetModuleFilename = 'static/assets/[name].[contenthash:8][ext][query]';
+
+  if (devConfig.isDev) {
+    devtool = 'source-map';
+    filename = 'static/js/[name].js';
+    chunkFilename = 'static/js/[name].chunk.js';
+    assetModuleFilename = 'static/assets/[name].[ext][query]';
+  }
+
   return {
-    entry: {
-      index: {
-        import: basicConfig.src + '/index',
-      },
-    },
-    devtool: devConfig.isDev ? 'source-map' : false,
+    entry: basicConfig.src + '/index',
+    devtool,
     mode: devConfig.mode,
     target: 'web',
     output: {
       path: basicConfig.dist,
-      filename: devConfig.isDev ? 'static/js/[name].js' : 'static/js/[name].[fullhash:8].js',
-      chunkFilename: devConfig.isDev ? 'static/js/[name].js' : 'static/js/[name].[contenthash:8].js',
-      assetModuleFilename: 'static/assets/[name].[contenthash:8][ext][query]',
+      uniqueName: basicConfig.name,
+      filename,
+      chunkFilename,
+      assetModuleFilename,
       publicPath: devConfig.publicPath,
       environment: {
         arrowFunction: false,

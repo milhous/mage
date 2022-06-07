@@ -82,3 +82,10 @@ eager：不会生成额外的 chunk。
 但是仍会返回一个 resolved 状态的 Promise。与静态导入相比，在调用 import() 完成之前，该模块不会被执行。
 
 singleton: 确保运行时模块为单例，避免初始化多次。
+
+解决 HMR for federated modules 报错
+ChunkLoadError: Loading hot update chunk
+ModuleFederationPlugin 配置新增 chunks: ['main']
+devServer 配置修改 liveReload: false, hot: true,
+entry 配置修改 entry: basicConfig.src + '/index' 默认入口 main
+package.json 配置修改 "main": "dist/static/js/main.js"

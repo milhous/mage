@@ -2762,6 +2762,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cliui@npm:^7.0.2":
+  version: 7.0.4
+  resolution: "cliui@npm:7.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcliui%2F-%2Fcliui-7.0.4.tgz"
+  dependencies:
+    string-width: ^4.2.0
+    strip-ansi: ^6.0.0
+    wrap-ansi: ^7.0.0
+  checksum: ce2e8f578a4813806788ac399b9e866297740eecd4ad1823c27fd344d78b22c5f8597d548adbcc46f0573e43e21e751f39446c5a5e804a12aace402b7a315d7f
+  languageName: node
+  linkType: hard
+
 "clone-deep@npm:^4.0.1":
   version: 4.0.1
   resolution: "clone-deep@npm:4.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fclone-deep%2F-%2Fclone-deep-4.0.1.tgz"
@@ -2914,6 +2925,25 @@ __metadata:
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fconcat-map%2F-%2Fconcat-map-0.0.1.tgz"
   checksum: 902a9f5d8967a3e2faf138d5cb784b9979bad2e6db5357c5b21c568df4ebe62bcb15108af1b2253744844eb964fc023fbd9afbbbb6ddd0bcc204c6fb5b7bf3af
+  languageName: node
+  linkType: hard
+
+"concurrently@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "concurrently@npm:7.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fconcurrently%2F-%2Fconcurrently-7.2.1.tgz"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.16.1
+    lodash: ^4.17.21
+    rxjs: ^6.6.3
+    shell-quote: ^1.7.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^17.3.1
+  bin:
+    concurrently: dist/bin/concurrently.js
+  checksum: 384e9f48f2c53a7c46b1bb1143b9dba734953c587e0c080db0c6e71dd4a58f556d096fe4fd9d2d9c601ba7ae8e6c06d452c162bbc2b6a4b16c080c1c4b8e81b4
   languageName: node
   linkType: hard
 
@@ -3275,6 +3305,13 @@ __metadata:
   version: 3.1.0
   resolution: "csstype@npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcsstype%2F-%2Fcsstype-3.1.0.tgz"
   checksum: 644e986cefab86525f0b674a06889cfdbb1f117e5b7d1ce0fc55b0423ecc58807a1ea42ecc75c4f18999d14fc42d1d255f84662a45003a52bb5840e977eb2ffd
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.16.1":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdate-fns%2F-%2Fdate-fns-2.28.0.tgz"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -4355,6 +4392,13 @@ __metadata:
     strip-ansi: ^6.0.1
     wide-align: ^1.1.5
   checksum: 788b6bfe52f1dd8e263cda800c26ac0ca2ff6de0b6eee2fe0d9e3abf15e149b651bd27bf5226be10e6e3edb5c4e5d5985a5a1a98137e7a892f75eff76467ad2d
+  languageName: node
+  linkType: hard
+
+"get-caller-file@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "get-caller-file@npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fget-caller-file%2F-%2Fget-caller-file-2.0.5.tgz"
+  checksum: b9769a836d2a98c3ee734a88ba712e62703f1df31b94b784762c433c27a386dd6029ff55c2a920c392e33657d80191edbf18c61487e198844844516f843496b9
   languageName: node
   linkType: hard
 
@@ -6049,6 +6093,7 @@ __metadata:
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.27.1
     "@typescript-eslint/parser": ^5.27.1
+    concurrently: ^7.2.1
     cross-var: ^1.1.0
     eslint: ^8.17.0
     eslint-config-prettier: ^8.5.0
@@ -8001,6 +8046,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"require-directory@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "require-directory@npm:2.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frequire-directory%2F-%2Frequire-directory-2.1.1.tgz"
+  checksum: fb47e70bf0001fdeabdc0429d431863e9475e7e43ea5f94ad86503d918423c1543361cc5166d713eaa7029dd7a3d34775af04764bebff99ef413111a5af18c80
+  languageName: node
+  linkType: hard
+
 "require-from-string@npm:^2.0.2":
   version: 2.0.2
   resolution: "require-from-string@npm:2.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frequire-from-string%2F-%2Frequire-from-string-2.0.2.tgz"
@@ -8100,6 +8152,15 @@ __metadata:
   dependencies:
     queue-microtask: ^1.2.2
   checksum: cb4f97ad25a75ebc11a8ef4e33bb962f8af8516bb2001082ceabd8902e15b98f4b84b4f8a9b222e5d57fc3bd1379c483886ed4619367a7680dad65316993021d
+  languageName: node
+  linkType: hard
+
+"rxjs@npm:^6.6.3":
+  version: 6.6.7
+  resolution: "rxjs@npm:6.6.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frxjs%2F-%2Frxjs-6.6.7.tgz"
+  dependencies:
+    tslib: ^1.9.0
+  checksum: bc334edef1bb8bbf56590b0b25734ba0deaf8825b703256a93714308ea36dff8a11d25533671adf8e104e5e8f256aa6fdfe39b2e248cdbd7a5f90c260acbbd1b
   languageName: node
   linkType: hard
 
@@ -8359,6 +8420,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"shell-quote@npm:^1.7.3":
+  version: 1.7.3
+  resolution: "shell-quote@npm:1.7.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fshell-quote%2F-%2Fshell-quote-1.7.3.tgz"
+  checksum: aca58e73a3a5d933d02e0bdddedc53ee14f7c2ec264f97ac915b9d4482d077a38e422aa664631d60a672cd3cdb4054eb2e6c0303f54882453dacb6483e482d34
+  languageName: node
+  linkType: hard
+
 "side-channel@npm:^1.0.4":
   version: 1.0.4
   resolution: "side-channel@npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fside-channel%2F-%2Fside-channel-1.0.4.tgz"
@@ -8513,6 +8581,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"spawn-command@npm:^0.0.2-1":
+  version: 0.0.2
+  resolution: "spawn-command@npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fspawn-command%2F-%2Fspawn-command-0.0.2.tgz"
+  checksum: e35c5d28177b4d461d33c88cc11f6f3a5079e2b132c11e1746453bbb7a0c0b8a634f07541a2a234fa4758239d88203b758def509161b651e81958894c0b4b64b
+  languageName: node
+  linkType: hard
+
 "spawn-please@npm:^1.0.0":
   version: 1.0.0
   resolution: "spawn-please@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fspawn-please%2F-%2Fspawn-please-1.0.0.tgz"
@@ -8634,7 +8709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.0.0, string-width@npm:^4.1.0, string-width@npm:^4.2.2, string-width@npm:^4.2.3":
+"string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.0.0, string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.2, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fstring-width%2F-%2Fstring-width-4.2.3.tgz"
   dependencies:
@@ -8786,7 +8861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^8.0.0":
+"supports-color@npm:^8.0.0, supports-color@npm:^8.1.0":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsupports-color%2F-%2Fsupports-color-8.1.1.tgz"
   dependencies:
@@ -8954,6 +9029,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tree-kill@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "tree-kill@npm:1.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftree-kill%2F-%2Ftree-kill-1.2.2.tgz"
+  bin:
+    tree-kill: cli.js
+  checksum: 49117f5f410d19c84b0464d29afb9642c863bc5ba40fcb9a245d474c6d5cc64d1b177a6e6713129eb346b40aebb9d4631d967517f9fbe8251c35b21b13cd96c7
+  languageName: node
+  linkType: hard
+
 "trim-right@npm:^1.0.1":
   version: 1.0.1
   resolution: "trim-right@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftrim-right%2F-%2Ftrim-right-1.0.1.tgz"
@@ -8961,7 +9045,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.1":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2F-%2Ftslib-1.14.1.tgz"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
@@ -9550,6 +9634,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"y18n@npm:^5.0.5":
+  version: 5.0.8
+  resolution: "y18n@npm:5.0.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fy18n%2F-%2Fy18n-5.0.8.tgz"
+  checksum: 54f0fb95621ee60898a38c572c515659e51cc9d9f787fb109cef6fde4befbe1c4602dc999d30110feee37456ad0f1660fa2edcfde6a9a740f86a290999550d30
+  languageName: node
+  linkType: hard
+
 "yallist@npm:^2.1.2":
   version: 2.1.2
   resolution: "yallist@npm:2.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fyallist%2F-%2Fyallist-2.1.2.tgz"
@@ -9575,6 +9666,28 @@ __metadata:
   version: 2.1.1
   resolution: "yaml@npm:2.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fyaml%2F-%2Fyaml-2.1.1.tgz"
   checksum: f48bb209918aa57cfaf78ef6448d1a1f8187f45c746f933268b7023dc59e5456004611879126c9bb5ea55b0a2b1c2b392dfde436931ece0c703a3d754562bb96
+  languageName: node
+  linkType: hard
+
+"yargs-parser@npm:^21.0.0":
+  version: 21.0.1
+  resolution: "yargs-parser@npm:21.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fyargs-parser%2F-%2Fyargs-parser-21.0.1.tgz"
+  checksum: c3ea2ed12cad0377ce3096b3f138df8267edf7b1aa7d710cd502fe16af417bafe4443dd71b28158c22fcd1be5dfd0e86319597e47badf42ff83815485887323a
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.3.1":
+  version: 17.5.1
+  resolution: "yargs@npm:17.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fyargs%2F-%2Fyargs-17.5.1.tgz"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.3
+    y18n: ^5.0.5
+    yargs-parser: ^21.0.0
+  checksum: 00d58a2c052937fa044834313f07910fd0a115dec5ee35919e857eeee3736b21a4eafa8264535800ba8bac312991ce785ecb8a51f4d2cc8c4676d865af1cfbde
   languageName: node
   linkType: hard
 
