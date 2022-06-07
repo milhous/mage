@@ -83,8 +83,7 @@ eager：不会生成额外的 chunk。
 
 singleton: 确保运行时模块为单例，避免初始化多次。
 
-解决 HMR for federated modules 报错
-ChunkLoadError: Loading hot update chunk
+解决 HMR for federated modules ChunkLoadError: Loading hot update chunk
 ModuleFederationPlugin 配置新增 chunks: ['main']
 devServer 配置修改 liveReload: false, hot: true,
 entry 配置修改 entry: basicConfig.src + '/index' 默认入口 main

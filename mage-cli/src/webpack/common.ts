@@ -24,6 +24,7 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
   }
 
   return {
+    // 解决 HMR for federated modules ChunkLoadError: Loading hot update chunk
     entry: basicConfig.src + '/index',
     devtool,
     mode: devConfig.mode,

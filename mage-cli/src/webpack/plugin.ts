@@ -75,7 +75,7 @@ export default async (
       template: basicConfig.public + '/index.html',
       inject: true,
       minify: false,
-      // 解决 HMR for federated modules 报错
+      // 解决 HMR for federated modules ChunkLoadError: Loading hot update chunk
       chunks: ['main'],
     }),
     new ForkTsCheckerWebpackPlugin({
