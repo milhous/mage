@@ -45,7 +45,7 @@ export default function Home(): JSX.Element {
 
   return (
     <div className="staking">
-      Hello world!!!
+      Hello world!!!2222
       <span>{t('operation')}</span>
       <SVG src={iconFacebook} />
       <img src={howBg} />

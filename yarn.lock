@@ -2481,6 +2481,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browserslist@npm:^4.20.4":
+  version: 4.20.4
+  resolution: "browserslist@npm:4.20.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fbrowserslist%2F-%2Fbrowserslist-4.20.4.tgz"
+  dependencies:
+    caniuse-lite: ^1.0.30001349
+    electron-to-chromium: ^1.4.147
+    escalade: ^3.1.1
+    node-releases: ^2.0.5
+    picocolors: ^1.0.0
+  bin:
+    browserslist: cli.js
+  checksum: 0e56c42da765524e5c31bc9a1f08afaa8d5dba085071137cf21e56dc78d0cf0283764143df4c7d1c0cd18c3187fc9494e1d93fa0255004f0be493251a28635f9
+  languageName: node
+  linkType: hard
+
 "buffer-from@npm:^1.0.0":
   version: 1.1.2
   resolution: "buffer-from@npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fbuffer-from%2F-%2Fbuffer-from-1.1.2.tgz"
@@ -2628,6 +2643,13 @@ __metadata:
   version: 1.0.30001346
   resolution: "caniuse-lite@npm:1.0.30001346::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcaniuse-lite%2F-%2Fcaniuse-lite-1.0.30001346.tgz"
   checksum: 951590454ffa4e2e7b772558dc593cd08604b44c83741e1188166298f54c34387f4bf34f5141a35de4a43028c012484240ad15c896e48bf4eac70dd7076a4449
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001349":
+  version: 1.0.30001349
+  resolution: "caniuse-lite@npm:1.0.30001349::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcaniuse-lite%2F-%2Fcaniuse-lite-1.0.30001349.tgz"
+  checksum: 0095fcbb7ca4ef76227f5c3788c3cdbad3c52a25825c577371ffa73a44d74ff43fc5a849e5fa37c8b4c6237bb5272777085e1f674f9f86fde9aed85201d26f07
   languageName: node
   linkType: hard
 
@@ -3608,6 +3630,13 @@ __metadata:
   version: 1.4.146
   resolution: "electron-to-chromium@npm:1.4.146::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.146.tgz"
   checksum: 5700a27f44463d2701cbc1593973a711ba7b23374db840ec00c612d1e0272ba95b4f170f561953380441739665a400670c6678bcff26a0ae28d2e49ab03d478d
+  languageName: node
+  linkType: hard
+
+"electron-to-chromium@npm:^1.4.147":
+  version: 1.4.147
+  resolution: "electron-to-chromium@npm:1.4.147::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.147.tgz"
+  checksum: a714da8ac6842887e98886026b8eeaee0d2fd6d57f5707b0fc2a2916c1b9d026ca8deeef529fd3b069e96f719495a7467b01a508b881fd90d95aa204a7a92000
   languageName: node
   linkType: hard
 
@@ -5919,7 +5948,7 @@ __metadata:
     "@types/inquirer": ^8.2.1
     "@types/rimraf": ^3
     autoprefixer: ^10.4.7
-    browserslist: ^4.20.3
+    browserslist: ^4.20.4
     chalk: ^5.0.1
     clean-webpack-plugin: ^4.0.0
     commander: ^9.3.0
@@ -6466,7 +6495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-releases@npm:^2.0.3":
+"node-releases@npm:^2.0.3, node-releases@npm:^2.0.5":
   version: 2.0.5
   resolution: "node-releases@npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnode-releases%2F-%2Fnode-releases-2.0.5.tgz"
   checksum: e85d949addd19f8827f32569d2be5751e7812ccf6cc47879d49f79b5234ff4982225e39a3929315f96370823b070640fb04d79fc0ddec8b515a969a03493a42f
