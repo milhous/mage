@@ -22,7 +22,8 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
     target: 'web',
     output: {
       path: basicConfig.dist,
-      filename: 'static/js/[name].[contenthash:8].js',
+      filename: devConfig.isDev ? 'static/js/[name].js' : 'static/js/[name].[fullhash:8].js',
+      chunkFilename: devConfig.isDev ? 'static/js/[name].js' : 'static/js/[name].[contenthash:8].js',
       assetModuleFilename: 'static/assets/[name].[contenthash:8][ext][query]',
       publicPath: devConfig.publicPath,
       environment: {
@@ -74,6 +75,7 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
       alias: {
         '@app': basicConfig.src,
         '@ui': resolveAppPath('../ui/src'),
+        '@librarys': resolveAppPath('../librarys/src'),
       },
     },
   };

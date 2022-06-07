@@ -1,0 +1,19 @@
+{
+    "name": "@packages/librarys",
+    "version": "1.0.0",
+    "description": "librarys",
+    "type": "module",
+    "main": "btg.config.js",
+    "private": true,
+    "scripts": {
+        "start": "",
+        "build": "",
+        "update": "ncu -u"
+    },
+    "dependencies": {
+        "regenerator-runtime": "^0.13.9"
+    },
+    "devDependencies": {
+        "mage": "workspace:^"
+    }
+}

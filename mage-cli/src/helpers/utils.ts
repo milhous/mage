@@ -109,6 +109,18 @@ export const getGitHash = (): Promise<string> => {
 };
 
 /**
+ * 获取 Dependencies
+ * @returns {object}
+ */
+export const getDependencies = async (): Promise<{[key: string]: string}> => {
+  const templetePath = resolveCliPath('./template');
+  const packageJsonFile = path.resolve(templetePath, 'package.json');
+  const packageJsonContent = await fs.readJSON(packageJsonFile);
+
+  return packageJsonContent.dependencies;
+};
+
+/**
  * 格式化日期 YYYY-MM-DD
  * @param {string} template 格式模板
  * @param {Date} date 日期对象

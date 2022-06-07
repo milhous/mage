@@ -15,16 +15,24 @@ export default async (): Promise<void> => {
 
     if (isExist) {
       const module = await import(appConfigPath);
-      const {name, port} = module.default();
+      const {name, port, exposes} = module.default();
+
+      const exposesInfo: string[] = [];
+
+      for (const key in exposes) {
+        exposesInfo.push(key);
+      }
 
       table.push({
         name,
         port,
+        exposes: exposesInfo,
       });
     } else {
       table.push({
         name,
         port: null,
+        exposes: null,
       });
     }
   }

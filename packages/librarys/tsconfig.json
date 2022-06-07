@@ -1,23 +1,9 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "lib": ["webworker", "es2015", "es2017", "esnext", "dom"],
-      "target": "es5",
-      "experimentalDecorators": true,
-      "skipLibCheck": true,
-      "outDir": "temp/vscode-dist",
-      "forceConsistentCasingInFileNames": true,
-      "downlevelIteration": true,
-      "allowSyntheticDefaultImports": true,
-      "allowJs": true,
-      "sourceMap": true
-    },
-    "exclude": [
-      "node_modules",
-      "library",
-      "local",
-      "temp",
-      "build",
-      "settings"
-    ]
+  "extends": "mage/tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["mage/types/client"],
+    "paths": {
+      "@app/*": ["../packages/librarys/src/*"]
+    }
   }
+}

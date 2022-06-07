@@ -8,17 +8,43 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 
-import {resolveAppPath, getGitHash} from '../helpers/utils.js';
-import {IDevConfig, IBasicConfig} from '../helpers/store.js';
+import {resolveAppPath, getGitHash, getDependencies} from '../helpers/utils.js';
+import {IDevConfig, IBasicConfig, IModuleFederationConfig} from '../helpers/store.js';
+
+const {ModuleFederationPlugin} = webpack.container;
+
+/**
+ * 获取 ModuleFederation Shared
+ * @returns {object}
+ */
+const getModuleFederationShared = async (): Promise<{[key: string]: any}> => {
+  const deps = await getDependencies();
+  const shared: {[key: string]: any} = {};
+
+  for (const key in deps) {
+    shared[key] = {
+      requiredVersion: deps[key],
+      eager: true,
+      singleton: true,
+    };
+  }
+
+  return shared;
+};
 
 /**
  * 插件
  * @param {IDevConfig} devConfig 开发配置
  * @param {IBasicConfig} basicConfig 基础配置
  */
-export default async (devConfig: IDevConfig, basicConfig: IBasicConfig): Promise<any> => {
+export default async (
+  devConfig: IDevConfig,
+  basicConfig: IBasicConfig,
+  mfConfig: IModuleFederationConfig,
+): Promise<any> => {
   const configFile = resolveAppPath('./tsconfig.json');
   const hash = await getGitHash();
+  const shared: {[key: string]: any} = await getModuleFederationShared();
 
   const plugins: any[] = [
     new WebpackBar({
@@ -57,6 +83,12 @@ export default async (devConfig: IDevConfig, basicConfig: IBasicConfig): Promise
         profile: false,
         typescriptPath: 'typescript',
       },
+    }),
+    new ModuleFederationPlugin({
+      name: basicConfig.name, // 必须，唯一 ID，作为输出的模块名，使用的时通过 {name}/name/{expose} 的方式使用
+      filename: devConfig.isDev ? 'remoteEntry.js' : 'remoteEntry.[contenthash:6].js',
+      exposes: mfConfig.exposes,
+      shared,
     }),
   ];
 

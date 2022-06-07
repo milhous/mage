@@ -21,12 +21,13 @@ import getProductionConfig from './production.js';
 export default async (): Promise<any> => {
   const basicConfig = store.getBasicConfig();
   const devConfig = store.getDevConfig();
+  const mfConfig = store.getModuleFederationConfig();
 
   const commonConfig = getCommonConfig(devConfig, basicConfig);
   const cssConfig = getCssConfig(devConfig.isDev, devConfig.browserslist);
   const fileConfig = getFileConfig();
   const moduleConfig = getModuleConfig(devConfig.isDev, devConfig.browserslist);
-  const pluginConfig = await getPluginConfig(devConfig, basicConfig);
+  const pluginConfig = await getPluginConfig(devConfig, basicConfig, mfConfig);
   const developmentConfig = getDevelopmentConfig(basicConfig.port, basicConfig.dist);
   const productionConfig = getProductionConfig();
 
