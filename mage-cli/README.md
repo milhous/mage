@@ -125,16 +125,7 @@ npm link
 yarn run build
 ```
 
-### 命令介绍
-
-| Method      | Description     |
-| ----------- | --------------- |
-| mage build  | 构建应用        |
-| mage i18n   | 多语言导入/导出 |
-| mage info   | 显示应用信息    |
-| mage init   | 初始化应用      |
-| mage launch | 启动多个应用    |
-| mage start  | 启动单个应用    |
+### 如何使用
 
 新建 & 开发应用可参考下面流程
 
@@ -154,3 +145,14 @@ mage i18n
 # 构建引用（在应用文件夹中执行）
 mage build
 ```
+
+### 命令介绍
+
+| Method      | Description     |
+| ----------- | --------------- |
+| mage build  | 构建应用        |
+| mage i18n   | 多语言导入/导出 |
+| mage info   | 显示应用信息    |
+| mage init   | 初始化应用      |
+| mage launch | 启动多个应用    |
+| mage start  | 启动单个应用    |
