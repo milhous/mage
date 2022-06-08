@@ -311,25 +311,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@packages/staking@workspace:packages/staking":
+"@packages/referral@workspace:packages/referral":
   version: 0.0.0-use.local
-  resolution: "@packages/staking@workspace:packages/staking"
-  dependencies:
-    "@types/react": ^18
-    "@types/react-dom": ^18.0.5
-    i18next: ^21.8.9
-    mage: "workspace:^"
-    react: ^18.1.0
-    react-dom: ^18.1.0
-    react-i18next: ^11.17.0
-    react-inlinesvg: ^3.0.0
-    react-router-dom: ^6.3.0
-  languageName: unknown
-  linkType: soft
-
-"@packages/test@workspace:packages/test":
-  version: 0.0.0-use.local
-  resolution: "@packages/test@workspace:packages/test"
+  resolution: "@packages/referral@workspace:packages/referral"
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
