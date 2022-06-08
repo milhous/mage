@@ -112,7 +112,7 @@ yarn plugin import workspace-tools
 yarn install
 ```
 
-## 构建 mage
+### 构建 mage
 
 ```
 # 进入构建命令文件夹
