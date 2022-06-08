@@ -1,4 +1,4 @@
-## Mage
+# Mage
 
 > 实现微前端解决方案
 
@@ -9,7 +9,7 @@
 - 🔩 通用的插件、共享 webpack 插件接口.
 - 🔑 TS 重构项目、提供灵活的 api、Plugin 以及完整的类型提示.
 
-### 目录结构
+## 目录结构
 
 ```
 |－ mage
@@ -48,7 +48,7 @@
 |     |－ tsconfig.base.json tsconfig 基础配置
 ```
 
-### 配置 yarn
+## 配置 yarn
 
 1. 切换新版本, 替代 lerna 管理 workspaces
 
