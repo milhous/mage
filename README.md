@@ -46,7 +46,7 @@
 
 ## 如何开发
 
-查阅 [Mage Cli](./mage-cli/README.md)
+查阅 [Mage](./mage-cli/README.md) 文档
 
 ## 项目模块
 

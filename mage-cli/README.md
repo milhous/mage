@@ -117,7 +117,7 @@ yarn plugin import workspace-tools
 | mage launch | 启动多个应用    |
 | mage start  | 启动单个应用    |
 
-新建 & 开发应用按照下面流程
+新建 & 开发应用可参考下面流程
 
 ```
 # 查看已有应用信息（名称，端口号）
