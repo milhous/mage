@@ -1,6 +1,6 @@
 ## 开发
 
-### 项目结构
+### 目录结构
 
 ```
 |－ mage
@@ -22,6 +22,15 @@
 |                 |－ store 配置（应用 & webpack）
 |                 |－ types 类型
 |                 |－ utils 工具
+|           |－ webpack 配置
+|                 |－ common 通用
+|                 |－ css 样式
+|                 |－ development 开发
+|                 |－ file 文件（img, svg, svga, font）
+|                 |－ index 归集
+|                 |－ module 脚本
+|                 |－ plugin 插件
+|                 |－ production 生产
 |     |－ template 项目模板
 |           |－ locales 多语言
 |           |－ src 源文件
