@@ -44,7 +44,7 @@
 |                 |－ broadcastChannel 跨应用通讯模块
 ```
 
-## 如何开发
+## 如何使用
 
 查阅 [Mage](./mage-cli/README.md) 文档
 
