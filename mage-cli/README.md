@@ -1,4 +1,13 @@
-## 开发
+## Mage
+
+> 实现微前端解决方案
+
+- 💡 微前端、支持 ESM.
+- ⚡️ 结合 SWC 快速构建重载.
+- 🛠️ 支持 TypeScript、JSX、CSS、Less、SVG, SVGA 等模块.
+- 📦 Yarn3 实现 MonoRepo 和应用预配置 webpack 构建.
+- 🔩 通用的插件、共享 webpack 插件接口.
+- 🔑 TS 重构项目、提供灵活的 api、Plugin 以及完整的类型提示.
 
 ### 目录结构
 
