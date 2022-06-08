@@ -33,15 +33,15 @@ const getConfig = ({env = 'prod', mode = 'production', analyze = false}) => {
 // 获取版本号
 program.version(version, '-v, --version').usage('<command> [options]');
 
-// 初始化
+// 初始化（创建应用）
 program
   .command('init')
-  .description('初始化项目')
+  .description('初始化应用')
   .action(() => {
     cli('init');
   });
 
-// 多语言
+// 多语言（导入/导出）
 program
   .command('i18n')
   .description('多语言')
@@ -49,10 +49,10 @@ program
     cli('i18n');
   });
 
-// 启动（多个项目）
+// 启动（多个应用）
 program
   .command('launch')
-  .description('启动项目')
+  .description('启动应用')
   .action(() => {
     cli('launch');
   });
@@ -61,7 +61,7 @@ program
 program
   .command('start')
   .alias('s')
-  .description('启动项目')
+  .description('启动应用')
   .option(...optionsConfig.env)
   .option(...optionsConfig.mode)
   .option(...optionsConfig.analyze)
@@ -84,7 +84,7 @@ program
     cli('build', config);
   });
 
-// 信息（应用）
+// 信息（应用)
 program
   .command('info')
   .description('应用信息')

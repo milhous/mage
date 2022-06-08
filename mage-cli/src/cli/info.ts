@@ -10,7 +10,7 @@ export default async (): Promise<void> => {
   const table: Array<any> = [];
 
   for (const name of dirInfo) {
-    const appConfigPath = path.resolve(resolveCliPath('../packages'), name, 'btg.config.js');
+    const appConfigPath = path.resolve(resolveCliPath('../packages'), name, 'app.config.js');
     const isExist = await fs.pathExists(appConfigPath);
 
     if (isExist) {

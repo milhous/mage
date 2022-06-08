@@ -1,7 +1,7 @@
 /**
  * 命令类型
  * @property INIT 初始化
- * @property LAUNCH 启动（多个项目）
+ * @property LAUNCH 启动（多个应用）
  * @property START 启动（单个项目）
  * @property BUILD 构建
  * @property I18N 多语言

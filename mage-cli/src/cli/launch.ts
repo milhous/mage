@@ -127,7 +127,7 @@ const batchStartServer = async (packages: string[]): Promise<void> => {
   }
 };
 
-// 启动（多个项目）
+// 启动（多个应用）
 export default async (): Promise<void> => {
   const dirInfo = await readDirInfo('packages');
   const choices: IChoices = getChoices(dirInfo);

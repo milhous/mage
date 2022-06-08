@@ -24,7 +24,9 @@ const getModuleFederationShared = async (): Promise<{[key: string]: any}> => {
   for (const key in deps) {
     shared[key] = {
       requiredVersion: deps[key],
+      // 不会生成额外的 chunk。 所有的模块都被当前的 chunk 引入，并且没有额外的网络请求。 但是仍会返回一个 resolved 状态的 Promise。与静态导入相比，在调用 import() 完成之前，该模块不会被执行。
       eager: true,
+      // 确保运行时模块为单例，避免初始化多次。
       singleton: true,
     };
   }

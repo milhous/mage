@@ -67,8 +67,8 @@ const modifyTemplete = async (name: string, desc: string, port: string): Promise
 
   await fs.writeFile(tsconfigJsonFile, tsconfigJsonContent);
 
-  // 修改 btg.config.js
-  const btgConfigFile = path.resolve(packagePath, 'btg.config.js');
+  // 修改 app.config.js
+  const btgConfigFile = path.resolve(packagePath, 'app.config.js');
   let btgConfigContent = await fs.readFile(btgConfigFile, 'utf8');
 
   btgConfigContent = btgConfigContent.replace(`'{name}'`, `'${name}'`).replace(`'{port}'`, `${port}`);
@@ -76,7 +76,7 @@ const modifyTemplete = async (name: string, desc: string, port: string): Promise
   await fs.writeFile(btgConfigFile, btgConfigContent);
 };
 
-// 初始化
+// 初始化（创建应用）
 export default async (): Promise<void> => {
   const {name}: any = await inquirer.prompt([
     {

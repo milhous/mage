@@ -173,7 +173,7 @@ const getAnswers = async (choices: IChoices): Promise<IAnswers> => {
   };
 };
 
-// i18n
+// 多语言（导入/导出）
 export default async (args: any): Promise<void> => {
   const dirInfo = await readDirInfo('packages');
   const choices: IChoices = getChoices(dirInfo);

@@ -7,13 +7,13 @@ import {resolveAppPath} from '../helpers/utils.js';
 // 类型
 import {CommandType} from '../helpers/types.js';
 
-// 初始化
+// 初始化（创建应用）
 import init from './init.js';
-// 多语言
+// 多语言（导入/导出）
 import i18n from './i18n.js';
 // 启动（单个项目）
 import start from './start.js';
-// 启动（多个项目）
+// 启动（多个应用）
 import launch from './launch.js';
 // 构建
 import build from './build.js';
@@ -33,17 +33,17 @@ initEnv();
 
 export default async (name: string, args: any): Promise<void> => {
   switch (name) {
-    // 初始化
+    // 初始化（创建应用）
     case CommandType.INIT:
       init();
 
       break;
-    // 多语言
+    // 多语言（导入/导出）
     case CommandType.I18N:
       i18n(args);
 
       break;
-    // 启动（多个项目）
+    // 启动（多个应用）
     case CommandType.LAUNCH:
       launch();
 

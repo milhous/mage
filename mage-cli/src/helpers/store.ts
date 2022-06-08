@@ -211,8 +211,8 @@ class Store implements IStore {
 
   // 获取App配置
   private async _getAppConfig(): Promise<void> {
-    const appConfigPath = resolveAppPath('./btg.config.js');
-    const isExist = await existsAppPath('./btg.config.js');
+    const appConfigPath = resolveAppPath('./app.config.js');
+    const isExist = await existsAppPath('./app.config.js');
 
     if (isExist) {
       const module = await import(appConfigPath);

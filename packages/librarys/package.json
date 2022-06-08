@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "librarys",
     "type": "module",
-    "main": "btg.config.js",
+    "main": "app.config.js",
     "private": true,
     "scripts": {
         "start": "",
