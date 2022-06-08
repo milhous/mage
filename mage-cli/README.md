@@ -1,6 +1,98 @@
 ## 开发
 
-### 工具初始化
+### 配置 yarn
+
+1. 切换新版本, 替代 lerna 管理 workspaces
+
+```
+yarn set version berry
+```
+
+2. 设置 npm 源地址
+
+```
+# 命令行
+yarn config set npmRegistryServer https://registry.npm.taobao.org
+
+# .yarnrc.yml
+npmRegistryServer: "https://registry.npm.taobao.org"
+
+```
+
+3. 设置代理
+
+```
+# 命令行
+yarn config set httpProxy http://host:port
+
+yarn config set httpsProxy http://host:port
+
+# .yarnrc.yml
+httpProxy: "http://host:port"
+
+httpsProxy: "http://host:port"
+
+```
+
+4. 设置项目包管理器配置 & 开启 ESM 支持
+
+```
+# 命令行
+yarn config set nodeLinker pnpm
+
+yarn config set pnpEnableEsmLoader true
+
+# .yarnrc.yml
+nodeLinker: pnpm
+
+pnpEnableEsmLoader: true
+```
+
+5. 安装工具
+
+```
+# Automatically adds @types/ packages into your dependencies when you add a package that doesn't include its own types
+yarn plugin import typescript
+
+# This plugin adds support for various workspace-related commands.
+yarn plugin import workspace-tools
+```
+
+```
+
+# 应用初始化
+
+npm run setup
+
+# 所有应用启动本地服务
+
+npm run start
+
+# 所有应用打包构建
+
+npm run build
+
+# 单独应用启动本地服务
+
+name=user npm run start:name
+
+# 单独应用打包构建
+
+name=user npm run build:name
+
+# 应用 bundle 分析
+
+npm run analyze
+
+# 应用代码检查
+
+npm run lint
+
+# 应用清理 dist
+
+npm run clean
+
+```
 
 ### 项目初始化
 
@@ -43,17 +135,6 @@ import { readFile } from 'fs/promises';
 
 const json = JSON.parse(await readFile(new URL('../../package.json', import.meta.url)));
 
-yarn set version berry
-
-yarn config set httpsProxy http://127.0.0.1:7890
-
-yarn config set httpProxy http://127.0.0.1:7890
-
-// 解决 ERR_MODULE_NOT_FOUND
-yarn config set nodeLinker "node-modules"
-
-yarn config set nodeLinker "pnpm"
-
 yarn install
 
 yarn plugin import typescript
@@ -94,3 +175,7 @@ ModuleFederationPlugin 配置新增 chunks: ['main']
 devServer 配置修改 liveReload: false, hot: true,
 entry 配置修改 entry: basicConfig.src + '/index' 默认入口 main
 package.json 配置修改 "main": "dist/static/js/main.js"
+
+```
+
+```
