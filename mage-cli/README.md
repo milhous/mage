@@ -108,7 +108,7 @@ yarn plugin import workspace-tools
 
 ### 命令介绍
 
-| Cli         | Description     |
+| Method      | Description     |
 | ----------- | --------------- |
 | mage build  | 构建应用        |
 | mage i18n   | 多语言导入/导出 |
