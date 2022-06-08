@@ -106,7 +106,7 @@ yarn plugin import typescript
 yarn plugin import workspace-tools
 ```
 
-### 如何使用
+### 命令介绍
 
 | Cli         | Description     |
 | ----------- | --------------- |
