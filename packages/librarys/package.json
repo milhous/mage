@@ -11,9 +11,12 @@
         "update": "ncu -u"
     },
     "dependencies": {
+        "axios": "^0.27.2",
+        "js-cookie": "^3.0.1",
         "regenerator-runtime": "^0.13.9"
     },
     "devDependencies": {
+        "@types/js-cookie": "^3",
         "mage": "workspace:^"
     }
 }

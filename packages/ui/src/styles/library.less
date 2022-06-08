@@ -1,0 +1,123 @@
+@assetPath: '@app/assets';
+
+.fontGradient(...) {
+  position: relative;
+  text-align: center;
+
+  span {
+    display: block;
+    color: transparent;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  span:first-child {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  span:last-child {
+    position: relative;
+    z-index: 5;
+    background: linear-gradient(~` @{arguments}.join(',') `);
+    background-origin: content-box;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}
+
+.responsive(@maxWidth; @rules) {
+  @media only screen and (max-width: @maxWidth) {
+    @rules();
+  }
+}
+
+.smallScreen(@rules) {
+  @media only screen and (max-width: 768px) {
+    @rules();
+  }
+}
+
+.mediumScreen(@rules) {
+  @media only screen and (min-width: 769px) and (max-width: 1200px) {
+    @rules();
+  }
+}
+
+.largeScreen(@rules) {
+  @media only screen and (min-width: 1201px) {
+    @rules();
+  }
+}
+
+// 设置字体
+.setFont(@fontSize, @lineHeight, @fontColor, @fontWeight: 400) {
+  color: @fontColor;
+  font-weight: @fontWeight;
+  font-size: calc(@fontSize * 1rem);
+  line-height: calc(@lineHeight * 1rem);
+}
+
+// 设置flex
+.setFlex(@justifyContent: center, @alignItems: center, @flexDirection: row) {
+  display: flex;
+  flex-direction: @flexDirection;
+  justify-content: @justifyContent;
+  align-items: @alignItems;
+}
+
+// 设置图片
+.setImg(@width, @height, @src) {
+  display: block;
+  width:  if(@width = 100%, @width, calc(@width * 1rem));
+  min-width: if(@width = 100%, @width, calc(@width * 1rem));
+  height: if(@height = 100%, @height, calc(@height * 1rem));
+  min-height: if(@height = 100%, @height, calc(@height * 1rem));
+  background: url('@{assetPath}/@{src}') no-repeat center center;
+  background-size: 100% 100%;
+}
+
+// 设置伪元素
+.setPseudo() {
+  content: '.';
+  display: block;
+  position: absolute;
+  text-indent: -9999rem;
+}
+
+// 设置按钮
+.setBtn(@width, @height, @fontSize, @fontColor, @background, @borderRadius) {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: calc(@width * 1rem);
+  height: calc(@height * 1rem);
+  padding: 0 calc(@borderRadius * 2rem);
+  border-radius: calc(@borderRadius * 1rem);
+  background: linear-gradient(@background);
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: @fontColor;
+  font-weight: 700;
+  font-size: calc(@fontSize * 1rem);
+  text-decoration: none;
+  text-shadow: 0 .02rem .04rem rgba(0, 0, 0, .3);
+  white-space: nowrap;
+}
+
+// 设置圆角
+.setBorderRadius(@borderRadius) {
+  border-radius: calc(@borderRadius * 1rem);
+}
+
+// 设置省略
+.setEllipsis() {
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

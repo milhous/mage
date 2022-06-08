@@ -4,7 +4,8 @@
     "types": ["mage/types/client"],
     "paths": {
       "@app/*": ["../packages/referral/src/*"],
-      "@ui/*": ["../packages/ui/src/*"]
+      "@ui/*": ["../packages/ui/src/*"],
+      "@librarys/*": ["../packages/librarys/src/*"]
     }
   }
 }
