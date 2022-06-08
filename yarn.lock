@@ -302,24 +302,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@packages/activity@workspace:packages/activity":
-  version: 0.0.0-use.local
-  resolution: "@packages/activity@workspace:packages/activity"
-  languageName: unknown
-  linkType: soft
-
 "@packages/librarys@workspace:packages/librarys":
   version: 0.0.0-use.local
   resolution: "@packages/librarys@workspace:packages/librarys"
   dependencies:
     mage: "workspace:^"
     regenerator-runtime: ^0.13.9
-  languageName: unknown
-  linkType: soft
-
-"@packages/points@workspace:packages/points":
-  version: 0.0.0-use.local
-  resolution: "@packages/points@workspace:packages/points"
   languageName: unknown
   linkType: soft
 
@@ -374,15 +362,6 @@ __metadata:
     react-toastify: ^9.0.4
     regenerator-runtime: ^0.13.9
     svga.lite: ^1.6.1
-  languageName: unknown
-  linkType: soft
-
-"@packages/user@workspace:packages/user":
-  version: 0.0.0-use.local
-  resolution: "@packages/user@workspace:packages/user"
-  dependencies:
-    "@types/react": ^18
-    react: ^18.1.0
   languageName: unknown
   linkType: soft
 

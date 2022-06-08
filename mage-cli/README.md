@@ -106,6 +106,25 @@ yarn plugin import typescript
 yarn plugin import workspace-tools
 ```
 
+6. 安装 node_modules
+
+```
+yarn install
+```
+
+## 使用 mage
+
+```
+# 进入构建命令文件夹
+cd mage-cli
+
+# 创建符号链接（symbolic link，软链接）
+npm link
+
+# 构建 mage 代码
+yarn run build
+```
+
 ### 命令介绍
 
 | Method      | Description     |
