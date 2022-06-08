@@ -1,7 +1,7 @@
 {
-    "name": "@packages/librarys",
+    "name": "@packages/libs",
     "version": "1.0.0",
-    "description": "librarys",
+    "description": "libs",
     "type": "module",
     "main": "app.config.js",
     "private": true,

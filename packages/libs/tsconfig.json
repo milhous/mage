@@ -3,7 +3,7 @@
   "compilerOptions": {
     "types": ["mage/types/client"],
     "paths": {
-      "@app/*": ["../packages/librarys/src/*"]
+      "@app/*": ["../packages/libs/src/*"]
     }
   }
 }
