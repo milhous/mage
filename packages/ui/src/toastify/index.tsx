@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import SVG from 'react-inlinesvg';
 import * as toastify from 'react-toastify';
 
 // import { isMobile } from '@libs/utils/util';
 
-import iconTips from './icon-tips.svg';
+import IconTips from './icon-tips.svg';
 import './index.less';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -50,7 +49,7 @@ interface IContentProps {
 const Content = (props: IContentProps): JSX.Element => {
   return (
     <div className="btg-toastify_content">
-      <SVG src={iconTips} />
+      <IconTips />
       <p>{props.children}</p>
     </div>
   );

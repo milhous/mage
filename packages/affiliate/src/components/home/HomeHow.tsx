@@ -1,5 +1,3 @@
-import SVG from 'react-inlinesvg';
-
 import {useTranslate} from '@ui/i18n';
 
 import Assets from '@app/assets';
