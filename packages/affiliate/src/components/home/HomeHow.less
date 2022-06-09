@@ -1,8 +1,188 @@
-.affiliate-how {
-    .test {
-        width: 100px;
-        height: 100px;
-        background: url(../../assets/home/banner-pic_h5.svg) no-repeat center center;
-        background-size: 100% 100%;
+@import (reference) '@ui/styles/library.less';
+
+.affiliate .affiliate-how {
+    .setFlex(center, center, column);
+
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: .8rem .4rem;
+    background-color: var(--how-background);
+
+    .smallScreen({
+       margin-top: .7rem;
+    });
+
+    h3 {
+        .setFont(.3, .4, var(--font-title-color), 700);
+
+        .smallScreen({
+            margin-bottom: .2rem;
+            font-size: .4rem;
+            line-height: .56rem;
+        });
+    }
+
+    .how-list {
+        max-width: 11.8rem;
+        margin: .5rem auto 0;
+    }
+
+    p {
+        .setFont(.3, .42, var(--font-subtitle-color));
+
+        padding: 0 .25rem;
+
+        .smallScreen({
+            font-size: .24rem;
+            line-height: .40rem;
+        });
+    }
+
+    ul {
+        .setFlex(center, flex-start);
+
+        flex-wrap: wrap;
+        transform: translateX(-.25rem);
+        width: calc(100% + .5rem);
+        padding-top: .1rem;
+
+        .smallScreen({
+            .setFlex(center, center, column);
+            
+            padding-top: 0;
+        });
+    }
+
+    li {        
+        width: 3.4rem;
+        margin: .25rem .25rem 0;
+
+        .smallScreen({
+            width: 5.6rem;
+            margin-top: .4rem;
+        });
+    }
+
+    li div {
+        .setImg(100%, 1.6, '~@app/assets/home/how-bg.jpg');
+
+        .setFlex();
+
+        overflow: hidden;
+        position: relative;
+        border-radius: .1rem;
+
+        .smallScreen({
+            height: 2.64rem;
+            border-radius: .15rem;
+        });
+
+        &:before {
+            .setPseudo();
+
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-right: 1rem solid transparent;
+            border-top: .9rem solid var(--corner-background);
+
+            .smallScreen({
+                border-right-width: 1.65rem;
+                border-top-width: 1.48rem;
+            });
+        }
+
+        .icon-sn {
+            position: absolute;
+            left: .06rem;
+            top: .08rem;
+            width: .38rem;
+            height: .36rem;
+            color: var(--font-desc-color);
+
+            .smallScreen({
+                left: .16rem;
+                top: .18rem;
+                width: .5rem;
+                height: .5rem;
+            });
+        }
+
+        .how-icon1 {
+            width: .75rem;
+            height: .75rem;
+
+            .smallScreen({
+                width: 1.26rem;
+                height: 1.26rem;
+            });
+        }
+
+        .how-icon2 {
+            width: .78rem;
+            height: .62rem;
+
+            .smallScreen({
+                width: 1.28rem;
+                height: 1.04rem;
+            });
+        }
+
+        .how-icon3 {
+            width: .75rem;
+            height: .75rem;
+
+            .smallScreen({
+                width: 1.26rem;
+                height: 1.26rem;
+            });
+        }
+    }
+
+    dl {
+        margin-top: .2rem;
+
+        .smallScreen({
+            margin-top: .36rem;
+        });
+    }
+
+    dt {
+        .setFont(.2, .3, var(--font-title-color), 700);
+
+        .smallScreen({
+            font-size: .3rem;
+            line-height: .42rem;
+        });
+    }
+
+    dd {
+        .setFont(.15, .25, var(--font-desc-color));
+
+        margin-top: .05rem;
+
+        .smallScreen({
+            margin-top: .1rem;
+            font-size: .24rem;
+            line-height: .42rem;
+        });
+
+        strong {
+            color: var(--font-highlight-color);
+            font-weight: 400;
+        }
+    }
+
+    .btn-apply {
+        .setBtn(2, .46, .16, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
+
+        margin-top: 1rem;
+
+        .smallScreen({
+            .setBtn(2.1, .6, .24, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
+
+            margin-top: .36rem;
+        });
     }
 }

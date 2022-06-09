@@ -1,49 +1,49 @@
-import homeIconHelp from './home/icon-help.svg';
-import homeBannerPic from './home/banner-pic.svg';
-import homeBannerPicH5 from './home/banner-pic_h5.svg';
-import homePlanIcon1 from './home/plan-icon1.svg';
-import homePlanIcon2 from './home/plan-icon2.svg';
-import homePlanIcon3 from './home/plan-icon3.svg';
-import homePlanIcon4 from './home/plan-icon4.svg';
-import homeCommissionIcon1 from './home/commission-icon1.svg';
-import homeCommissionIcon2 from './home/commission-icon2.svg';
-import homeCommissionIcon3 from './home/commission-icon3.svg';
-import homeCommissionIcon4 from './home/commission-icon4.svg';
-import homeCommissionIcon5 from './home/commission-icon5.svg';
-import homeCommissionIcon6 from './home/commission-icon6.svg';
-import homeSupportPic from './home/support-pic.svg';
-import homeRightsPic from './home/rights-pic.svg';
-import homeAdvantageIconYes from './home/advantage-icon_yes.svg';
-import homeAdvantageIconNo from './home/advantage-icon_no.svg';
-import homeHowIcon1 from './home/how-icon1.svg';
-import homeHowIcon2 from './home/how-icon2.svg';
-import homeHowIcon3 from './home/how-icon3.svg';
-import homeHowSN1 from './home/how-sn1.svg';
-import homeHowSN2 from './home/how-sn2.svg';
-import homeHowSN3 from './home/how-sn3.svg';
+import HomeIconHelp from './home/icon-help.svg';
+import HomeBannerPic from './home/banner-pic.svg';
+import HomeBannerPicH5 from './home/banner-pic_h5.svg';
+import HomePlanIcon1 from './home/plan-icon1.svg';
+import HomePlanIcon2 from './home/plan-icon2.svg';
+import HomePlanIcon3 from './home/plan-icon3.svg';
+import HomePlanIcon4 from './home/plan-icon4.svg';
+import HomeCommissionIcon1 from './home/commission-icon1.svg';
+import HomeCommissionIcon2 from './home/commission-icon2.svg';
+import HomeCommissionIcon3 from './home/commission-icon3.svg';
+import HomeCommissionIcon4 from './home/commission-icon4.svg';
+import HomeCommissionIcon5 from './home/commission-icon5.svg';
+import HomeCommissionIcon6 from './home/commission-icon6.svg';
+import HomeSupportPic from './home/support-pic.svg';
+import HomeRightsPic from './home/rights-pic.svg';
+import HomeAdvantageIconYes from './home/advantage-icon_yes.svg';
+import HomeAdvantageIconNo from './home/advantage-icon_no.svg';
+import HomeHowIcon1 from './home/how-icon1.svg';
+import HomeHowIcon2 from './home/how-icon2.svg';
+import HomeHowIcon3 from './home/how-icon3.svg';
+import HomeHowSN1 from './home/how-sn1.svg';
+import HomeHowSN2 from './home/how-sn2.svg';
+import HomeHowSN3 from './home/how-sn3.svg';
 
 export default {
-  homeIconHelp,
-  homeBannerPic,
-  homeBannerPicH5,
-  homePlanIcon1,
-  homePlanIcon2,
-  homePlanIcon3,
-  homePlanIcon4,
-  homeCommissionIcon1,
-  homeCommissionIcon2,
-  homeCommissionIcon3,
-  homeCommissionIcon4,
-  homeCommissionIcon5,
-  homeCommissionIcon6,
-  homeSupportPic,
-  homeRightsPic,
-  homeAdvantageIconYes,
-  homeAdvantageIconNo,
-  homeHowIcon1,
-  homeHowIcon2,
-  homeHowIcon3,
-  homeHowSN1,
-  homeHowSN2,
-  homeHowSN3,
+  HomeIconHelp,
+  HomeBannerPic,
+  HomeBannerPicH5,
+  HomePlanIcon1,
+  HomePlanIcon2,
+  HomePlanIcon3,
+  HomePlanIcon4,
+  HomeCommissionIcon1,
+  HomeCommissionIcon2,
+  HomeCommissionIcon3,
+  HomeCommissionIcon4,
+  HomeCommissionIcon5,
+  HomeCommissionIcon6,
+  HomeSupportPic,
+  HomeRightsPic,
+  HomeAdvantageIconYes,
+  HomeAdvantageIconNo,
+  HomeHowIcon1,
+  HomeHowIcon2,
+  HomeHowIcon3,
+  HomeHowSN1,
+  HomeHowSN2,
+  HomeHowSN3,
 };

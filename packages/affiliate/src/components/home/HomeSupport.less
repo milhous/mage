@@ -1,0 +1,118 @@
+@import (reference) '@ui/styles/library.less';
+
+.affiliate .affiliate-support {
+    .setFlex(space-between, center);
+
+    box-sizing: border-box;
+    max-width: 11.2rem;
+    margin: 0 auto;
+    padding: .8rem .2rem;
+
+    .mediumScreen({
+        .setFlex(flex-start, center, column);
+    });
+
+    .smallScreen({
+        .setFlex(flex-start, center, column);
+
+        padding: .8rem .35rem;
+    });
+
+    article {
+        .setFlex(flex-start, flex-start, column);
+        
+        max-width: 4rem;
+
+        .mediumScreen({
+            width: 100%;
+            max-width: none;
+        });
+
+        .smallScreen({
+            width: 100%;
+            max-width: none;
+        });
+
+        h3 {
+            .setFont(.3, .42, var(--font-title-color), 700);
+
+            .smallScreen({
+                font-size: .48rem;
+                line-height: .68rem;
+            });
+        }
+
+        ul {
+            margin-top: .2rem;
+
+            .smallScreen({
+                margin-top: .32rem;
+            });
+        }
+
+        li {
+            .setFont(.15, .26, var(--font-desc-color));
+
+            position: relative;
+            padding-left: .1rem;
+
+            .smallScreen({
+                font-size: .24rem;
+                line-height: .42rem;
+            });
+
+            &::before {
+                .setPseudo();
+
+                position: absolute;
+                left: 0.03rem;
+                top: .12rem;
+                width: .02rem;
+                height: .02rem;
+                border-radius: 50%;
+                background-color: currentColor;
+
+                .smallScreen({
+                    top: .18rem;
+                    width: .04rem;
+                    height: .04rem;
+                });
+            }
+        }
+
+        span {
+            color: var(--font-highlight-color);
+        }
+
+        .btn-background {
+            .setBtn(1, .36, .16, var(--font-btn-color), var(--gradient-btn-background), var(--pc-btn-radius));
+    
+            margin-top: .4rem;
+
+            .mediumScreen({
+                margin: .4rem auto 0;
+            });
+    
+            .smallScreen({
+                .setBtn(1.8, .6, .22, var(--font-btn-color), var(--gradient-btn-background), var(--h5-btn-radius));
+    
+                margin: .4rem auto 0;
+            });
+        }
+    }
+
+    aside {
+        .mediumScreen({
+            margin-top: .4rem;
+        });
+
+        .smallScreen({
+            margin-top: .4rem;
+
+            svg {
+                width: 7.06rem;
+                height: 4.52rem;
+            }
+        });
+    }
+}

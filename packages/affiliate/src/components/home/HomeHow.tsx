@@ -4,20 +4,20 @@ import Assets from '@app/assets';
 
 import './HomeHow.less';
 
+// 如何加入
 const HomeHow = (): JSX.Element => {
   const t = useTranslate(['affiliate']);
 
   return (
     <section className="affiliate-how">
-      <div className="test"></div>
       <h3>{t('how_title')}</h3>
       <div className="how-list">
         <p>{t('how_desc1')}</p>
         <ul>
           <li>
             <div>
-              <Assets.homeHowSN1 className="icon-sn" />
-              <Assets.homeHowIcon1 className="how-icon1" />
+              <Assets.HomeHowSN1 className="icon-sn" />
+              <Assets.HomeHowIcon1 className="how-icon1" />
             </div>
             <dl>
               <dt>{t('how_subtitle1')}</dt>
@@ -26,8 +26,8 @@ const HomeHow = (): JSX.Element => {
           </li>
           <li>
             <div>
-              <Assets.homeHowSN2 className="icon-sn" />
-              <Assets.homeHowIcon2 className="how-icon2" />
+              <Assets.HomeHowSN2 className="icon-sn" />
+              <Assets.HomeHowIcon2 className="how-icon2" />
             </div>
             <dl>
               <dt>{t('how_subtitle2')}</dt>
@@ -36,8 +36,8 @@ const HomeHow = (): JSX.Element => {
           </li>
           <li>
             <div>
-              <Assets.homeHowSN3 className="icon-sn" />
-              <Assets.homeHowIcon3 className="how-icon3" />
+              <Assets.HomeHowSN3 className="icon-sn" />
+              <Assets.HomeHowIcon3 className="how-icon3" />
             </div>
             <dl>
               <dt>{t('how_subtitle3')}</dt>

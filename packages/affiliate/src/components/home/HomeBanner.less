@@ -1,0 +1,62 @@
+@import (reference) '@ui/styles/library.less';
+
+.affiliate .affiliate-banner {
+    .setFlex(center, center, column);
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 6rem;
+    padding: 0 .2rem;
+    background: url('@app/assets/home/banner-bg.jpg') no-repeat center bottom;
+    background-size: cover;
+
+    .mediumScreen({
+        height: 7.25rem;
+    });
+
+    .smallScreen({
+        height: 9.5rem;
+        background-image: url('@app/assets/home/banner-bg_h5.jpg');
+        background-size: 100% 9.5rem;
+    });
+
+    dt {
+        .setImg(9.82, 1.56, '~@app/assets/home/banner-pic.svg');
+
+        margin: 0 auto;
+        text-indent: -9999rem;
+
+        .mediumScreen({
+            .setImg(4.84, 3.48, '~@app/assets/home/banner-pic_h5.svg');
+        });
+
+        .smallScreen({
+            .setImg(4.84, 3.48, '~@app/assets/home/banner-pic_h5.svg');
+        });
+    }
+
+    dd {
+        .setFont(.22, .26, var(--font-subtitle-color));
+
+        margin-top: .3rem;
+        text-align: center;
+
+        .smallScreen({
+            margin-top: .2rem;
+            font-size: .26rem;
+            line-height: .4rem;
+        });
+    }
+
+    .btn-apply {
+        .setBtn(2, .46, .16, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
+
+        margin-top: .76rem;
+
+        .smallScreen({
+            .setBtn(1.8, .6, .22, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
+
+            margin-top: .9rem;
+        });
+    }
+}

@@ -52,6 +52,7 @@ export default (isDev: boolean, browserslist: string[]) => {
                       params: {
                         overrides: {
                           removeViewBox: false,
+                          cleanupIDs: false,
                         },
                       },
                     },
