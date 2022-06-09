@@ -1665,6 +1665,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@packages/main@workspace:packages/main":
+  version: 0.0.0-use.local
+  resolution: "@packages/main@workspace:packages/main"
+  dependencies:
+    "@types/react": ^18
+    "@types/react-dom": ^18.0.5
+    i18next: ^21.8.9
+    mage: "workspace:^"
+    react: ^18.1.0
+    react-dom: ^18.1.0
+    react-i18next: ^11.17.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
 "@packages/referral@workspace:packages/referral":
   version: 0.0.0-use.local
   resolution: "@packages/referral@workspace:packages/referral"
@@ -1676,7 +1691,6 @@ __metadata:
     react: ^18.1.0
     react-dom: ^18.1.0
     react-i18next: ^11.17.0
-    react-inlinesvg: ^3.0.0
     react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
@@ -1696,7 +1710,6 @@ __metadata:
     react: ^18.1.0
     react-dom: ^18.1.0
     react-i18next: ^11.17.0
-    react-inlinesvg: ^3.0.0
     react-toastify: ^9.0.4
     regenerator-runtime: ^0.13.9
     svga.lite: ^1.6.1
@@ -5635,13 +5648,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exenv@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "exenv@npm:1.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fexenv%2F-%2Fexenv-1.2.2.tgz"
-  checksum: a894f3b60ab8419e0b6eec99c690a009c8276b4c90655ccaf7d28faba2de3a6b93b3d92210f9dc5efd36058d44f04098f6bbccef99859151104bfd49939904dc
-  languageName: node
-  linkType: hard
-
 "exit@npm:^0.1.2":
   version: 0.1.2
   resolution: "exit@npm:0.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fexit%2F-%2Fexit-0.1.2.tgz"
@@ -9360,15 +9366,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-from-dom@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "react-from-dom@npm:0.6.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-from-dom%2F-%2Freact-from-dom-0.6.2.tgz"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 5d66b0c1eb591247a73bed9487a04e390abb4ad6c65e6cea7bfdd35070685b90a5da720de30915b963aba3f4628135d6db4c93da40cd5114c8bbe34a9725a83e
-  languageName: node
-  linkType: hard
-
 "react-i18next@npm:^11.17.0":
   version: 11.17.0
   resolution: "react-i18next@npm:11.17.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-i18next%2F-%2Freact-i18next-11.17.0.tgz"
@@ -9385,18 +9382,6 @@ __metadata:
     react-native:
       optional: true
   checksum: 0ed6823af56f4133bf1664262206be6651cbea95e2f9275411d6346c6b8009e277b32fe60702fd06607d13b8979913bd013da702e25fa3f4e1bd73e403417296
-  languageName: node
-  linkType: hard
-
-"react-inlinesvg@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "react-inlinesvg@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-inlinesvg%2F-%2Freact-inlinesvg-3.0.0.tgz"
-  dependencies:
-    exenv: ^1.2.2
-    react-from-dom: ^0.6.2
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: ceb34c4c5494e4992a1949c7e6166f373858a40215a8e900f360ce60053b19dd6da8637ca87770b953c449ddfa48c52ec288e09978660de92f51aac25b110a71
   languageName: node
   linkType: hard
 
