@@ -25,7 +25,7 @@ export default async (): Promise<any> => {
 
   const commonConfig = getCommonConfig(devConfig, basicConfig);
   const cssConfig = getCssConfig(devConfig.isDev, devConfig.browserslist);
-  const fileConfig = getFileConfig();
+  const fileConfig = getFileConfig(devConfig.isDev, devConfig.browserslist);
   const moduleConfig = getModuleConfig(devConfig.isDev, devConfig.browserslist);
   const pluginConfig = await getPluginConfig(devConfig, basicConfig, mfConfig);
   const developmentConfig = getDevelopmentConfig(basicConfig.port, basicConfig.dist);

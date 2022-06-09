@@ -37,7 +37,7 @@ const getChoices = (packages: string[]): IChoices => {
   const choices: IChoices = [];
 
   for (const item of packages) {
-    if (item !== 'librarys' && item !== 'ui') {
+    if (item !== 'libs' && item !== 'ui') {
       choices.push({
         name: item,
         checked: launch.includes(item),

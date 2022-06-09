@@ -23,7 +23,12 @@ export default (isDev: boolean, browserslist: string[]) => {
                 targets: browserslist.join(','),
               },
               jsc: {
+                externalHelpers: false,
+                loose: true,
+                parser: {syntax: 'typescript', tsx: true, decorators: true, dynamicImport: true},
                 transform: {
+                  legacyDecorator: true,
+                  decoratorMetadata: true,
                   react: {
                     runtime: 'automatic',
                     development: isDev,
