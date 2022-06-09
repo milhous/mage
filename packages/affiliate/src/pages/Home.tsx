@@ -5,6 +5,7 @@ import HomeSupport from '@app/components/home/HomeSupport';
 import HomeRights from '@app/components/home/HomeRights';
 import HomeAdvantage from '@app/components/home/HomeAdvantage';
 import HomeHow from '@app/components/home/HomeHow';
+import HomeFaq from '@app/components/home/HomeFaq';
 
 import './Home.less';
 
@@ -18,7 +19,7 @@ export default function Home(): JSX.Element {
       <HomeRights />
       <HomeAdvantage />
       <HomeHow />
-      {/* <AgentFaq /> */}
+      <HomeFaq />
     </div>
   );
 }

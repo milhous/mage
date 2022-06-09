@@ -59,9 +59,7 @@ export default async (args: any): Promise<void> => {
         );
 
         process.exit(1);
-      }
-
-      if (!stats.hasErrors() && !stats.hasWarnings()) {
+      } else {
         (async () => {
           await copyFolder(basicConfig.dist, resolveCliPath('../build/' + basicConfig.name));
 
