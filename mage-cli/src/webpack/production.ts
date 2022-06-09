@@ -1,3 +1,4 @@
+import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -37,7 +38,7 @@ export default () => {
     performance: {
       hints: 'warning',
       maxEntrypointSize: 512000,
-      maxAssetSize: 512000,
+      maxAssetSize: 614400,
     },
     optimization: {
       chunkIds: 'deterministic', // deterministic 在不同的编译中不变的短数字 id。有益于长期缓存。在生产模式中会默认开启。
@@ -45,30 +46,23 @@ export default () => {
       minimizer,
       splitChunks: {
         cacheGroups: {
-          //打包公共模块
-          // commons: {
-          //   //initial表示提取入口文件的公共部分
-          //   chunks: 'initial',
-          //   //表示提取公共部分最少的文件数
-          //   minChunks: 2,
-          //   //表示提取公共部分最小的大小
-          //   minSize: 0,
-          //   //提取出来的文件命名
-          //   name: 'commons',
-          // },
-          // vendors: {
-          //   name: 'chunk-vendors',
-          //   test: /[\\/]node_modules[\\/]/,
-          //   priority: -10,
-          //   chunks: 'initial',
-          // },
-          // common: {
-          //   name: 'chunk-common',
-          //   minChunks: 2,
-          //   priority: -20,
-          //   chunks: 'initial',
-          //   reuseExistingChunk: true,
-          // },
+          svg: {
+            //提取出来的文件命名
+            name: 'svg',
+            // 表示提取入口文件的公共部分
+            chunks: 'async',
+            //表示提取公共部分最少的文件数
+            minChunks: 2,
+            minSize: 256000,
+            maxSize: 512000,
+            enforce: true,
+            reuseExistingChunk: true,
+            test: (module: any): boolean => {
+              const result = module.resource && module.resource.endsWith('.svg');
+
+              return result;
+            },
+          },
         },
       },
     },

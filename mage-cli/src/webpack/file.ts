@@ -27,6 +27,7 @@ export default (isDev: boolean, browserslist: string[]) => {
                 jsc: {
                   externalHelpers: false,
                   loose: true,
+                  // 缺少 parser 配置会导致编译失败
                   parser: {syntax: 'typescript', tsx: true, decorators: true, dynamicImport: true},
                   transform: {
                     legacyDecorator: true,
