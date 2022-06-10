@@ -1,16 +1,21 @@
-import React from 'react';
+import {Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
+
+import UISpinner from '@ui/spinner/index';
 
 import './App.less';
 import Home from './pages/Home';
 
-const app = () => {
+const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<Navigate replace to="/" />} />
-    </Routes>
+    <Suspense fallback={<UISpinner />}>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 
-export default app;
+export default App;

@@ -1,3 +1,5 @@
+import {Outlet} from 'react-router-dom';
+
 import HomeBanner from '@app/components/home/HomeBanner';
 import HomePlan from '@app/components/home/HomePlan';
 import HomeCommission from '@app/components/home/HomeCommission';
@@ -11,7 +13,7 @@ import './Home.less';
 
 export default function Home(): JSX.Element {
   return (
-    <div className="affiliate affiliate-home">
+    <main className="affiliate affiliate-home">
       <HomeBanner />
       <HomePlan />
       <HomeCommission />
@@ -20,6 +22,7 @@ export default function Home(): JSX.Element {
       <HomeAdvantage />
       <HomeHow />
       <HomeFaq />
-    </div>
+      <Outlet />
+    </main>
   );
 }

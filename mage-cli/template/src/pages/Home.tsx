@@ -1,5 +1,12 @@
+import {Outlet} from 'react-router-dom';
+
 import './Home.less';
 
 export default function Home(): JSX.Element {
-  return <div>Hello world!!!</div>;
+  return (
+    <main className="affiliate affiliate-home">
+      Hello world!
+      <Outlet />
+    </main>
+  );
 }
