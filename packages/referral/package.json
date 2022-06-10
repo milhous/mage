@@ -1,7 +1,7 @@
 {
     "name": "@packages/referral",
     "version": "1.0.0",
-    "description": "referral",
+    "description": "邀请",
     "type": "module",
     "main": "dist/static/js/main.js",
     "private": true,

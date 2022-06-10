@@ -1,7 +1,7 @@
 {
     "name": "@packages/affiliate",
     "version": "1.0.0",
-    "description": "affiliate",
+    "description": "代理",
     "type": "module",
     "main": "dist/static/js/main.js",
     "private": true,

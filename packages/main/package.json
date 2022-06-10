@@ -1,25 +1,25 @@
 {
-  "name": "@packages/main",
-  "version": "1.0.0",
-  "description": "main",
-  "type": "module",
-  "main": "dist/static/js/main.js",
-  "private": true,
-  "scripts": {
-    "start": "mage start",
-    "build": "mage build",
-    "update": "ncu -u"
-  },
-  "dependencies": {
-    "i18next": "^21.8.9",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-i18next": "^11.17.0",
-    "react-router-dom": "^6.3.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18",
-    "@types/react-dom": "^18.0.5",
-    "mage": "workspace:^"
-  }
+    "name": "@packages/main",
+    "version": "1.0.0",
+    "description": "主应用",
+    "type": "module",
+    "main": "dist/static/js/main.js",
+    "private": true,
+    "scripts": {
+        "start": "mage start",
+        "build": "mage build",
+        "update": "ncu -u"
+    },
+    "dependencies": {
+        "i18next": "^21.8.9",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "react-i18next": "^11.17.0",
+        "react-router-dom": "^6.3.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18",
+        "@types/react-dom": "^18.0.5",
+        "mage": "workspace:^"
+    }
 }

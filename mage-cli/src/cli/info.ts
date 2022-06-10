@@ -10,7 +10,10 @@ export default async (): Promise<void> => {
   const table: Array<any> = [];
 
   for (const name of dirInfo) {
+    const packageJsonPath = path.resolve(resolveCliPath('../packages'), name, 'package.json');
     const appConfigPath = path.resolve(resolveCliPath('../packages'), name, 'app.config.js');
+
+    const {description} = await fs.readJSON(packageJsonPath);
     const isExist = await fs.pathExists(appConfigPath);
 
     if (isExist) {
@@ -25,12 +28,14 @@ export default async (): Promise<void> => {
 
       table.push({
         name,
+        description,
         port,
         exposes: exposesInfo,
       });
     } else {
       table.push({
         name,
+        description,
         port: null,
         exposes: null,
       });
