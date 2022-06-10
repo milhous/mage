@@ -56,127 +56,26 @@
 
 查阅 [Libs](./packages/libs/README.md) 文档
 
-## 项目初始化
+## 如何使用
 
-### 第一步 应用初始化
-
-lerna init --independent 初始化应用时使用 Independent 模式，可以单独发版，更灵活。
-lerna bootstrap --hoist 为每个包安装依赖，链接相互依赖的库到具体的目录，--hoist 这个选项，会把共同依赖的库安装到根目录的 node_modules 下， 统一版本。
+> Mage 配置构建完成后, 可以参考下面流程新建 & 开发应用
 
 ```
-# 在项目根目录安装lerna管理 && npm-check-updates依赖更新管理（只会修改package.json文件）
-npm install -g lerna
+# 查看已有应用信息（名称，端口号）
+mage info
 
-npm install -g npm-check-updates
+# 创建和初始化应用
+mage init
 
-# 安装项目依赖
-npm run setup
+# 选择启动相关应用
+mage launch
 
-# 更新项目依赖（慎用）
-npm run update
+# 多语言导入/导出（默认生成在根目录csv文件夹）
+mage i18n
 
-npm run setup
+# 应用打包构建（单个应用）
+name=affiliate yarn run build:name
+
+# 升级 node_modules 版本（只会修改package.json对应版本）
+ncu -u --deep
 ```
-
-> ps：每次有新应用加入时，都需执行 npm run setup，每次更新依赖时，先执行 npm run update，然后执行 npm run setup
-
-### 第二步 构建初始化
-
-把 btg 复制到 npm 的全局模块安装文件夹 node_modules 内，并创建符号链接，那么可以在项目内以 btg xxx 方式运行
-
-```
-# 进入构建命令文件夹
-cd cli
-
-# 创建符号链接（symbolic link，软链接）
-sudo npm link (Mac)
-
-npm link (PC)
-```
-
-### 第三步 运行命令
-
-可通过 npm，btg，或者 lerna 运行相关命令
-
-```
-# 比如在项目根目录启动game应用开发服务器
-lerna run --scope=@packages/game build
-
-lerna exec --scope=@packages/game npm run start
-
-lerna exec --scope=@packages/game mage start -e dev -m development
-
-# 比如在game应用执行启动开发服务器
-cd packages/game
-
-npm run start
-
-mage start -e dev -m development
-```
-
-## 应用 Scripts 命令
-
-lerna run 命令执行每个应用的 scripts 字段定义脚本命令
-
-```
-# 应用初始化
-npm run setup
-
-# 所有应用启动本地服务
-npm run start
-
-# 所有应用打包构建
-npm run build
-
-# 单独应用启动本地服务
-name=user npm run start:name
-
-# 单独应用打包构建
-name=user npm run build:name
-
-# 应用bundle分析
-npm run analyze
-
-# 应用代码检查
-npm run lint
-
-# 应用清理dist
-npm run clean
-```
-
-## 其他相关命令
-
-lerna 不仅可以批量执行每个应用脚本命令，还可以单独执行指定应用脚本命令
-
-```
-# 执行指定应用package.json中scripts字段定义脚本命令
-lerna run --scope=@packages/main build
-
-# 执行指定应用npm脚本命令
-lerna exec --scope=@packages/main npm outdated
-
-# 增加本地或者远程package做为当前项目packages里面的依赖，依赖默认为dependencies
-# -dev devDependencies 替代 dependencies
-# --exact 安装准确版本，就是安装的包版本前面不带^, Eg: "^2.20.0" ➜ "2.20.0"
-lerna add i18next --scope=@packages/main --dev
-```
-
-## 项目提交代码
-
-lerna version 命令执行以下操作，遵循 semver 版本规范。
-
-1. 标识自上一个标记版本以来已更新的包。
-2. 提示输入新版本。
-3. 修改包元数据以反映新版本，在根目录和每个包中运行适当的生命周期脚本。
-4. 提交这些更改并标记提交。
-5. 推到 git 远程。
-
-```
-lerna version
-```
-
-## ui 组件
-
-## form
-
-react-hook-form 6.11.3

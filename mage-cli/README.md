@@ -125,27 +125,6 @@ npm link
 yarn run build
 ```
 
-### 如何使用
-
-新建 & 开发应用可参考下面流程
-
-```
-# 查看已有应用信息（名称，端口号）
-mage info
-
-# 初始化应用
-mage init
-
-# 启动应用
-mage launch
-
-# 多语言导入/导出（默认生成在根目录csv文件夹）
-mage i18n
-
-# 构建引用（在应用文件夹中执行）
-mage build
-```
-
 ### 命令介绍
 
 | Method      | Description     |

@@ -17,7 +17,6 @@
         "init": "mage init",
         "i18n": "mage i18n",
         "launch": "mage launch",
-        "setup": "lerna init --independent && lerna clean --yes && lerna bootstrap",
         "update": "concurrently 'ncu -u --deep'",
         "start": "yarn workspaces foreach -vtR run start",
         "start:name": "cross-var yarn workspace @packages/$name run start",
