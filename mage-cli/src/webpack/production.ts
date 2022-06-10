@@ -62,7 +62,7 @@ export default () => {
 
               return result;
             },
-            priority: -10,
+            priority: -20,
           },
           ui: {
             //提取出来的文件命名
@@ -76,7 +76,7 @@ export default () => {
             enforce: true,
             reuseExistingChunk: true,
             test: /[\\/]ui[\\/]/,
-            priority: -5,
+            priority: -10,
           },
         },
       },
