@@ -97,7 +97,7 @@ export default async (
   ];
 
   // 是否生成分析报告
-  if (devConfig.analyze) {
+  if (!devConfig.analyze) {
     plugins.push(new BundleAnalyzerPlugin());
   }
 

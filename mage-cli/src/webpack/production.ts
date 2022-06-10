@@ -62,6 +62,21 @@ export default () => {
 
               return result;
             },
+            priority: -10,
+          },
+          ui: {
+            //提取出来的文件命名
+            name: 'ui',
+            // 表示提取入口文件的公共部分
+            chunks: 'async',
+            //表示提取公共部分最少的文件数
+            minChunks: 2,
+            minSize: 0,
+            maxSize: 512000,
+            enforce: true,
+            reuseExistingChunk: true,
+            test: /[\\/]ui[\\/]/,
+            priority: -5,
           },
         },
       },
