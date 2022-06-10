@@ -67,6 +67,24 @@ name=affiliate yarn run build:name
 ncu -u --deep
 ```
 
+## 开发建议
+
+svg 体积过大时, 建议使用 url, 避免使用 inline, 导致 js 体积大, 页面需要较长时间加载才能显示
+
+> 为了区分导入类型, url 导入时, 导入名首字母小写. inline 导入时, 导入名首字母大写.
+
+```
+# svg 体积较大时，比如 banner
+import svg from './assets/file.svg?url'
+
+<img src={svg} width="200" height="200" />
+
+# svg 体积较小时，比如 icon
+import Svg from './assets/file.svg'
+
+<Svg width="200" height="200" />
+```
+
 ## 使用 Mage
 
 查阅 [Mage](./mage-cli/README.md) 文档

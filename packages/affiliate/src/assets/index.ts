@@ -5,14 +5,14 @@ import HomePlanIcon1 from './home/plan-icon1.svg';
 import HomePlanIcon2 from './home/plan-icon2.svg';
 import HomePlanIcon3 from './home/plan-icon3.svg';
 import HomePlanIcon4 from './home/plan-icon4.svg';
-import HomeCommissionIcon1 from './home/commission-icon1.svg?url';
-import HomeCommissionIcon2 from './home/commission-icon2.svg?url';
-import HomeCommissionIcon3 from './home/commission-icon3.svg?url';
-import HomeCommissionIcon4 from './home/commission-icon4.svg?url';
-import HomeCommissionIcon5 from './home/commission-icon5.svg?url';
-import HomeCommissionIcon6 from './home/commission-icon6.svg?url';
-import HomeSupportPic from './home/support-pic.svg?url';
-import HomeRightsPic from './home/rights-pic.svg?url';
+import homeCommissionIcon1 from './home/commission-icon1.svg?url';
+import homeCommissionIcon2 from './home/commission-icon2.svg?url';
+import homeCommissionIcon3 from './home/commission-icon3.svg?url';
+import homeCommissionIcon4 from './home/commission-icon4.svg?url';
+import homeCommissionIcon5 from './home/commission-icon5.svg?url';
+import homeCommissionIcon6 from './home/commission-icon6.svg?url';
+import homeSupportPic from './home/support-pic.svg?url';
+import homeRightsPic from './home/rights-pic.svg?url';
 import HomeAdvantageIconYes from './home/advantage-icon_yes.svg';
 import HomeAdvantageIconNo from './home/advantage-icon_no.svg';
 import HomeHowIcon1 from './home/how-icon1.svg';
@@ -30,14 +30,14 @@ export default {
   HomePlanIcon2,
   HomePlanIcon3,
   HomePlanIcon4,
-  HomeCommissionIcon1,
-  HomeCommissionIcon2,
-  HomeCommissionIcon3,
-  HomeCommissionIcon4,
-  HomeCommissionIcon5,
-  HomeCommissionIcon6,
-  HomeSupportPic,
-  HomeRightsPic,
+  homeCommissionIcon1,
+  homeCommissionIcon2,
+  homeCommissionIcon3,
+  homeCommissionIcon4,
+  homeCommissionIcon5,
+  homeCommissionIcon6,
+  homeSupportPic,
+  homeRightsPic,
   HomeAdvantageIconYes,
   HomeAdvantageIconNo,
   HomeHowIcon1,

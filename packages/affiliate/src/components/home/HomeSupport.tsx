@@ -28,7 +28,7 @@ const HomeSupport = (): JSX.Element => {
         </a>
       </article>
       <aside>
-        <img src={Assets.HomeSupportPic} />
+        <img src={Assets.homeSupportPic} />
       </aside>
     </section>
   );

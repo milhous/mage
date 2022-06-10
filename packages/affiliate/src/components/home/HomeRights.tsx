@@ -12,7 +12,7 @@ const HomeRights = (): JSX.Element => {
     <section className="affiliate-rights">
       <div>
         <aside>
-          <img src={Assets.HomeRightsPic} />
+          <img src={Assets.homeRightsPic} />
         </aside>
         <article>
           <h3>{t('rights_title')}</h3>
