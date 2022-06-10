@@ -1,64 +1,38 @@
+import svgToMiniDataURI from 'mini-svg-data-uri';
 import {createRequire} from 'module';
 
 const require = createRequire(import.meta.url);
 
-/**
- * 文件
- * @param {boolean} isDev 是否是开发环境
- * @param {Array<string>} browserslist 目标浏览器版本范围
- */
-export default (isDev: boolean, browserslist: string[]) => {
+// 文件
+export default () => {
   return {
     module: {
       rules: [
         // svg
         {
-          test: /\.svg$/i,
-          issuer: /\.[jt]sx?$/,
+          test: /\.svg$/,
+          type: 'asset/inline',
+          generator: {
+            dataUrl(content: any) {
+              content = content.toString();
+              return svgToMiniDataURI(content);
+            },
+          },
           use: [
             {
-              loader: require.resolve('swc-loader'),
+              loader: require.resolve('svgo-loader'),
               options: {
-                // This makes swc-loader invoke swc synchronously.
-                sync: true,
-                env: {
-                  targets: browserslist.join(','),
-                },
-                jsc: {
-                  externalHelpers: false,
-                  loose: true,
-                  // 缺少 parser 配置会导致编译失败
-                  parser: {syntax: 'typescript', tsx: true, decorators: true, dynamicImport: true},
-                  transform: {
-                    legacyDecorator: true,
-                    decoratorMetadata: true,
-                    react: {
-                      runtime: 'automatic',
-                      development: isDev,
-                      refresh: isDev,
-                    },
-                  },
-                },
-              },
-            },
-            {
-              loader: require.resolve('@svgr/webpack'),
-              options: {
-                svgo: true,
-                svgoConfig: {
-                  plugins: [
-                    {
-                      name: 'preset-default',
-                      params: {
-                        overrides: {
-                          removeViewBox: false,
-                          cleanupIDs: false,
-                        },
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                        cleanupIDs: false,
                       },
                     },
-                  ],
-                },
-                babel: false,
+                  },
+                ],
               },
             },
           ],

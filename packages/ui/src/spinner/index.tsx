@@ -1,15 +1,15 @@
-import React from 'react';
+import UISvg from '../svg';
 
 import './index.less';
-import SpinnerBg from './spinner-bg.svg';
-import SpinnerLogo from './spinner-logo.svg';
+import spinnerBg from './spinner-bg.svg';
+import spinnerLogo from './spinner-logo.svg';
 
-const Spinner: React.FC = () => {
+const Spinner = (): JSX.Element => {
   return (
     <div className="ui-spinner">
       <div className="spinner-box">
-        <SpinnerBg className="spinner-bg" />
-        <SpinnerLogo className="spinner-logo" />
+        <UISvg src={spinnerBg} className="spinner-bg" />
+        <UISvg src={spinnerLogo} className="spinner-logo" />
       </div>
     </div>
   );

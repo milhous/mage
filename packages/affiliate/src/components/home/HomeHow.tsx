@@ -1,4 +1,5 @@
 import {useTranslate} from '@ui/i18n';
+import UISvg from '@ui/svg';
 
 import Assets from '@app/assets';
 
@@ -16,8 +17,8 @@ const HomeHow = (): JSX.Element => {
         <ul>
           <li>
             <div>
-              <Assets.HomeHowSN1 className="icon-sn" />
-              <Assets.HomeHowIcon1 className="how-icon1" />
+              <UISvg src={Assets.HomeHowSN1} className="icon-sn" />
+              <UISvg src={Assets.HomeHowIcon1} className="how-icon1" />
             </div>
             <dl>
               <dt>{t('how_subtitle1')}</dt>
@@ -26,8 +27,8 @@ const HomeHow = (): JSX.Element => {
           </li>
           <li>
             <div>
-              <Assets.HomeHowSN2 className="icon-sn" />
-              <Assets.HomeHowIcon2 className="how-icon2" />
+              <UISvg src={Assets.HomeHowSN2} className="icon-sn" />
+              <UISvg src={Assets.HomeHowIcon2} className="how-icon2" />
             </div>
             <dl>
               <dt>{t('how_subtitle2')}</dt>
@@ -36,8 +37,8 @@ const HomeHow = (): JSX.Element => {
           </li>
           <li>
             <div>
-              <Assets.HomeHowSN3 className="icon-sn" />
-              <Assets.HomeHowIcon3 className="how-icon3" />
+              <UISvg src={Assets.HomeHowSN3} className="icon-sn" />
+              <UISvg src={Assets.HomeHowIcon3} className="how-icon3" />
             </div>
             <dl>
               <dt>{t('how_subtitle3')}</dt>

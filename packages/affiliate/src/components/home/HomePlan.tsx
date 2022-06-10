@@ -1,6 +1,7 @@
 import {Trans} from 'react-i18next';
 
 import {useTranslate} from '@ui/i18n';
+import UISvg from '@ui/svg';
 
 import Assets from '@app/assets';
 
@@ -29,25 +30,25 @@ const HomePlan = (): JSX.Element => {
       <aside>
         <dl>
           <dt>
-            <Assets.HomePlanIcon1 />
+            <UISvg src={Assets.HomePlanIcon1} />
           </dt>
           <dd>{t('plan_data1')}</dd>
         </dl>
         <dl>
           <dt>
-            <Assets.HomePlanIcon2 className="plan-icon2" />
+            <UISvg src={Assets.HomePlanIcon2} className="plan-icon2" />
           </dt>
           <dd>{t('plan_data2')}</dd>
         </dl>
         <dl>
           <dt>
-            <Assets.HomePlanIcon3 className="plan-icon3" />
+            <UISvg src={Assets.HomePlanIcon3} className="plan-icon3" />
           </dt>
           <dd>{t('plan_data3')}</dd>
         </dl>
         <dl>
           <dt>
-            <Assets.HomePlanIcon4 className="plan-icon4" />
+            <UISvg src={Assets.HomePlanIcon4} className="plan-icon4" />
           </dt>
           <dd>{t('plan_data4')}</dd>
         </dl>

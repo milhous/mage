@@ -50,7 +50,7 @@ export default () => {
             //提取出来的文件命名
             name: 'svg',
             // 表示提取入口文件的公共部分
-            chunks: 'async',
+            chunks: 'all',
             //表示提取公共部分最少的文件数
             minChunks: 2,
             minSize: 256000,
@@ -62,13 +62,13 @@ export default () => {
 
               return result;
             },
-            priority: -20,
+            priority: -10,
           },
           ui: {
             //提取出来的文件命名
             name: 'ui',
             // 表示提取入口文件的公共部分
-            chunks: 'async',
+            chunks: 'all',
             //表示提取公共部分最少的文件数
             minChunks: 2,
             minSize: 0,
@@ -76,7 +76,7 @@ export default () => {
             enforce: true,
             reuseExistingChunk: true,
             test: /[\\/]ui[\\/]/,
-            priority: -10,
+            priority: -5,
           },
         },
       },

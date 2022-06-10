@@ -1,6 +1,7 @@
 import {useTranslate} from '@ui/i18n';
 
 import Assets from '@app/assets';
+import UISvg from '@ui/svg';
 
 import './HomeSupport.less';
 
@@ -28,7 +29,7 @@ const HomeSupport = (): JSX.Element => {
         </a>
       </article>
       <aside>
-        <Assets.HomeSupportPic />
+        <UISvg src={Assets.HomeSupportPic} />
       </aside>
     </section>
   );

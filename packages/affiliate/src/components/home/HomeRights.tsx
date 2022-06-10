@@ -1,6 +1,7 @@
 import {useTranslate} from '@ui/i18n';
 
 import Assets from '@app/assets';
+import UISvg from '@ui/svg';
 
 import './HomeRights.less';
 
@@ -12,7 +13,7 @@ const HomeRights = (): JSX.Element => {
     <section className="affiliate-rights">
       <div>
         <aside>
-          <Assets.HomeRightsPic />
+          <UISvg src={Assets.HomeRightsPic} />
         </aside>
         <article>
           <h3>{t('rights_title')}</h3>
