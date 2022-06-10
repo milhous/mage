@@ -44,13 +44,17 @@
 |                 |－ broadcastChannel 跨应用通讯模块
 ```
 
-## 如何使用
+## 使用 Mage
 
 查阅 [Mage](./mage-cli/README.md) 文档
 
-## 项目模块
+## 使用 UI
 
-[broadcastChannel 跨应用通讯模块](./packages/librarys/broadcastChannel/README.md)
+查阅 [UI](./packages/ui/README.md) 文档
+
+## 使用 Libs
+
+查阅 [Libs](./packages/libs/README.md) 文档
 
 ## 项目初始化
 
