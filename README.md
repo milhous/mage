@@ -44,18 +44,6 @@
 |                 |－ broadcastChannel 跨应用通讯模块
 ```
 
-## 使用 Mage
-
-查阅 [Mage](./mage-cli/README.md) 文档
-
-## 使用 UI
-
-查阅 [UI](./packages/ui/README.md) 文档
-
-## 使用 Libs
-
-查阅 [Libs](./packages/libs/README.md) 文档
-
 ## 如何使用
 
 > Mage 配置构建完成后, 可以参考下面流程新建 & 开发应用
@@ -79,3 +67,15 @@ name=affiliate yarn run build:name
 # 升级 node_modules 版本（只会修改package.json对应版本）
 ncu -u --deep
 ```
+
+## 使用 Mage
+
+查阅 [Mage](./mage-cli/README.md) 文档
+
+## 使用 UI
+
+查阅 [UI](./packages/ui/README.md) 文档
+
+## 使用 Libs
+
+查阅 [Libs](./packages/libs/README.md) 文档
