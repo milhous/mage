@@ -8,15 +8,12 @@ import Home from './pages/Home';
 
 const app = () => {
   return (
-    <>
-      <UISpinner />
-      <Suspense fallback={<UISpinner />}>
-        <Routes>
-          <Route path="/affiliate" element={<Home />} />
-          {/* <Route path="*" element={<Navigate replace to="/affiliate" />} /> */}
-        </Routes>
-      </Suspense>
-    </>
+    <Suspense fallback={<UISpinner />}>
+      <Routes>
+        <Route path="/affiliate" element={<Home />} />
+        {/* <Route path="*" element={<Navigate replace to="/affiliate" />} /> */}
+      </Routes>
+    </Suspense>
   );
 };
 
