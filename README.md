@@ -63,7 +63,7 @@ mage i18n
 # 应用打包构建（单个应用）
 name=affiliate yarn run build:name
 
-# 升级 node_modules 版本（只会修改package.json对应版本）
+# 升级 node_modules 版本（只会修改package.json版本号）
 ncu -u --deep
 ```
 
