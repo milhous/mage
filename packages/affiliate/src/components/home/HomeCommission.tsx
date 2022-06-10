@@ -16,37 +16,37 @@ const HomeCommission = (): JSX.Element => {
         <aside>
           <dl>
             <dd>
-              <Assets.HomeCommissionIcon1 className="commission-icon1" />
+              <img src={Assets.HomeCommissionIcon1} className="commission-icon1" />
             </dd>
             <dt>Sports Betting</dt>
           </dl>
           <dl>
             <dd>
-              <Assets.HomeCommissionIcon2 className="commission-icon2" />
+              <img src={Assets.HomeCommissionIcon2} className="commission-icon2" />
             </dd>
             <dt>In-house</dt>
           </dl>
           <dl>
             <dd>
-              <Assets.HomeCommissionIcon3 className="commission-icon3" />
+              <img src={Assets.HomeCommissionIcon3} className="commission-icon3" />
             </dd>
             <dt>Casino</dt>
           </dl>
           <dl>
             <dd>
-              <Assets.HomeCommissionIcon4 className="commission-icon4" />
+              <img src={Assets.HomeCommissionIcon4} className="commission-icon4" />
             </dd>
             <dt>Live Casino</dt>
           </dl>
           <dl>
             <dd>
-              <Assets.HomeCommissionIcon5 className="commission-icon5" />
+              <img src={Assets.HomeCommissionIcon5} className="commission-icon5" />
             </dd>
             <dt>Table Games</dt>
           </dl>
           <dl>
             <dd>
-              <Assets.HomeCommissionIcon6 className="commission-icon6" />
+              <img src={Assets.HomeCommissionIcon6} className="commission-icon6" />
             </dd>
             <dt>Virtual Sports</dt>
           </dl>

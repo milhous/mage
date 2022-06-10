@@ -24,6 +24,8 @@ declare module '*.webp';
 
 declare module '*.svg';
 
+declare module '*.svg?url';
+
 // styles
 declare module '*.module.css';
 

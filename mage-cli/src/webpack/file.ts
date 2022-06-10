@@ -1,3 +1,4 @@
+import svgToMiniDataURI from 'mini-svg-data-uri';
 import {createRequire} from 'module';
 
 const require = createRequire(import.meta.url);
@@ -11,10 +12,41 @@ export default (isDev: boolean, browserslist: string[]) => {
   return {
     module: {
       rules: [
-        // svg
+        // svg url
+        {
+          test: /\.svg$/i,
+          type: 'asset',
+          resourceQuery: /url/, // *.svg?url
+          generator: {
+            dataUrl(content: any) {
+              content = content.toString();
+              return svgToMiniDataURI(content);
+            },
+          },
+          use: [
+            {
+              loader: require.resolve('svgo-loader'),
+              options: {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                        cleanupIDs: false,
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        // svg inline
         {
           test: /\.svg$/i,
           issuer: /\.[jt]sx?$/,
+          resourceQuery: {not: [/url/]}, // exclude react component if *.svg?url
           use: [
             {
               loader: require.resolve('swc-loader'),

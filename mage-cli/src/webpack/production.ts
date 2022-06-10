@@ -62,7 +62,7 @@ export default () => {
 
               return result;
             },
-            priority: -20,
+            priority: -10,
           },
           ui: {
             //提取出来的文件命名
@@ -71,12 +71,12 @@ export default () => {
             chunks: 'async',
             //表示提取公共部分最少的文件数
             minChunks: 2,
-            minSize: 0,
+            minSize: 256000,
             maxSize: 512000,
             enforce: true,
             reuseExistingChunk: true,
             test: /[\\/]ui[\\/]/,
-            priority: -10,
+            priority: -5,
           },
         },
       },
