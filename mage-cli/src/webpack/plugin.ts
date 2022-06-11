@@ -7,11 +7,14 @@ import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
+import {createRequire} from 'module';
 
 import {resolveAppPath, getGitHash, getDependencies} from '../helpers/utils.js';
 import {IDevConfig, IBasicConfig, IModuleFederationConfig} from '../helpers/store.js';
 
 const {ModuleFederationPlugin} = webpack.container;
+const require = createRequire(import.meta.url);
 
 /**
  * 获取 ModuleFederation Shared
@@ -93,6 +96,20 @@ export default async (
       filename: 'remoteEntry.js', // devConfig.isDev ? 'remoteEntry.js' : 'remoteEntry.[contenthash:6].js',
       exposes: mfConfig.exposes,
       shared,
+    }),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminMinify,
+        options: {
+          // Lossless optimization with custom option
+          // Feel free to experiment with options for better result for you
+          plugins: [
+            [require.resolve('imagemin-gifsicle'), {interlaced: true}],
+            [require.resolve('imagemin-jpegtran'), {progressive: true}],
+            [require.resolve('imagemin-optipng'), {optimizationLevel: 5}],
+          ],
+        },
+      },
     }),
   ];
 
