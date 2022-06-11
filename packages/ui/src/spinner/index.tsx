@@ -4,7 +4,7 @@ import './index.less';
 import SpinnerBg from './spinner-bg.svg';
 import SpinnerLogo from './spinner-logo.svg';
 
-const Spinner: React.FC = () => {
+const UISpinner: React.FC = () => {
   return (
     <div className="ui-spinner">
       <div className="spinner-box">
@@ -15,4 +15,4 @@ const Spinner: React.FC = () => {
   );
 };
 
-export default Spinner;
+export default UISpinner;

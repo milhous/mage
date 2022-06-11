@@ -1,4 +1,5 @@
 import {useTranslate} from '@ui/i18n';
+import UIFaq from '@ui/faq';
 
 import './HomeFaq.less';
 
@@ -6,32 +7,20 @@ import './HomeFaq.less';
 const HomeFaq = (): JSX.Element => {
   const t = useTranslate(['affiliate']);
 
-  const elems: JSX.Element[] = [];
+  const list: {question: string; answer: string}[] = [];
 
   for (let i = 0; i < 6; i++) {
     const index = i + 1;
-    const str = t('faq_a' + index);
 
-    elems.push(
-      <li key={index}>
-        <input type="checkbox" id={`agentFaq${i}`} />
-        <label htmlFor={`agentFaq${i}`}>
-          <dl>
-            <dt>
-              <i></i>
-              {t('faq_q' + index)}
-            </dt>
-            <dd>{str}</dd>
-          </dl>
-        </label>
-      </li>,
-    );
+    list.push({
+      question: t('faq_q' + index),
+      answer: t('faq_a' + index),
+    });
   }
 
   return (
     <section className="affiliate-faq">
-      <h3>{t('faq_title')}</h3>
-      <ul>{elems}</ul>
+      <UIFaq title={t('faq_title')} list={list} />
     </section>
   );
 };
