@@ -1,4 +1,4 @@
-### </> UIFaq: IUIFaqProps
+## </> UIFaq: IUIFaqProps
 
 常见问题
 
