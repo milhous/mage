@@ -1,6 +1,4 @@
-## </> UIFaq: IUIFaqProps
-
-常见问题
+## </> 常见问题 UIFaq
 
 ```
 import UIFaq from '@ui/faq';
