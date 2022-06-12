@@ -1707,6 +1707,7 @@ __metadata:
     i18next-http-backend: ^1.4.1
     js-cookie: ^3.0.1
     mage: "workspace:^"
+    qrcode.react: ^3.0.2
     react: ^18.1.0
     react-dom: ^18.1.0
     react-i18next: ^11.17.1
@@ -10577,6 +10578,15 @@ __metadata:
   dependencies:
     escape-goat: ^2.0.0
   checksum: 49529e50372ffdb0cccf0efa0f3b3cb0a2c77805d0d9cc2725bd2a0f6bb414631e61c93a38561b26be1259550b7bb6c2cb92315aa09c8bf93f3bdcb49f2b2fb7
+  languageName: node
+  linkType: hard
+
+"qrcode.react@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "qrcode.react@npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fqrcode.react%2F-%2Fqrcode.react-3.0.2.tgz"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 4102e9f416d86808728b93dca4e90cab0b2d3eca2bfe501a26ca62237062ded2121711cfc4edf64832c63e04d34956e26c2e7088023949f9328bbaa56004777d
   languageName: node
   linkType: hard
 

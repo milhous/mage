@@ -1,10 +1,9 @@
-import React from 'react';
-
 import './index.less';
 import SpinnerBg from './spinner-bg.svg';
 import SpinnerLogo from './spinner-logo.svg';
 
-const UISpinner: React.FC = () => {
+// 加载
+const UISpinner = (): JSX.Element => {
   return (
     <div className="ui-spinner">
       <div className="spinner-box">

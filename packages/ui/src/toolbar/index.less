@@ -1,0 +1,102 @@
+@import (reference) '../styles/library.less';
+
+.ui-toolbar {
+    .setFlex(space-between);
+
+    position: relative;
+    z-index: 10;
+    background-color: #161f2c;
+
+    aside {
+        .setFlex(flex-start, center);
+
+        display: flex;
+        height: 32px;
+
+        & > i {
+            width: 1px;
+            height: 20px;
+            background-color: #3a4a61;
+        }
+    }
+
+    .ui-toolbar_content {
+        .setFlex(space-between, flex-end);
+
+        box-sizing: border-box;
+        max-width: 1600px;
+        height: 44px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+    .ui-toolbar_app {
+        .setFlex(flex-start, center);
+
+        padding: 0 20px;
+
+        li {
+            .setFlex(flex-start, center);
+            
+            position: relative;
+            margin-left: 20px;
+            color: #7286a6;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:hover {
+                color: #dbe4ff;
+
+                div {
+                    display: flex;
+                }
+            }
+
+            div {
+                display: none;
+            }
+        }
+
+        svg {
+            cursor: pointer;
+            fill: currentColor;
+        }
+    }
+
+    .ul-toolbar_QRCode {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        bottom: -1.7rem;
+        transform: translateX(-50%);
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 0.06rem;
+        background-color: #202c3c;
+        box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.3);
+    
+        canvas {
+          box-sizing: border-box;
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          border: 0.06rem solid #fff;
+          border-radius: 0.04rem;
+        }
+    
+        svg {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 0.24rem;
+          height: 0.24rem;
+          border: 0.02rem solid #fff;
+          border-radius: 0.04rem;
+        }
+    }
+}
