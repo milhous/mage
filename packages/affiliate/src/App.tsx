@@ -10,8 +10,8 @@ const App = () => {
   return (
     <Suspense fallback={<UISpinner />}>
       <Routes>
-        <Route path="/affiliate" element={<Home />}>
-          <Route path="*" element={<Navigate replace to="/affiliate" />} />
+        <Route path="/" element={<Home />}>
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
       </Routes>
     </Suspense>
