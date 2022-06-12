@@ -4,7 +4,7 @@
 import UIFaq from '@ui/faq';
 
 const title = '常见问题';
-const list: {question: string; answer: string}[] = [];
+const list = [{ question: '问题', answer: '解答' }];
 
 <UIFaq title={title} list={list} />
 ```
