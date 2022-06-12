@@ -1,5 +1,7 @@
 ## </> UIFaq: 常见问题
 
+> Example
+
 ```
 import UIFaq from '@ui/faq';
 
