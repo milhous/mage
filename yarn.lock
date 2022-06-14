@@ -1319,7 +1319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.10.1, @babel/runtime@npm:^7.11.1, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.18.3
   resolution: "@babel/runtime@npm:7.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fruntime%2F-%2Fruntime-7.18.3.tgz"
   dependencies:
@@ -1708,6 +1708,10 @@ __metadata:
     js-cookie: ^3.0.1
     mage: "workspace:^"
     qrcode.react: ^3.0.2
+    rc-dropdown: ^4.0.1
+    rc-menu: ^9.6.0
+    rc-scrollbars: ^1.1.5
+    rc-tooltip: ^5.1.1
     react: ^18.1.0
     react-dom: ^18.1.0
     react-i18next: ^11.17.1
@@ -2796,6 +2800,13 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: aca0aabf98826717920ac2583fdcad0a6fbe4e583fdb6e843af2594e907455aeafe30b1e14f1757cd83ce1776773cf8296ffc3a4acf13f0bd3dfebcf1db6ae80
+  languageName: node
+  linkType: hard
+
+"add-px-to-style@npm:1.0.0":
+  version: 1.0.0
+  resolution: "add-px-to-style@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fadd-px-to-style%2F-%2Fadd-px-to-style-1.0.0.tgz"
+  checksum: 673831d81d86d717e3a9f4f644059476ca74990dd28310d9bffe6cb35fac8007865351d37a885af168a8613f5cdb054db728a3df19e9ee1457b75a668003c729
   languageName: node
   linkType: hard
 
@@ -4529,6 +4540,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.6":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fclassnames%2F-%2Fclassnames-2.3.1.tgz"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:^5.2.2":
   version: 5.3.0
   resolution: "clean-css@npm:5.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fclean-css%2F-%2Fclean-css-5.3.0.tgz"
@@ -5462,12 +5480,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-align@npm:^1.7.0":
+  version: 1.12.3
+  resolution: "dom-align@npm:1.12.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdom-align%2F-%2Fdom-align-1.12.3.tgz"
+  checksum: 5d67a20e7748c53d9337738fb5001870951e19db49d0a2d7875e03abd49843d600329c3fe0961adaf9bdb186a806e30a51e352b682495a790cc48a9fb63b0175
+  languageName: node
+  linkType: hard
+
 "dom-converter@npm:^0.2.0":
   version: 0.2.0
   resolution: "dom-converter@npm:0.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdom-converter%2F-%2Fdom-converter-0.2.0.tgz"
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-css@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "dom-css@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdom-css%2F-%2Fdom-css-2.1.0.tgz"
+  dependencies:
+    add-px-to-style: 1.0.0
+    prefix-style: 2.0.1
+    to-camel-case: 1.0.0
+  checksum: f61cc63e88771e1800ff4b7d98b17be2b311de984d94c3d3e0be692794502eb021d28c5c40ba08d4370a6d8bd96caf7a56d15c635451c2db1a2233c94ca0fcc0
   languageName: node
   linkType: hard
 
@@ -8319,7 +8355,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^1.0.3":
+"loader-utils@npm:^1.4.0":
   version: 1.4.0
   resolution: "loader-utils@npm:1.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Floader-utils%2F-%2Floader-utils-1.4.0.tgz"
   dependencies:
@@ -8588,7 +8624,7 @@ __metadata:
     react-refresh: ^0.13.0
     rimraf: ^3.0.2
     style-loader: ^3.3.1
-    svgo-loader: ^3.0.0
+    svgo-loader: ^3.0.1
     swc-loader: ^0.2.3
     terser-webpack-plugin: ^5.3.3
     typescript: ^4.7.3
@@ -8779,7 +8815,7 @@ __metadata:
     eslint-plugin-react: 7.30.0
     eslint-plugin-react-hooks: ^4.5.0
     npm-check-updates: ^13.1.5
-    prettier: ^2.6.2
+    prettier: ^2.7.0
     typescript: ^4.7.3
   languageName: unknown
   linkType: soft
@@ -9927,6 +9963,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"performance-now@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "performance-now@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fperformance-now%2F-%2Fperformance-now-2.1.0.tgz"
+  checksum: 534e641aa8f7cba160f0afec0599b6cecefbb516a2e837b512be0adbe6c1da5550e89c78059c7fabc5c9ffdf6627edabe23eb7c518c4500067a898fa65c2b550
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpicocolors%2F-%2Fpicocolors-1.0.0.tgz"
@@ -10402,6 +10445,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prefix-style@npm:2.0.1":
+  version: 2.0.1
+  resolution: "prefix-style@npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprefix-style%2F-%2Fprefix-style-2.0.1.tgz"
+  checksum: 79c3559b74417a1552a91d2008d64cc7f326ff4fe8ed2053519663677238f28455bfda0dd935cb1d6690ac7281aff14361e15cfcf83ec263a8183827df7b2a90
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprelude-ls%2F-%2Fprelude-ls-1.2.1.tgz"
@@ -10432,12 +10482,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "prettier@npm:2.6.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprettier%2F-%2Fprettier-2.6.2.tgz"
+"prettier@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "prettier@npm:2.7.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprettier%2F-%2Fprettier-2.7.0.tgz"
   bin:
     prettier: bin-prettier.js
-  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
+  checksum: 5b55bb1dced9d16635b83229df8e670d150890fdb343f19e8a66e610094a108e960c0f57352b3e5cdbc4eff4ef00a834406047ffcd9f20bd22a6497ba143c81f
   languageName: node
   linkType: hard
 
@@ -10617,6 +10667,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"raf@npm:^3.4.1":
+  version: 3.4.1
+  resolution: "raf@npm:3.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fraf%2F-%2Fraf-3.4.1.tgz"
+  dependencies:
+    performance-now: ^2.1.0
+  checksum: 50ba284e481c8185dbcf45fc4618ba3aec580bb50c9121385d5698cb6012fe516d2015b1df6dd407a7b7c58d44be8086108236affbce1861edd6b44637c8cd52
+  languageName: node
+  linkType: hard
+
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frandombytes%2F-%2Frandombytes-2.1.0.tgz"
@@ -10645,6 +10704,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-align@npm:^4.0.0":
+  version: 4.0.12
+  resolution: "rc-align@npm:4.0.12::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-align%2F-%2Frc-align-4.0.12.tgz"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: 2.x
+    dom-align: ^1.7.0
+    lodash: ^4.17.21
+    rc-util: ^5.3.0
+    resize-observer-polyfill: ^1.5.1
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 1efb522c61cd4d29c234b092d70fd19ce1f750a9f6a889e2a87729c7023fa088cb3c0cc634278b5f90e29cf436d44345c3f6fe7554c95f95cca0a22a92ff532f
+  languageName: node
+  linkType: hard
+
 "rc-config-loader@npm:^4.1.0":
   version: 4.1.0
   resolution: "rc-config-loader@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-config-loader%2F-%2Frc-config-loader-4.1.0.tgz"
@@ -10654,6 +10730,139 @@ __metadata:
     json5: ^2.1.2
     require-from-string: ^2.0.2
   checksum: 1d07aaf6116026f47b1c183d64999e9449168e3c2fd8caacfeb6328d16800011d060258ca03c914559fb287a49584910c6410e24cef7bbac4817c2bf547069ad
+  languageName: node
+  linkType: hard
+
+"rc-dropdown@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "rc-dropdown@npm:4.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-dropdown%2F-%2Frc-dropdown-4.0.1.tgz"
+  dependencies:
+    "@babel/runtime": ^7.18.3
+    classnames: ^2.2.6
+    rc-trigger: ^5.3.1
+    rc-util: ^5.17.0
+  peerDependencies:
+    react: ">=16.11.0"
+    react-dom: ">=16.11.0"
+  checksum: 12d16fc49dbab3f548ba1674b12cf688f58bcb73932285354a506b2f443aa58dc09cad3e07edb5d8de8e659c91b985022eef0734f233b76261af1b17a61ce619
+  languageName: node
+  linkType: hard
+
+"rc-menu@npm:^9.6.0":
+  version: 9.6.0
+  resolution: "rc-menu@npm:9.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-menu%2F-%2Frc-menu-9.6.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: 2.x
+    rc-motion: ^2.4.3
+    rc-overflow: ^1.2.0
+    rc-trigger: ^5.1.2
+    rc-util: ^5.12.0
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 4a6f01eece1101b91c61b511260082f3a200a0878770f0c38511da995e04fd3a6af52648b36ae175a966dc8a4384861d12a73e5db5b4dadaab800bd27f30fd6d
+  languageName: node
+  linkType: hard
+
+"rc-motion@npm:^2.0.0, rc-motion@npm:^2.4.3":
+  version: 2.6.0
+  resolution: "rc-motion@npm:2.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-motion%2F-%2Frc-motion-2.6.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.11.1
+    classnames: ^2.2.1
+    rc-util: ^5.21.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: cb0d5f168653a7ddeb6d89e666e66022504251e48443fc74d6d7db51a8dc7685cb89be4838ec09c655033d022c27b07595a38745329895b382468646aa4b53e7
+  languageName: node
+  linkType: hard
+
+"rc-overflow@npm:^1.2.0":
+  version: 1.2.6
+  resolution: "rc-overflow@npm:1.2.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-overflow%2F-%2Frc-overflow-1.2.6.tgz"
+  dependencies:
+    "@babel/runtime": ^7.11.1
+    classnames: ^2.2.1
+    rc-resize-observer: ^1.0.0
+    rc-util: ^5.19.2
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: b0c933ff9416265bafb9bef047ac92171a3fadb30501656927c9e6a405f9cb166a569f917624f831bfd2bf20e0649c8dd6cf6d56caa2fdbca0feab5f0d282f8b
+  languageName: node
+  linkType: hard
+
+"rc-resize-observer@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "rc-resize-observer@npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-resize-observer%2F-%2Frc-resize-observer-1.2.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: ^2.2.1
+    rc-util: ^5.15.0
+    resize-observer-polyfill: ^1.5.1
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: cb338ee405c6df3d072754ad2fc29c19fe90cc9264331c02b7e23cb85d75f8ad984352fa8e0ff48f339439f548613b8960992e3050754290f2e651ed71909489
+  languageName: node
+  linkType: hard
+
+"rc-scrollbars@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "rc-scrollbars@npm:1.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-scrollbars%2F-%2Frc-scrollbars-1.1.5.tgz"
+  dependencies:
+    dom-css: ^2.1.0
+    raf: ^3.4.1
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: d2b3710868f70ed7c154768bd03825b543d7804ef1c95086ee9cd851f66a046e1b4dbc9e153f9797e1706a11d263db4a645eff485d16bf1c095754e6e771f5ad
+  languageName: node
+  linkType: hard
+
+"rc-tooltip@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "rc-tooltip@npm:5.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-tooltip%2F-%2Frc-tooltip-5.1.1.tgz"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    rc-trigger: ^5.0.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: e65b175c28356cee101db56217d02a1eb1d96e727620bb1f6551f98e3ab49d3ec4381f1d408d19054b46349cba0e89056a4b4f09eeebbe70a1013733ad0e1fc9
+  languageName: node
+  linkType: hard
+
+"rc-trigger@npm:^5.0.0, rc-trigger@npm:^5.1.2, rc-trigger@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "rc-trigger@npm:5.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-trigger%2F-%2Frc-trigger-5.3.1.tgz"
+  dependencies:
+    "@babel/runtime": ^7.18.3
+    classnames: ^2.2.6
+    rc-align: ^4.0.0
+    rc-motion: ^2.0.0
+    rc-util: ^5.19.2
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 29302e9a0a66eb26cef5ce0b291ada9bb3e284f19980bf02da6863a5306d5de863aa87fbbf30c176a4453c13db160b69789ac50aae09af8e5c53942ac0368a3b
+  languageName: node
+  linkType: hard
+
+"rc-util@npm:^5.12.0, rc-util@npm:^5.15.0, rc-util@npm:^5.17.0, rc-util@npm:^5.19.2, rc-util@npm:^5.21.0, rc-util@npm:^5.3.0":
+  version: 5.21.5
+  resolution: "rc-util@npm:5.21.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-util%2F-%2Frc-util-5.21.5.tgz"
+  dependencies:
+    "@babel/runtime": ^7.18.3
+    react-is: ^16.12.0
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 39434002f228381b6a6dbb135a1c099b2e5c5f63aba4616cee1ed9b1436cdc8011d78055b06cc169d44b1a79c42d40ecd3d2f6123a61043510aa2a9de48e0e72
   languageName: node
   linkType: hard
 
@@ -10702,7 +10911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1":
+"react-is@npm:^16.12.0, react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-is%2F-%2Freact-is-16.13.1.tgz"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -11066,6 +11275,13 @@ __metadata:
   version: 1.0.0
   resolution: "requires-port@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frequires-port%2F-%2Frequires-port-1.0.0.tgz"
   checksum: eee0e303adffb69be55d1a214e415cf42b7441ae858c76dfc5353148644f6fd6e698926fc4643f510d5c126d12a705e7c8ed7e38061113bdf37547ab356797ff
+  languageName: node
+  linkType: hard
+
+"resize-observer-polyfill@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "resize-observer-polyfill@npm:1.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fresize-observer-polyfill%2F-%2Fresize-observer-polyfill-1.5.1.tgz"
+  checksum: 57e7f79489867b00ba43c9c051524a5c8f162a61d5547e99333549afc23e15c44fd43f2f318ea0261ea98c0eb3158cca261e6f48d66e1ed1cd1f340a43977094
   languageName: node
   linkType: hard
 
@@ -11450,6 +11666,13 @@ __metadata:
   dependencies:
     kind-of: ^6.0.2
   checksum: 39b3dd9630a774aba288a680e7d2901f5c0eae7b8387fc5c8ea559918b29b3da144b7bdb990d7ccd9e11be05508ac9e459ce51d01fd65e583282f6ffafcba2e7
+  languageName: node
+  linkType: hard
+
+"shallowequal@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "shallowequal@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fshallowequal%2F-%2Fshallowequal-1.1.0.tgz"
+  checksum: f4c1de0837f106d2dbbfd5d0720a5d059d1c66b42b580965c8f06bb1db684be8783538b684092648c981294bf817869f743a066538771dbecb293df78f765e00
   languageName: node
   linkType: hard
 
@@ -12056,17 +12279,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo-loader@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "svgo-loader@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsvgo-loader%2F-%2Fsvgo-loader-3.0.0.tgz"
+"svgo-loader@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "svgo-loader@npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsvgo-loader%2F-%2Fsvgo-loader-3.0.1.tgz"
   dependencies:
-    loader-utils: ^1.0.3
-    svgo: ^2.2.0
-  checksum: 4ac0eec5713dab828acb0af2e933e617eb516ee37568358d19ce1fe55600b6387857b43e73632ef794a7be11ca82258a983083c27e74d8813bfd6e2738e16eb5
+    loader-utils: ^1.4.0
+    svgo: ^2.8.0
+  checksum: f38e925fc9bb5a7d3ac2d701223cc37432003b156418d5bee688d062d4dc2bf55658bb7a2ca94286274252a8ec5c0d2d7fb383e2a02130cdaa37858ed90ff3c5
   languageName: node
   linkType: hard
 
-"svgo@npm:^2.2.0, svgo@npm:^2.5.0, svgo@npm:^2.7.0":
+"svgo@npm:^2.5.0, svgo@npm:^2.7.0, svgo@npm:^2.8.0":
   version: 2.8.0
   resolution: "svgo@npm:2.8.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsvgo%2F-%2Fsvgo-2.8.0.tgz"
   dependencies:
@@ -12217,6 +12440,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"to-camel-case@npm:1.0.0":
+  version: 1.0.0
+  resolution: "to-camel-case@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fto-camel-case%2F-%2Fto-camel-case-1.0.0.tgz"
+  dependencies:
+    to-space-case: ^1.0.0
+  checksum: 2f74cfcffa58e8ddede7e01a03eda2cc3f0ab50efdad1d0f1092d55b4e499be43846d1f9087c458fa9efde4958e407738197d65858272c56c915b649b9ca1e62
+  languageName: node
+  linkType: hard
+
 "to-fast-properties@npm:^1.0.3":
   version: 1.0.3
   resolution: "to-fast-properties@npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fto-fast-properties%2F-%2Fto-fast-properties-1.0.3.tgz"
@@ -12228,6 +12460,13 @@ __metadata:
   version: 2.0.0
   resolution: "to-fast-properties@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fto-fast-properties%2F-%2Fto-fast-properties-2.0.0.tgz"
   checksum: be2de62fe58ead94e3e592680052683b1ec986c72d589e7b21e5697f8744cdbf48c266fa72f6c15932894c10187b5f54573a3bcf7da0bfd964d5caf23d436168
+  languageName: node
+  linkType: hard
+
+"to-no-case@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "to-no-case@npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fto-no-case%2F-%2Fto-no-case-1.0.2.tgz"
+  checksum: 1d85326eeb89f9f3a805bf5b395bcabb8556e882350164c1faa10846076732f4cec02ac95b016e7d6bb2f55e448ce5dd227c7699ec43e387c705a5b2b1ee2963
   languageName: node
   linkType: hard
 
@@ -12244,6 +12483,15 @@ __metadata:
   dependencies:
     is-number: ^7.0.0
   checksum: f76fa01b3d5be85db6a2a143e24df9f60dd047d151062d0ba3df62953f2f697b16fe5dad9b0ac6191c7efc7b1d9dcaa4b768174b7b29da89d4428e64bc0a20ed
+  languageName: node
+  linkType: hard
+
+"to-space-case@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "to-space-case@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fto-space-case%2F-%2Fto-space-case-1.0.0.tgz"
+  dependencies:
+    to-no-case: ^1.0.0
+  checksum: 157cebe3e98e7cb465fe1978cf26450cc8ea8e637a01039854fac7ed60ad074e5e18b32333cc5f30df81b81ca374d63df768cd4c1fa0fe672605f965376227f4
   languageName: node
   linkType: hard
 
