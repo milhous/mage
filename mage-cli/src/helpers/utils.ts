@@ -8,7 +8,7 @@ import {exec} from 'child_process';
 import logger from './logger.js';
 
 export const __filename = url.fileURLToPath(import.meta.url);
-export const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+export const __dirname = url.fileURLToPath(new URL('.', import.meta.url).toString());
 
 // 路径或路径片段的序列解析为命令行绝对路径
 export const resolveCliPath = (cliPath: string): string => path.resolve(__dirname, '../../', cliPath);

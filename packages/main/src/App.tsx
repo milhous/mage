@@ -38,7 +38,7 @@ const App = () => {
     <Suspense fallback={<UISpinner />}>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="/affiliate" element={<System system={system} />} />
+          <Route path="/affiliate/*" element={<System system={system} />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
       </Routes>
