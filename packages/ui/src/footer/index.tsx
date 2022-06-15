@@ -1,21 +1,20 @@
-import {useTransition, useState, useEffect} from 'react';
+import UIDynamicImg from '../dynamicImg';
 
 import './index.less';
 
 // 合作商
-const CompPartner = (props: {url: string}): JSX.Element => {
-  const [isPending, startTransition] = useTransition();
-  const [src, setSrc] = useState('');
+const CompPartners = (props: {nums: number}): JSX.Element => {
+  const Comps: JSX.Element[] = [];
 
-  useEffect(() => {
-    startTransition(() => {
-      (async () => {
-        setSrc(await import(props.url));
-      })();
-    });
-  }, []);
+  for (let i = 0; i < props.nums; i++) {
+    Comps.push(
+      <li key={i}>
+        <UIDynamicImg dir={`./footer/assets/`} name={`footer-partner${i + 1}`} suffix="png" />
+      </li>,
+    );
+  }
 
-  return <li>{isPending && <img src={src} />}</li>;
+  return <ul>{Comps}</ul>;
 };
 
 // footer
@@ -72,7 +71,7 @@ const UIFooter = (): JSX.Element => {
       </div>
       <div className="ui-footer_partner">
         <section>
-          <CompPartner url="./assets/footer-partner1.png" />
+          <CompPartners nums={26} />
         </section>
       </div>
       <div className="ui-footer_assume">
