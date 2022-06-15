@@ -5,36 +5,36 @@
 
     box-sizing: border-box;
     margin: 0 auto;
-    padding: .8rem .4rem;
+    padding: 80px 40px;
     background-color: var(--how-background);
 
     .smallScreen({
-       margin-top: .7rem;
+       margin-top: 70px;
     });
 
     h3 {
-        .setFont(.3, .4, var(--font-title-color), 700);
+        .setFont(30px, 40px, var(--font-title-color), 700);
 
         .smallScreen({
-            margin-bottom: .2rem;
-            font-size: .4rem;
-            line-height: .56rem;
+            margin-bottom: 20px;
+            font-size: 40px;
+            line-height: 56px;
         });
     }
 
     .how-list {
-        max-width: 11.8rem;
-        margin: .5rem auto 0;
+        max-width: 1180px;
+        margin: 50px auto 0;
     }
 
     p {
-        .setFont(.3, .42, var(--font-subtitle-color));
+        .setFont(30px, 42px, var(--font-subtitle-color));
 
-        padding: 0 .25rem;
+        padding: 0 25px;
 
         .smallScreen({
-            font-size: .24rem;
-            line-height: .40rem;
+            font-size: 24px;
+            line-height: 40px;
         });
     }
 
@@ -42,9 +42,9 @@
         .setFlex(center, flex-start);
 
         flex-wrap: wrap;
-        transform: translateX(-.25rem);
-        width: calc(100% + .5rem);
-        padding-top: .1rem;
+        transform: translateX(-25px);
+        width: calc(100% + 50px);
+        padding-top: 10px;
 
         .smallScreen({
             .setFlex(center, center, column);
@@ -54,27 +54,27 @@
     }
 
     li {        
-        width: 3.4rem;
-        margin: .25rem .25rem 0;
+        width: 340px;
+        margin: 25px 25px 0;
 
         .smallScreen({
-            width: 5.6rem;
-            margin-top: .4rem;
+            width: 560px;
+            margin-top: 40px;
         });
     }
 
     li div {
-        .setImg(100%, 1.6, '~@app/assets/home/how-bg.jpg');
+        .setImg(100%, 160px, '~@app/assets/home/how-bg.jpg');
 
         .setFlex();
 
         overflow: hidden;
         position: relative;
-        border-radius: .1rem;
+        border-radius: 10px;
 
         .smallScreen({
-            height: 2.64rem;
-            border-radius: .15rem;
+            height: 264px;
+            border-radius: 15px;
         });
 
         &:before {
@@ -84,88 +84,88 @@
             top: 0;
             width: 0;
             height: 0;
-            border-right: 1rem solid transparent;
-            border-top: .9rem solid var(--corner-background);
+            border-right: 100px solid transparent;
+            border-top: 90px solid var(--corner-background);
 
             .smallScreen({
-                border-right-width: 1.65rem;
-                border-top-width: 1.48rem;
+                border-right-width: 165px;
+                border-top-width: 148px;
             });
         }
 
         .icon-sn {
             position: absolute;
-            left: .06rem;
-            top: .08rem;
-            width: .38rem;
-            height: .36rem;
+            left: 6px;
+            top: 8px;
+            width: 38px;
+            height: 36px;
             color: var(--font-desc-color);
 
             .smallScreen({
-                left: .16rem;
-                top: .18rem;
-                width: .5rem;
-                height: .5rem;
+                left: 16px;
+                top: 18px;
+                width: 50px;
+                height: 50px;
             });
         }
 
         .how-icon1 {
-            width: .75rem;
-            height: .75rem;
+            width: 75px;
+            height: 75px;
 
             .smallScreen({
-                width: 1.26rem;
-                height: 1.26rem;
+                width: 126px;
+                height: 126px;
             });
         }
 
         .how-icon2 {
-            width: .78rem;
-            height: .62rem;
+            width: 78px;
+            height: 62px;
 
             .smallScreen({
-                width: 1.28rem;
-                height: 1.04rem;
+                width: 128px;
+                height: 104px;
             });
         }
 
         .how-icon3 {
-            width: .75rem;
-            height: .75rem;
+            width: 75px;
+            height: 75px;
 
             .smallScreen({
-                width: 1.26rem;
-                height: 1.26rem;
+                width: 126px;
+                height: 126px;
             });
         }
     }
 
     dl {
-        margin-top: .2rem;
+        margin-top: 20px;
 
         .smallScreen({
-            margin-top: .36rem;
+            margin-top: 36px;
         });
     }
 
     dt {
-        .setFont(.2, .3, var(--font-title-color), 700);
+        .setFont(20px, 30px, var(--font-title-color), 700);
 
         .smallScreen({
-            font-size: .3rem;
-            line-height: .42rem;
+            font-size: 30px;
+            line-height: 42px;
         });
     }
 
     dd {
-        .setFont(.15, .25, var(--font-desc-color));
+        .setFont(15px, 25px, var(--font-desc-color));
 
-        margin-top: .05rem;
+        margin-top: 5px;
 
         .smallScreen({
-            margin-top: .1rem;
-            font-size: .24rem;
-            line-height: .42rem;
+            margin-top: 10px;
+            font-size: 24px;
+            line-height: 42px;
         });
 
         strong {
@@ -175,14 +175,14 @@
     }
 
     .btn-apply {
-        .setBtn(2, .46, .16, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
+        .setBtn(200px, 46px, 16px, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
 
-        margin-top: 1rem;
+        margin-top: 100px;
 
         .smallScreen({
-            .setBtn(2.1, .6, .24, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
+            .setBtn(210px, 60px, 24px, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
 
-            margin-top: .36rem;
+            margin-top: 36px;
         });
     }
 }

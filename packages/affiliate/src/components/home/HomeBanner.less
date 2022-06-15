@@ -5,58 +5,58 @@
 
     box-sizing: border-box;
     width: 100%;
-    height: 6rem;
-    padding: 0 .2rem;
+    height: 600px;
+    padding: 0 20px;
     background: url('@app/assets/home/banner-bg.jpg') no-repeat center bottom;
     background-size: cover;
 
     .mediumScreen({
-        height: 7.25rem;
+        height: 725px;
     });
 
     .smallScreen({
-        height: 9.5rem;
+        height: 950px;
         background-image: url('@app/assets/home/banner-bg_h5.jpg');
-        background-size: 100% 9.5rem;
+        background-size: 100% 950px;
     });
 
     dt {
-        .setImg(9.82, 1.56, '~@app/assets/home/banner-pic.svg');
+        .setImg(982px, 156px, '~@app/assets/home/banner-pic.svg');
 
         margin: 0 auto;
-        text-indent: -9999rem;
+        text-indent: -9999px;
 
         .mediumScreen({
-            .setImg(4.84, 3.48, '~@app/assets/home/banner-pic_h5.svg');
+            .setImg(484px, 348px, '~@app/assets/home/banner-pic_h5.svg');
         });
 
         .smallScreen({
-            .setImg(4.84, 3.48, '~@app/assets/home/banner-pic_h5.svg');
+            .setImg(484px, 348px, '~@app/assets/home/banner-pic_h5.svg');
         });
     }
 
     dd {
-        .setFont(.22, .26, var(--font-subtitle-color));
+        .setFont(22px, 26px, var(--font-subtitle-color));
 
-        margin-top: .3rem;
+        margin-top: 30px;
         text-align: center;
 
         .smallScreen({
-            margin-top: .2rem;
-            font-size: .26rem;
-            line-height: .4rem;
+            margin-top: 20px;
+            font-size: 26px;
+            line-height: 40px;
         });
     }
 
     .btn-apply {
-        .setBtn(2, .46, .16, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
+        .setBtn(200px, 46px, 16px, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
 
-        margin-top: .76rem;
+        margin-top: 76px;
 
         .smallScreen({
-            .setBtn(1.8, .6, .22, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
+            .setBtn(180px, 60px, 22px, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
 
-            margin-top: .9rem;
+            margin-top: 90px;
         });
     }
 }

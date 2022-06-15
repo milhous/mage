@@ -4,9 +4,9 @@
     .setFlex(space-between, center);
 
     box-sizing: border-box;
-    max-width: 11.2rem;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: .8rem .2rem;
+    padding: 80px 20px;
 
     .mediumScreen({
         .setFlex(flex-start, center, column);
@@ -15,13 +15,13 @@
     .smallScreen({
         .setFlex(flex-start, center, column);
 
-        padding: .8rem .35rem;
+        padding: 80px 35px;
     });
 
     article {
         .setFlex(flex-start, flex-start, column);
         
-        max-width: 4rem;
+        max-width: 400px;
 
         .mediumScreen({
             width: 100%;
@@ -34,48 +34,48 @@
         });
 
         h3 {
-            .setFont(.3, .42, var(--font-title-color), 700);
+            .setFont(30px, 42px, var(--font-title-color), 700);
 
             .smallScreen({
-                font-size: .48rem;
-                line-height: .68rem;
+                font-size: 48px;
+                line-height: 68px;
             });
         }
 
         ul {
-            margin-top: .2rem;
+            margin-top: 20px;
 
             .smallScreen({
-                margin-top: .32rem;
+                margin-top: 32px;
             });
         }
 
         li {
-            .setFont(.15, .26, var(--font-desc-color));
+            .setFont(15px, 26px, var(--font-desc-color));
 
             position: relative;
-            padding-left: .1rem;
+            padding-left: 10px;
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .42rem;
+                font-size: 24px;
+                line-height: 42px;
             });
 
             &::before {
                 .setPseudo();
 
                 position: absolute;
-                left: 0.03rem;
-                top: .12rem;
-                width: .02rem;
-                height: .02rem;
+                left: 3px;
+                top: 12px;
+                width: 2px;
+                height: 2px;
                 border-radius: 50%;
                 background-color: currentColor;
 
                 .smallScreen({
-                    top: .18rem;
-                    width: .04rem;
-                    height: .04rem;
+                    top: 18px;
+                    width: 4px;
+                    height: 4px;
                 });
             }
         }
@@ -85,33 +85,33 @@
         }
 
         .btn-background {
-            .setBtn(1, .36, .16, var(--font-btn-color), var(--gradient-btn-background), var(--pc-btn-radius));
+            .setBtn(100px, 36px, 16px, var(--font-btn-color), var(--gradient-btn-background), var(--pc-btn-radius));
     
-            margin-top: .4rem;
+            margin-top: 40px;
 
             .mediumScreen({
-                margin: .4rem auto 0;
+                margin: 40px auto 0;
             });
     
             .smallScreen({
-                .setBtn(1.8, .6, .22, var(--font-btn-color), var(--gradient-btn-background), var(--h5-btn-radius));
+                .setBtn(180px, 60px, 22px, var(--font-btn-color), var(--gradient-btn-background), var(--h5-btn-radius));
     
-                margin: .4rem auto 0;
+                margin: 40px auto 0;
             });
         }
     }
 
     aside {
         .mediumScreen({
-            margin-top: .4rem;
+            margin-top: 40px;
         });
 
         .smallScreen({
-            margin-top: .4rem;
+            margin-top: 40px;
 
             img {
-                width: 7.06rem;
-                height: 4.52rem;
+                width: 706px;
+                height: 452px;
             }
         });
     }

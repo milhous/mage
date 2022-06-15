@@ -4,9 +4,9 @@
     .setFlex(space-between, center);
 
     box-sizing: border-box;
-    max-width: 11.2rem;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: .8rem .2rem;
+    padding: 80px 20px;
 
     .mediumScreen({
         .setFlex(flex-start, center, column);
@@ -15,12 +15,12 @@
     .smallScreen({
         .setFlex(flex-start, center, column);
 
-        padding: .8rem .35rem;
+        padding: 80px 35px;
     });
 
     article {
         width: 100%;
-        max-width: 5rem;
+        max-width: 500px;
 
         .mediumScreen({
             width: 100%;
@@ -33,60 +33,60 @@
         });
 
         h3 {
-            .setFont(.3, .42, var(--font-title-color), 700);
+            .setFont(30px, 42px, var(--font-title-color), 700);
 
             .smallScreen({
-                font-size: .48rem;
-                line-height: .68rem;
+                font-size: 48px;
+                line-height: 68px;
             });
         }
 
         p {
-            .setFont(.15, .26, var(--font-subtitle-color));
+            .setFont(15px, 26px, var(--font-subtitle-color));
 
-            margin-top: .2rem;
+            margin-top: 20px;
 
             .smallScreen({
-                margin-top: .32rem;
-                font-size: .24rem;
-                line-height: .42rem;
+                margin-top: 32px;
+                font-size: 24px;
+                line-height: 42px;
             });
         }
 
         ul {
-            margin-top: .15rem;
+            margin-top: 15px;
 
             .smallScreen({
-                margin-top: .24rem;
+                margin-top: 24px;
             });
         }
 
         li {
-            .setFont(.15, .26, var(--font-desc-color));
+            .setFont(15px, 26px, var(--font-desc-color));
 
             position: relative;
-            padding-left: .1rem;
+            padding-left: 10px;
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .42rem;
+                font-size: 24px;
+                line-height: 42px;
             });
 
             &::before {
                 .setPseudo();
 
                 position: absolute;
-                left: 0.03rem;
-                top: .12rem;
-                width: .02rem;
-                height: .02rem;
+                left: 3px;
+                top: 12px;
+                width: 2px;
+                height: 2px;
                 border-radius: 50%;
                 background-color: currentColor;
 
                 .smallScreen({
-                    top: .18rem;
-                    width: .04rem;
-                    height: .04rem;
+                    top: 18px;
+                    width: 4px;
+                    height: 4px;
                 });
             }
         }
@@ -100,18 +100,18 @@
         .setFlex(flex-start, center);
 
         flex-wrap: wrap;
-        width: 4.5rem;
+        width: 450px;
 
         .mediumScreen({
             justify-content: center;
             width: auto;
-            margin-top: .4rem;
+            margin-top: 40px;
         });
 
         .smallScreen({
             justify-content: center;
             width: auto;
-            margin-top: .4rem;
+            margin-top: 40px;
         });
 
         dl {
@@ -120,60 +120,60 @@
             .setBorderRadius(var(--pc-box-radius));
     
             box-sizing: border-box;
-            width: 2rem;
-            height: 1.6rem;
-            margin: 0.05rem;
-            border: .02rem solid var(--border-color);
+            width: 200px;
+            height: 160px;
+            margin: 5px;
+            border: 2px solid var(--border-color);
             text-align: center;
 
             .smallScreen({
-                width: 2.8rem;
-                height: 1.92rem;
-                margin: 0.06rem;
+                width: 280px;
+                height: 192px;
+                margin: 6px;
             });
 
             &:first-child {
-                margin-left: .35rem;
+                margin-left: 35px;
 
                 .mediumScreen({
-                    margin-left: 0.05rem;
+                    margin-left: 5px;
                 });
 
                 .smallScreen({
-                    margin-left: 0.06rem;
+                    margin-left: 6px;
                 });
             }
         }
 
         dd {
-            .setFont(.15, .21, var(--font-desc-color));
+            .setFont(15px, 21px, var(--font-desc-color));
 
-            margin-top: .25rem;
+            margin-top: 25px;
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .34rem;
+                font-size: 24px;
+                line-height: 34px;
             });
         }
 
         svg {
             .smallScreen({
-                height: .52rem;
+                height: 52px;
 
                 &.plan-icon1 {
-                    width: 1.22rem;
+                    width: 122px;
                 }
 
                 &.plan-icon2 {
-                    width: 1.3rem;
+                    width: 130px;
                 }
 
                 &.plan-icon3 {
-                    width: .92rem;
+                    width: 92px;
                 }
 
                 &.plan-icon4 {
-                    width: .92rem;
+                    width: 92px;
                 }
             });
         }

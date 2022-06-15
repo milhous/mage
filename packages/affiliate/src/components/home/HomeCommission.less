@@ -6,20 +6,20 @@
     div {
         .setFlex(space-between, center);
 
-        max-width: 11.2rem;
+        max-width: 1120px;
         margin: 0 auto;
-        padding: .8rem 0;
+        padding: 80px 0;
 
         .mediumScreen({
             .setFlex(flex-end, center, column-reverse);
 
-            padding: .8rem .2rem;
+            padding: 80px 20px;
         });
 
         .smallScreen({
             .setFlex(flex-end, center, column-reverse);
 
-            padding: .8rem .35rem;
+            padding: 80px 35px;
         });
     }
 
@@ -27,16 +27,16 @@
         .setFlex(space-between, center);
 
         flex-wrap: wrap;
-        width: 5rem;
-        min-width: 5rem;
+        width: 500px;
+        min-width: 500px;
 
         .mediumScreen({
-            margin-top: .4rem;
+            margin-top: 40px;
         });
 
         .smallScreen({
             width: 100%;
-            margin-top: .35rem;
+            margin-top: 35px;
         });
 
         dl {
@@ -45,17 +45,17 @@
             .setBorderRadius(var(--pc-box-radius));
 
             box-sizing: border-box;
-            width: 1.6rem;
-            min-width: 1.6rem;
-            height: 1.6rem;
-            margin: .05rem 0;
-            padding: .2rem .1rem .1rem;
+            width: 160px;
+            min-width: 160px;
+            height: 160px;
+            margin: 5px 0;
+            padding: 20px 10px 10px;
 
             .smallScreen({
-                width: 2.26rem;
-                min-width: 2.26rem;
-                height: 2.26rem;
-                padding: .3rem .2rem .1rem;
+                width: 226px;
+                min-width: 226px;
+                height: 226px;
+                padding: 30px 20px 10px;
             });
             
             &:nth-child(odd) {
@@ -76,23 +76,23 @@
         }
 
         dt {
-            .setFont(.15, .25, var(--font-desc-color), 700);
+            .setFont(15px, 25px, var(--font-desc-color), 700);
 
             .smallScreen({
-                font-size: .22rem;
-                line-height: .32rem;
+                font-size: 22px;
+                line-height: 32px;
             });
         }
 
         dd {
             position: relative;
-            width: .8rem;
-            height: .8rem;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
 
             .smallScreen({
-                width: 1.2rem;
-                height: 1.2rem;
+                width: 120px;
+                height: 120px;
             });
 
             img {
@@ -104,8 +104,8 @@
                     transform: translate(-50%, -40%);
 
                     .smallScreen({
-                        width: 1.44rem;
-                        height: 1.32rem;
+                        width: 144px;
+                        height: 132px;
                     });
                 }
 
@@ -113,8 +113,8 @@
                     transform: translate(-66%, -32%);
 
                     .smallScreen({
-                        width: 1.46rem;
-                        height: 1.52rem;
+                        width: 146px;
+                        height: 152px;
                     });
                 }
 
@@ -122,8 +122,8 @@
                     transform: translate(-50%, -38%);
 
                     .smallScreen({
-                        width: 1.08rem;
-                        height: 1.12rem;
+                        width: 108px;
+                        height: 112px;
                     });
                 }
 
@@ -131,8 +131,8 @@
                     transform: translate(-50%, -44%);
 
                     .smallScreen({
-                        width: 1.56rem;
-                        height: 1.58rem;
+                        width: 156px;
+                        height: 158px;
                     });
                 }
 
@@ -140,8 +140,8 @@
                     transform: translate(-50%, -38%);
 
                     .smallScreen({
-                        width: 1.24rem;
-                        height: 1.24rem;
+                        width: 124px;
+                        height: 124px;
                     });
                 }
 
@@ -149,8 +149,8 @@
                     transform: translate(-50%, -42%);
 
                     .smallScreen({
-                        width: 1.2rem;
-                        height: 1.8rem;
+                        width: 120px;
+                        height: 180px;
                     });
                 }
             }
@@ -158,7 +158,7 @@
     }
 
     article {
-        max-width: 5rem;
+        max-width: 500px;
 
         .mediumScreen({
             width: 100%;
@@ -171,48 +171,48 @@
         });
 
         h3 {
-            .setFont(.3, .42, var(--font-title-color), 700);
+            .setFont(30px, 42px, var(--font-title-color), 700);
 
             .smallScreen({
-                font-size: .48rem;
-                line-height: .68rem;
+                font-size: 48px;
+                line-height: 68px;
             });
         }
 
         ul {
-            margin-top: .2rem;
+            margin-top: 20px;
 
             .smallScreen({
-                margin-top: .32rem;
+                margin-top: 32px;
             });
         }
 
         li {
-            .setFont(.15, .26, var(--font-desc-color));
+            .setFont(15px, 26px, var(--font-desc-color));
 
             position: relative;
-            padding-left: .1rem;
+            padding-left: 10px;
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .42rem;
+                font-size: 24px;
+                line-height: 42px;
             });
 
             &::before {
                 .setPseudo();
 
                 position: absolute;
-                left: 0.03rem;
-                top: .12rem;
-                width: .02rem;
-                height: .02rem;
+                left: 3px;
+                top: 12px;
+                width: 2px;
+                height: 2px;
                 border-radius: 50%;
                 background-color: currentColor;
 
                 .smallScreen({
-                    top: .18rem;
-                    width: .04rem;
-                    height: .04rem;
+                    top: 18px;
+                    width: 4px;
+                    height: 4px;
                 });
             }
         }

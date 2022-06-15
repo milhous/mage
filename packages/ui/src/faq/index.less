@@ -17,7 +17,7 @@
     });
 
     h3 {
-        .setFont(.3, .4, var(--ui-faq-title), 700);
+        .setFont(30px, 40px, var(--ui-faq-title), 700);
 
         text-align: center;
 
@@ -71,15 +71,15 @@
     }
 
     summary {
-        .setFont(.15, .21, var(--ui-faq-title), 700);
+        .setFont(15px, 21px, var(--ui-faq-title), 700);
 
         position: relative;
-        padding-left: .2rem;
+        padding-left: 20px;
 
         .smallScreen({
-            padding-left: .55rem;
-            font-size: .24rem;
-            line-height: .4rem
+            padding-left: 55px;
+            font-size: 24px;
+            line-height: 40px;
         });
 
         i {
@@ -87,12 +87,12 @@
             position: absolute;
             left: 0;
             top: 0;
-            width: .12rem;
-            height: .21rem;
+            width: 12px;
+            height: 21px;
 
             .smallScreen({
-                width: .24rem;
-                height: .4rem;
+                width: 24px;
+                height: 40px;
             });
 
             &::before,
@@ -106,24 +106,24 @@
             }
 
             &::before {
-                width: .12rem;
-                height: .02rem;
+                width: 12px;
+                height: 2px;
 
                 .smallScreen({
-                    width: .24rem;
-                    height: .04rem;
+                    width: 24px;
+                    height: 4px;
                 });
             }
 
             &::after {
                 display: block;
-                width: .02rem;
-                height: .12rem;
+                width: 2px;
+                height: 12px;
                 transition: height .2s;
 
                 .smallScreen({
-                    width: .04rem;
-                    height: .24rem;
+                    width: 4px;
+                    height: 24px;
                 });
             }
         }
@@ -136,14 +136,14 @@
     }
 
     p {
-        .setFont(.15, .21, var(--ui-faq-desc));
+        .setFont(15px, 21px, var(--ui-faq-desc));
 
-        margin-top: .1rem;
+        margin-top: 10px;
 
         .smallScreen({
-            margin-top: .06rem;
-            font-size: .24rem;
-            line-height: .4rem;
+            margin-top: 6px;
+            font-size: 24px;
+            line-height: 40px;
         });
     }
 }

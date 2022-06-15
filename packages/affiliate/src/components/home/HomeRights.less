@@ -6,20 +6,20 @@
     div {
         .setFlex(space-between, center);
 
-        max-width: 11.2rem;
+        max-width: 1120px;
         margin: 0 auto;
-        padding: .8rem 0;
+        padding: 80px 0;
 
         .mediumScreen({
             .setFlex(flex-end, center, column-reverse);
 
-            padding: .8rem .2rem;
+            padding: 80px 20px;
         });
 
         .smallScreen({
             .setFlex(flex-end, center, column-reverse);
 
-            padding: .8rem .35rem;
+            padding: 80px 35px;
         });
     }
 
@@ -27,11 +27,11 @@
         position: relative;
 
         .mediumScreen({
-            margin-top: .4rem;
+            margin-top: 40px;
         });
 
         .smallScreen({
-            margin-top: .4rem;
+            margin-top: 40px;
         });
 
         &::before {
@@ -40,8 +40,8 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 6rem;
-            height: 6rem;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: radial-gradient(var(--gradient-halo));
             opacity: 0.5;
@@ -52,15 +52,15 @@
             z-index: 10;
 
             .smallScreen({
-                width: 6.18rem;
-                height: 5.08rem;
+                width: 618px;
+                height: 508px;
             });
         }
     }
 
     article {
         width: 100%;
-        max-width: 5rem;
+        max-width: 500px;
 
         .mediumScreen({
             width: 100%;
@@ -73,60 +73,60 @@
         });
 
         h3 {
-            .setFont(.3, .42, var(--font-title-color), 700);
+            .setFont(30px, 42px, var(--font-title-color), 700);
 
             .smallScreen({
-                font-size: .48rem;
-                line-height: .68rem;
+                font-size: 48px;
+                line-height: 68px;
             });
         }
 
         p {
-            .setFont(.15, .26, var(--font-subtitle-color));
+            .setFont(15px, 26px, var(--font-subtitle-color));
 
-            margin-top: .2rem;
+            margin-top: 20px;
 
             .smallScreen({
-                margin-top: .32rem;
-                font-size: .24rem;
-                line-height: .42rem;
+                margin-top: 32px;
+                font-size: 24px;
+                line-height: 42px;
             });
         }
 
         ul {
-            margin-top: .15rem;
+            margin-top: 15px;
 
             .smallScreen({
-                margin-top: .24rem;
+                margin-top: 24px;
             });
         }
 
         li {
-            .setFont(.15, .26, var(--font-desc-color));
+            .setFont(15px, 26px, var(--font-desc-color));
 
             position: relative;
-            padding-left: .1rem;
+            padding-left: 10px;
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .42rem;
+                font-size: 24px;
+                line-height: 42px;
             });
 
             &::before {
                 .setPseudo();
 
                 position: absolute;
-                left: 0.03rem;
-                top: .12rem;
-                width: .02rem;
-                height: .02rem;
+                left: 3px;
+                top: 12px;
+                width: 2px;
+                height: 2px;
                 border-radius: 50%;
                 background-color: currentColor;
 
                 .smallScreen({
-                    top: .18rem;
-                    width: .04rem;
-                    height: .04rem;
+                    top: 18px;
+                    width: 4px;
+                    height: 4px;
                 });
             }
         }

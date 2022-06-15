@@ -54,8 +54,8 @@
 .setFont(@fontSize, @lineHeight, @fontColor, @fontWeight: 400) {
   color: @fontColor;
   font-weight: @fontWeight;
-  font-size: calc(@fontSize * 1rem);
-  line-height: calc(@lineHeight * 1rem);
+  font-size: calc(@fontSize * 1);
+  line-height: calc(@lineHeight * 1);
 }
 
 // 设置flex
@@ -69,10 +69,10 @@
 // 设置图片
 .setImg(@width, @height, @src) {
   display: block;
-  width:  if(@width = 100%, @width, calc(@width * 1rem));
-  min-width: if(@width = 100%, @width, calc(@width * 1rem));
-  height: if(@height = 100%, @height, calc(@height * 1rem));
-  min-height: if(@height = 100%, @height, calc(@height * 1rem));
+  width:  if(@width = 100%, @width, calc(@width * 1));
+  min-width: if(@width = 100%, @width, calc(@width * 1));
+  height: if(@height = 100%, @height, calc(@height * 1));
+  min-height: if(@height = 100%, @height, calc(@height * 1));
   background: url('@{src}') no-repeat center center;
   background-size: 100% 100%;
 }
@@ -82,7 +82,7 @@
   content: '.';
   display: block;
   position: absolute;
-  text-indent: -9999rem;
+  text-indent: -9999px;
 }
 
 // 设置按钮
@@ -92,24 +92,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: calc(@width * 1rem);
-  height: calc(@height * 1rem);
-  padding: 0 calc(@borderRadius * 2rem);
-  border-radius: calc(@borderRadius * 1rem);
+  min-width: calc(@width * 1);
+  height: calc(@height * 1);
+  padding: 0 calc(@borderRadius * 2);
+  border-radius: calc(@borderRadius * 1);
   background: linear-gradient(@background);
   background-repeat: no-repeat;
   background-position: center center;
   color: @fontColor;
   font-weight: 700;
-  font-size: calc(@fontSize * 1rem);
+  font-size: calc(@fontSize * 1);
   text-decoration: none;
-  text-shadow: 0 .02rem .04rem rgba(0, 0, 0, .3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
   white-space: nowrap;
 }
 
 // 设置圆角
 .setBorderRadius(@borderRadius) {
-  border-radius: calc(@borderRadius * 1rem);
+  border-radius: calc(@borderRadius * 1);
 }
 
 // 设置省略
