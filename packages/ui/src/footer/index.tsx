@@ -9,7 +9,7 @@ const CompPartners = (props: {nums: number}): JSX.Element => {
   for (let i = 0; i < props.nums; i++) {
     Comps.push(
       <li key={i}>
-        <UIDynamicImg dir={`./footer/assets/`} name={`footer-partner${i + 1}`} suffix="png" />
+        <UIDynamicImg dir={`./assets/`} name={`footer-partner${i + 1}`} suffix="png" />
       </li>,
     );
   }
