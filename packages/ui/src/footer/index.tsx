@@ -1,7 +1,22 @@
+import {useTransition, useState, useEffect} from 'react';
+
 import './index.less';
 
 // 合作商
-const CompPartner = (): JSX.Element => {};
+const CompPartner = (props: {url: string}): JSX.Element => {
+  const [isPending, startTransition] = useTransition();
+  const [src, setSrc] = useState('');
+
+  useEffect(() => {
+    startTransition(() => {
+      (async () => {
+        setSrc(await import(props.url));
+      })();
+    });
+  }, []);
+
+  return <li>{isPending && <img src={src} />}</li>;
+};
 
 // footer
 const UIFooter = (): JSX.Element => {
@@ -56,7 +71,9 @@ const UIFooter = (): JSX.Element => {
         </section>
       </div>
       <div className="ui-footer_partner">
-        <section>111</section>
+        <section>
+          <CompPartner url="./assets/footer-partner1.png" />
+        </section>
       </div>
       <div className="ui-footer_assume">
         <section>
