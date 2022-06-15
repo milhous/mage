@@ -2,10 +2,10 @@ import QRCode from 'qrcode.react';
 
 import './index.less';
 
-import ToolbarAndroid from './toolbar-android.svg';
-import ToolbarGoogle from './toolbar-google.svg';
-import ToolbarIOS from './toolbar-ios.svg';
-import ToolbarLogo from './toolbar-logo.svg';
+import ToolbarAndroid from './assets/toolbar-android.svg';
+import ToolbarGoogle from './assets/toolbar-google.svg';
+import ToolbarIOS from './assets/toolbar-ios.svg';
+import ToolbarLogo from './assets/toolbar-logo.svg';
 
 // app下载
 const AppDownload = (): JSX.Element => {

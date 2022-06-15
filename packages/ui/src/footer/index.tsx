@@ -1,5 +1,8 @@
 import './index.less';
 
+// 合作商
+const CompPartner = (): JSX.Element => {};
+
 // footer
 const UIFooter = (): JSX.Element => {
   return (

@@ -12,7 +12,6 @@ export default function Home(): JSX.Element {
       Hello world!
       <Outlet />
       <UIFooter />
-      Goodbey world!
     </>
   );
 }
