@@ -71,8 +71,26 @@
     }
 
     .ui-footer_partner {
-        padding: 40px 0 70px;
+        padding: 40px 0;
         border-top: 1px solid var(--ui-footer-border);
+
+        ul {
+            .setFlex(center, center);
+
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        li {
+            cursor: pointer;
+            opacity: .5;
+            margin: 0 20px 20px;
+            transition: opacity .3s;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 
     .ui-footer_assume {

@@ -1,20 +1,40 @@
-import UIDynamicImg from '../dynamicImg';
+import {useTransition, useState, useEffect} from 'react';
 
 import './index.less';
 
+// 合作商 Logo
+const CompPartnerLogo = (props: {url: string}): JSX.Element => {
+  const [isPending, startTransition] = useTransition();
+  const [src, setSrc] = useState('');
+
+  useEffect(() => {
+    startTransition(() => {
+      (async () => {
+        const moudle: any = await import(`${props.url}.png`);
+
+        if (!!moudle) {
+          setSrc(moudle.default);
+        }
+      })();
+    });
+  }, []);
+
+  return <>{!isPending && <img src={src} />}</>;
+};
+
 // 合作商
 const CompPartners = (props: {nums: number}): JSX.Element => {
-  const Comps: JSX.Element[] = [];
+  const comps: JSX.Element[] = [];
 
   for (let i = 0; i < props.nums; i++) {
-    Comps.push(
+    comps.push(
       <li key={i}>
-        <UIDynamicImg dir={`./assets/`} name={`footer-partner${i + 1}`} suffix="png" />
+        <CompPartnerLogo url={`./assets/footer-partner${i + 1}`} />
       </li>,
     );
   }
 
-  return <ul>{Comps}</ul>;
+  return <ul>{comps}</ul>;
 };
 
 // footer
