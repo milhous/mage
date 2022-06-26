@@ -1644,7 +1644,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
-    i18next: ^21.8.9
+    i18next: ^21.8.10
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -1658,9 +1658,11 @@ __metadata:
   resolution: "@packages/libs@workspace:packages/libs"
   dependencies:
     "@types/js-cookie": ^3
+    "@types/react": ^18
     axios: ^0.27.2
     js-cookie: ^3.0.1
     mage: "workspace:^"
+    react: ^18.2.0
     regenerator-runtime: ^0.13.9
   languageName: unknown
   linkType: soft
@@ -1671,7 +1673,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
-    i18next: ^21.8.9
+    i18next: ^21.8.10
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -1686,7 +1688,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
-    i18next: ^21.8.9
+    i18next: ^21.8.10
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -1702,7 +1704,7 @@ __metadata:
     "@types/js-cookie": ^3
     "@types/react": ^18
     "@types/react-dom": ^18.0.5
-    i18next: ^21.8.9
+    i18next: ^21.8.10
     i18next-browser-languagedetector: ^6.1.4
     i18next-http-backend: ^1.4.1
     js-cookie: ^3.0.1
@@ -7428,12 +7430,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.8.9":
-  version: 21.8.9
-  resolution: "i18next@npm:21.8.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fi18next%2F-%2Fi18next-21.8.9.tgz"
+"i18next@npm:^21.8.10":
+  version: 21.8.10
+  resolution: "i18next@npm:21.8.10::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fi18next%2F-%2Fi18next-21.8.10.tgz"
   dependencies:
     "@babel/runtime": ^7.17.2
-  checksum: 4e5303c935ca8402f880a673f56a36038a1effa93ee8b8356ff67c927d5d21ec766b44459e7b95c354b640e685ab3a90ad4ba3bd5fc073d96675c3f9b6765b90
+  checksum: 3cb1f2b0451fb3408edf2ca4d7e43db1dac5e1f1418bf5550835e348cbd398916df09affdb19fdb11d73280051f8b99c361b9b07e5b11fd1ff9d59043bd10c84
   languageName: node
   linkType: hard
 
@@ -8749,7 +8751,7 @@ __metadata:
     inquirer: ^8.2.4
     less: ^4.1.3
     less-loader: ^11.0.0
-    mini-css-extract-plugin: ^2.6.0
+    mini-css-extract-plugin: ^2.6.1
     mini-svg-data-uri: ^1.4.4
     postcss: ^8.4.14
     postcss-loader: ^7.0.0
@@ -8948,8 +8950,8 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: 7.30.0
     eslint-plugin-react-hooks: ^4.6.0
-    npm-check-updates: ^13.1.5
-    prettier: ^2.7.0
+    npm-check-updates: ^14.0.1
+    prettier: ^2.7.1
     typescript: ^4.7.3
   languageName: unknown
   linkType: soft
@@ -8993,14 +8995,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:^2.6.0":
-  version: 2.6.0
-  resolution: "mini-css-extract-plugin@npm:2.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmini-css-extract-plugin%2F-%2Fmini-css-extract-plugin-2.6.0.tgz"
+"mini-css-extract-plugin@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "mini-css-extract-plugin@npm:2.6.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmini-css-extract-plugin%2F-%2Fmini-css-extract-plugin-2.6.1.tgz"
   dependencies:
     schema-utils: ^4.0.0
   peerDependencies:
     webpack: ^5.0.0
-  checksum: ea73bd66558de7a37db094fe68fa130e7a725ab15f880ff8467a75d9c4c2f1576d20720088ea22af9922a94b8600bbfef0c6acaf10d12a32a9bd20a90ba3c35f
+  checksum: df60840404878c4832b4104799fd29c5a89b06b1e377956c8d4a5729efe0ef301a52e5087d6f383871df5e69a8445922a0ae635c11abf412d7645a7096d0e973
   languageName: node
   linkType: hard
 
@@ -9418,9 +9420,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^13.1.5":
-  version: 13.1.5
-  resolution: "npm-check-updates@npm:13.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-13.1.5.tgz"
+"npm-check-updates@npm:^14.0.1":
+  version: 14.0.1
+  resolution: "npm-check-updates@npm:14.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-14.0.1.tgz"
   dependencies:
     chalk: ^4.1.2
     cint: ^8.2.1
@@ -9437,7 +9439,7 @@ __metadata:
     lodash: ^4.17.21
     minimatch: ^5.1.0
     p-map: ^4.0.0
-    pacote: ^13.5.0
+    pacote: ^13.6.0
     parse-github-url: ^1.0.2
     progress: ^2.0.3
     prompts: ^2.4.2
@@ -9453,7 +9455,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: b1f1c50e3716198d5eac9204e74185433768d98f8d0959358ad12b296eea3b38f15120573a1d356e26ab9a6ab68edb8684dec571c3c5fd60efe675a73b620f16
+  checksum: b830ad48f17f8f73dba06f4efde5a9bc0b0ff4c9edcea1aa1e74a2910cb33b58b487bf3d434c3392db15f3e56a5af20c5550865411dc9f59abee561a678cec27
   languageName: node
   linkType: hard
 
@@ -9927,7 +9929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pacote@npm:^13.5.0":
+"pacote@npm:^13.6.0":
   version: 13.6.0
   resolution: "pacote@npm:13.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpacote%2F-%2Fpacote-13.6.0.tgz"
   dependencies:
@@ -10640,12 +10642,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "prettier@npm:2.7.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprettier%2F-%2Fprettier-2.7.0.tgz"
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprettier%2F-%2Fprettier-2.7.1.tgz"
   bin:
     prettier: bin-prettier.js
-  checksum: 5b55bb1dced9d16635b83229df8e670d150890fdb343f19e8a66e610094a108e960c0f57352b3e5cdbc4eff4ef00a834406047ffcd9f20bd22a6497ba143c81f
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 

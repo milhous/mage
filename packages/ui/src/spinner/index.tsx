@@ -6,9 +6,9 @@ import SpinnerLogo from './spinner-logo.svg';
 const UISpinner = (): JSX.Element => {
   return (
     <div className="ui-spinner">
-      <div className="spinner-box">
-        <SpinnerBg className="spinner-bg" />
-        <SpinnerLogo className="spinner-logo" />
+      <div className="ui-spinner_box">
+        <SpinnerBg className="ui-spinner_bg" />
+        <SpinnerLogo className="ui-spinner_logo" />
       </div>
     </div>
   );

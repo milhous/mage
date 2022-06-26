@@ -1,7 +1,7 @@
 import {Suspense, lazy, useState} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
-import loadComponent from '@libs/loadComponent';
 
+import loadComponent from '@libs/loadComponent';
 import UISpinner from '@ui/spinner/index';
 
 import './App.less';

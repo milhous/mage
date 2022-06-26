@@ -1,0 +1,42 @@
+@import (reference) '@ui/styles/library.less';
+
+.ui-footer {
+    &_partner {
+        padding: 40px 0;
+        border-top: 1px solid var(--ui-footer-border);
+
+        section {
+            overflow: hidden;
+            height: 42px;
+        }
+
+        ul {
+            .setFlex(center, center);
+
+            flex-wrap: wrap;
+            transition: transform .3s;
+
+            each(range(10), {
+                &.state-@{value} {
+                    transform: translateY(((@value - 1) * -(42px + 20px)));
+                }
+            });
+        }
+
+        li {
+            cursor: pointer;
+            opacity: .5;
+            margin: 0 20px 20px;
+            transition: opacity .3s;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        img {
+            width: auto;
+            height: 42px;
+        }
+    }
+}

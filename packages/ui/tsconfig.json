@@ -3,7 +3,9 @@
   "compilerOptions": {
     "types": ["mage/types/client"],
     "paths": {
-      "@app/*": ["../packages/ui/src/*"]
+      "@app/*": ["../packages/ui/src/*"],
+      "@ui/*": ["../packages/ui/src/*"],
+      "@libs/*": ["../packages/libs/src/*"]
     }
   }
 }

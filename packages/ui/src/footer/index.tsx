@@ -1,44 +1,35 @@
 import {useTransition, useState, useEffect} from 'react';
 
+import CompPartners from './components/CompPartners';
+
 import './index.less';
 
-// 合作商 Logo
-const CompPartnerLogo = (props: {url: string}): JSX.Element => {
+// footer
+const UIFooter = (): JSX.Element => {
   const [isPending, startTransition] = useTransition();
-  const [src, setSrc] = useState('');
+  // 设置合作商Logo
+  const [partners, setPartners] = useState<string[]>([]);
 
   useEffect(() => {
     startTransition(() => {
       (async () => {
-        const moudle: any = await import(`${props.url}.png`);
+        const paths: string[] = [];
 
-        if (!!moudle) {
-          setSrc(moudle.default);
+        for (let i = 0; i < 26; i++) {
+          const moudle: any = await import(`./assets/footer-partner${i + 1}.png`);
+
+          if (!!moudle) {
+            paths.push(moudle.default);
+          }
+        }
+
+        if (paths.length) {
+          setPartners(paths);
         }
       })();
     });
   }, []);
 
-  return <>{!isPending && <img src={src} />}</>;
-};
-
-// 合作商
-const CompPartners = (props: {nums: number}): JSX.Element => {
-  const comps: JSX.Element[] = [];
-
-  for (let i = 0; i < props.nums; i++) {
-    comps.push(
-      <li key={i}>
-        <CompPartnerLogo url={`./assets/footer-partner${i + 1}`} />
-      </li>,
-    );
-  }
-
-  return <ul>{comps}</ul>;
-};
-
-// footer
-const UIFooter = (): JSX.Element => {
   return (
     <div className="ui-footer">
       <div className="ui-footer_nav">
@@ -89,11 +80,7 @@ const UIFooter = (): JSX.Element => {
           </aside>
         </section>
       </div>
-      <div className="ui-footer_partner">
-        <section>
-          <CompPartners nums={26} />
-        </section>
-      </div>
+      {!isPending && <CompPartners partners={partners} />}
       <div className="ui-footer_assume">
         <section>
           <span>18+</span>
