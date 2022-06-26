@@ -105,8 +105,8 @@ export default async (
           // Feel free to experiment with options for better result for you
           plugins: [
             [require.resolve('imagemin-gifsicle'), {interlaced: true}],
-            [require.resolve('imagemin-jpegtran'), {progressive: true}],
-            [require.resolve('imagemin-pngquant'), {quality: [0.6, 0.8], strip: true}],
+            [require.resolve('imagemin-mozjpeg'), {quality: 80, progressive: true}],
+            [require.resolve('imagemin-optipng'), { optimizationLevel: 5, strip: false }],
           ],
         },
       },
