@@ -98,6 +98,18 @@ export default async (
       shared,
     }),
     new ImageMinimizerPlugin({
+      generator: [
+        {
+          // You can apply generator using `?as=webp`, you can use any name and provide more options
+          // 过滤apng, 解决apng压缩后损坏不显示
+          preset: 'apng',
+          filter: (source, sourcePath) => {
+            return false;
+          },
+          implementation: ImageMinimizerPlugin.imageminGenerate,
+          options: {},
+        },
+      ],
       minimizer: {
         implementation: ImageMinimizerPlugin.imageminMinify,
         options: {
@@ -106,7 +118,7 @@ export default async (
           plugins: [
             [require.resolve('imagemin-gifsicle'), {interlaced: true}],
             [require.resolve('imagemin-mozjpeg'), {quality: 80, progressive: true}],
-            [require.resolve('imagemin-optipng'), { optimizationLevel: 5, strip: false }],
+            [require.resolve('imagemin-optipng'), {optimizationLevel: 5}],
           ],
         },
       },

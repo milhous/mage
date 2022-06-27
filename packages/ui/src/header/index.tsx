@@ -1,6 +1,6 @@
 import './index.less';
 
-import logo from './assets/logo.png';
+import logo from './assets/logo.png?as=apng';
 import importSvg from './assets/import.svg?url';
 import assume from './assets/assume.png';
 
