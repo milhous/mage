@@ -20,6 +20,8 @@ declare module '*.jpeg';
 
 declare module '*.png';
 
+declare module '*.png?as=apng';
+
 declare module '*.webp';
 
 declare module '*.svg';
