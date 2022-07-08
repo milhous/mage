@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "libs",
     "type": "module",
-    "main": "app.config.js",
+    "main": "",
     "private": true,
     "scripts": {
         "start": "",
@@ -12,8 +12,12 @@
     },
     "dependencies": {
         "axios": "^0.27.2",
+        "i18next": "^21.8.13",
+        "i18next-browser-languagedetector": "^6.1.4",
+        "i18next-http-backend": "^1.4.1",
         "js-cookie": "^3.0.1",
         "react": "^18.2.0",
+        "react-i18next": "^11.18.0",
         "regenerator-runtime": "^0.13.9"
     },
     "devDependencies": {

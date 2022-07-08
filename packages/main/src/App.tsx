@@ -2,7 +2,7 @@ import {Suspense, lazy, useState} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
 import loadComponent from '@libs/loadComponent';
-import UISpinner from '@ui/spinner/index';
+import WidgetSpinner from '@widget/spinner';
 
 import './App.less';
 
@@ -21,7 +21,7 @@ const System = (props: {system: ISystem}): JSX.Element => {
   const Component = lazy(loadComponent(remote, 'default', module, url));
 
   return (
-    <Suspense fallback={<UISpinner />}>
+    <Suspense fallback={<WidgetSpinner />}>
       <Component />
     </Suspense>
   );
@@ -35,7 +35,7 @@ const App = () => {
   });
 
   return (
-    <Suspense fallback={<UISpinner />}>
+    <Suspense fallback={<WidgetSpinner />}>
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="/affiliate/*" element={<System system={system} />} />

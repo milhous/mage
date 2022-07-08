@@ -1641,9 +1641,13 @@ __metadata:
     "@types/js-cookie": ^3
     "@types/react": ^18
     axios: ^0.27.2
+    i18next: ^21.8.13
+    i18next-browser-languagedetector: ^6.1.4
+    i18next-http-backend: ^1.4.1
     js-cookie: ^3.0.1
     mage: "workspace:^"
     react: ^18.2.0
+    react-i18next: ^11.18.0
     regenerator-runtime: ^0.13.9
   languageName: unknown
   linkType: soft
@@ -1678,17 +1682,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@packages/style@workspace:packages/style":
+  version: 0.0.0-use.local
+  resolution: "@packages/style@workspace:packages/style"
+  dependencies:
+    mage: "workspace:^"
+  languageName: unknown
+  linkType: soft
+
 "@packages/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@packages/ui@workspace:packages/ui"
   dependencies:
-    "@types/js-cookie": ^3
     "@types/react": ^18
     "@types/react-dom": ^18.0.6
     i18next: ^21.8.13
-    i18next-browser-languagedetector: ^6.1.4
-    i18next-http-backend: ^1.4.1
-    js-cookie: ^3.0.1
     mage: "workspace:^"
     qrcode.react: ^3.1.0
     rc-dropdown: ^4.0.1
@@ -1698,6 +1706,26 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-i18next: ^11.18.0
+    react-toastify: ^9.0.5
+    regenerator-runtime: ^0.13.9
+    svga.lite: ^1.6.1
+  languageName: unknown
+  linkType: soft
+
+"@packages/widget@workspace:packages/widget":
+  version: 0.0.0-use.local
+  resolution: "@packages/widget@workspace:packages/widget"
+  dependencies:
+    "@types/react": ^18
+    "@types/react-dom": ^18.0.6
+    mage: "workspace:^"
+    qrcode.react: ^3.1.0
+    rc-dropdown: ^4.0.1
+    rc-menu: ^9.6.0
+    rc-scrollbars: ^1.1.5
+    rc-tooltip: ^5.1.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
     react-toastify: ^9.0.5
     regenerator-runtime: ^0.13.9
     svga.lite: ^1.6.1
@@ -8914,7 +8942,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: 7.30.1
     eslint-plugin-react-hooks: ^4.6.0
-    npm-check-updates: ^15.2.0
+    npm-check-updates: ^15.2.1
     prettier: ^2.7.1
     typescript: ^4.7.4
   languageName: unknown
@@ -9356,9 +9384,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^15.2.0":
-  version: 15.2.0
-  resolution: "npm-check-updates@npm:15.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-15.2.0.tgz"
+"npm-check-updates@npm:^15.2.1":
+  version: 15.2.1
+  resolution: "npm-check-updates@npm:15.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-15.2.1.tgz"
   dependencies:
     chalk: ^4.1.2
     cint: ^8.2.1
@@ -9391,7 +9419,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: e0875122eb4065253997e19cb95b6fa697510af71250ae6a16fa8a360e5d5c8ae4ed3cbcbc769bcb2b635572f9ad1ccc337bf901c18343cfadb2de787546ccdd
+  checksum: dbd7267b6cf954748a20a631f6f64f21da5adbd9e64a5b19ff5e9c5ad5893be7c139327e2f637c5255af83c0747381c76ef70dcefd6369498ed6e0c0a7954a44
   languageName: node
   linkType: hard
 

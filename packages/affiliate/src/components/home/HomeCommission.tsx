@@ -1,6 +1,6 @@
 import {Trans} from 'react-i18next';
 
-import {useTranslate} from '@ui/i18n';
+import {useTranslate} from '@libs/i18n';
 
 import Assets from '@app/assets';
 

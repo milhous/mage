@@ -84,8 +84,9 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
       ],
       alias: {
         '@app': basicConfig.src,
-        '@ui': resolveAppPath('../ui/src'),
+        '@widget': resolveAppPath('../widget/src'),
         '@libs': resolveAppPath('../libs/src'),
+        '@style': resolveAppPath('../style/src'),
       },
     },
   };

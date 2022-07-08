@@ -1,7 +1,7 @@
 import {Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
-import UISpinner from '@ui/spinner/index';
+import UISpinner from '@widget/spinner/index';
 
 import './App.less';
 import Home from './pages/Home';

@@ -1,20 +1,17 @@
 {
     "name": "@packages/ui",
     "version": "1.0.0",
-    "description": "ui",
+    "description": "UI组件",
     "type": "module",
     "main": "app.config.js",
     "private": true,
     "scripts": {
-        "start": "",
-        "build": "",
+        "start": "mage start",
+        "build": "mage build",
         "update": "ncu -u"
     },
     "dependencies": {
         "i18next": "^21.8.13",
-        "i18next-browser-languagedetector": "^6.1.4",
-        "i18next-http-backend": "^1.4.1",
-        "js-cookie": "^3.0.1",
         "qrcode.react": "^3.1.0",
         "rc-dropdown": "^4.0.1",
         "rc-menu": "^9.6.0",
@@ -28,7 +25,6 @@
         "svga.lite": "^1.6.1"
     },
     "devDependencies": {
-        "@types/js-cookie": "^3",
         "@types/react": "^18",
         "@types/react-dom": "^18.0.6",
         "mage": "workspace:^"

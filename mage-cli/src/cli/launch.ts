@@ -1,3 +1,5 @@
+import fs from 'fs-extra';
+import path from 'path';
 // 交互式命令行工具
 import inquirer from 'inquirer';
 import {spawn} from 'child_process';
@@ -5,7 +7,7 @@ import {spawn} from 'child_process';
 // 日志
 import logger from '../helpers/logger.js';
 // 工具
-import {readDirInfo, readJson} from '../helpers/utils.js';
+import {resolveCliPath, readDirInfo, readJson} from '../helpers/utils.js';
 
 /**
  * 声明 - 选项
@@ -37,7 +39,10 @@ const getChoices = (packages: string[]): IChoices => {
   const choices: IChoices = [];
 
   for (const item of packages) {
-    if (item !== 'libs' && item !== 'ui') {
+    const appConfigPath = path.resolve(resolveCliPath('../packages'), item, 'app.config.js');
+    const isExist = fs.pathExistsSync(appConfigPath);
+
+    if (isExist) {
       choices.push({
         name: item,
         checked: launch.includes(item),

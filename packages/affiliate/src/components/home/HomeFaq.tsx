@@ -1,5 +1,5 @@
-import {useTranslate} from '@ui/i18n';
-import UIFaq from '@ui/faq';
+import {useTranslate} from '@libs/i18n';
+import WidgetFaq from '@widget/faq';
 
 import './HomeFaq.less';
 
@@ -20,7 +20,7 @@ const HomeFaq = (): JSX.Element => {
 
   return (
     <section className="affiliate-faq">
-      <UIFaq title={t('faq_title')} list={list} />
+      <WidgetFaq title={t('faq_title')} list={list} />
     </section>
   );
 };
