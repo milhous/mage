@@ -2,6 +2,7 @@ import {Suspense, lazy, useState} from 'react';
 import {Outlet} from 'react-router-dom';
 
 import loadComponent from '@libs/loadComponent';
+import {UIType} from '@libs/types';
 import WidgetSpinner from '@widget/spinner';
 
 // import UIToolbar from 'ui';
@@ -38,11 +39,11 @@ export default function Home(): JSX.Element {
 
   return (
     <>
-      <System system={system} type={0} />
-      <System system={system} type={1} />
+      <System system={system} type={UIType.TOOLBAR} />
+      <System system={system} type={UIType.HEADER} />
       Hello world!
       <Outlet />
-      <System system={system} type={2} />
+      <System system={system} type={UIType.FOOTER} />
     </>
   );
 }

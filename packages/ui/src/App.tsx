@@ -1,3 +1,5 @@
+import {UIType} from '@libs/types';
+
 import UIToolbar from '@app/toolbar';
 import UIHeader from '@app/header';
 import UIFooter from '@app/footer';
@@ -6,18 +8,16 @@ const App = (props: {type: number}) => {
   const {type} = props;
   let Comp = null;
 
-  console.log('ui', type);
-
   switch (type) {
-    case 0:
+    case UIType.TOOLBAR:
       Comp = UIToolbar;
 
       break;
-    case 1:
+    case UIType.HEADER:
       Comp = UIHeader;
 
       break;
-    case 2:
+    case UIType.FOOTER:
       Comp = UIFooter;
 
       break;
