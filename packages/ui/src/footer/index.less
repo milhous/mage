@@ -1,4 +1,4 @@
-@import (reference) '@style/library.less';
+@import (reference) '@libs/style/library.less';
 
 .ui-footer {
     --ui-footer-background: #161F2C;
@@ -15,59 +15,6 @@
         max-width: 1490px;
         margin: 0 auto;
         padding: 0 20px;
-    }
-
-    &_nav {
-        padding: 50px 0;
-
-        section {
-            .setFlex(space-between, flex-start);
-        }
-
-        article {
-            display: flex;
-            width: 100%;
-
-            dl {
-                box-sizing: border-box;
-                width: 25%;
-                max-width: 280px;
-                padding-right: 20px;
-            }
-
-            dt,
-            dd {
-                white-space: nowrap;
-            }
-
-            dt {
-                .setFont(16px, 20px, var(--ui-footer-title), 700);
-
-                margin-bottom: 24px;
-            }
-
-            dd {
-                .setEllipsis();
-
-                .setFont(14px, 20px, var(--ui-footer-title));
-
-                margin-bottom: 10px;
-                color: var(--ui-footer-nav);
-                font-size: 14px;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        aside {
-            min-width: 240px;
-
-            h3 {
-                .setFont(16px, 20px, var(--ui-footer-title), 700);
-            }
-        }
     }
 
     &_assume {

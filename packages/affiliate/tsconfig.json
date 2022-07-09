@@ -5,8 +5,7 @@
     "paths": {
       "@app/*": ["../packages/affiliate/src/*"],
       "@widget/*": ["../packages/widget/src/*"],
-      "@libs/*": ["../packages/libs/src/*"],
-      "@style/*": ["../packages/style/src/*"]
+      "@libs/*": ["../packages/libs/src/*"]
     }
   }
 }
