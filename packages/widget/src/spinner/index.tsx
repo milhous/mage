@@ -3,15 +3,15 @@ import SpinnerBg from './spinner-bg.svg';
 import SpinnerLogo from './spinner-logo.svg';
 
 // 加载
-const UISpinner = (): JSX.Element => {
+const WidgetSpinner = (): JSX.Element => {
   return (
-    <div className="ui-spinner">
-      <div className="ui-spinner_box">
-        <SpinnerBg className="ui-spinner_bg" />
-        <SpinnerLogo className="ui-spinner_logo" />
+    <div className="widget-spinner">
+      <div className="widget-spinner_box">
+        <SpinnerBg className="widget-spinner_bg" />
+        <SpinnerLogo className="widget-spinner_logo" />
       </div>
     </div>
   );
 };
 
-export default UISpinner;
+export default WidgetSpinner;

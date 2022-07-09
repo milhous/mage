@@ -20,7 +20,7 @@
         }
     }
 
-    .ui-toolbar_content {
+    &_content {
         .setFlex(space-between, flex-end);
 
         box-sizing: border-box;
@@ -30,7 +30,7 @@
         padding: 0 20px;
       }
 
-    .ui-toolbar_app {
+    &_app {
         .setFlex(flex-start, center);
 
         padding: 0 20px;
@@ -65,7 +65,7 @@
         }
     }
 
-    .ul-toolbar_QRCode {
+    &_QRCode {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -78,25 +78,5 @@
         border-radius: 0.06rem;
         background-color: #202c3c;
         box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.3);
-    
-        canvas {
-          box-sizing: border-box;
-          display: block;
-          width: 1.2rem;
-          height: 1.2rem;
-          border: 0.06rem solid #fff;
-          border-radius: 0.04rem;
-        }
-    
-        svg {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: 0.24rem;
-          height: 0.24rem;
-          border: 0.02rem solid #fff;
-          border-radius: 0.04rem;
-        }
     }
 }

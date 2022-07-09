@@ -1,11 +1,10 @@
-import QRCode from 'qrcode.react';
+import WidgetQRCode from '@widget/QRCode';
 
 import './index.less';
 
 import ToolbarAndroid from './assets/toolbar-android.svg';
 import ToolbarGoogle from './assets/toolbar-google.svg';
 import ToolbarIOS from './assets/toolbar-ios.svg';
-import ToolbarLogo from './assets/toolbar-logo.svg';
 
 // app下载
 const AppDownload = (): JSX.Element => {
@@ -30,9 +29,10 @@ const AppDownload = (): JSX.Element => {
 // 下载二维码
 const AppQRCode = (): JSX.Element => {
   return (
-    <div className="ul-toolbar_QRCode">
-      <QRCode value={`${location.origin}/app`} level="H" />
-      <ToolbarLogo />
+    <div className="ui-toolbar_QRCode">
+      <div>
+        <WidgetQRCode url={`${location.origin}/app`} />
+      </div>
     </div>
   );
 };

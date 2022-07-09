@@ -1,23 +1,23 @@
 @import (reference) '@libs/style/library.less';
 
-.ui-faq {
-    --ui-faq-background: #131A26;
-    --ui-faq-title: #fff;
-    --ui-faq-desc: #7286A6;
-    --ui-faq-border: #45556D;
-    --ui-faq-symbol: #02996A;
+.widget-faq {
+    --widget-faq-background: #131A26;
+    --widget-faq-title: #fff;
+    --widget-faq-desc: #7286A6;
+    --widget-faq-border: #45556D;
+    --widget-faq-symbol: #02996A;
 
     box-sizing: border-box;
     margin: 2px auto 0;
     padding: 50px 0 45px;
-    background-color: var(--ui-faq-background);
+    background-color: var(--widget-faq-background);
 
     .smallScreen({
         padding: 70px 40px;
     });
 
     h3 {
-        .setFont(30px, 40px, var(--ui-faq-title), 700);
+        .setFont(30px, 40px, var(--widget-faq-title), 700);
 
         text-align: center;
 
@@ -60,7 +60,7 @@
     
     details {
         padding:  12px 20px;
-        border: 1px solid var(--ui-faq-border);
+        border: 1px solid var(--widget-faq-border);
         border-radius: 6px;
 
         .smallScreen({
@@ -71,7 +71,7 @@
     }
 
     summary {
-        .setFont(15px, 21px, var(--ui-faq-title), 700);
+        .setFont(15px, 21px, var(--widget-faq-title), 700);
 
         position: relative;
         padding-left: 20px;
@@ -102,7 +102,7 @@
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
-                background-color: var(--ui-faq-symbol);
+                background-color: var(--widget-faq-symbol);
             }
 
             &::before {
@@ -136,7 +136,7 @@
     }
 
     p {
-        .setFont(15px, 21px, var(--ui-faq-desc));
+        .setFont(15px, 21px, var(--widget-faq-desc));
 
         margin-top: 10px;
 

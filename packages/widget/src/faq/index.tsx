@@ -5,16 +5,16 @@ import './index.less';
  * @property title 标题
  * @property list 列表
  */
-interface IUIFaqProps {
+interface IFaqProps {
   title: string;
   list: {question: string; answer: string}[];
 }
 
 /**
  * 常见问题
- * @param {IUIFaqProps} props
+ * @param {IFaqProps} props
  */
-const UIFaq = (props: IUIFaqProps): JSX.Element => {
+const WidgetFaq = (props: IFaqProps): JSX.Element => {
   const {title, list} = props;
 
   const elems: JSX.Element[] = [];
@@ -35,11 +35,11 @@ const UIFaq = (props: IUIFaqProps): JSX.Element => {
     );
   }
   return (
-    <div className="ui-faq">
+    <div className="widget-faq">
       <h3>{title}</h3>
       <ul>{elems}</ul>
     </div>
   );
 };
 
-export default UIFaq;
+export default WidgetFaq;

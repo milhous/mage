@@ -159,7 +159,7 @@ const Svga = (props: Props) => {
     }
   }, [url, id, player, time]);
 
-  return <canvas className="ui-svga" ref={ref} id={id}></canvas>;
+  return <canvas className="widget-svga" ref={ref} id={id}></canvas>;
 };
 
 export default Svga;

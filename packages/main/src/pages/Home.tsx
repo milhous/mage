@@ -41,7 +41,6 @@ export default function Home(): JSX.Element {
     <>
       <System system={system} type={UIType.TOOLBAR} />
       <System system={system} type={UIType.HEADER} />
-      Hello world!
       <Outlet />
       <System system={system} type={UIType.FOOTER} />
     </>
