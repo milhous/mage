@@ -18,7 +18,7 @@
     "devDependencies": {
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
         "@svgr/webpack": "^6.2.1",
-        "@swc/core": "^1.2.210",
+        "@swc/core": "^1.2.211",
         "@types/imagemin": "^8",
         "@types/imagemin-gifsicle": "^7",
         "@types/imagemin-svgo": "^10",

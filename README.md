@@ -17,8 +17,12 @@
 |     |－ csv 多语言导出
 |     |－ cli 命令行
 |     |－ packages 应用包
+|           |－ libs 模块库
+|           |－ widget 挂件
 |           |－ main 主应用
 |                 |－ 端口号: 3000
+|           |－ ui UI组件
+|                 |－ 端口号: 9001
 |           |－ home 首页
 |                 |－ 端口号: 3000
 |           |－ match
@@ -33,8 +37,6 @@
 |                 |－ 端口号: 9007
 |           |－ affiliate 代理
 |                 |－ 端口号: 9013
-|           |－ ui 组件库
-|           |－ libs 模块库
 ```
 
 ## 如何使用
@@ -96,3 +98,7 @@ import Svg from './assets/file.svg'
 ## 使用 Libs
 
 查阅 [Libs](./packages/libs/README.md) 文档
+
+## 使用 WIDGET
+
+查阅 [WIDGET](./packages/widget/README.md) 文档
