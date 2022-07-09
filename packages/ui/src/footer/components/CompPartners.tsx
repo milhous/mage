@@ -1,4 +1,4 @@
-import {useTransition, useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 
 import {useInterval} from '@libs/hook';
 
@@ -8,6 +8,8 @@ import './CompPartners.less';
 const CompPartners = (props: {partners: string[]}): JSX.Element => {
   const comps: JSX.Element[] = [];
   const [animState, setAnimState] = useState<number>(1);
+  const container = useRef<HTMLElement>(null);
+  const list = useRef<HTMLUListElement>(null);
 
   for (const src of props.partners) {
     comps.push(
@@ -17,14 +19,26 @@ const CompPartners = (props: {partners: string[]}): JSX.Element => {
     );
   }
 
+  // logo滚动
   useInterval(() => {
-    console.log(1111);
+    if (!!container.current && !!list.current) {
+      const max = list.current.clientHeight / container.current.clientHeight;
+      let index = animState + 1;
+
+      if (index > max) {
+        index = 1;
+      }
+
+      setAnimState(index);
+    }
   }, 3000);
 
   return (
     <div className="ui-footer_partner">
-      <section>
-        <ul className={`state-${animState}`}>{comps}</ul>
+      <section ref={container}>
+        <ul className={`state-${animState}`} ref={list}>
+          {comps}
+        </ul>
       </section>
     </div>
   );

@@ -1,0 +1,20 @@
+@import (reference) '@libs/style/library.less';
+
+.ui-footer {
+    &_assume {
+        padding: 30px 0;
+        border-top: 1px solid var(--ui-footer-border);
+
+        span {
+            .setFlex(center, center);
+
+            .setFont(16px, 20px, var(--ui-footer-title));
+
+            box-sizing: border-box;
+            width: 41px;
+            height: $width;
+            border: 3px solid #02996A;
+            border-radius: 50%;
+        }
+    }
+}

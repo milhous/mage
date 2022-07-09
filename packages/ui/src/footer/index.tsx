@@ -2,6 +2,8 @@ import {useTransition, useState, useEffect} from 'react';
 
 import CompNav from './components/CompNav';
 import CompPartners from './components/CompPartners';
+import CompAssume from './components/CompAssume';
+import CompCopyright from './components/CompCopyright';
 
 import './index.less';
 
@@ -35,20 +37,8 @@ const UIFooter = (): JSX.Element => {
     <div className="ui-footer">
       <CompNav />
       {!isPending && <CompPartners partners={partners} />}
-      <div className="ui-footer_assume">
-        <section>
-          <span>18+</span>
-        </section>
-      </div>
-      <div className="ui-footer_copyright">
-        <section>
-          <p>
-            Copyright 2019 - King of Fortune Island - Max Blue N.V. is owned and operated by Max Blue N.V., a company
-            registered and established under the laws of Curacao and its wholly owned subsidiary, Max Blue Limited,
-            registered address Zuikertuintjeweg Z/N (Zuikertuin Tower), Curaçao.
-          </p>
-        </section>
-      </div>
+      <CompAssume />
+      <CompCopyright />
     </div>
   );
 };
