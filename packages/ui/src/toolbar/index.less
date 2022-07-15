@@ -48,13 +48,13 @@
 
             &:hover {
                 color: #dbe4ff;
-
-                div {
-                    display: flex;
-                }
             }
 
-            div {
+            &:hover > div {
+                display: block;
+            }
+
+            & > div {
                 display: none;
             }
         }
@@ -66,17 +66,19 @@
     }
 
     &_QRCode {
+        box-sizing: border-box;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
         left: 50%;
-        bottom: -1.7rem;
+        bottom: -170px;
         transform: translateX(-50%);
-        width: 1.6rem;
-        height: 1.6rem;
-        border-radius: 0.06rem;
+        width: 160px;
+        height: 160px;
+        padding: 20px;
+        border-radius: 6px;
         background-color: #202c3c;
-        box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 }

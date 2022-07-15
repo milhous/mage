@@ -1,7 +1,7 @@
 {
     "name": "@packages/ui",
     "version": "1.0.0",
-    "description": "UI组件",
+    "description": "组件",
     "type": "module",
     "main": "app.config.js",
     "private": true,
@@ -11,10 +11,10 @@
         "update": "ncu -u"
     },
     "dependencies": {
-        "i18next": "^21.8.13",
+        "i18next": "^21.8.14",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-i18next": "^11.18.0",
+        "react-i18next": "^11.18.1",
         "regenerator-runtime": "^0.13.9"
     },
     "devDependencies": {

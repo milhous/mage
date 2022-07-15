@@ -6,6 +6,31 @@ import {Scrollbars} from 'rc-scrollbars';
 
 import './index.less';
 
-const UIDropdown = (): JSX.Element => {
-  return <div>111</div>;
+function onSelect(props: {key: string}): void {
+  const {key} = props;
+
+  console.log(`${key} selected`);
+}
+
+function onVisibleChange(visible: boolean): void {
+  console.log(visible);
+}
+
+const menu = (
+  <Menu onSelect={onSelect}>
+    <MenuItem disabled>disabled</MenuItem>
+    <MenuItem key="1">one</MenuItem>
+    <MenuItem key="2">two</MenuItem>
+  </Menu>
+);
+
+// 下拉
+const WidgetDropdown = (): JSX.Element => {
+  return (
+    <Dropdown trigger={['click']} overlay={menu} animation="slide-up" onVisibleChange={onVisibleChange}>
+      <div>1111</div>
+    </Dropdown>
+  );
 };
+
+export default WidgetDropdown;

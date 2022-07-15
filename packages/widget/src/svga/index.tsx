@@ -132,6 +132,7 @@ type Props = {
   onStart?: (ele: HTMLCanvasElement) => void;
 };
 
+// SVGA动画
 const Svga = (props: Props) => {
   const {url, ref, time = 0, onEnd, onStart, onProcess, ...otherProps} = props;
   const [id, setId] = useState<string>(uuid());

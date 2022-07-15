@@ -30,9 +30,7 @@ const AppDownload = (): JSX.Element => {
 const AppQRCode = (): JSX.Element => {
   return (
     <div className="ui-toolbar_QRCode">
-      <div>
-        <WidgetQRCode url={`${location.origin}/app`} />
-      </div>
+      <WidgetQRCode url={`${location.origin}/app`} />
     </div>
   );
 };

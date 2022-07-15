@@ -1,6 +1,21 @@
 import {useTranslate} from '@libs/i18n';
+import {WidgetDropdown, WidgetQRCode} from '@widget/index';
 
 import './CompNav.less';
+import FooterIOS from '../assets/footer-ios.svg';
+import FooterAndroid from '../assets/footer-android.svg';
+import FooterGoogle from '../assets/footer-google.svg';
+
+// 下载二维码
+const AppQRCode = (): JSX.Element => {
+  return (
+    <div className="ui-footer_QRCode">
+      <div>
+        <WidgetQRCode url={`${location.origin}/app`} />
+      </div>
+    </div>
+  );
+};
 
 // 导航
 const CompNav = (): JSX.Element => {
@@ -46,11 +61,33 @@ const CompNav = (): JSX.Element => {
           </dl>
         </article>
         <aside>
-          <div className="ui-preferences">
+          <div className="ui-footer_preferences">
             <h3>{t('preferences')}</h3>
+            <ul>
+              <li>
+                <WidgetDropdown />
+              </li>
+              <li>
+                <WidgetDropdown />
+              </li>
+            </ul>
           </div>
           <div className="ui-footer_download">
             <h3>{t('app_download')}</h3>
+            <ul className="ui-footer_app">
+              <li>
+                <FooterIOS />
+                <AppQRCode />
+              </li>
+              <li>
+                <FooterAndroid />
+                <AppQRCode />
+              </li>
+              <li>
+                <FooterGoogle />
+                <AppQRCode />
+              </li>
+            </ul>
           </div>
         </aside>
       </section>
