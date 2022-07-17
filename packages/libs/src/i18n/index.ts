@@ -39,7 +39,7 @@ export const getSupportedLangs = (): string[] => {
  * 获取当前语言
  * @returns {string}
  */
-export const getLang = (): string => {
+export const getCurLang = (): string => {
   const lang = Cookies.get('lang') || i18n.language || 'en';
 
   if (LangConfigs.find(v => v.lang === lang)) {

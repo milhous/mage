@@ -3,6 +3,7 @@ import {UIType} from '@libs/types';
 import UIToolbar from '@app/toolbar';
 import UIHeader from '@app/header';
 import UIFooter from '@app/footer';
+import UILanguages from '@app/languages';
 
 const App = (props: {type: number}) => {
   const {type} = props;
@@ -19,6 +20,10 @@ const App = (props: {type: number}) => {
       break;
     case UIType.FOOTER:
       Comp = UIFooter;
+
+      break;
+    case UIType.LANGUAGES:
+      Comp = UILanguages;
 
       break;
   }

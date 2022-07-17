@@ -56,7 +56,16 @@
 
     &_dropdowns {
         & > li {
+            position: relative;
             margin-top: 20px;
+
+            &:nth-child(1) {
+                z-index: 20;
+            }
+    
+            &:nth-child(2) {
+                z-index: 10;
+            }
         }
     }
 
@@ -117,7 +126,5 @@
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
         }
-
-
     }
 }
