@@ -63,7 +63,7 @@ const CompNav = (): JSX.Element => {
         <aside>
           <div className="ui-footer_preferences">
             <h3>{t('preferences')}</h3>
-            <ul>
+            <ul className="ui-footer_dropdowns">
               <li>
                 <WidgetDropdown />
               </li>
