@@ -1,6 +1,7 @@
 import {useTranslate} from '@libs/i18n';
 import {WidgetDropdown, WidgetQRCode} from '@widget/index';
 import UILanguages from '@app/languages';
+import UITimezone from '@app/timezone';
 
 import './CompNav.less';
 import FooterIOS from '../assets/footer-ios.svg';
@@ -68,7 +69,9 @@ const CompNav = (): JSX.Element => {
               <li>
                 <UILanguages />
               </li>
-              <li>{/* <WidgetDropdown /> */}</li>
+              <li>
+                <UITimezone />
+              </li>
             </ul>
           </div>
           <div className="ui-footer_download">

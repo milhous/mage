@@ -4,6 +4,7 @@ import UIToolbar from '@app/toolbar';
 import UIHeader from '@app/header';
 import UIFooter from '@app/footer';
 import UILanguages from '@app/languages';
+import UITimezone from '@app/timezone';
 
 const App = (props: {type: number}) => {
   const {type} = props;
@@ -24,6 +25,10 @@ const App = (props: {type: number}) => {
       break;
     case UIType.LANGUAGES:
       Comp = UILanguages;
+
+      break;
+    case UIType.TIMEZONE:
+      Comp = UITimezone;
 
       break;
   }

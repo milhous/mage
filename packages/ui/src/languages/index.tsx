@@ -1,4 +1,4 @@
-import {LangConfigs, getSupportedLangs, getCurLang} from '@libs/i18n';
+import {LangConfigs, getCurLang} from '@libs/i18n';
 import {WidgetDropdown} from '@widget/index';
 
 // 获取语言列表
@@ -15,7 +15,7 @@ const getLangsList = () => {
   return list;
 };
 
-// footer
+// Languages
 const UILanguages = (): JSX.Element => {
   return <WidgetDropdown list={getLangsList()} selected={getCurLang()} />;
 };
