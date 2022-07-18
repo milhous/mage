@@ -21,12 +21,12 @@ export default class MethodIndexedDB extends MethodBasic {
 
   // 创建频道
   protected _createChannel(): void {
-    this._listener = (data: IBTGBroadcastChannelMessage): void => {
+    this._listener = (data): void => {
       if (typeof this._messagesCallback === 'function') {
-        this._messagesCallback(data);
+        this._messagesCallback(data as IBTGBroadcastChannelMessage);
       }
 
-      this._messagesDispatch(data);
+      this._messagesDispatch(data as IBTGBroadcastChannelMessage);
     };
 
     this._channel = new Worker(blobURL);
@@ -46,20 +46,22 @@ export default class MethodIndexedDB extends MethodBasic {
             }
 
             // 判断是否小于频道创建时间
-            if (msg.time < this._time) {
+            if (typeof msg.time !== 'number' || msg.time < this._time) {
               return false;
             }
 
             // 判断是否重复发送
-            if (this._messagesToken.has(msg.token)) {
+            if (typeof msg.token !== 'string' || this._messagesToken.has(msg.token)) {
               return false;
             }
 
             return true;
           });
 
-          for (const msg of useMessages) {
-            this._listener(msg);
+          if (!!this._listener) {
+            for (const msg of useMessages) {
+              this._listener(msg);
+            }
           }
 
           break;
@@ -73,8 +75,8 @@ export default class MethodIndexedDB extends MethodBasic {
       cmd: 'init',
       data: {
         dbname: this._name,
-        loop: this._options.loop,
-        ttl: this._options.ttl,
+        loop: this._options?.loop,
+        ttl: this._options?.ttl,
       },
     });
   }

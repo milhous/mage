@@ -17,8 +17,8 @@ export default class MethodServiceWorker extends MethodBasic {
 
   // 创建频道
   protected _createChannel(): void {
-    this._listener = (evt: MessageEvent<any>) => {
-      const data: IBTGBroadcastChannelMessage = evt.data;
+    this._listener = evt => {
+      const {data} = evt as MessageEvent<any>;
 
       // 判断是否是自己的消息
       if (data.uuid === this._uuid) {
@@ -65,7 +65,9 @@ export default class MethodServiceWorker extends MethodBasic {
 
   // 关闭频道
   protected _closeChannel(): void {
-    navigator.serviceWorker.removeEventListener('message', this._listener);
+    if (!!this._listener) {
+      navigator.serviceWorker.removeEventListener('message', this._listener);
+    }
 
     // (this._channel as ServiceWorker).close();
   }

@@ -1,8 +1,8 @@
 import MethodBasic from './MethodBasic';
 
 // 获取LocalStorage
-const getLocalStorage = (): Storage => {
-  let localStorage: Storage = null;
+const getLocalStorage = (): Storage | null => {
+  let localStorage: Storage | null = null;
 
   if (typeof window === 'undefined') return null;
 
@@ -49,9 +49,11 @@ export default class MethodLocalStorage extends MethodBasic {
 
   // 创建频道
   protected _createChannel(): void {
-    this._listener = (evt: StorageEvent): void => {
-      if (evt.key === this._name) {
-        const data: IBTGBroadcastChannelMessage = JSON.parse(evt.newValue);
+    this._listener = (evt): void => {
+      const {key, newValue} = evt as StorageEvent;
+
+      if (key === this._name && typeof newValue === 'string') {
+        const data: IBTGBroadcastChannelMessage = JSON.parse(newValue);
 
         // 判断是否是自己的消息
         if (data.uuid === this._uuid) {
@@ -59,7 +61,7 @@ export default class MethodLocalStorage extends MethodBasic {
         }
 
         // 判断是否小于频道创建时间
-        if (data.time < this._time) {
+        if (typeof data.time !== 'number' || data.time < this._time) {
           return;
         }
 
@@ -78,7 +80,9 @@ export default class MethodLocalStorage extends MethodBasic {
 
   // 关闭频道
   protected _closeChannel(): void {
-    window.removeEventListener('storage', this._listener);
+    if (!!this._listener) {
+      window.removeEventListener('storage', this._listener);
+    }
   }
 
   /**

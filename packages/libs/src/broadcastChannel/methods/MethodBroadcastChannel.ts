@@ -16,8 +16,8 @@ export default class MethodBroadcastChannel extends MethodBasic {
 
   // 创建频道
   protected _createChannel(): void {
-    this._listener = (evt: MessageEvent<any>) => {
-      const data: IBTGBroadcastChannelMessage = evt.data;
+    this._listener = (evt): void => {
+      const data: IBTGBroadcastChannelMessage = (evt as MessageEvent<any>).data;
 
       // 判断是否是自己的消息
       if (data.uuid === this._uuid) {
@@ -25,7 +25,7 @@ export default class MethodBroadcastChannel extends MethodBasic {
       }
 
       // 判断是否小于频道创建时间
-      if (data.time < this._time) {
+      if (typeof data.time !== 'number' || data.time < this._time) {
         return;
       }
 
