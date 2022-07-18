@@ -1,9 +1,9 @@
-declare module "worker-loader!*" {
-    class WebpackWorker extends Worker {
-        constructor();
-    }
+declare module 'worker-loader!*' {
+  class WebpackWorker extends Worker {
+    constructor();
+  }
 
-    export default WebpackWorker;
+  export default WebpackWorker;
 }
 
 /**
@@ -13,9 +13,9 @@ declare module "worker-loader!*" {
  * @param {number} throttle 发送节流时间
  */
 declare interface IBTGBroadcastChannelOptions {
-    ttl: number;
-    loop: number;
-    throttle: number;
+  ttl: number;
+  loop: number;
+  throttle: number;
 }
 
 /**
@@ -28,17 +28,17 @@ declare interface IBTGBroadcastChannelOptions {
  * @param {number} id 消息ID
  */
 declare interface IBTGBroadcastChannelMessage {
-    type: string;
-    payload: IBTGBroadcastChannelPayload;
-    uuid?: string;
-    token?: string;
-    time?: number;
-    id?: number;
+  type: string;
+  payload: IBTGBroadcastChannelPayload;
+  uuid?: string;
+  token?: string;
+  time?: number;
+  id?: number;
 }
 
-// 声明 - 消息数据· 
+// 声明 - 消息数据·
 declare interface IBTGBroadcastChannelPayload {
-    [key: string]: any;
+  [key: string]: any;
 }
 
 /**
@@ -52,4 +52,3 @@ declare type IBTGBroadcastChannelCallback = (msg: IBTGBroadcastChannelMessage) =
 declare type IBTGBroadcastChannelMap = Map<string, IBTGBroadcastChannelSet>;
 
 declare type IBTGBroadcastChannelSet = Set<IBTGBroadcastChannelCallback>;
-

@@ -1711,7 +1711,7 @@ __metadata:
     rc-tooltip: ^5.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-toastify: ^9.0.5
+    react-toastify: ^9.0.6
     regenerator-runtime: ^0.13.9
     svga.lite: ^1.6.1
   languageName: unknown
@@ -11101,15 +11101,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-toastify@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "react-toastify@npm:9.0.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-toastify%2F-%2Freact-toastify-9.0.5.tgz"
+"react-toastify@npm:^9.0.6":
+  version: 9.0.6
+  resolution: "react-toastify@npm:9.0.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-toastify%2F-%2Freact-toastify-9.0.6.tgz"
   dependencies:
     clsx: ^1.1.1
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 5baf2705e20e698619fdffe9fba89d55bd4314ab49075704522a2166fcb6b17d9d34781cef937e818d583a410d11b37bfe6ed8a02638b08a672998741cf40e1c
+  checksum: 824c2d158d5fdcca3fa7e2b333c8c3608909ff0a911d93ad8a4186241b8a8b434f0942715f5349f0c2c30075f70f9b0c76fbe943a19d8c789b2ffd21c41658c3
   languageName: node
   linkType: hard
 
