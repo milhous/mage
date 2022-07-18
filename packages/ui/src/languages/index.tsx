@@ -1,4 +1,4 @@
-import {BroadcastChannel} from '@libs/broadcastChannel';
+import {BTGBroadcastChannel} from '@libs/broadcastChannel';
 import {LangConfigs, getSupportedLangs, getCurLang} from '@libs/i18n';
 import WidgetDropdown, {IWidgetDropdownList} from '@widget/dropdown';
 
