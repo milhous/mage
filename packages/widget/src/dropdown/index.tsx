@@ -12,11 +12,13 @@ import IconArrow from './icon-arrow.svg';
  * @param {Array<IWidgetDropdownList>} 列表
  * @param {string} selected 已选（对应list中val）
  * @param {Array<string>} trigger 触发方式，默认['click']
+ * @param {function} onSelect 选中回调
  */
 export interface IWidgetDropdownProps {
   list: IWidgetDropdownList[];
   selected: string;
   trigger?: string[];
+  onSelect: (val: IWidgetDropdownList) => void;
 }
 
 /**
@@ -40,6 +42,8 @@ const getDescWithSelected = (list: IWidgetDropdownList[], selected: string): str
   for (const item of list) {
     if (item.val === selected) {
       desc = item.desc;
+
+      break;
     }
   }
 
@@ -92,8 +96,8 @@ const getMenu = (list: IWidgetDropdownList[], selected: string, onSelect: any): 
 };
 
 // 下拉
-const WidgetDropdown = (props: {list: IWidgetDropdownList[]; selected: string; trigger?: string[]}): JSX.Element => {
-  const {list = [], selected = '', trigger = ['click']} = props;
+const WidgetDropdown = (props: IWidgetDropdownProps): JSX.Element => {
+  const {list = [], selected = '', trigger = ['click'], onSelect} = props;
   const container = useRef<HTMLDivElement>(null);
 
   const [selectedDesc, setSelectedDesc] = useState<string>(getDescWithSelected(list, selected));
@@ -103,6 +107,10 @@ const WidgetDropdown = (props: {list: IWidgetDropdownList[]; selected: string; t
 
     if (desc !== '') {
       setSelectedDesc(desc);
+
+      if (typeof onSelect === 'function') {
+        onSelect(list[Number(evt.key)]);
+      }
     }
   };
 

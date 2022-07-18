@@ -8,13 +8,13 @@ import MethodIndexedDB from './methods/MethodIndexedDB';
 import MethodLocalStorage from './methods/MethodLocalStorage';
 
 export const chooseMethod = (): any => {
-    if (MethodBroadcastChannel.canBeUsed()) {
-        return MethodBroadcastChannel;
-    } else if (MethodIndexedDB.canBeUsed()) {
-        return MethodIndexedDB;
-    } else if (MethodLocalStorage.canBeUsed()) {
-        return MethodLocalStorage;
-    }
+  if (MethodBroadcastChannel.canBeUsed()) {
+    return MethodBroadcastChannel;
+  } else if (MethodIndexedDB.canBeUsed()) {
+    return MethodIndexedDB;
+  } else if (MethodLocalStorage.canBeUsed()) {
+    return MethodLocalStorage;
+  }
 
-    return null;
+  return null;
 };
