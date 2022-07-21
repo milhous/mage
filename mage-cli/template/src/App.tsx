@@ -1,6 +1,7 @@
 import {Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
+import '@libs/mediator';
 import WidgetSpinner from '@widget/spinner';
 
 import './App.less';

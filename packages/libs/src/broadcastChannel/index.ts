@@ -20,7 +20,7 @@ export class BTGBroadcastChannel {
    * @param {string} name 频道名称
    * @param {object} options 配置信息
    */
-  constructor(name: string, options: any = {}) {
+  constructor(name = 'defualt', options: any = {}) {
     this._name = name;
     this._options = fillOptionsWithDefaults(options);
 
