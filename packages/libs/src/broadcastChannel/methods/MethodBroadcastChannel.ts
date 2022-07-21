@@ -39,7 +39,7 @@ export default class MethodBroadcastChannel extends MethodBasic {
     this._channel = new BroadcastChannel(this._name);
     this._channel.onmessage = this._listener;
     this._channel.onmessageerror = err => {
-      console.log(err);
+      console.log('broadcastChannel err', err);
     };
   }
 

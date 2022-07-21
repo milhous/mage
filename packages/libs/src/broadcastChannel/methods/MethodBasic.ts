@@ -82,9 +82,9 @@ abstract class MethodBasic {
     this._messagesCallback = null;
     this._listener = null;
 
-    for (const sublisteners of this._sublistenersMap.values()) {
+    this._sublistenersMap.forEach(sublisteners => {
       sublisteners.clear();
-    }
+    });
 
     this._sublistenersMap.clear();
 
@@ -122,13 +122,15 @@ abstract class MethodBasic {
 
     const sublisteners = this._sublistenersMap.get(type) as IBTGBroadcastChannelSet;
 
-    for (const listener of sublisteners) {
-      if (listener === handler) {
-        sublisteners.delete(listener);
+    try {
+      sublisteners.forEach(listener => {
+        if (listener === handler) {
+          sublisteners.delete(listener);
 
-        break;
-      }
-    }
+          throw new Error();
+        }
+      });
+    } catch (err) {}
   }
 
   // 创建频道
@@ -157,11 +159,11 @@ abstract class MethodBasic {
     if (this._sublistenersMap.has(type) && !this._messagesToken.has(token)) {
       const sublisteners = this._sublistenersMap.get(type) as IBTGBroadcastChannelSet;
 
-      for (const listener of sublisteners) {
+      sublisteners.forEach(listener => {
         if (typeof listener === 'function') {
           listener(data);
         }
-      }
+      });
 
       this._messagesToken.add(token);
     }

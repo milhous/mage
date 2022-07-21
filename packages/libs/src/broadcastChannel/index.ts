@@ -1,3 +1,4 @@
+import './@types/BTGBroadcastChannel.d';
 import {chooseMethod} from './methodChooser';
 import {fillOptionsWithDefaults} from './options';
 
@@ -113,9 +114,9 @@ export class BTGBroadcastChannel {
 
   // 更新
   private _update(): void {
-    for (const msg of this._messagesMap.values()) {
+    this._messagesMap.forEach(msg => {
       this._channel.postMessage(msg);
-    }
+    });
 
     this._messagesMap.clear();
   }

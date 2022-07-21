@@ -48,7 +48,7 @@ channel.postMessage({
 ```js
 import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 
-const channel = new BroadcastChannel("channelTest");
+const channel = new BTGBroadcastChannel("channelTest");
 
 channel.onMessage((msg) => {
   console.log(msg);
@@ -62,10 +62,10 @@ channel.onMessage((msg) => {
 ```js
 import { BTGBroadcastChannel } from "@libs/broadcastChannel";
 
-const channel = new BroadcastChannel("channelTest");
+const channel = new BTGBroadcastChannel("channelTest");
 const handler = (msg) => console.log(msg);
 
-// add ite
+// add it
 channel.addEventListener("test", handler);
 
 // remove it

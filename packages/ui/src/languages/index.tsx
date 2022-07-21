@@ -2,6 +2,8 @@ import {BTGBroadcastChannel} from '@libs/broadcastChannel';
 import {LangConfigs, getSupportedLangs, getCurLang} from '@libs/i18n';
 import WidgetDropdown, {IWidgetDropdownList} from '@widget/dropdown';
 
+const channel = new BTGBroadcastChannel('channelTest');
+
 // 获取语言列表
 const getLangsList = () => {
   const list = [];
@@ -19,7 +21,10 @@ const getLangsList = () => {
 // footer
 const UILanguages = (): JSX.Element => {
   const handleSelect = (data: IWidgetDropdownList): void => {
-    console.log(data);
+    channel.postMessage({
+      type: 'test',
+      payload: data,
+    });
   };
 
   return <WidgetDropdown list={getLangsList()} selected={getCurLang()} onSelect={handleSelect} />;
