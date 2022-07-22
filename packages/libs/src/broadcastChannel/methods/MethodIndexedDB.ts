@@ -4,9 +4,6 @@ import blobURL from '../workers/indexedDB.worker';
 // IndexedDB 是一种底层 API，用于在客户端存储大量的结构化数据（也包括文件/二进制大型对象（blobs））。
 // 该 API 使用索引实现对数据的高性能搜索。
 export default class MethodIndexedDB extends MethodBasic {
-  // 消息ID
-  private _messageId = 0;
-
   constructor() {
     super();
   }

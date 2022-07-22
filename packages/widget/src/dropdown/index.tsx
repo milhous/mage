@@ -11,12 +11,14 @@ import IconArrow from './icon-arrow.svg';
  * 声明 - 下拉
  * @param {Array<IWidgetDropdownList>} 列表
  * @param {string} selected 已选（对应list中val）
+ * @param {number} max 最多显示数量
  * @param {Array<string>} trigger 触发方式，默认['click']
  * @param {function} onSelect 选中回调
  */
 export interface IWidgetDropdownProps {
   list: IWidgetDropdownList[];
   selected: string;
+  max?: number;
   trigger?: string[];
   onSelect: (val: IWidgetDropdownList) => void;
 }
@@ -30,6 +32,34 @@ export interface IWidgetDropdownList {
   val: string;
   desc: string;
 }
+
+// 摆放类型
+const PlacementType = {
+  TOP_CENTER: 'topCenter',
+  BOTTOM_CENTER: 'bottomCenter',
+};
+
+/**
+ * 获取摆放类型
+ * @param {HTMLDivElement | null} elem 元素
+ * @param {number} nums 显示数量
+ * @returns {string}
+ */
+const getPlacementType = (elem: HTMLDivElement | null, nums: number): string => {
+  let placement = PlacementType.BOTTOM_CENTER;
+
+  if (!!elem) {
+    const {height, bottom} = elem.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const listHeight = height * nums;
+
+    if (windowHeight - bottom < listHeight) {
+      placement = PlacementType.TOP_CENTER;
+    }
+  }
+
+  return placement;
+};
 
 /**
  * 根据已选中值获取描述
@@ -97,11 +127,13 @@ const getMenu = (list: IWidgetDropdownList[], selected: string, onSelect: any): 
 
 // 下拉
 const WidgetDropdown = (props: IWidgetDropdownProps): JSX.Element => {
-  const {list = [], selected = '', trigger = ['click'], onSelect} = props;
+  const {list = [], selected = '', max = 10, trigger = ['click'], onSelect} = props;
   const container = useRef<HTMLDivElement>(null);
 
+  const [placement, setPlacement] = useState<string>(PlacementType.TOP_CENTER);
   const [selectedDesc, setSelectedDesc] = useState<string>(getDescWithSelected(list, selected));
 
+  // 选择
   const handleSelect = (evt: any): void => {
     const desc = getDescWithKey(list, evt.key);
 
@@ -114,13 +146,24 @@ const WidgetDropdown = (props: IWidgetDropdownProps): JSX.Element => {
     }
   };
 
+  // 点击
+  const handleClick = (visible: boolean): void => {
+    if (visible) {
+      const nums = list.length > max ? max : list.length;
+      const _placement = getPlacementType(container.current, nums);
+
+      setPlacement(_placement);
+    }
+  };
+
   return (
     <Dropdown
       trigger={trigger}
       overlay={() => getMenu(list, selected, handleSelect)}
       animation="slide-up"
       getPopupContainer={() => container.current as HTMLDivElement}
-      placement="bottomCenter"
+      placement={placement}
+      onVisibleChange={handleClick}
     >
       <div className="widget-dropdown" ref={container}>
         <div className="widget-dropdown_selected">

@@ -57,7 +57,13 @@
     z-index: 10;
 
     div:nth-child(2) {
-        top: 100%!important;
+        z-index: 5;
+
+        height: 100%;
+
+        & > div {
+            height: 100%;
+        }
     }
 
     &_selected {
@@ -66,6 +72,8 @@
 
         cursor: pointer;
         box-sizing: border-box;
+        position: relative;
+        z-index: 10;
         width: 240px;
         height: 36px;
         padding: 0 14px;
@@ -88,7 +96,8 @@
 
     .rc-dropdown {
         overflow: hidden;
-        top: 10px!important;
+        position: absolute;
+        left: 0!important;
         padding: 6px 0;
         border-radius: 6px;
         background-color: #161f2c;
@@ -120,6 +129,16 @@
             opacity: 1;
             animation-timing-function: ease;
             animation-play-state: paused;
+        }
+
+        &-placement-bottomCenter {
+            top: calc(100% + 10px)!important;
+            bottom: auto!important;
+        }
+
+        &-placement-topCenter {
+            top: auto!important;
+            bottom: calc(100% + 10px)!important;
         }
         
         &-slide-up-enter.@{prefixCls}-slide-up-enter-active.@{prefixCls}-placement-bottomLeft,
