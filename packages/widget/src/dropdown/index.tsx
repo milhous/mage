@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import Dropdown from 'rc-dropdown';
-import Menu, {Item as MenuItem} from 'rc-menu';
+import Menu, {Item as MenuItem, MenuRef} from 'rc-menu';
 import Tooltip from 'rc-tooltip';
 import {Scrollbars} from 'rc-scrollbars';
 
@@ -97,15 +97,25 @@ const getDescWithKey = (list: IWidgetDropdownList[], key: string): string => {
 };
 
 /**
- * 获取菜单
- * @param {Array<IWidgetDropdownList>} list 列表
- * @param {string} selected 已选中值
- * @param {function} onSelect 选择回调
+ * 下拉菜单
+ * @param {Array<IWidgetDropdownList>} props.list 列表
+ * @param {string} props.selected 已选中值
+ * @param {function} props.onSelect 选择回调
+ * @param {number} props.max 显示最大数量
  * @returns
  */
-const getMenu = (list: IWidgetDropdownList[], selected: string, onSelect: any): JSX.Element => {
+const DropdownMenu = (props: {
+  list: IWidgetDropdownList[];
+  selected: string;
+  onSelect: any;
+  max: number;
+}): JSX.Element => {
+  const {list, selected, onSelect, max} = props;
   const defaultSelectedKeys: string[] = [];
   const MenuItems: JSX.Element[] = [];
+
+  const container = useRef<MenuRef>(null);
+  const [menuHeigh, setMenuHeight] = useState<number>(0);
 
   for (let i = 0, len = list.length; i < len; i++) {
     const key = '' + i;
@@ -118,10 +128,22 @@ const getMenu = (list: IWidgetDropdownList[], selected: string, onSelect: any): 
     MenuItems.push(<MenuItem key={key}>{desc}</MenuItem>);
   }
 
+  useEffect(() => {
+    if (!!container.current) {
+      const {height} = container.current.list.getBoundingClientRect();
+      const itemHeight = height / list.length;
+      const nums = list.length > max ? max : list.length;
+
+      setMenuHeight(itemHeight * nums);
+    }
+  }, []);
+
   return (
-    <Menu onSelect={onSelect} defaultSelectedKeys={defaultSelectedKeys}>
-      {MenuItems}
-    </Menu>
+    <Scrollbars style={{height: menuHeigh}}>
+      <Menu onSelect={onSelect} defaultSelectedKeys={defaultSelectedKeys} ref={container}>
+        {MenuItems}
+      </Menu>
+    </Scrollbars>
   );
 };
 
@@ -131,7 +153,7 @@ const WidgetDropdown = (props: IWidgetDropdownProps): JSX.Element => {
   const container = useRef<HTMLDivElement>(null);
 
   const [placement, setPlacement] = useState<string>(PlacementType.TOP_CENTER);
-  const [selectedDesc, setSelectedDesc] = useState<string>(getDescWithSelected(list, selected));
+  const [selectedDesc, setSelectedDesc] = useState<string>('');
 
   // 选择
   const handleSelect = (evt: any): void => {
@@ -156,10 +178,16 @@ const WidgetDropdown = (props: IWidgetDropdownProps): JSX.Element => {
     }
   };
 
+  useEffect(() => {
+    const desc = getDescWithSelected(list, selected);
+
+    setSelectedDesc(desc);
+  }, [list, selected]);
+
   return (
     <Dropdown
       trigger={trigger}
-      overlay={() => getMenu(list, selected, handleSelect)}
+      overlay={() => <DropdownMenu list={list} selected={selected} onSelect={handleSelect} max={max} />}
       animation="slide-up"
       getPopupContainer={() => container.current as HTMLDivElement}
       placement={placement}

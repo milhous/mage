@@ -178,10 +178,14 @@
 
     .rc-menu {
         &-item {
+            .setEllipsis();
+
             .setFont(14px, 28px, #7286a6);
 
             cursor: pointer;
+            box-sizing: border-box;
             position: relative;
+            width: 100%;
             height: 28px;
             padding: 0 14px;
             transition: color var(--animation-duration), background-color var(--animation-duration);
@@ -209,6 +213,8 @@
     }
 
     &.rc-dropdown-open {
+        z-index: 20;
+
         .widget-dropdown_selected svg {
             transform: rotate(180deg);
         }

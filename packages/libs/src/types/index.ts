@@ -25,3 +25,11 @@ export const ChannelEventType = {
   TIMEZONE_CHANGE: 'timezoneChange',
   CURRENCY_CHANGE: 'currencyChange',
 };
+
+/**
+ * LocalStorage Key
+ * @property TIMEZONE 时区
+ */
+export const LocalStorageKey = {
+  TIMEZONE: 'timezone',
+};

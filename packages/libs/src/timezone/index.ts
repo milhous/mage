@@ -1,3 +1,5 @@
+import {LocalStorageKey} from '../types';
+
 // 时区配置
 export const TimeZoneConfigs = {
   'UTC-12:00': -12,
@@ -43,7 +45,7 @@ export const TimeZoneConfigs = {
  * 获取客户端时区
  * @returns {string}
  */
-export const getClientTimeZone = (): string => {
+export const getClientTimezone = (): string => {
   const offset = new Date().getTimezoneOffset();
   const o = Math.abs(offset);
 
@@ -54,6 +56,14 @@ export const getClientTimeZone = (): string => {
  * 获取时区
  * @returns {string}
  */
-export const getTimeZone = (): string => {
-  return (typeof window !== 'undefined' && window.localStorage?.timezone) || getClientTimeZone();
+export const getCurTimezone = (): string => {
+  return (typeof window !== 'undefined' && window.localStorage?.timezone) || getClientTimezone();
+};
+
+/**
+ * 切换时区
+ * @param {string} timezone 时区
+ */
+export const changeTimezone = (timezone: string): void => {
+  window.localStorage?.setItem(LocalStorageKey.TIMEZONE, timezone);
 };

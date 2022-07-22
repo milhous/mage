@@ -21,10 +21,6 @@ export const LangConfigs: ILangInfo[] = [
   {lang: 'zh-Hant', alias: '繁體中文', oldStandard: 'zh-TW'},
 ];
 
-// export const Langs = window.supportedLngs || (LangConfigs.map(v => v.lang) as LangType[]);
-
-// i18n.changeLanguage('en');
-
 /**
  * 获取支持语言列表
  * @returns {Array<string>}
@@ -52,10 +48,11 @@ export const getCurLang = (): string => {
 /**
  * 获取翻译文案
  * @param {string} key 翻译key
+ * @param {string | boolean} nsSeparator 命名空间分隔符
  * @returns {string}
  */
-export const getTranslate = (key: string): string => {
-  return i18n.t(key);
+export const getTranslate = (key: string, nsSeparator = ':'): string => {
+  return i18n.t(key, {nsSeparator: nsSeparator});
 };
 
 /**

@@ -1,5 +1,5 @@
 import {useTranslate} from '@libs/i18n';
-import {WidgetDropdown, WidgetQRCode} from '@widget/index';
+import {WidgetQRCode} from '@widget/index';
 import UILanguages from '@app/languages';
 import UITimezone from '@app/timezone';
 
