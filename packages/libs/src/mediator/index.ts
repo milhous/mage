@@ -1,4 +1,4 @@
-import {ChannelEventType, LocalStorageKey} from '../types';
+import {ChannelEventType, LocalStorageKey} from '../config';
 import {changeLang} from '../i18n';
 import {changeTimezone} from '../timezone';
 import {BTGBroadcastChannel} from '../broadcastChannel';

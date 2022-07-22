@@ -2,7 +2,7 @@ import {Suspense, lazy, useState} from 'react';
 import {Outlet} from 'react-router-dom';
 
 import loadComponent from '@libs/loadComponent';
-import {UIType} from '@libs/types';
+import {UIType} from '@libs/config';
 import WidgetSpinner from '@widget/spinner';
 
 // import UIToolbar from 'ui';

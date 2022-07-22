@@ -1,4 +1,8 @@
-import {LocalStorageKey} from '../types';
+import {useState, useEffect} from 'react';
+
+import {LocalStorageKey} from '../config';
+
+const TIMEZONE_CHANGED = 'CUSTOMEVENT_TIMEZONE_CHANGED';
 
 // 时区配置
 export const TimeZoneConfigs = {
@@ -66,4 +70,23 @@ export const getCurTimezone = (): string => {
  */
 export const changeTimezone = (timezone: string): void => {
   window.localStorage?.setItem(LocalStorageKey.TIMEZONE, timezone);
+
+  window.dispatchEvent(new CustomEvent(TIMEZONE_CHANGED, {detail: timezone}));
+};
+
+// 时区Hook
+export const useTimezone = () => {
+  const [timezone, setTimezone] = useState(getCurTimezone());
+
+  useEffect(() => {
+    const onTimezone: EventListener = ({detail}: any) => {
+      setTimezone(detail);
+    };
+
+    window.addEventListener(TIMEZONE_CHANGED, onTimezone);
+
+    return () => window.removeEventListener(TIMEZONE_CHANGED, onTimezone);
+  }, []);
+
+  return timezone;
 };

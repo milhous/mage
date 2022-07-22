@@ -1,5 +1,5 @@
 import '@libs/mediator';
-import {UIType} from '@libs/types';
+import {UIType} from '@libs/config';
 
 import UIToolbar from '@app/toolbar';
 import UIHeader from '@app/header';

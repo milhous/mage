@@ -1,9 +1,10 @@
-import {ChannelEventType} from '@libs/types';
+import {useEffect, useState} from 'react';
+
+import {ChannelEventType} from '@libs/config';
 import {useTranslate, getTranslate} from '@libs/i18n';
 import {BTGBroadcastChannel} from '@libs/broadcastChannel';
-import {TimeZoneConfigs, getCurTimezone} from '@libs/timezone';
+import {TimeZoneConfigs, getCurTimezone, useTimezone} from '@libs/timezone';
 import WidgetDropdown, {IWidgetDropdownList} from '@widget/dropdown';
-import {useEffect, useState} from 'react';
 
 const channel = new BTGBroadcastChannel();
 
@@ -26,7 +27,7 @@ const getTimezonesList = (): IWidgetDropdownList[] => {
 // Timezone
 const UITimezone = (): JSX.Element => {
   const t = useTranslate(['timezone']);
-  const [selected, setSelected] = useState<string>(getCurTimezone());
+  const selected = useTimezone();
   const [list, setList] = useState<IWidgetDropdownList[]>([]);
 
   // 选择

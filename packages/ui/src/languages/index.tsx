@@ -1,4 +1,4 @@
-import {ChannelEventType} from '@libs/types';
+import {ChannelEventType} from '@libs/config';
 import {BTGBroadcastChannel} from '@libs/broadcastChannel';
 import {LangConfigs, getCurLang} from '@libs/i18n';
 import WidgetDropdown, {IWidgetDropdownList} from '@widget/dropdown';
