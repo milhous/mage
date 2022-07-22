@@ -43,6 +43,12 @@
 |     |－ template 应用模板
 |           |－ locales 多语言
 |           |－ src 源文件
+|                 |－ api 生产
+|                 |－ assets 静态资源
+|                 |－ components 组件
+|                 |－ hooks hooks
+|                 |－ types 类型声明
+|                 |－ utils 工具函数
 |           |－ app.config.js 自定义配置（用于webpack）
 |     |－ types 类型声明（项目共用）
 |     |－ tsconfig.base.json tsconfig 基础配置
