@@ -4,7 +4,7 @@ import {ChannelEventType} from '@libs/config';
 import {useTranslate, getTranslate} from '@libs/i18n';
 import {BTGBroadcastChannel} from '@libs/broadcastChannel';
 import {TimeZoneConfigs, getCurTimezone, useTimezone} from '@libs/timezone';
-import WidgetDropdown, {IWidgetDropdownList} from '@widget/dropdown';
+import {WidgetDropdown} from '@widget/index';
 
 const channel = new BTGBroadcastChannel();
 
@@ -44,7 +44,7 @@ const UITimezone = (): JSX.Element => {
     setList(timezonesList);
   }, [t]);
 
-  return <WidgetDropdown list={list} selected={selected} onSelect={handleSelect} />;
+  return <WidgetDropdown list={list} selected={selected} showTips={true} onSelect={handleSelect} />;
 };
 
 export default UITimezone;

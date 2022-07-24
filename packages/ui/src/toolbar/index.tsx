@@ -1,7 +1,6 @@
 import WidgetQRCode from '@widget/QRCode';
 
 import './index.less';
-
 import ToolbarAndroid from './assets/toolbar-android.svg';
 import ToolbarGoogle from './assets/toolbar-google.svg';
 import ToolbarIOS from './assets/toolbar-ios.svg';

@@ -94,12 +94,58 @@
         }
     }
 
+    &_tips {
+        .setFont(12px, 24px, #fff);
+
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        max-width: 50%;
+        padding: 5px 10px;
+        border-radius: var(--pc-radius);
+        background-color: rgba(0, 0, 0, .75);
+        box-shadow: 0 0 4px rgba(0,0,0,.17);
+
+        &::before {
+            .setPseudo();
+
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-left: 5px solid rgba(0, 0, 0, .75);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        &.rightCenter {
+            transform: translateX(-10px);
+
+            &::before {
+                right: 0;
+                transform: translate(100%, -50%);
+            }
+        }
+
+        &.leftCenter {
+            transform: translateX(10px);
+
+            &::before {
+                left: 0;
+                transform: translate(-100%, -50%) scaleX(-1);
+            }
+        }
+    }
+
     .rc-dropdown {
-        overflow: hidden;
         position: absolute;
         left: 0!important;
         padding: 6px 0;
-        border-radius: 6px;
+        border-radius: var(--pc-radius);
         background-color: #161f2c;
         box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 
