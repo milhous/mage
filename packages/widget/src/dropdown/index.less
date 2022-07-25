@@ -100,7 +100,8 @@
         position: fixed;
         top: 0;
         z-index: 10;
-        max-width: 50%;
+        width: 50%;
+        max-width: 400px;
         padding: 5px 10px;
         border-radius: var(--pc-radius);
         background-color: rgba(0, 0, 0, .75);
@@ -123,7 +124,7 @@
         }
 
         &.rightCenter {
-            transform: translateX(-10px);
+            transform: translateX(calc(-100% - 10px));
 
             &::before {
                 right: 0;
@@ -132,7 +133,7 @@
         }
 
         &.leftCenter {
-            transform: translateX(10px);
+            transform: translateX(calc(100% + 10px));
 
             &::before {
                 left: 0;

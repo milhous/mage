@@ -29,15 +29,13 @@ const DropdownMenuTips = (props: {desc: string; targeRect: DOMRect | undefined})
       let styles = {};
       let _placement = '';
 
-      if (targeRect.left > windowWidth / 2) {
-        const right = windowWidth - targeRect.left;
+      console.log(targeRect, windowWidth);
 
-        styles = {top, right};
+      styles = {top, left: targeRect.left};
+
+      if (targeRect.left > windowWidth / 2) {
         _placement = PlacementType.RIGHT_CENTER;
       } else {
-        const left = targeRect.left + targeRect.width;
-
-        styles = {top, left};
         _placement = PlacementType.LEFT_CENTER;
       }
 
