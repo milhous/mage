@@ -49,7 +49,7 @@
         "svgo-loader": "^3.0.1",
         "swc-loader": "^0.2.3",
         "terser-webpack-plugin": "^5.3.3",
-        "webpack": "^5.73.0",
+        "webpack": "^5.74.0",
         "webpack-bundle-analyzer": "^4.5.0",
         "webpack-dev-server": "^4.9.3",
         "webpack-merge": "^5.8.0",
