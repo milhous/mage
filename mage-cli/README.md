@@ -62,7 +62,7 @@
 yarn set version berry
 ```
 
-2. 设置 npm 源地址
+2. 设置源地址
 
 ```
 # 命令行
@@ -74,6 +74,8 @@ npmRegistryServer: "https://registry.npm.taobao.org"
 ```
 
 3. 设置代理
+
+> 如果设置过源地址，此步可跳过
 
 ```
 # 命令行

@@ -9173,7 +9173,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: 7.30.1
     eslint-plugin-react-hooks: ^4.6.0
-    npm-check-updates: ^16.0.0
+    npm-check-updates: ^16.0.1
     prettier: ^2.7.1
     typescript: ^4.7.4
   languageName: unknown
@@ -9629,9 +9629,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^16.0.0":
-  version: 16.0.0
-  resolution: "npm-check-updates@npm:16.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-16.0.0.tgz"
+"npm-check-updates@npm:^16.0.1":
+  version: 16.0.1
+  resolution: "npm-check-updates@npm:16.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-16.0.1.tgz"
   dependencies:
     chalk: ^5.0.1
     cli-table: ^0.3.11
@@ -9663,7 +9663,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: cc7289f8c9492b5fd0d0d507eeb016dc730ba8ea05947554705f1d39ecb5f64adc43213fd198004662876e92477425c103c51f8e4fc099bfebbf6543cf0f1f8a
+  checksum: 1e747421f3d34055183037335437db91cd300448dccaad305925499719d4d34e6c1adfa3ce35a178f209106a40dcd57da088d9125dab2bd125ae54f5ae1c131c
   languageName: node
   linkType: hard
 
