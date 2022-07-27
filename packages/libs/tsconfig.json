@@ -1,7 +1,7 @@
 {
   "extends": "mage/tsconfig.base.json",
   "compilerOptions": {
-    "types": ["mage/@types/client"],
+    "types": ["mage/types/client"],
     "paths": {
       "@app/*": ["../packages/libs/src/*"]
     }
