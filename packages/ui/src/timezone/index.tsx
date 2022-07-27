@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {ChannelEventType} from '@libs/config';
 import {useTranslate, getTranslate} from '@libs/i18n';
 import {BTGBroadcastChannel} from '@libs/broadcastChannel';
-import {TimeZoneConfigs, getCurTimezone, useTimezone} from '@libs/timezone';
+import {TimeZoneConfigs, useTimezone} from '@libs/timezone';
 import {WidgetDropdown} from '@widget/index';
 
 const channel = new BTGBroadcastChannel();

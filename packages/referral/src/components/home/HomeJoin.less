@@ -1,0 +1,108 @@
+@import (reference) '@libs/style/library.less';
+
+.referral .referral-join {
+    .setFlex(center, center);
+
+    overflow: hidden;
+    position: relative;
+    margin-top: 50px;
+    padding: 55px 0 58px;
+    background: linear-gradient(var(--gradient-background));
+
+    .smallScreen({
+        margin-top: 70px;
+        padding: 75px 0;
+    });
+
+    &::before {
+        .setPseudo();
+
+        .setImg(438px, 166px, '~@app/assets/home/join-bg.png');
+
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+
+        .smallScreen({
+            width: 656px;
+            height: 250px;
+        });
+    }
+
+    &::after {
+        .setPseudo();
+
+        left: 50%;
+        bottom: 54px;
+        transform: translateX(-50%);
+        width: 610px;
+        height: $width;
+        border-radius: 50%;
+        background: radial-gradient(var(--gradient-halo));
+        opacity: 0.8;
+
+        .smallScreen({
+            bottom: 80px;
+            width: 916px;
+            height: $width;
+        });
+    }
+
+    div {
+        .setFlex(center, center, column);
+
+        position: relative;
+        z-index: 10;
+    }
+
+    dl {
+        text-align: center;
+
+        dt {
+            .setFont(22px, 36px, var(--font-title-color), 700);
+
+            .smallScreen({
+                font-size: 34px;
+                line-height: 60px;
+            });
+        }
+
+        dd {
+            .setFont(26px, 36px, var(--font-highlight-color), 700);
+
+            .smallScreen({
+                font-size: 40px;
+                line-height: 60px;
+            });
+        }
+    }
+
+    p {
+        .setFont(15px, 26px, var(--font-content-color));
+
+        margin-top: 10px;
+        text-align: center;
+
+        .smallScreen({
+            margin-top: 26px;
+            font-size: 24px;
+            line-height: 40px;
+        });
+
+        a {
+            color: var(--font-content-color);
+        }
+    }
+
+    .btn-apply {
+        .setBtn(140px, 36px, 16px, var(--font-btn-color), var(--gradient-btn-apply), var(--pc-btn-radius));
+
+        margin-top: 25px;
+
+        .smallScreen({
+            .setBtn(210px, 60px, 24px, var(--font-btn-color), var(--gradient-btn-apply), var(--h5-btn-radius));
+
+            margin-top: 36px;
+        });
+    }
+}

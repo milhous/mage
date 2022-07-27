@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from 'react';
 
-import {useInterval} from '@libs/hook';
+import {useInterval} from '@libs/hooks';
 
 import './CompPartners.less';
 

@@ -1,0 +1,106 @@
+@import (reference) '@/library.less';
+
+.referral-create { 
+    .setBorderRadius(var(--pc-box-radius));
+
+    overflow: hidden;
+    width: 4.8rem;
+    height: 2.45rem;
+
+    .smallScreen({
+        width: 7.08rem;
+        height: 3.8rem;
+    });
+
+    .bc-modal-container {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+    }
+
+    .create-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .create-title {
+        .setFlex(space-between, center);
+
+        box-sizing: border-box;
+        width: 100%;
+        padding: .15rem .15rem .15rem .3rem;
+        background-color: #202F42;
+
+        .smallScreen({
+            padding: .2rem .2rem .2rem .3rem;
+        });
+
+        h3 {
+            color: #81A0CB;
+            font-weight: 700;
+            font-size: .16rem;
+
+            .smallScreen({
+                font-size: .26rem;
+            });
+        }
+
+        .btn-close {
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            color: #81A0CB;
+
+            svg {
+                display: block;
+                width: .2rem;
+                height: .2rem;
+
+                .smallScreen({
+                    width: .36rem;
+                    height: .36rem;
+                });
+            }
+        }
+    }
+
+    .create-line {
+        width: 100%;
+        height: .02rem;
+        min-height: .02rem;
+        background: linear-gradient(to right, #02996A, #283C56);
+    }
+
+    .create-form {
+        .setFlex(center, center);
+
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 0 .3rem;
+
+        .form {
+            width: 100%;
+        }
+
+        .form-item_input {
+            background-color: #3D5678;
+        }
+    }
+
+    .btn-create {
+        width: 1.2rem;
+        height: .36rem;
+        margin: .5rem auto 0;
+        font-size: .14rem;
+
+        .smallScreen({
+            width: 1.8rem;
+            height: .6rem;
+            margin-top: .6rem;
+            font-size: .24rem;
+        });
+    }
+}
