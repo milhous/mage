@@ -19,11 +19,8 @@
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
         "@svgr/webpack": "^6.3.1",
         "@swc/core": "^1.2.218",
-        "@types/imagemin": "^8",
-        "@types/imagemin-gifsicle": "^7",
-        "@types/imagemin-svgo": "^10",
         "autoprefixer": "^10.4.7",
-        "browserslist": "^4.21.2",
+        "browserslist": "^4.21.3",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.1",
@@ -57,6 +54,9 @@
         "worker-loader": "^3.0.8"
     },
     "dependencies": {
+        "@types/imagemin": "^8",
+        "@types/imagemin-gifsicle": "^7",
+        "@types/imagemin-svgo": "^10",
         "@fast-csv/format": "^4.3.5",
         "@fast-csv/parse": "^4.3.6",
         "@types/chalk": "^2.2.0",
