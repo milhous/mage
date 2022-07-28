@@ -75,6 +75,8 @@ npmRegistryServer: "https://registry.npm.taobao.org"
 
 3. 设置代理
 
+> 安装插件需要科学上网，如果已是科学上网可忽略
+
 ```
 # 命令行
 yarn config set httpProxy http://host:port
