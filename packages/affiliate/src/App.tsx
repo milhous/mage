@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {Suspense, useEffect} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
 import '@libs/mediator';
