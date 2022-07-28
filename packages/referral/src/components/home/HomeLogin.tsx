@@ -3,6 +3,7 @@ import {Trans} from 'react-i18next';
 import {useTranslate} from '@libs/i18n';
 // import analytics from '@libs/analytics';
 import {useThrottle} from '@libs/hooks';
+import {useAccount, changeAccount} from '@libs/account';
 
 import {useInviteBasics} from '@app/hooks';
 import Assets from '@app/assets';
@@ -11,7 +12,7 @@ import './HomeLogin.less';
 
 const HomeLogin = (): JSX.Element => {
   const t = useTranslate(['referral']);
-  const isLogin = false;
+  // const {isLogin} = useAccount();
   const {lutPrize, rebateLimit} = useInviteBasics();
 
   // 事件 - 登录
@@ -23,6 +24,7 @@ const HomeLogin = (): JSX.Element => {
     //   return;
     // }
     // acct.login();
+    // changeAccount(1, 'Milhous', 'milhous@sina.com');
   }, 1000);
 
   return (

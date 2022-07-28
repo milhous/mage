@@ -30,7 +30,9 @@ const getCurAccount = (): IAccountInfo => {
 
 /**
  * 切换账户
- * @param {string} timezone 时区
+ * @param {number} uid 用户ID
+ * @param {string} username 用户名称
+ * @param {string} email 邮箱
  */
 export const changeAccount = (uid: number, username: string, email: string): void => {
   if (!!uid && !!username && !!email) {
