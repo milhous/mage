@@ -1,10 +1,9 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import Dropdown from 'rc-dropdown';
 import Menu, {Item as MenuItem, MenuRef} from 'rc-menu';
-import Tooltip from 'rc-tooltip';
 import {Scrollbars} from 'rc-scrollbars';
 
-import './index.d';
+import './@types/index.d';
 import './index.less';
 import {PlacementType, getDescWithKey, getDescWithSelected, getPlacementType} from './utils';
 import IconArrow from './icon-arrow.svg';
