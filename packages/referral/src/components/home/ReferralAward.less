@@ -1,0 +1,72 @@
+@import (reference) '@/library.less';
+
+.referral-award { 
+    .bc-modal-container {
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .award-container {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 .2rem .6rem;
+        border-radius: 0;
+        background-color: #233043;
+    }
+
+    .award-title {
+        .setFlex(space-between, center);
+
+        box-sizing: border-box;
+        width: 100%;
+        padding: .2rem .1rem;
+        border-bottom: 1px solid #394E6B;
+
+        h3 {
+            color: #fff;
+            font-weight: 700;
+            font-size: .26rem;
+            line-height: .36rem;
+        }
+
+        .btn-close {
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            color: #6F8EB8;
+
+            svg {
+                display: block;
+                width: .36rem;
+                height: .36rem;
+            }
+        }
+    }
+
+    .award-content {
+        box-sizing: border-box;
+        width: 100%;
+        padding: .1rem 0;
+
+        dl {
+            .setFlex(space-between, center);
+
+            padding: .1rem;
+            font-size: .24rem;
+            line-height: .34rem;
+        }
+
+        dt {
+            color: #A4B6D3;
+        }
+
+        dd {
+            color: #fff;
+        }
+    }
+}

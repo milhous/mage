@@ -1,16 +1,22 @@
-import React from 'react';
+import {Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
+
+import '@libs/mediator';
+import WidgetSpinner from '@widget/spinner';
 
 import './App.less';
 import Home from './pages/Home';
 
-const app = () => {
+const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<Navigate replace to="/" />} />
-    </Routes>
+    <Suspense fallback={<WidgetSpinner />}>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 
-export default app;
+export default App;

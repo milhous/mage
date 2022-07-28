@@ -1,13 +1,20 @@
+import {Outlet} from 'react-router-dom';
+
+import HomeLogin from '@app/components/home/HomeLogin';
+import HomeHow from '@app/components/home/HomeHow';
+import HomeJoin from '@app/components/home/HomeJoin';
+import HomeFaq from '@app/components/home/HomeFaq';
+
 import './Home.less';
 
 export default function Home(): JSX.Element {
   return (
-    <div>
-      Hello world!!!
-      <ul>
-        <li>1</li>
-        <li>2</li>
-      </ul>
-    </div>
+    <main className="referral referral-home">
+      <HomeLogin />
+      <HomeHow />
+      <HomeJoin />
+      <HomeFaq />
+      <Outlet />
+    </main>
   );
 }

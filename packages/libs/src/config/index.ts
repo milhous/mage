@@ -16,14 +16,30 @@ export enum UIType {
 
 /**
  * 频道事件类型
+ * @property ACCOUNT_CHANGE 账户改变
  * @property LANGUAGES_CHANGE 语言改变
  * @property TIMEZONE_CHANGE 时区改变
  * @property CURRENCY_CHANGE 币种改变
  */
 export const ChannelEventType = {
-  LANGUAGES_CHANGE: 'languagesChange',
-  TIMEZONE_CHANGE: 'timezoneChange',
-  CURRENCY_CHANGE: 'currencyChange',
+  ACCOUNT_CHANGE: 'channelAccountChange',
+  LANGUAGES_CHANGE: 'channelLanguagesChange',
+  TIMEZONE_CHANGE: 'channelTimezoneChange',
+  CURRENCY_CHANGE: 'channelCurrencyChange',
+};
+
+/**
+ * 自定义事件类型
+ * @property ACCOUNT_CHANGE 账户改变
+ * @property LANGUAGES_CHANGE 语言改变
+ * @property TIMEZONE_CHANGE 时区改变
+ * @property CURRENCY_CHANGE 币种改变
+ */
+export const CustomEventType = {
+  ACCOUNT_CHANGE: 'customAccountChange',
+  LANGUAGES_CHANGE: 'customLanguagesChange',
+  TIMEZONE_CHANGE: 'customTimezoneChange',
+  CURRENCY_CHANGE: 'customCurrencyChange',
 };
 
 /**

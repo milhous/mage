@@ -1,0 +1,105 @@
+@import (reference) '@/library.less';
+
+.referral .referral-dashboard { 
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    max-width: 14.5rem;
+    margin: -1.15rem auto 0;
+    padding: 0 .1rem;
+
+    .smallScreen({
+        margin-top: -1.4rem;
+        padding: 0 .15rem;
+    });
+
+    .dashboard-container {
+        .setBorderRadius(var(--pc-box-radius));
+
+        overflow: hidden;
+        background-color: var(--dashboard-background);
+    }
+
+    .dashboard-tab {
+        .setFlex(flex-start, center);
+
+        padding: 0 .5rem;
+        background-color: var(--tab-background);
+
+        .smallScreen({
+            .setFlex(center, center);
+
+            padding: 0;
+        });
+
+        li {
+            .setFont(.18, .25, var(--font-color));
+
+            position: relative;
+            margin-right: .5rem;
+            padding: .2rem 0 .15rem;
+
+            .smallScreen({
+                box-sizing: border-box;
+                width: 33%;
+                margin-right: 0;
+                padding: .26rem .2rem .24rem;
+                font-size: .28rem;
+                line-height: .4rem;
+                text-align: center;
+            });
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &::before {
+                .setPseudo();
+
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                transition: width .3s;
+                width: 0;
+                height: .04rem;
+                border-radius: .02rem;
+                background-color: var(--tab-index);
+
+                .smallScreen({
+                    height: .06rem;
+                    border-radius: .03rem;
+                });
+            }
+        }
+    }
+
+    .dashboard-content {
+        display: none;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked {
+        &#dashboard-overview ~ .dashboard-tab li:nth-child(1),
+        &#dashboard-links ~ .dashboard-tab li:nth-child(2),
+        &#dashboard-detail ~ .dashboard-tab li:nth-child(3) {
+            color: var(--tab-highlight-color);
+
+            &::before {
+                width: .4rem;
+
+                .smallScreen({
+                    width: .6rem;
+                });
+            }
+        }
+
+        &#dashboard-overview ~ .dashboard-overview,
+        &#dashboard-links ~ .dashboard-links,
+        &#dashboard-detail ~ .dashboard-detail {
+            display: block;
+        }
+    }
+}
