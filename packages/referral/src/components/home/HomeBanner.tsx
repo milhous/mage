@@ -1,10 +1,9 @@
-import {Trans, useTranslation} from 'react-i18next';
+import {Trans} from 'react-i18next';
 
-// import analytics from '@libs/analytics';
-import {toast, error} from '@ui/Toastify';
-import {useUITranslate} from '@ui/useUITranslate';
+import analytics from '@libs/analytics';
+import {toast, error} from '@widget/toastify';
 import {useTranslate} from '@libs/i18n';
-import {copy, share} from '@libs/utils/util';
+import {copy, share} from '@libs/utils';
 
 import {useInviteBasics, useInviteInfo, useInviteChannel} from '@app/hooks';
 import Assets from '@app/assets';
@@ -14,16 +13,15 @@ import './HomeBanner.less';
 
 const ReferralBanner = (): JSX.Element => {
   const t = useTranslate(['referral']);
-  const langInfo = useUITranslate();
   const {lutPrize, rebateLimit, inviteLimit} = useInviteBasics();
   const {code, link} = useInviteInfo();
   const channel = useInviteChannel();
 
   // 创建
   const handleCreate = () => {
-    // analytics.customEvent('Referral_link_setup', {
-    //   desc: '点击创建新的邀请链接按钮',
-    // });
+    analytics.customEvent('Referral_link_setup', {
+      desc: '点击创建新的邀请链接按钮',
+    });
 
     if (channel.length < inviteLimit) {
       // referralCreate.show();
@@ -50,7 +48,7 @@ const ReferralBanner = (): JSX.Element => {
 
     copy(str);
 
-    toast(langInfo.copy_success);
+    // toast(langInfo.copy_success);
   };
 
   /**
@@ -116,29 +114,29 @@ const ReferralBanner = (): JSX.Element => {
                 <span>{t('invite_code')}</span>
                 <strong>{code}</strong>
                 <button className="btn-copy" onClick={() => handleCopy(code, 0)}>
-                  <SVG src={assets.iconCopy} />
+                  <Assets.HomeIconCopy />
                 </button>
               </li>
               <li>
                 <span>{t('invite_link')}</span>
                 <strong>{link}</strong>
                 <button className="btn-copy" onClick={() => handleCopy(link, 1)}>
-                  <SVG src={assets.iconCopy} />
+                  <Assets.HomeIconCopy />
                 </button>
               </li>
             </ul>
-            {!window.native && (
+            {!('native' in window) && (
               <dl>
                 <dt>{t('invite_share')}</dt>
                 <dd>
                   <button className="btn-share" onClick={() => handleShare('telegram')}>
-                    <SVG src={assets.iconTelegram} />
+                    <Assets.HomeIconTelegram />
                   </button>
                   <button className="btn-share" onClick={() => handleShare('twitter')}>
-                    <SVG src={assets.iconTwitter} />
+                    <Assets.HomeIconTwitter />
                   </button>
                   <button className="btn-share" onClick={() => handleShare('facebook')}>
-                    <SVG src={assets.iconFacebook} />
+                    <Assets.HomeIconFacebook />
                   </button>
                 </dd>
               </dl>

@@ -2,7 +2,7 @@ import homeLoginElem from './home/login-elem.svg?url';
 import HomeIconCopy from './home/icon-copy.svg';
 import HomeIconFacebook from './home/icon-facebook.svg';
 import HomeIconTwitter from './home/icon-twitter.svg';
-import HomeIiconTelegram from './home/icon-telegram.svg';
+import HomeIconTelegram from './home/icon-telegram.svg';
 import HomeIconHelp from './home/icon-help.svg';
 import HomeIconNums from './home/icon-nums.svg';
 import HomeIconArrow from './home/icon-arrow.svg';
@@ -20,7 +20,7 @@ export default {
   HomeIconCopy,
   HomeIconFacebook,
   HomeIconTwitter,
-  HomeIiconTelegram,
+  HomeIconTelegram,
   HomeIconHelp,
   HomeIconNums,
   HomeIconArrow,

@@ -1,25 +1,25 @@
-@import (reference) '@/library.less';
+@import (reference) '@libs/style/library.less';
 
 .referral .referral-banner {
-    .setImg(100%, 5.4, 'home/bg.jpg');
+    .setImg(100%, 540px, '~@app/assets/home/bg.jpg');
 
     overflow: hidden;
     height: auto;
     min-height: auto;
-    padding: .75rem 0 1.65rem;
+    padding: 75px 0 165px;
 
     .smallScreen({
-        padding: .6rem 0 2.1rem;
+        padding: 60px 0 210px;
     });
 
     & > div {
         .setFlex(space-between, center);
 
         box-sizing: border-box;
-        max-width: 14.5rem;
+        max-width: 1450px;
         height: 100%;
         margin: 0 auto;
-        padding: 0 .4rem;
+        padding: 0 40px;
 
         .smallScreen({
             .setFlex(center, center, column);
@@ -33,30 +33,30 @@
         position: relative;
         z-index: 10;
         width: 100%;
-        max-width: 7rem;
+        max-width: 700px;
 
         .smallScreen({
             max-width: none;
-            padding: 0 .4rem;
+            padding: 0 40px;
         });
 
         dt {
-            .setFont(.4, .56, var(--font-title-color), 700);
+            .setFont(40px, 56px, var(--font-title-color), 700);
 
-            margin-bottom: .2rem;
+            margin-bottom: 20px;
 
             .smallScreen({
-                font-size: .5rem;
-                line-height: .6rem;
+                font-size: 50px;
+                line-height: 60px;
             });
         }
     
         dd {
-            .setFont(.16, .26, var(--font-content-color));
+            .setFont(16px, 26px, var(--font-content-color));
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .34rem;
+                font-size: 24px;
+                line-height: 34px;
             });
         }
 
@@ -67,13 +67,13 @@
 
     .banner-share {
         position: relative;
-        margin-left: .4rem;
+        margin-left: 40px;
 
         .smallScreen({
             box-sizing: border-box;
             width: 100%;
-            margin: .7rem 0 0;
-            padding: 0 .15rem;
+            margin: 70px 0 0;
+            padding: 0 15px;
         });
 
         &::before {
@@ -82,8 +82,8 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 8.84rem;
-            height: 8.84rem;
+            width: 884px;
+            height: $width;
             border-radius: 50%;
             background: radial-gradient(var(--gradient-halo));
             opacity: 0.8;
@@ -100,17 +100,17 @@
             box-sizing: border-box;
             position: relative;
             z-index: 10;
-            width: 5rem;
-            padding: .4rem .3rem .3rem;
+            width: 500px;
+            padding: 40px 30px 30px;
             background-image: radial-gradient(var(--gradient-share));
-            box-shadow: 0 .1rem .1rem rgba(0, 0, 0, .3);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
 
             .smallScreen({
                 .setBorderRadius(var(--h5-box-radius));
 
                 width: 100%;
-                padding: .6rem .45rem .4rem;
-                box-shadow: 0 .15rem .15rem rgba(0, 0, 0, .3);
+                padding: 60px 45px 40px;
+                box-shadow: 0 15px 15px rgba(0, 0, 0, .3);
             });
         }
 
@@ -118,33 +118,37 @@
             .setFlex(space-between, center);
 
             dt {
-                .setFont(.16, .22, var(--font-title-color));
+                .setFont(16px, 22px, var(--font-title-color));
 
-                margin-right: .1rem;
+                margin-right: 10px;
 
                 .smallScreen({
-                    font-size: .24rem;
-                    line-height: .34rem;
+                    font-size: 24px;
+                    line-height: 34px;
                 });
             }
 
+            dd {
+                .setFlex(center, center);
+            }
+
             span {
-                .setFont(.16, .22, var(--font-highlight-color));
+                .setFont(16px, 22px, var(--font-highlight-color));
 
                 cursor: pointer;
 
                 .smallScreen({
-                    font-size: .24rem;
-                    line-height: .34rem;
+                    font-size: 24px;
+                    line-height: 34px;
                 });
             }
         }
 
         ul {
-            padding: .2rem 0;
+            padding: 20px 0;
 
             .smallScreen({
-                padding: .3rem 0;
+                padding: 30px 0;
             });
         }
 
@@ -154,17 +158,17 @@
             .setBorderRadius(var(--pc-btn-radius));
 
             box-sizing: border-box;
-            margin-bottom: .2rem;
-            padding: .05rem .05rem .05rem .2rem;
+            margin-bottom: 20px;
+            padding: 5px 5px 5px 20px;
             background-color: var(--share-background);
-            font-size: .16rem;
+            font-size: 16px;
 
             .smallScreen({
                 .setBorderRadius(var(--h5-btn-radius));
 
-                margin-bottom: .3rem;
-                padding: .08rem .08rem .08rem .3rem;
-                font-size: .24rem;
+                margin-bottom: 30px;
+                padding: 8px 8px 8px 30px;
+                font-size: 24px;
             });
 
             &:last-child {
@@ -180,47 +184,47 @@
                 .setEllipsis();
                 
                 width: 100%;
-                margin: 0 .1rem;
+                margin: 0 10px;
                 color: var(--font-name-color);
                 text-align: right;
 
                 .smallScreen({
-                    margin: 0 .16rem;
+                    margin: 0 16px;
                 });
             }
         }
 
         .btn-copy {
-            .setBtn(.36, .36, .16, var(--font-btn-color), var(--gradient-btn-copy), var(--pc-btn-radius));
+            .setBtn(36px, 36px, 16px, var(--font-btn-color), var(--gradient-btn-copy), var(--pc-btn-radius));
 
             .smallScreen({
                 .setBorderRadius(var(--h5-btn-radius));
 
-                width: .52rem;
-                min-width: .52rem;
-                height: .52rem;
+                width: 52px;
+                min-width: $width;
+                height: $width;
             });
 
             svg {
-                width: .15rem;
-                height: .17rem;
+                width: 15px;
+                height: 17px;
 
                 .smallScreen({
-                    width: .21rem;
-                    height: .24rem;
+                    width: 21px;
+                    height: 24px;
                 });
             }
         }
 
         .btn-share {
-            width: .4rem;
-            height: .4rem;
-            margin-left: .1rem;
+            width: 40px;
+            height: $width;
+            margin-left: 10px;
 
             .smallScreen({
-                width: .6rem;
-                height: .6rem;
-                margin-left: .15rem;
+                width: 60px;
+                height: $width;
+                margin-left: 15px;
             });
 
             svg {

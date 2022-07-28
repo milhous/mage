@@ -1,11 +1,11 @@
 import {Trans} from 'react-i18next';
 
 import {ChannelEventType} from '@libs/config';
-import {useTranslate} from '@libs/i18n';
-// import analytics from '@libs/analytics';
 import {useThrottle} from '@libs/hooks';
+import {useTranslate} from '@libs/i18n';
+import {useAccount} from '@libs/account';
 import {BTGBroadcastChannel} from '@libs/broadcastChannel';
-import {useAccount, changeAccount} from '@libs/account';
+import analytics from '@libs/analytics';
 
 import {useInviteBasics} from '@app/hooks';
 import Assets from '@app/assets';
@@ -21,12 +21,14 @@ const HomeLogin = (): JSX.Element => {
 
   // 事件 - 登录
   const handlerLogin = useThrottle((): void => {
-    // analytics.customEvent('Click_referral', {
-    //   desc: '未登录状态下点击邀请页“立即邀请好友”按钮',
-    // });
+    analytics.customEvent('Click_referral', {
+      desc: '未登录状态下点击邀请页“立即邀请好友”按钮',
+    });
+
     // if (isLogin) {
     //   return;
     // }
+
     // acct.login();
 
     channel.postMessage({
