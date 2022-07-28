@@ -72,9 +72,9 @@ export const changeTimezone = (timezone: string): void => {
   window.dispatchEvent(new CustomEvent(CustomEventType.TIMEZONE_CHANGE, {detail: timezone}));
 };
 
-// 时区Hook
-export const useTimezone = () => {
-  const [timezone, setTimezone] = useState(getCurTimezone());
+// Hook - 时区
+export const useTimezone = (): string => {
+  const [timezone, setTimezone] = useState<string>(getCurTimezone());
 
   useEffect(() => {
     const onTimezone: EventListener = ({detail}: any) => {
