@@ -62,7 +62,7 @@
 yarn set version berry
 ```
 
-2. 设置 npm 源地址
+2. 设置源地址
 
 ```
 # 命令行

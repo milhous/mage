@@ -16,7 +16,7 @@ interface IAccountInfo {
   isLogin: boolean;
 }
 
-const account: IAccountInfo = {
+let accountInfo: IAccountInfo = {
   uid: null,
   username: '',
   email: '',
@@ -25,7 +25,7 @@ const account: IAccountInfo = {
 
 // 获取当前账户
 const getCurAccount = (): IAccountInfo => {
-  return account;
+  return accountInfo;
 };
 
 /**
@@ -35,17 +35,21 @@ const getCurAccount = (): IAccountInfo => {
  * @param {string} email 邮箱
  */
 export const changeAccount = (uid: number, username: string, email: string): void => {
+  const account: IAccountInfo = {
+    uid: null,
+    username: '',
+    email: '',
+    isLogin: false,
+  };
+
   if (!!uid && !!username && !!email) {
     account.uid = uid;
     account.username = username;
     account.email = email;
     account.isLogin = true;
-  } else {
-    account.uid = null;
-    account.username = '';
-    account.email = '';
-    account.isLogin = false;
   }
+
+  accountInfo = account;
 
   window.dispatchEvent(new CustomEvent(CustomEventType.ACCOUNT_CHANGE, {detail: account}));
 };
@@ -56,6 +60,8 @@ export const useAccount = () => {
 
   useEffect(() => {
     const onAccount: EventListener = ({detail}: any) => {
+      accountInfo = detail;
+
       setAccount(detail);
     };
 

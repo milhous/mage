@@ -54,13 +54,13 @@
         "worker-loader": "^3.0.8"
     },
     "dependencies": {
-        "@types/imagemin": "^8",
-        "@types/imagemin-gifsicle": "^7",
-        "@types/imagemin-svgo": "^10",
         "@fast-csv/format": "^4.3.5",
         "@fast-csv/parse": "^4.3.6",
         "@types/chalk": "^2.2.0",
         "@types/fs-extra": "^9.0.13",
+        "@types/imagemin": "^8",
+        "@types/imagemin-gifsicle": "^7",
+        "@types/imagemin-svgo": "^10",
         "@types/inquirer": "^8.2.1",
         "@types/rimraf": "^3",
         "chalk": "^5.0.1",
