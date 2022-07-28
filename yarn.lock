@@ -1861,7 +1861,7 @@ __metadata:
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-i18next: ^11.18.1
+    react-i18next: ^11.18.3
     react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
@@ -1879,7 +1879,7 @@ __metadata:
     js-cookie: ^3.0.1
     mage: "workspace:^"
     react: ^18.2.0
-    react-i18next: ^11.18.1
+    react-i18next: ^11.18.3
     regenerator-runtime: ^0.13.9
   languageName: unknown
   linkType: soft
@@ -1894,7 +1894,7 @@ __metadata:
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-i18next: ^11.18.1
+    react-i18next: ^11.18.3
     react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
@@ -1909,7 +1909,7 @@ __metadata:
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-i18next: ^11.18.1
+    react-i18next: ^11.18.3
     react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
@@ -1924,7 +1924,7 @@ __metadata:
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-i18next: ^11.18.1
+    react-i18next: ^11.18.3
     regenerator-runtime: ^0.13.9
   languageName: unknown
   linkType: soft
@@ -9173,7 +9173,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: 7.30.1
     eslint-plugin-react-hooks: ^4.6.0
-    npm-check-updates: ^16.0.0
+    npm-check-updates: ^16.0.1
     prettier: ^2.7.1
     typescript: ^4.7.4
   languageName: unknown
@@ -9629,9 +9629,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^16.0.0":
-  version: 16.0.0
-  resolution: "npm-check-updates@npm:16.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-16.0.0.tgz"
+"npm-check-updates@npm:^16.0.1":
+  version: 16.0.1
+  resolution: "npm-check-updates@npm:16.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnpm-check-updates%2F-%2Fnpm-check-updates-16.0.1.tgz"
   dependencies:
     chalk: ^5.0.1
     cli-table: ^0.3.11
@@ -9663,7 +9663,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: cc7289f8c9492b5fd0d0d507eeb016dc730ba8ea05947554705f1d39ecb5f64adc43213fd198004662876e92477425c103c51f8e4fc099bfebbf6543cf0f1f8a
+  checksum: 1e747421f3d34055183037335437db91cd300448dccaad305925499719d4d34e6c1adfa3ce35a178f209106a40dcd57da088d9125dab2bd125ae54f5ae1c131c
   languageName: node
   linkType: hard
 
@@ -11286,9 +11286,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^11.18.1":
-  version: 11.18.1
-  resolution: "react-i18next@npm:11.18.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-i18next%2F-%2Freact-i18next-11.18.1.tgz"
+"react-i18next@npm:^11.18.3":
+  version: 11.18.3
+  resolution: "react-i18next@npm:11.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-i18next%2F-%2Freact-i18next-11.18.3.tgz"
   dependencies:
     "@babel/runtime": ^7.14.5
     html-parse-stringify: ^3.0.1
@@ -11300,7 +11300,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 3614d4f41a2bad2831aee7c02da6403955eacf7aeef1cd73635a99b072e72f2ebed3e83ac2bc1bfe72421cb2de025bfbecc9929bfc495ba1f055d49851bf6e62
+  checksum: 05fe3187dd092000c9f24dfd0cad2bd433f9a88a78cec2b43d74545ea1ec014f2b4e2ac84c579480be15bc571ef7fb2a2fafbe0bfac02f80ce10a8ffc6ad91e7
   languageName: node
   linkType: hard
 
