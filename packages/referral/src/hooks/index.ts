@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {ReferralEventType} from '@app/types';
 
 /**
  * 基础信息
@@ -50,15 +51,6 @@ let overview = {
 
 // 渠道信息
 let channel: any[] = [];
-
-// 邀请事件
-export const ReferralEventType = {
-  UPDATE_BASICS: 'REFERRAL_UPDATE_BASICS',
-  UPDATE_INVITE: 'REFERRAL_UPDATE_INVITE',
-  UPDATE_OVERVIEW: 'REFERRAL_UPDATE_OVERVIEW',
-  UPDATE_CHANNEL: 'REFERRAL_UPDATE_CHANNEL',
-  GET_CHANNEL: 'REFERRAL_GET_CHANNEL',
-};
 
 // 基础信息
 export const useInviteBasics = () => {

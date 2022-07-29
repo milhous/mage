@@ -1,9 +1,9 @@
 import {Trans} from 'react-i18next';
 
-import analytics from '@libs/analytics';
-import {toast, error} from '@widget/toastify';
 import {useTranslate} from '@libs/i18n';
 import {copy, share} from '@libs/utils';
+import analytics from '@libs/analytics';
+import {toast, error} from '@widget/toastify';
 
 import {useInviteBasics, useInviteInfo, useInviteChannel} from '@app/hooks';
 import Assets from '@app/assets';

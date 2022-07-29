@@ -1,29 +1,29 @@
-@import (reference) '@/library.less';
+@import (reference) '@libs/style/library.less';
 
 .referral .referral-channel { 
-    padding: .15rem 0 .35rem;
+    padding: 15px 0 35px;
 
     .smallScreen({
-        padding: .3rem 0 .45rem;
+        padding: 30px 0 45px;
     });
 
     .channel-nums {
         .setFlex(space-between, center);
 
-        padding: 0 .2rem .15rem;
+        padding: 0 20px 15px;
 
         .smallScreen({
-            padding: 0 .3rem .3rem;
+            padding: 0 30px 30px;
         });
 
         p {
-            .setFont(.15, .21, var(--font-color));
+            .setFont(15px, 21px, var(--font-color));
 
-            margin-right: .2rem;
+            margin-right: 20px;
 
             .smallScreen({
-                font-size: .24rem;
-                line-height: .3rem;
+                font-size: 24px;
+                line-height: 30px;
             });
 
             strong {
@@ -33,10 +33,10 @@
         }
 
         .btn-create {
-            .setBtn(1.5, .36, .14, var(--font-btn-color), var(--gradient-btn-create), var(--pc-btn-radius));
+            .setBtn(150px, 36px, 14px, var(--font-btn-color), var(--gradient-btn-create), var(--pc-btn-radius));
 
             .smallScreen({
-                .setBtn(2.3, .6, .24, var(--font-btn-color), var(--gradient-btn-create), var(--h5-btn-radius));
+                .setBtn(230px, 60px, 24px, var(--font-btn-color), var(--gradient-btn-create), var(--h5-btn-radius));
 
                 min-width: auto;
             });
@@ -53,8 +53,8 @@
             .setFlex(center, center);
 
             box-sizing: border-box;
-            padding: .1rem;
-            font-size: .14rem;
+            padding: 10px;
+            font-size: 14px;
 
             &:nth-child(1) {
                 width: 12%;
@@ -95,6 +95,10 @@
     .channel-header {
         border-bottom: 1px solid var(--border-color);
         color: var(--font-color);
+
+        .smallScreen({
+            display: none;
+        });
     }
 
     .channel-content {
@@ -110,33 +114,33 @@
 
 
         .btn-edit {
-            margin-left: .1rem;
+            margin-left: 10px;
             color: var(--font-color);
 
             svg {
-                width: .18rem;
-                height: .18rem;
+                width: 18px;
+                height: $width;
             }
         }
 
         .btn-copy {
-            margin-left: .1rem;
+            margin-left: 10px;
             color: var(--font-color);
 
             svg {
-                width: .15rem;
-                height: .17rem;
+                width: 15px;
+                height: 17px;
             }
         }
 
         .btn-default {
-            .setFont(.14, .2, var(--font-name-color));
+            .setFont(14px, 20px, var(--font-name-color));
 
-            min-height: .26rem;
+            min-height: 26px;
             text-decoration: underline;
 
             &:disabled {
-                .setBtn(.56, .26, .14, var(--font-btn-color), var(--background-btn-default), var(--pc-btn-radius));
+                .setBtn(56px, 26px, 14px, var(--font-btn-color), var(--background-btn-default), var(--pc-btn-radius));
 
                 cursor: inherit;
                 background-color: var(--background-btn-default);
@@ -151,8 +155,8 @@
             transition: transform .2s;
 
             svg {
-                width: .072rem;
-                height: .112rem;
+                width: 7.2px;
+                height: 11.2px;
             }
         }
     }
@@ -169,7 +173,7 @@
 
     .channel-detail {
         display: none;
-        padding: .1rem;
+        padding: 10px;
 
         table {
             .setBorderRadius(.04);
@@ -180,27 +184,40 @@
         th,
         td {
             width: 20%;
-            padding: .1rem;
+            padding: 10px;
             text-align: center;
         }
 
         th {
-            .setFont(.14, .2, var(--font-color));
+            .setFont(14px, 20px, var(--font-color));
 
             background-color: var(--table-header-background);
         }
 
         td {
-            .setFont(.14, .2, var(--font-content-color));
+            .setFont(14px, 20px, var(--font-content-color));
 
             background-color: var(--table-body-background);
         }
     }
 
+    .channel-list {
+        display: block;
+
+        .smallScreen({
+            display: none;
+        });
+    }
+
     .channel-list_h5 {
-        margin-bottom: .1rem;
-        padding-bottom: .15rem;
+        display: none;
+        margin-bottom: 10px;
+        padding-bottom: 15px;
         background-color: var(--dashboard-list-background);
+
+        .smallScreen({
+            display: block;
+        });
 
         &:last-child {
             margin-bottom: 0;
@@ -209,25 +226,25 @@
         div {
             .setFlex(space-between, center);
 
-            .setFont(.24, .34, var(--font-content-color));
+            .setFont(24px, 34px, var(--font-content-color));
 
             box-sizing: border-box;
             width: 100%;
-            margin-bottom: .15rem;
-            padding: .2rem .3rem;
-            border-bottom: .02rem solid var(--border-color);
+            margin-bottom: 15px;
+            padding: 20px 30px;
+            border-bottom: 2px solid var(--border-color);
 
             P {
                 .setFlex(flex-start, center);
             }
 
             .btn-edit {
-                margin-left: .2rem;
+                margin-left: 20px;
                 color: var(--font-color);
     
                 svg {
-                    width: .32rem;
-                    height: .32rem;
+                    width: 32px;
+                    height: $width;
                 }
             }
 
@@ -237,8 +254,8 @@
                 justify-self: flex-end;
 
                 svg {
-                    width: .12rem;
-                    height: .2rem;
+                    width: 12px;
+                    height: 20px;
                 }
             }
         }
@@ -246,14 +263,14 @@
         dl {
             .setFlex(space-between, center);
 
-            .setFont(.24, .34, var(--font-color));
+            .setFont(24px, 34px, var(--font-color));
 
             box-sizing: border-box;
             width: 100%;
-            padding: .15rem .3rem;
+            padding: 15px 30px;
 
             dt {
-                margin-right: .2rem;
+                margin-right: 20px;
                 white-space: nowrap;
             }
 
@@ -266,20 +283,20 @@
                 span {
                     .setEllipsis();
 
-                    width: 4rem;
+                    width: 400px;
                     text-align: left;
                 }
             }
         }
 
         .btn-default {
-            .setFont(.24, .4, var(--font-name-color));
+            .setFont(24px, 40px, var(--font-name-color));
 
-            min-height: .4rem;
+            min-height: 40px;
             text-decoration: underline;
 
             &:disabled {
-                .setBtn(.84, .4, .24, var(--font-btn-color), var(--background-btn-default), var(--pc-btn-radius));
+                .setBtn(84px, 40px, 24px, var(--font-btn-color), var(--background-btn-default), var(--pc-btn-radius));
 
                 cursor: inherit;
                 background-color: var(--background-btn-default);
@@ -288,13 +305,13 @@
         }
 
         .btn-copy {
-            margin-left: .2rem;
+            margin-left: 20px;
             color: var(--font-color);
 
             svg {
-                width: .3rem;
-                min-width: .3rem;
-                height: .34rem;
+                width: 30px;
+                min-width: $width;
+                height: 34px;
             }
         }
     }

@@ -4,6 +4,7 @@ import {useAccount, changeAccount} from '@libs/account';
 
 import HomeLogin from '@app/components/home/HomeLogin';
 import HomeBannner from '@app/components/home/HomeBanner';
+import HomeDashboard from '@app/components/home/HomeDashboard';
 import HomeHow from '@app/components/home/HomeHow';
 import HomeJoin from '@app/components/home/HomeJoin';
 import HomeFaq from '@app/components/home/HomeFaq';
@@ -16,7 +17,12 @@ export default function Home(): JSX.Element {
   return (
     <main className="referral referral-home">
       {!isLogin && <HomeLogin />}
-      {isLogin && <HomeBannner />}
+      {isLogin && (
+        <>
+          <HomeBannner />
+          <HomeDashboard />
+        </>
+      )}
       <HomeHow />
       <HomeJoin />
       <HomeFaq />

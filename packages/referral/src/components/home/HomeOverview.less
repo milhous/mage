@@ -1,36 +1,36 @@
-@import (reference) '@/library.less';
+@import (reference) '@libs/style/library.less';
 
 .referral-overview_tips {
-    max-width: 4.2rem;
+    max-width: 420px;
 }
 
 .referral .referral-overview {
     .setFlex(center, stretch);
 
     flex-wrap: wrap;
-    padding: .25rem .3rem;
+    padding: 25px 30px;
 
     .smallScreen({
         .setFlex(center, center, column);
 
-        padding: .4rem .7rem;
+        padding: 40px 70px;
     });
 
     li {
         .setBorderRadius(var(--pc-box-radius));
 
         box-sizing: border-box;
-        width: 2.5rem;
-        margin: .05rem;
-        padding: .2rem .2rem .25rem;
+        width: 250px;
+        margin: 5px;
+        padding: 20px 20px 25px;
         background-color: var(--box-background);
 
         .smallScreen({
             .setBorderRadius(var(--h5-box-radius));
 
             width: 100%;
-            margin: 0 0 .2rem;
-            padding: .25rem .3rem;
+            margin: 0 0 20px;
+            padding: 25px 30px;
 
             &:last-child {
                 margin-bottom: 0;
@@ -41,25 +41,25 @@
     h3 {
         .setFlex(flex-start, center);
 
-        .setFont(.14, .2, var(--font-name-color));
+        .setFont(14px, 20px, var(--font-name-color));
 
         .smallScreen({
-            font-size: .24rem;
-            line-height: .34rem;
+            font-size: 24px;
+            line-height: 34px;
         });
 
         svg {
             cursor: pointer;
-            width: .18rem;
-            min-width: .18rem;
-            height: .18rem;
-            margin-left: .1rem;
+            width: 18px;
+            min-width: $width;
+            height: $width;
+            margin-left: 10px;
 
             .smallScreen({
-                width: .36rem;
-                min-width: .36rem;
-                height: .36rem;
-                margin-left: .2rem;
+                width: 36px;
+                min-width: $width;
+                height: $width;
+                margin-left: 20px;
             });
         }
     }
@@ -67,32 +67,32 @@
     dl {
         .setFlex(space-between, center);
 
-        margin-top: .2rem;
+        margin-top: 20px;
 
         .smallScreen({
-            margin-top: .4rem;
+            margin-top: 40px;
         });
     }
 
     dt {
-        .setFont(.14, .18, var(--font-content-color));
+        .setFont(14px, 18px, var(--font-content-color));
 
-        margin-right: .08rem;
+        margin-right: 8px;
         white-space: nowrap;
 
         .smallScreen({
-            margin-right: .16rem;
-            font-size: .24rem;
-            line-height: .3rem;
+            margin-right: 16px;
+            font-size: 24px;
+            line-height: 30px;
         });
 
         svg {
-            width: .24rem;
-            height: .22rem;
+            width: 24px;
+            height: 22px;
 
             .smallScreen({
-                width: .34rem;
-                height: .32rem;
+                width: 34px;
+                height: 32px;
             });
         }
     }
@@ -100,14 +100,14 @@
     dd {
         .setEllipsis();
 
-        .setFont(.3, .36, var(--font-content-color), 700);
+        .setFont(30px, 36px, var(--font-content-color), 700);
 
         width: 100%;
         text-align: right;
 
         .smallScreen({
-            font-size: .45rem;
-            line-height: .54rem;
+            font-size: 45px;
+            line-height: 54px;
         });
 
         span {

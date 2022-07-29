@@ -2,6 +2,7 @@
 import {FirebaseApp, initializeApp} from 'firebase/app';
 import {getAnalytics, logEvent, isSupported, Analytics} from 'firebase/analytics';
 // These imports load individual services into the firebase namespace.
+import 'firebase/auth';
 
 import {getQueryParams} from '../utils';
 import {getCurLang} from '../i18n';

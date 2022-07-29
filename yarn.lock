@@ -2475,6 +2475,7 @@ __metadata:
     react-dom: ^18.2.0
     react-i18next: ^11.18.3
     react-router-dom: ^6.3.0
+    regenerator-runtime: ^0.13.9
   languageName: unknown
   linkType: soft
 

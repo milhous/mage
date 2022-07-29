@@ -1,3 +1,33 @@
+// 节流
+export const throttle = <F extends (...args: any[]) => any>(func: F, delay = 3000) => {
+  let timer: number | null;
+
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    if (timer) {
+      return;
+    }
+
+    timer = setTimeout(() => {
+      func.apply(this, args);
+
+      timer = null;
+    }, delay);
+  };
+};
+
+// 防抖
+export const debounce = <F extends (...args: any[]) => any>(func: F, delay = 300) => {
+  let timer: number;
+
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+};
+
 /**
  * 通过key获取url查询部分中value
  * @param {string} key 关键词
@@ -116,25 +146,25 @@ export function runGenerator(gen: any) {
  * @param {string} url 分享链接
  */
 export const share = (type: string, data: {title?: string; desc?: string; url?: string} = {}): void => {
-  let {title = '', desc = '', url = ''} = data;
+  const {title = '', desc = '', url = ''} = data;
   let shareUrl = '';
 
-  url = url !== '' ? url : shareUrl;
+  const _url = url !== '' ? url : shareUrl;
 
   switch (type) {
     case 'facebook':
-      const str = location.origin + '/share/' + title + '/' + desc + '/' + url;
+      const str = location.origin + '/share/' + title + '/' + desc + '/' + _url;
 
       shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(str)}`;
       break;
     case 'twitter':
-      shareUrl = `https://www.twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(
+      shareUrl = `https://www.twitter.com/intent/tweet?url=${encodeURIComponent(_url)}&text=${encodeURIComponent(
         title,
       )}`;
       break;
     case 'telegram':
       // https://t.me/share/url?url={url}&text={text}
-      shareUrl = `https://www.telegram.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+      shareUrl = `https://www.telegram.me/share/url?url=${encodeURIComponent(_url)}&text=${encodeURIComponent(title)}`;
       break;
     default:
       break;

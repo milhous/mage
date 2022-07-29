@@ -28,39 +28,57 @@ export const useInterval = (cb: () => void, delay: number) => {
 };
 
 // 节流
-export const useThrottle = (fn: any, delay = 3000, dep: any[] = []) => {
-  const {current} = useRef<{fn: any; timer: number | null}>({fn, timer: null});
+export const useThrottle = <F extends (...args: any[]) => any>(func: F, delay = 3000, dep: any[] = []) => {
+  const {current} = useRef<{func: F; timer: number | null}>({func, timer: null});
 
   useEffect(() => {
-    current.fn = fn;
-  }, [fn]);
+    current.func = func;
+  }, [func]);
 
   return useCallback(function f(...args: any[]) {
     if (!current.timer) {
-      current.timer = window.setTimeout(() => {
+      current.timer = setTimeout(() => {
         current.timer = null;
       }, delay);
 
-      current.fn(...args);
+      current.func(...args);
     }
   }, dep);
 };
 
 // 防抖
-export const useDebounce = (fn: any, delay = 3000, dep: any[] = []) => {
-  const {current} = useRef<{fn: any; timer: number | null}>({fn, timer: null});
+export const useDebounce = <F extends (...args: any[]) => any>(func: F, delay = 300, dep: any[] = []) => {
+  const {current} = useRef<{func: F; timer: number | null}>({func, timer: null});
 
   useEffect(() => {
-    current.fn = fn;
-  }, [fn]);
+    current.func = func;
+  }, [func]);
 
   return useCallback(function f(...args: any[]) {
     if (!!current.timer) {
       clearTimeout(current.timer);
     }
 
-    current.timer = window.setTimeout(() => {
-      current.fn(...args);
+    current.timer = setTimeout(() => {
+      current.func(...args);
     }, delay);
   }, dep);
+};
+
+export const useWindowResize = () => {
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [innerHeight, setInnerHeight] = useState(window.innerHeight);
+
+  const updateWidthAndHeight = useThrottle(() => {
+    setInnerWidth(window.innerWidth);
+    setInnerHeight(window.innerHeight);
+  }, 250);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWidthAndHeight);
+
+    return () => window.removeEventListener('resize', updateWidthAndHeight);
+  }, []);
+
+  return {innerWidth, innerHeight};
 };

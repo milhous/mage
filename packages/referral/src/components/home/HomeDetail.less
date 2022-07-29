@@ -1,33 +1,33 @@
-@import (reference) '@/library.less';
+@import (reference) '@libs/style/library.less';
 
 .referral .referral-detail {
     .detail-select{
         .setFlex(flex-start, center);
 
-        padding: .15rem .2rem;
+        padding: 15px 20px;
 
         .smallScreen({
-            padding: .3rem;
+            padding: 30px;
         });
 
         .select-name {
             .setFlex(space-between, center);
 
             box-sizing: border-box;
-            width: 1.8rem;
-            height: .36rem;
-            padding: 0 .15rem;
-            border-radius: .18rem;
+            width: 180px;
+            height: 36px;
+            padding: 0 15px;
+            border-radius: 18px;
             background-color: var(--select-background);
             color: var(--font-color);
-            font-size: .14rem;
+            font-size: 14px;
 
             .smallScreen({
-                width: 3.2rem;
-                height: .6rem;
-                padding: 0 .3rem;
-                border-radius: .3rem;
-                font-size: .24rem;
+                width: 320px;
+                height: 60px;
+                padding: 0 30px;
+                border-radius: 30px;
+                font-size: 24px;
             });
 
             span {
@@ -38,17 +38,17 @@
 
             svg {
                 transform: rotate(90deg);
-                width: .06rem;
-                min-width: .06rem;
-                height: .08rem;
+                width: 6px;
+                min-width: $width;
+                height: 8px;
                 color: var(--font-color);
-                margin-left: .1rem;
+                margin-left: 10px;
 
                 .smallScreen({
-                    width: .12rem;
-                    min-width: .12rem;
-                    height: .16rem;
-                    margin-left: .2rem;
+                    width: 12px;
+                    min-width: $width;
+                    height: 16px;
+                    margin-left: 20px;
                 });
             }
         }
@@ -58,12 +58,16 @@
     .detail-list {
         background-color: var(--dashboard-list-background);
 
+        .smallScreen({
+            display: none;
+        });
+
         li {
             .setFlex(center, center);
 
             box-sizing: border-box;
-            height: .42rem;
-            padding: 0 .1rem;
+            height: 42px;
+            padding: 0 10px;
             border-bottom: 1px solid var(--border-color);
 
             span {
@@ -77,13 +81,13 @@
     }
 
     .detail-header {
-        .setFont(.14, .2, var(--font-color));
+        .setFont(14px, 20px, var(--font-color));
     }
 
     .detail-list {
-        .setFont(.14, .2, var(--font-content-color));
+        .setFont(14px, 20px, var(--font-content-color));
 
-        height: 4.2rem;
+        height: 420px;
 
         li.no-data {
             .setFlex(center, center);
@@ -95,14 +99,19 @@
     }
 
     .detail-list_h5 {
+        display: none;
         box-sizing: border-box;
         overflow: auto;
-        max-height: 14rem;
+        max-height: 1400px;
+
+        .smallScreen({
+            display: block;
+        });
 
         /* width */
         &::-webkit-scrollbar {
-            width: .08rem;
-            border-radius: 0.04rem;
+            width: 8px;
+            border-radius: 4px;
         }
 
         /* Track */
@@ -113,7 +122,7 @@
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: var(--scrollbar-thumb-background);
-            border-radius: 0.04rem;
+            border-radius: 4px;
         }
 
         /* Handle on hover */
@@ -122,8 +131,8 @@
         }
   
         div {
-            margin-bottom: .1rem;
-            padding-bottom: .15rem;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
             background-color: var(--dashboard-list-background);
 
             &:last-child {
@@ -134,27 +143,27 @@
         div.no-data {
             .setFlex(center, center);
 
-            .setFont(.24, .34, var(--font-content-color));
+            .setFont(24px, 34px, var(--font-content-color));
 
             width: 100%;
-            height: 3.6rem;
+            height: 360px;
             border-bottom: none;
         }
 
         h3 {
-            .setFont(.24, .34, var(--font-content-color));
+            .setFont(24px, 34px, var(--font-content-color));
 
-            margin-bottom: .15rem;
-            padding: .2rem .3rem;
-            border-bottom: .02rem solid var(--border-color);
+            margin-bottom: 15px;
+            padding: 20px 30px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         dl {
             .setFlex(space-between, center);
 
-            .setFont(.24, .34, var(--font-color));
+            .setFont(24px, 34px, var(--font-color));
 
-            padding: .15rem .3rem;
+            padding: 15px 30px;
 
             dd {
                 color: var(--font-content-color);
@@ -165,10 +174,10 @@
     .detail-pages {
         .setFlex(center, stretch);
 
-        padding: .18rem 0 .2rem;
+        padding: 18px 0 20px;
 
         .smallScreen({
-            padding: .3rem 0;
+            padding: 30px 0;
         });
 
         ul {
@@ -180,20 +189,20 @@
 
             cursor: pointer;
             box-sizing: border-box;
-            width: .22rem;
-            height: .26rem;
+            width: 22px;
+            height: 26px;
             border: 1px solid var(--border-color);
-            border-radius: .02rem;
-            margin: 0 .02rem;
+            border-radius: 2px;
+            margin: 0 2px;
             color: var(--font-color);
-            font-size: .14rem;
+            font-size: 14px;
 
             .smallScreen({
-                width: .38rem;
-                height: .44rem;
-                border-radius: .04rem;
-                margin: 0 .04rem;
-                font-size: .24rem;
+                width: 38px;
+                height: 44px;
+                border-radius: 4px;
+                margin: 0 4px;
+                font-size: 24px;
             });
 
             &:disabled {
@@ -208,37 +217,37 @@
         .btn-next {
             .setFlex(center, center);
             
-            padding: 0 .05rem;
+            padding: 0 5px;
             color: var(--font-color);
 
             svg {
-                width: .08rem;
-                height: .112rem;
+                width: 8px;
+                height: 11.2px;
 
                 .smallScreen({
-                    width: .18rem;
-                    height: .24rem;
+                    width: 18px;
+                    height: 24px;
                 });
             }
         }
 
         .btn-prev {
-            margin-right: .1rem;
+            margin-right: 10px;
 
             svg {
                 transform: scaleX(-1);
             }
 
             .smallScreen({
-                margin-right: .18rem;
+                margin-right: 18px;
             });
         }
 
         .btn-next {
-            margin-left: .1rem;
+            margin-left: 10px;
 
             .smallScreen({
-                margin-left: .18rem;
+                margin-left: 18px;
             });
         }
     }
