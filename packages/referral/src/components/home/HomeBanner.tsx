@@ -48,6 +48,8 @@ const ReferralBanner = (): JSX.Element => {
 
     copy(str);
 
+    toast('点击邀请链接复制按钮');
+
     // toast(langInfo.copy_success);
   };
 

@@ -28,6 +28,13 @@ export const debounce = <F extends (...args: any[]) => any>(func: F, delay = 300
   };
 };
 
+// 是否是移动端
+export const isMobile = (): boolean => {
+  return !!navigator.userAgent.match(
+    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i,
+  );
+};
+
 /**
  * 通过key获取url查询部分中value
  * @param {string} key 关键词

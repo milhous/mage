@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'react-toastify/dist/ReactToastify.css';
 import * as toastify from 'react-toastify';
 
-// import { isMobile } from '@libs/utils/util';
+import {isMobile} from '@libs/utils';
 
 import IconTips from './icon-tips.svg';
 import './index.less';
-import 'react-toastify/dist/ReactToastify.css';
 
 // 默认配置
 const defaultOptions = {
-  //position: isMobile() ? 'top-center' : 'top-right',
-  position: false ? 'top-center' : 'top-right',
+  position: isMobile() ? 'top-center' : 'top-right',
   autoClose: 3000,
   hideProgressBar: true,
   closeOnClick: true,
