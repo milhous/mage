@@ -46,8 +46,16 @@ const CompNav = (): JSX.Element => {
           <dl>
             <dt>{t('promotions')}</dt>
             <dd>{t('promotions')}</dd>
-            <dd>{t('referral')}</dd>
-            <dd>{t('affiliate')}</dd>
+            <dd>
+              <a href="/referral" title={t('referral')}>
+                {t('referral')}
+              </a>
+            </dd>
+            <dd>
+              <a href="/affiliate" title={t('affiliate')}>
+                {t('affiliate')}
+              </a>
+            </dd>
           </dl>
           <dl>
             <dt>{t('about_us')}</dt>

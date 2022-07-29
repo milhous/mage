@@ -1,0 +1,16 @@
+{
+    "start_time": "Thời gian bắt đầu",
+    "end_time": "Thời gian kết thúc",
+    "recently": "{recently} ngày",
+    "recentlyMin": "{recently} ngày",
+    "select_date": "Chọn ngày",
+
+    "title_tips": "Nhắc nhở",
+    "btn_reset": "Đặt lại",
+    "btn_confirm": "Xác nhận",
+    "btn_cancel": "Hủy bỏ",
+    "btn_copy": "Sao chép",
+    "tips_end": "End",
+    "tips_copy_success": "Sao chép thành công!",
+    "tips_no_data": "Không có dữ liệu"
+}

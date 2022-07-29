@@ -1,0 +1,16 @@
+{
+    "start_time": "Start Time",
+    "end_time": "End Time",
+    "recently": "Past {recently} days",
+    "recentlyMin": "{recently} days",
+    "select_date": "Select date",
+
+    "title_tips": "Tips",
+    "btn_reset": "Reset",
+    "btn_confirm": "Confirm",
+    "btn_cancel": "Cancel",
+    "btn_copy": "Copy",
+    "tips_end": "End",
+    "tips_copy_success": "Successfully copied!",
+    "tips_no_data": "No data"
+}

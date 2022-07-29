@@ -1,0 +1,16 @@
+{
+    "start_time": "Hora de inicio",
+    "end_time": "Hora de término",
+    "recently": "Últimos {recently} días",
+    "recentlyMin": "{recently} días",
+    "select_date": "Seleccione fecha",
+
+    "title_tips": "Consejos",
+    "btn_reset": "Restablecer",
+    "btn_confirm": "Confirmar",
+    "btn_cancel": "Cancelar",
+    "btn_copy": "Copiar",
+    "tips_end": "End",
+    "tips_copy_success": "Copiado correctamente!",
+    "tips_no_data": "Sin datos"
+}

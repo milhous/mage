@@ -1,0 +1,16 @@
+{
+    "start_time": "開始時間",
+    "end_time": "結束時間",
+    "recently": "最近{recently}天",
+    "recentlyMin": "{recently}天",
+    "select_date": "日期選擇",
+
+    "title_tips": "提示",
+    "btn_reset": "重置",
+    "btn_confirm": "確定",
+    "btn_cancel": "取消",
+    "btn_copy": "複製",
+    "tips_end": "End",
+    "tips_copy_success": "複製成功!",
+    "tips_no_data": "暫無數據"
+}

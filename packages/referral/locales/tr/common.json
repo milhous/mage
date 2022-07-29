@@ -1,0 +1,16 @@
+{
+    "start_time": "Başlangıç Saati",
+    "end_time": "Bitiş Saati",
+    "recently": "Geçmiş {recently} gün",
+    "recentlyMin": "{recently} gün",
+    "select_date": "Tarih seç",
+
+    "title_tips": "İpuçları",
+    "btn_reset": "Sıfırla",
+    "btn_confirm": "Onayla",
+    "btn_cancel": "İptal",
+    "btn_copy": "Kopyala",
+    "tips_end": "Son",
+    "tips_copy_success": "Başarıyla kopyalandı!",
+    "tips_no_data": "Veri yok"
+}

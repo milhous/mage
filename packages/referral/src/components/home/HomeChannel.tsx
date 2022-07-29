@@ -1,6 +1,6 @@
 import {Trans} from 'react-i18next';
 
-import {useTranslate} from '@libs/i18n';
+import {useTranslate, getTranslate} from '@libs/i18n';
 import {throttle, copy} from '@libs/utils';
 import analytics from '@libs/analytics';
 import {toast, error} from '@widget/toastify';
@@ -36,7 +36,9 @@ const handleCopy = (str: string): void => {
 
   copy(str);
 
-  // toast(langInfo.copy_success);
+  const tips = getTranslate('common:tips_copy_success');
+
+  toast(tips);
 };
 
 // 设置默认
@@ -111,7 +113,7 @@ const ElemHomeChannelList = (props: {data: IGetInvitationChannelData; index: num
     referralBetCount,
     referralBetAmount,
   } = data;
-  const t = useTranslate(['referral', 'error']);
+  const t = useTranslate(['referral', 'error', 'common']);
 
   return (
     <div className="channel-list" key={index}>

@@ -1,0 +1,16 @@
+{
+    "start_time": "開始時間",
+    "end_time": "終了時間",
+    "recently": "最近{recently}日",
+    "recentlyMin": "{recently}日",
+    "select_date": "日時選択",
+
+    "title_tips": "提示",
+    "btn_reset": "リセット",
+    "btn_confirm": "確認",
+    "btn_cancel": "キャンセル",
+    "btn_copy": "コピー",
+    "tips_end": "End",
+    "tips_copy_success": "コピーしました！",
+    "tips_no_data": "データなし"
+}

@@ -1,0 +1,16 @@
+{
+    "start_time": "시작시간",
+    "end_time": "종료시간",
+    "recently": "최근 {recently}일",
+    "recentlyMin": "{recently}일",
+    "select_date": "날짜선택",
+
+    "title_tips": "알림",
+    "btn_reset": "초기화",
+    "btn_confirm": "확인",
+    "btn_cancel": "취소",
+    "btn_copy": "복사",
+    "tips_end": "End",
+    "tips_copy_success": "복사성공!",
+    "tips_no_data": "데이터 없음"
+}

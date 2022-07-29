@@ -12,7 +12,7 @@ import Assets from '@app/assets';
 import './HomeBanner.less';
 
 const ReferralBanner = (): JSX.Element => {
-  const t = useTranslate(['referral']);
+  const t = useTranslate(['referral', 'common']);
   const {lutPrize, rebateLimit, inviteLimit} = useInviteBasics();
   const {code, link} = useInviteInfo();
   const channel = useInviteChannel();
@@ -48,9 +48,9 @@ const ReferralBanner = (): JSX.Element => {
 
     copy(str);
 
-    toast('点击邀请链接复制按钮');
+    const tips = t('common:tips_copy_success');
 
-    // toast(langInfo.copy_success);
+    toast(tips);
   };
 
   /**

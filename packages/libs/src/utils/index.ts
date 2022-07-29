@@ -54,42 +54,6 @@ export const getQueryParams = (key = '', search?: string): string => {
 };
 
 /**
- * 复制
- * @param {string} text 文案
- * @return {Promise<void>} promise
- */
-export const copy = (text = ''): Promise<boolean> => {
-  return new Promise(resolve => {
-    if (typeof text !== 'string' || text === '') {
-      resolve(false);
-
-      return;
-    }
-
-    text = ('' + text).trim();
-
-    updateClipboardElem(text);
-
-    if (navigator.clipboard) {
-      navigator.clipboard
-        .writeText(text)
-        .then(() => {
-          resolve(true);
-        })
-        .catch(err => {
-          const result = copyWidthClipboard();
-
-          resolve(!!result);
-        });
-    } else {
-      const result = copyWidthClipboard();
-
-      resolve(!!result);
-    }
-  });
-};
-
-/**
  * 更新剪切板元素
  * @param {string} text 文本
  */
@@ -129,6 +93,42 @@ const copyWidthClipboard = (): boolean => {
   }
 
   return result;
+};
+
+/**
+ * 复制
+ * @param {string} text 文案
+ * @return {Promise<void>} promise
+ */
+export const copy = (text = ''): Promise<boolean> => {
+  return new Promise(resolve => {
+    if (typeof text !== 'string' || text === '') {
+      resolve(false);
+
+      return;
+    }
+
+    text = ('' + text).trim();
+
+    updateClipboardElem(text);
+
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          resolve(true);
+        })
+        .catch(err => {
+          const result = copyWidthClipboard();
+
+          resolve(!!result);
+        });
+    } else {
+      const result = copyWidthClipboard();
+
+      resolve(!!result);
+    }
+  });
 };
 
 /* run Generator */
