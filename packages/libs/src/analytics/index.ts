@@ -4,7 +4,7 @@ import {getAnalytics, logEvent, isSupported, Analytics} from 'firebase/analytics
 // These imports load individual services into the firebase namespace.
 import 'firebase/auth';
 
-import {getQueryParams} from '../utils';
+import {isMobile, isApp, isIOS, getQueryParams} from '../utils';
 import {getCurLang} from '../i18n';
 
 const firebaseConfig = {
@@ -146,16 +146,11 @@ class BTGAnalytics {
 
   // 获取平台
   private _getPlatform(): string {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const isMobile = /mobile|android|iphone|ipad/.test(userAgent);
-    const isApp = 'native' in window;
-    const isIOS = !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-
     let platform = 'Desktop';
 
-    if (isApp) {
-      platform = isIOS ? 'IOS' : 'Android';
-    } else if (isMobile) {
+    if (isApp()) {
+      platform = isIOS() ? 'IOS' : 'Android';
+    } else if (isMobile()) {
       platform = 'Mobile';
     }
 

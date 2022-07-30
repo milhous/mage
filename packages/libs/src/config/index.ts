@@ -49,3 +49,23 @@ export const CustomEventType = {
 export const LocalStorageKey = {
   TIMEZONE: 'timezone',
 };
+
+/**
+ * Cookies Key
+ * @property ACCESS_TOKEN 用户令牌
+ * @property ACCESS_TOKEN_EXPIRES 用户令牌有效期
+ * @property REFRESH_TOKEN 刷新令牌
+ * @property REFRESH_TOKEN_EXPIRES 刷新令牌有效期
+ * @property WALLET_TYPE 钱包类型
+ * @property WALLET_ADDRESS 钱包地址
+ * @property SHARE_INVITE_CODE 邀请码
+ */
+export const CookiesKey = {
+  ACCESS_TOKEN: 'access_token',
+  ACCESS_TOKEN_EXPIRES: 'access_token_expires',
+  REFRESH_TOKEN: 'refresh_token',
+  REFRESH_TOKEN_EXPIRES: 'refresh_token_expires',
+  WALLET_TYPE: 'wallet_type',
+  WALLET_ADDRESS: 'wallet_address',
+  SHARE_INVITE_CODE: 'share_invite_code',
+};

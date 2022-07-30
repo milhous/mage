@@ -28,11 +28,34 @@ export const debounce = <F extends (...args: any[]) => any>(func: F, delay = 300
   };
 };
 
+// 是否是APP
+export const isApp = (): boolean => {
+  const isNative = getQueryParams('isNative');
+
+  return 'native' in window || isNative === '1';
+};
+
 // 是否是移动端
 export const isMobile = (): boolean => {
-  return !!navigator.userAgent.match(
-    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i,
+  const userAgent = navigator.userAgent;
+
+  return /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(
+    userAgent,
   );
+};
+
+// 是否是IOS
+export const isIOS = (): boolean => {
+  const userAgent = navigator.userAgent;
+
+  return /(iPad|iPhone|iPod)/i.test(userAgent);
+};
+
+// 是否是Android
+export const isAndroid = (): boolean => {
+  const userAgent = navigator.userAgent;
+
+  return /android/i.test(userAgent);
 };
 
 /**
