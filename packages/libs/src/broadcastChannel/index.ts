@@ -1,4 +1,4 @@
-import './@types/BTGBroadcastChannel.d';
+import './@types/broadcastChannel.d';
 import {chooseMethod} from './methodChooser';
 import {fillOptionsWithDefaults} from './options';
 

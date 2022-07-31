@@ -51,7 +51,7 @@ const HomeLogin = (): JSX.Element => {
   };
 
   useEffect(() => {
-    getPrizeNotify();
+    // getPrizeNotify();
   }, []);
 
   return (

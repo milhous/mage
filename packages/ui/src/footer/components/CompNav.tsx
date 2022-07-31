@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import {useTranslate} from '@libs/i18n';
 import {WidgetQRCode} from '@widget/index';
 import UILanguages from '@app/languages';
@@ -47,14 +49,10 @@ const CompNav = (): JSX.Element => {
             <dt>{t('promotions')}</dt>
             <dd>{t('promotions')}</dd>
             <dd>
-              <a href="/referral" title={t('referral')}>
-                {t('referral')}
-              </a>
+              <Link to="/referral">{t('referral')}</Link>
             </dd>
             <dd>
-              <a href="/affiliate" title={t('affiliate')}>
-                {t('affiliate')}
-              </a>
+              <Link to="/affiliate">{t('affiliate')}</Link>
             </dd>
           </dl>
           <dl>

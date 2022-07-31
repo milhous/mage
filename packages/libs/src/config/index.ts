@@ -15,6 +15,16 @@ export enum UIType {
 }
 
 /**
+ * 投注类型
+ * @property ACCOUNT 账户投注
+ * @property CONTRACT 合约投注
+ */
+export enum BetType {
+  ACCOUNT,
+  CONTRACT,
+}
+
+/**
  * 频道事件类型
  * @property ACCOUNT_CHANGE 账户改变
  * @property LANGUAGES_CHANGE 语言改变
@@ -34,12 +44,14 @@ export const ChannelEventType = {
  * @property LANGUAGES_CHANGE 语言改变
  * @property TIMEZONE_CHANGE 时区改变
  * @property CURRENCY_CHANGE 币种改变
+ * @property BET_TYPE_CHANGE 投注类型改变
  */
 export const CustomEventType = {
   ACCOUNT_CHANGE: 'customAccountChange',
   LANGUAGES_CHANGE: 'customLanguagesChange',
   TIMEZONE_CHANGE: 'customTimezoneChange',
   CURRENCY_CHANGE: 'customCurrencyChange',
+  BET_TYPE_CHANGE: 'customBetTypeChange',
 };
 
 /**

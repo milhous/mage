@@ -1,8 +1,8 @@
 import './index.less';
 
 import logo from './assets/logo.png?as=apng';
-import importSvg from './assets/import.svg?url';
-import assume from './assets/assume.png';
+
+import CompNav from './components/CompNav';
 
 // header
 const UIHeader = (): JSX.Element => {
@@ -12,7 +12,9 @@ const UIHeader = (): JSX.Element => {
         <aside>
           <img src={logo} />
         </aside>
-        <article>222</article>
+        <article>
+          <CompNav />
+        </article>
       </section>
     </div>
   );

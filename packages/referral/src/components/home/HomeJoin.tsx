@@ -1,5 +1,5 @@
 import {useTranslate} from '@libs/i18n';
-// import analytics from '@libs/analytics';
+import analytics from '@libs/analytics';
 
 import './HomeJoin.less';
 
@@ -8,9 +8,9 @@ const ReferralJoin = (): JSX.Element => {
 
   // 点击
   const handleClick = () => {
-    //   analytics.customEvent('Email_apply', {
-    //     desc: '点击邀请页面“立即申请”及“support@bitgame.com”',
-    //   });
+    analytics.customEvent('Email_apply', {
+      desc: '点击邀请页面“立即申请”及“support@bitgame.com”',
+    });
   };
 
   return (
