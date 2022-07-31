@@ -2420,7 +2420,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.6
-    i18next: ^21.8.14
+    i18next: ^21.8.16
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -2455,7 +2455,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.6
-    i18next: ^21.8.14
+    i18next: ^21.8.16
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -2470,7 +2470,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.6
-    i18next: ^21.8.14
+    i18next: ^21.8.16
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -2486,7 +2486,7 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.6
-    i18next: ^21.8.14
+    i18next: ^21.8.16
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8456,15 +8456,6 @@ __metadata:
   dependencies:
     cross-fetch: 3.1.5
   checksum: 1ed4c68c458cc5e7c60af3b641223b9f1b49b6e7ded0fb908cf034ddf62de401db9bb8bb0f6be0634c53ceeee0fec7e03e7171b0dea2cbebca5bbcee6da46e2f
-  languageName: node
-  linkType: hard
-
-"i18next@npm:^21.8.14":
-  version: 21.8.14
-  resolution: "i18next@npm:21.8.14::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fi18next%2F-%2Fi18next-21.8.14.tgz"
-  dependencies:
-    "@babel/runtime": ^7.17.2
-  checksum: 83b1a57d761c3d29b90f4e87eb9945902fa13d7750f11bc7f22e8c9999f7e5bf9b2a30c44a9b47569c8ea704573b02a562c2678cf2281073197ace07657d21be
   languageName: node
   linkType: hard
 
