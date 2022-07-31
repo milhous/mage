@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {Trans} from 'react-i18next';
 
 import {ChannelEventType} from '@libs/config';
@@ -12,7 +13,6 @@ import Assets from '@app/assets';
 import {apiDepositPrizeNotify} from '@app/api';
 
 import './HomeLogin.less';
-import {useEffect} from 'react';
 
 const channel = new BTGBroadcastChannel();
 
