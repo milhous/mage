@@ -14,16 +14,15 @@ interface IAuthInitProps {
 }
 
 /**
- * 声明 - 基于帧率计时器
- * @method check 根据uuid检测计时器是否存在
- * @method update 更新
- * @method timer 计时器
- * @method frame 帧计时
- * @method clear 根据uuid清理
- * @method clearByGroup 根据分组名称清理
- * @method clearAll 清理所有
+ * 声明 - 授权
+ * @method init 初始化
+ * @method clear 清理
+ * @method getAccessToken 获取用户令牌
+ * @method getAuthorization 获取平台授权码（默认不需要token)
  */
 declare interface IAuth {
   init(props: IAuthInitProps): void;
   clear(): void;
+  getAccessToken(): string | undefined;
+  getAuthorization(isToken?: boolean): string;
 }

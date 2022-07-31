@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import Cookies from 'js-cookie';
 
 import {CookiesKey} from '@app/config';
-import {AuthorizationsDev, AuthorizationsPre, AuthorizationsPrd} from '@app/config/OAuth';
+import {AuthorizationsDev, AuthorizationsPre, AuthorizationsPrd} from '@app/config/auth';
 import {isMobile, isApp, isIOS} from '@app/utils';
 
 import './@types/auth.d';
@@ -20,7 +20,12 @@ class Auth implements IAuth {
   // 钱包地址
   private _walletAddress: string | undefined = undefined;
 
-  constructor() {}
+  constructor() {
+    this._accessToken = Cookies.get(CookiesKey.ACCESS_TOKEN);
+    this._refreshToken = Cookies.get(CookiesKey.REFRESH_TOKEN);
+    this._walletType = Cookies.get(CookiesKey.WALLET_TYPE);
+    this._walletAddress = Cookies.get(CookiesKey.WALLET_ADDRESS);
+  }
 
   static instance: IAuth;
 
@@ -83,26 +88,28 @@ class Auth implements IAuth {
     }
   }
 
+  // 清理
   clear() {
-    Cookies.remove('access_token');
-    Cookies.remove('refresh_token');
-    Cookies.remove('wallet_address');
-    Cookies.remove('wallet_type');
-    Cookies.remove('access_token_expires');
-    Cookies.remove('refresh_token_expires');
-    Cookies.remove('share_invite_code');
-    _accessToken = undefined;
-    _refreshToken = undefined;
-    _walletAddress = undefined;
-    _walletType = undefined;
+    this._accessToken = undefined;
+    this._refreshToken = undefined;
+    this._walletAddress = undefined;
+    this._walletType = undefined;
+
+    Cookies.remove(CookiesKey.ACCESS_TOKEN);
+    Cookies.remove(CookiesKey.ACCESS_TOKEN_EXPIRES);
+    Cookies.remove(CookiesKey.REFRESH_TOKEN);
+    Cookies.remove(CookiesKey.REFRESH_TOKEN_EXPIRES);
+    Cookies.remove(CookiesKey.WALLET_TYPE);
+    Cookies.remove(CookiesKey.WALLET_ADDRESS);
+    Cookies.remove(CookiesKey.SHARE_INVITE_CODE);
   }
 
   /**
-   * 获取 Access Token
+   * 获取用户令牌
    * @returns {string | undefined}
    */
-  private _getAccessToken(): string | undefined {
-    const tokenExpires = Cookies.get('access_token_expires') || '0';
+  public getAccessToken(): string | undefined {
+    const tokenExpires = Cookies.get(CookiesKey.ACCESS_TOKEN_EXPIRES) || '0';
     const expiresTime = new Date(Number(tokenExpires)).getTime();
     const curTime = new Date().getTime();
 
@@ -111,29 +118,31 @@ class Auth implements IAuth {
       return undefined;
     }
 
-    return Cookies.get('access_token');
+    return this._accessToken;
   }
 
   /**
    * 获取平台授权码
+   * @param {boolean} isToken 是否需要含有token授权码
    * @returns {string}
    */
-  private _getAuthorization(): string {
-    const token = this._getAccessToken();
-    const authorization = this._getAuthorization();
-
-    headers['Authorization'] = headers?.Authorization && token ? `Bearer ${token}` : `Basic ${authorization}`;
-
-    const authorizations = this._getAuthorizations();
+  public getAuthorization(isToken = false): string {
+    const token = this.getAccessToken();
     let authorization = '';
 
-    if (isApp()) {
-      authorization = isIOS() ? authorizations.IOS : authorizations.ANDROID;
+    if (isToken && !!token) {
+      authorization = token;
     } else {
-      authorization = isMobile() ? authorizations.MOBILE : authorizations.PC;
+      const authorizations = this._getAuthorizations();
+
+      if (isApp()) {
+        authorization = isIOS() ? authorizations.IOS : authorizations.ANDROID;
+      } else {
+        authorization = isMobile() ? authorizations.MOBILE : authorizations.PC;
+      }
     }
 
-    return authorization;
+    return `Basic ${authorization}`;
   }
 
   /**

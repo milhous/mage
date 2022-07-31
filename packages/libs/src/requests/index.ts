@@ -1,8 +1,8 @@
-import axios, {AxiosInstance, AxiosRequestHeaders, Method} from 'axios';
+import axios, {AxiosInstance, AxiosPromise, Method} from 'axios';
 import Cookies from 'js-cookie';
 
-import {AuthorizationsDev, AuthorizationsPre, AuthorizationsPrd} from '@app/config/OAuth';
-import {isMobile, isApp, isIOS} from '@app/utils';
+import domain from '@app/config/domain';
+import auth from '@app/auth';
 import {getCurLang} from '@app/i18n';
 
 import './@types/requests.d';
@@ -33,7 +33,21 @@ class Requests implements IRequests {
     return Requests.instance;
   }
 
-  send(): void {}
+  send(url: string, method: Method = 'get', data: any, headers: any = {}): AxiosPromise<any> | null {
+    let axiosPromise = null;
+
+    if (!!this._axiosInstance) {
+      axiosPromise = this._axiosInstance({
+        baseURL: '//' + domain.apiHost,
+        url,
+        headers,
+        method,
+        [['put', 'post', 'patch'].includes(String(method).toLowerCase()) ? 'data' : 'params']: data || {},
+      });
+    }
+
+    return axiosPromise;
+  }
 
   private _init(): void {
     // 创建请求
@@ -56,12 +70,12 @@ class Requests implements IRequests {
         const {headers, method} = config;
 
         if (!!headers) {
-          const token = this._getAccessToken();
+          const isToken = 'Authorization' in headers && (headers['Authorization'] as boolean);
+          const authorization = auth.getAuthorization(isToken);
           const lang = getCurLang();
-          const authorization = this._getAuthorization();
 
+          headers['Authorization'] = authorization;
           headers['Accept-Language'] = lang;
-          headers['Authorization'] = headers?.Authorization && token ? `Bearer ${token}` : `Basic ${authorization}`;
 
           if (
             ['put', 'post', 'patch', 'delete'].includes(('' + method).toLowerCase()) &&
@@ -93,12 +107,13 @@ class Requests implements IRequests {
   private _initInterceptorsResponse(instance: AxiosInstance): void {
     let refreshPromise: Promise<any> | null;
     let refreshed = false;
+
     // 添加响应拦截器
     instance.interceptors.response.use(
-      function (response) {
+      response => {
         return response.data;
       },
-      function (error) {
+      error => {
         if (error.response) {
           switch (error.response.status) {
             case 401:
@@ -112,9 +127,9 @@ class Requests implements IRequests {
 
               if (!refreshed) {
                 refreshed = true;
-                refreshPromise = refreshUserToken().then(data => {
-                  refreshPromise = null;
-                });
+                // refreshPromise = refreshUserToken().then(data => {
+                //   refreshPromise = null;
+                // });
               }
 
               if (refreshPromise) {
@@ -148,58 +163,6 @@ class Requests implements IRequests {
         return Promise.reject(error); // 返回接口返回的错误信息
       },
     );
-  }
-
-  /**
-   * 获取 Access Token
-   * @returns {string | undefined}
-   */
-  private _getAccessToken(): string | undefined {
-    const tokenExpires = Cookies.get('access_token_expires') || '0';
-    const expiresTime = new Date(Number(tokenExpires)).getTime();
-    const curTime = new Date().getTime();
-
-    // 判断是否快要过期
-    if (expiresTime - curTime <= 60 * 60 * 1000) {
-      return undefined;
-    }
-
-    return Cookies.get('access_token');
-  }
-
-  /**
-   * 获取平台授权码
-   * @returns {string}
-   */
-  private _getAuthorization(): string {
-    const authorizations = this._getAuthorizations();
-    let authorization = '';
-
-    if (isApp()) {
-      authorization = isIOS() ? authorizations.IOS : authorizations.ANDROID;
-    } else {
-      authorization = isMobile() ? authorizations.MOBILE : authorizations.PC;
-    }
-
-    return authorization;
-  }
-
-  /**
-   * 获取平台授权信息
-   * @returns {Record<string, string>}
-   */
-  private _getAuthorizations(): Record<string, string> {
-    let authorizations: Record<string, string> = {};
-
-    if (__isDEV__) {
-      authorizations = AuthorizationsDev;
-    } else if (window.location.origin.indexOf('prebitgame') >= 0) {
-      authorizations = AuthorizationsPre;
-    } else {
-      authorizations = AuthorizationsPrd;
-    }
-
-    return authorizations;
   }
 }
 

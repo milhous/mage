@@ -1,13 +1,7 @@
 /**
- * 声明 - 基于帧率计时器
- * @method check 根据uuid检测计时器是否存在
- * @method update 更新
- * @method timer 计时器
- * @method frame 帧计时
- * @method clear 根据uuid清理
- * @method clearByGroup 根据分组名称清理
- * @method clearAll 清理所有
+ * 声明 - 请求
+ * @method send 发送
  */
 declare interface IRequests {
-  send(): void;
+  send(url: string, method: Method = 'get', data: any, headers: any = {}): AxiosPromise<any> | null;
 }
