@@ -9,8 +9,10 @@ import analytics from '@libs/analytics';
 
 import {useInviteBasics} from '@app/hooks';
 import Assets from '@app/assets';
+import {apiDepositPrizeNotify} from '@app/api';
 
 import './HomeLogin.less';
+import {useEffect} from 'react';
 
 const channel = new BTGBroadcastChannel();
 
@@ -40,6 +42,17 @@ const HomeLogin = (): JSX.Element => {
       },
     });
   }, 1000);
+
+  // 获取奖励提示
+  const getPrizeNotify = async (): Promise<void> => {
+    const {data} = await apiDepositPrizeNotify({actNo: 'ACT716480A90BP1009'});
+
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getPrizeNotify();
+  }, []);
 
   return (
     <section className="referral-login">

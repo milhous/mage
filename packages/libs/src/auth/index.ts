@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 import Cookies from 'js-cookie';
 
-import {CookiesKey} from '@app/config';
-import {AuthorizationsDev, AuthorizationsPre, AuthorizationsPrd} from '@app/config/auth';
-import {isMobile, isApp, isIOS} from '@app/utils';
+import {CookiesKey} from '../config';
+import {AuthorizationsDev, AuthorizationsPre, AuthorizationsPrd} from '../config/auth';
+import {isMobile, isApp, isIOS} from '../utils';
 
 import './@types/auth.d';
 

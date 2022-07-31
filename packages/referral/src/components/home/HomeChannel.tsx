@@ -6,7 +6,7 @@ import analytics from '@libs/analytics';
 import {toast, error} from '@widget/toastify';
 
 import {ReferralEventType} from '@app/types';
-import {OK_CODE, IGetInvitationChannelData} from '@app/api';
+import {IGetInvitationChannelData} from '@app/api';
 import {useInviteBasics, useInviteChannel} from '@app/hooks';
 
 // import * as referralCreate from './ReferralCreate';

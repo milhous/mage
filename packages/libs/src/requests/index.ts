@@ -1,9 +1,9 @@
 import axios, {AxiosInstance, AxiosPromise, Method} from 'axios';
 import Cookies from 'js-cookie';
 
-import domain from '@app/config/domain';
-import auth from '@app/auth';
-import {getCurLang} from '@app/i18n';
+import domain from '../config/domain';
+import auth from '../auth';
+import {getCurLang} from '../i18n';
 
 import './@types/requests.d';
 
@@ -33,18 +33,14 @@ class Requests implements IRequests {
     return Requests.instance;
   }
 
-  send(url: string, method: Method = 'get', data: any, headers: any = {}): AxiosPromise<any> | null {
-    let axiosPromise = null;
-
-    if (!!this._axiosInstance) {
-      axiosPromise = this._axiosInstance({
-        baseURL: '//' + domain.apiHost,
-        url,
-        headers,
-        method,
-        [['put', 'post', 'patch'].includes(String(method).toLowerCase()) ? 'data' : 'params']: data || {},
-      });
-    }
+  send(url: string, method: Method = 'get', data: any, headers: any = {}): AxiosPromise<any> {
+    const axiosPromise: AxiosPromise<any> = (this._axiosInstance as AxiosInstance)({
+      baseURL: '//' + domain.apiHost,
+      url,
+      headers,
+      method,
+      [['put', 'post', 'patch'].includes(String(method).toLowerCase()) ? 'data' : 'params']: data || {},
+    });
 
     return axiosPromise;
   }

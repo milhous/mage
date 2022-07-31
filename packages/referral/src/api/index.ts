@@ -1,4 +1,4 @@
-export const OK_CODE = '0000';
+import requests, {OK_CODE} from '@libs/requests';
 
 /**
  * @param {string} rspCode 状态码
@@ -212,3 +212,162 @@ export interface IGetInvitationChannelData {
 //     });
 //   });
 // }
+
+/**
+ * @param {string} rspCode 状态码
+ * @param {number} data 数据
+ * @param {string} message 业务信息
+ */
+interface IApiResponse {
+  rspCode: string;
+  data: any;
+  message: string;
+}
+
+/**
+ * 声明 - 基本信息
+ * @param {number} data 数据
+ */
+export interface IDepositInfoResponse extends IApiResponse {
+  data: IDepositInfoData;
+}
+
+/**
+ * 声明 - 基本信息
+ * @param {number} highestPrize 最高奖励（单位：USDT）
+ * @param {number} startTime 活动开始时间（时间戳）
+ * @param {number} endTime 活动结束时间（时间戳）
+ * @param {IDepositInfoPrizeList} prizeList
+ * @param {IDepositInfoUserInfo} userInfo
+ */
+interface IDepositInfoData {
+  highestPrize: number;
+  startTime: number;
+  endTime: number;
+  prizeList: IDepositInfoPrizeList[];
+  userInfo: IDepositUserInfo;
+}
+
+/**
+ * 声明 - 活动奖励
+ * @param {number} level 档位
+ * @param {number} rechargeAmount 累计充值金额（单位：USDT）
+ * @param {number} prizeAmount 返奖金额（单位：USDT）
+ */
+export interface IDepositInfoPrizeList {
+  level: number;
+  rechargeAmount: number;
+  prizeAmount: number;
+}
+
+/**
+ * 声明 - 用户数据(依赖登录态)
+ * @param {number} rechargeAmount 累计充值金额（单位：USDT）
+ * @param {number} nextRechargeAmount 下个阶段充值要求（单位：USDT）
+ * @param {number} prizeAmount 充值奖励（单位：USDT）
+ * @param {number} nextPrizeAmount 下个阶段充值奖励（单位：USDT）
+ * @param {number} lockAmount 待领取奖励（单位：USDT）
+ * @param {number} validBetAmount 有效投注额（单位：USDT）
+ * @param {number} reachValidBetAmount 已达到有效投注额（单位：USDT）
+ */
+export interface IDepositUserInfo {
+  rechargeAmount: number;
+  nextRechargeAmount: number;
+  prizeAmount: number;
+  nextPrizeAmount: number;
+  lockAmount: number;
+  validBetAmount: number;
+  reachValidBetAmount: number;
+}
+
+/**
+ * 基本信息
+ * @param {string} actNo 活动编号
+ * @return {IDepositInfoResponse} 数据
+ */
+export function apiDepositInfo(params: {actNo: string}): Promise<IDepositInfoResponse> {
+  return new Promise((resolve, reject) => {
+    requests
+      .send(`/act/newRecharge/info`, 'GET', params, {
+        Authorization: true,
+      })
+      .then((res: IDepositInfoResponse) => {
+        if (res.rspCode === OK_CODE) {
+          resolve(res);
+        } else {
+          reject(res.rspCode);
+        }
+      });
+  });
+}
+
+/**
+ * 声明 - 模拟计算
+ * @param {number} data 数据
+ */
+export interface IDepositSimulateResponse extends IApiResponse {
+  data: IDepositSimulateData;
+}
+
+/**
+ * 声明 - 模拟计算
+ * @param {number} prizeAmount 奖励金额（单位：USDT
+ * @param {number} validBetAmount 有效投注额（单位：USDT）
+ */
+interface IDepositSimulateData {
+  prizeAmount: number;
+  validBetAmount: number;
+}
+
+/**
+ * 模拟计算
+ * @param {string} actNo 活动编号
+ * @param {number} amount 充值金额
+ * @return {IDepositInfoResponse} 数据
+ */
+export function apiDepositSimulate(params: {actNo: string; amount: number}): Promise<IDepositSimulateResponse> {
+  return new Promise((resolve, reject) => {
+    requests.send(`/act/newRecharge/simulate`, 'GET', params).then((res: IDepositSimulateResponse) => {
+      if (res.rspCode === OK_CODE) {
+        resolve(res);
+      } else {
+        reject(res.rspCode);
+      }
+    });
+  });
+}
+
+/**
+ * 声明 - 奖励通知信息
+ * @param {number} data 数据
+ */
+export interface IDepositPrizeNotifyResponse extends IApiResponse {
+  data: IDepositPrizeNotify[];
+}
+
+/**
+ * 奖励通知信息
+ * @param {string} userId 用户id（已脱敏）
+ * @param {string} amount 奖励金额（单位：USDT）
+ */
+export interface IDepositPrizeNotify {
+  userId: string;
+  amount: string;
+}
+
+/**
+ * 奖励通知信息
+ * @param {string} actNo 活动编号
+ * @return {IDepositInfoResponse} 数据
+ */
+export function apiDepositPrizeNotify(params: {actNo: string}): Promise<IDepositPrizeNotifyResponse> {
+  return new Promise((resolve, reject) => {
+    requests.send(`/act/newRecharge/prizeNotify`, 'GET', params).then((res: IDepositPrizeNotifyResponse) => {
+      if (res.rspCode === OK_CODE) {
+        resolve(res);
+      } else {
+        reject(res.rspCode);
+      }
+    });
+  });
+}
