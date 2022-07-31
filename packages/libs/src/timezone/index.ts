@@ -64,12 +64,12 @@ export const getCurTimezone = (): string => {
 
 /**
  * 切换时区
- * @param {string} timezone 时区
+ * @param {string} utc 时区
  */
-export const changeTimezone = (timezone: string): void => {
-  window.localStorage?.setItem(LocalStorageKey.TIMEZONE, timezone);
+export const changeTimezone = (utc: string): void => {
+  window.localStorage?.setItem(LocalStorageKey.TIMEZONE, utc);
 
-  window.dispatchEvent(new CustomEvent(CustomEventType.TIMEZONE_CHANGE, {detail: timezone}));
+  window.dispatchEvent(new CustomEvent(CustomEventType.TIMEZONE_CHANGE, {detail: utc}));
 };
 
 // Hook - 时区

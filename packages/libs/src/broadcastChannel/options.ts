@@ -13,12 +13,12 @@ export function fillOptionsWithDefaults(originalOptions: any = {}): IBTGBroadcas
 
   // 轮询间隔时间
   if (!('loop' in options)) {
-    options.loop = 150;
+    options.loop = 100;
   }
 
   // 发送节流时间
   if (!('throttle' in options)) {
-    options.throttle = 200;
+    options.throttle = 100;
   }
 
   return options;

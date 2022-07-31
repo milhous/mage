@@ -1,7 +1,7 @@
 import {ChannelEventType, LocalStorageKey} from '../config';
 import {changeAccount} from '../account';
-import {changeLang} from '../i18n';
-import {changeTimezone} from '../timezone';
+import * as languages from '../i18n';
+import * as timezone from '../timezone';
 import {BTGBroadcastChannel} from '../broadcastChannel';
 
 const channel = new BTGBroadcastChannel();
@@ -15,12 +15,42 @@ channel.onMessage(msg => {
 
       break;
     case ChannelEventType.LANGUAGES_CHANGE:
-      changeLang(payload.val);
+      languages.changeLang(payload.lang);
 
       break;
     case ChannelEventType.TIMEZONE_CHANGE:
-      changeTimezone(payload.val);
+      timezone.changeTimezone(payload.utc);
 
       break;
   }
 });
+
+/**
+ * 切换语言
+ * @param {string} lang 语言
+ */
+export const changeLang = (lang: string) => {
+  languages.changeLang(lang);
+
+  channel.postMessage({
+    type: ChannelEventType.LANGUAGES_CHANGE,
+    payload: {
+      lang,
+    },
+  });
+};
+
+/**
+ * 切换时区
+ * @param {string} utc 时区
+ */
+export const changeTimezone = (utc: string) => {
+  timezone.changeTimezone(utc);
+
+  channel.postMessage({
+    type: ChannelEventType.TIMEZONE_CHANGE,
+    payload: {
+      utc,
+    },
+  });
+};

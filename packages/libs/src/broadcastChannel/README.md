@@ -82,15 +82,15 @@ channel.close();
 
 **ttl** - 消息存活时间（Time To Live），默认 30 s，仅在 IndexedDB 方式中有效。
 
-**loop** - 轮询间隔时间，默认 150 ms，仅在 IndexedDB 方式中有效。
+**loop** - 轮询间隔时间，默认 100 ms，仅在 IndexedDB 方式中有效。
 
-**throttle** - 发送节流时间，默认 200 ms，在该时间内，同类型的消息会被最新的覆盖。
+**throttle** - 发送节流时间，默认 100 ms，在该时间内，同类型的消息会被最新的覆盖。
 
 ```js
 const options = {
   ttl: 1000 * 30,
-  loop: 150,
-  throttle: 200,
+  loop: 100,
+  throttle: 100,
 };
 const channel = new BroadcastChannel("test", options);
 ```

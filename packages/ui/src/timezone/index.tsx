@@ -1,12 +1,9 @@
 import {useEffect, useState} from 'react';
 
-import {ChannelEventType} from '@libs/config';
+import {changeTimezone} from '@libs/mediator';
 import {useTranslate, getTranslate} from '@libs/i18n';
-import {BTGBroadcastChannel} from '@libs/broadcastChannel';
 import {TimeZoneConfigs, useTimezone} from '@libs/timezone';
 import {WidgetDropdown} from '@widget/index';
-
-const channel = new BTGBroadcastChannel();
 
 // 获取时区列表
 const getTimezonesList = (): IWidgetDropdownList[] => {
@@ -32,10 +29,7 @@ const UITimezone = (): JSX.Element => {
 
   // 选择
   const handleSelect = (data: IWidgetDropdownList): void => {
-    channel.postMessage({
-      type: ChannelEventType.TIMEZONE_CHANGE,
-      payload: data,
-    });
+    changeTimezone(data.val);
   };
 
   useEffect(() => {
