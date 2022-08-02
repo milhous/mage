@@ -57,8 +57,8 @@
 .setFont(@fontSize, @lineHeight, @fontColor, @fontWeight: 400) {
   color: @fontColor;
   font-weight: @fontWeight;
-  font-size: calc(@fontSize * 1);
-  line-height: calc(@lineHeight * 1);
+  font-size: @fontSize;
+  line-height: @lineHeight;
 }
 
 // 设置flex
@@ -95,24 +95,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: calc(@width * 1);
-  height: calc(@height * 1);
+  min-width: @width;
+  height: @height;
   padding: 0 calc(@borderRadius * 2);
-  border-radius: calc(@borderRadius * 1);
+  border-radius: @borderRadius;
   background: linear-gradient(@background);
   background-repeat: no-repeat;
   background-position: center center;
   color: @fontColor;
-  font-weight: 700;
-  font-size: calc(@fontSize * 1);
+  font-size: @fontSize;
   text-decoration: none;
   text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
   white-space: nowrap;
-}
-
-// 设置圆角
-.setBorderRadius(@borderRadius) {
-  border-radius: calc(@borderRadius * 1);
 }
 
 // 设置省略

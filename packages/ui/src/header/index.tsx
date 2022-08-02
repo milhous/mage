@@ -3,6 +3,7 @@ import './index.less';
 import logo from './assets/logo.png?as=apng';
 
 import CompNav from './components/CompNav';
+import CompButtons from './components/CompButtons';
 
 // header
 const UIHeader = (): JSX.Element => {
@@ -14,6 +15,7 @@ const UIHeader = (): JSX.Element => {
         </aside>
         <article>
           <CompNav />
+          <CompButtons />
         </article>
       </section>
     </div>

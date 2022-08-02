@@ -17,20 +17,18 @@
     });
 
     li {
-        .setBorderRadius(var(--pc-box-radius));
-
         box-sizing: border-box;
         width: 250px;
         margin: 5px;
         padding: 20px 20px 25px;
+        border-radius: var(--pc-box-radius);
         background-color: var(--box-background);
 
         .smallScreen({
-            .setBorderRadius(var(--h5-box-radius));
-
             width: 100%;
             margin: 0 0 20px;
             padding: 25px 30px;
+            border-radius: var(--h5-box-radius);
 
             &:last-child {
                 margin-bottom: 0;

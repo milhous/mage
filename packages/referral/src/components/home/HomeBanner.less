@@ -95,21 +95,19 @@
         }
 
         div {
-            .setBorderRadius(var(--pc-box-radius));
-        
             box-sizing: border-box;
             position: relative;
             z-index: 10;
             width: 500px;
             padding: 40px 30px 30px;
+            border-radius: var(--pc-box-radius);
             background-image: radial-gradient(var(--gradient-share));
             box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
 
             .smallScreen({
-                .setBorderRadius(var(--h5-box-radius));
-
                 width: 100%;
                 padding: 60px 45px 40px;
+                border-radius: var(--h5-box-radius);
                 box-shadow: 0 15px 15px rgba(0, 0, 0, .3);
             });
         }
@@ -155,19 +153,17 @@
         li {
             .setFlex(space-between, center);
 
-            .setBorderRadius(var(--pc-btn-radius));
-
             box-sizing: border-box;
             margin-bottom: 20px;
             padding: 5px 5px 5px 20px;
+            border-radius: var(--pc-btn-radius);
             background-color: var(--share-background);
             font-size: 16px;
 
             .smallScreen({
-                .setBorderRadius(var(--h5-btn-radius));
-
                 margin-bottom: 30px;
                 padding: 8px 8px 8px 30px;
+                border-radius: var(--h5-btn-radius);
                 font-size: 24px;
             });
 
@@ -198,11 +194,10 @@
             .setBtn(36px, 36px, 16px, var(--font-btn-color), var(--gradient-btn-copy), var(--pc-btn-radius));
 
             .smallScreen({
-                .setBorderRadius(var(--h5-btn-radius));
-
                 width: 52px;
                 min-width: $width;
                 height: $width;
+                border-radius: var(--h5-btn-radius);
             });
 
             svg {
