@@ -1,0 +1,29 @@
+@import (reference) '@libs/style/library.less';
+
+.ui-header {
+    &_btns {
+        .setFlex(center, center);
+
+        button {
+            .setBtn(100px, 36px, 16px, #fff, var(--ui-btn-default), var(--pc-btn-radius));
+
+            margin-left: 20px;
+
+            &.header-btns_login {
+                background-color: var(--ui-btn-default);
+            }
+
+            &.header-btns_login:hover {
+                background-color: var(--ui-btn-default-hover);
+            }
+
+            &.header-btns_register {
+                background-image: var(--ui-btn-primary);
+            }
+
+            &.header-btns_register:hover {
+                background-image: var(--ui-btn-primary-hover);
+            }
+        }
+    }
+}
