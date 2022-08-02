@@ -10,7 +10,7 @@ const UIHeader = (): JSX.Element => {
     <div className="ui-header">
       <section>
         <aside>
-          <img src={logo} />
+          <img className="ui-header_logo" src={logo} />
         </aside>
         <article>
           <CompNav />

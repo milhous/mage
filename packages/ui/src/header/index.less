@@ -1,8 +1,51 @@
 @import (reference) '@libs/style/library.less';
 
 .ui-header {
-    img {
+    --ui-header-background: #161f2c;
+    --ui-header-line: #3A4A61;
+    --ui-header-nav: #fff;
+    --ui-header-hover: #02996a;
+    
+    position: sticky;
+    top: 44px;
+    z-index: 20;
+    height: 64px;
+    background-color: var(--ui-header-background);
+
+    section {
+        .setFlex(space-between, center);
+
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1490px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    aside {
+        position: relative;
+        margin-right: 10px;
+        padding-right: 5px;
+
+        &::before {
+            .setPseudo();
+            
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 25px;
+            background-color: var(--ui-header-line);
+        }
+    }
+
+    article {
+        width: 100%;
+    }
+
+    &_logo {
         width: auto;
+        min-width: inherit;
         height: 60px;
         // background: url(./assets/assume.png) no-repeat center center;
         background-size: 100% 100%;

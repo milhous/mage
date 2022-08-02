@@ -11,15 +11,15 @@ const routers = {
       key: 'LuckyToken',
       desc: '点击幸运币按钮',
       children: [
-        {name: 'stakingLut', to: '/staking/about', key: 'LUT_AboutLUT', desc: '点击关于LUT切页'},
-        {name: 'stakingMining', to: '/staking/mining', key: 'LUT_PredictiveMining', desc: '点击预测挖矿切页'},
+        {name: 'staking_about', to: '/staking/about', key: 'LUT_AboutLUT', desc: '点击关于LUT切页'},
+        {name: 'staking_mining', to: '/staking/mining', key: 'LUT_PredictiveMining', desc: '点击预测挖矿切页'},
         {
-          name: 'stakingDividends',
+          name: 'staking_dividends',
           to: '/staking/dividends',
           key: 'LUT_HoldingDividends',
           desc: '点击持币分红切页',
         },
-        {name: 'stakingBidding', to: '/staking/bidding', key: 'LUT_Auction', desc: '点击竞标切页'},
+        {name: 'staking_bingo', to: '/staking/bidding', key: 'LUT_Auction', desc: '点击竞标切页'},
         {
           name: 'stakingLuckyBingo',
           to: '/staking/bingo',
@@ -36,8 +36,8 @@ const routers = {
       key: 'VIP',
       desc: '点击VIP按钮',
       children: [
-        {name: 'vip:link_my_vip', to: '/user/vip', key: 'VIP_MyVIP', desc: '点击我的VIP切页'},
-        {name: 'vip:link_about_vip', to: '/about/vip', key: 'VIP_AboutVIP', desc: '点击关于VIP切页'},
+        {name: 'vip_account', to: '/user/vip', key: 'VIP_MyVIP', desc: '点击我的VIP切页'},
+        {name: 'vip_about', to: '/about/vip', key: 'VIP_AboutVIP', desc: '点击关于VIP切页'},
       ],
     },
     {
@@ -52,11 +52,11 @@ const routers = {
       key: 'Affiliate',
       desc: '点击代理按钮',
     },
-    {name: 'footer:app_download', to: '/app', key: 'app_download', desc: '点击app下载按钮'},
+    {name: 'app_download', to: '/app', key: 'app_download', desc: '点击app下载按钮'},
     // { name: 'christmas', to: '/promotions/christmas', key: 'Christmas', desc: '点击圣诞活动' },
   ],
   [BetType.CONTRACT]: [
-    {name: 'smart_contract', to: '/contract', key: 'Blocksports', desc: '点击合约赛事按钮'},
+    {name: 'contract_match', to: '/contract', key: 'Blocksports', desc: '点击合约赛事按钮'},
     {
       name: 'staking',
       to: '/lut',

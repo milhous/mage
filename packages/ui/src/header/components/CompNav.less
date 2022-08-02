@@ -1,0 +1,40 @@
+@import (reference) '@libs/style/library.less';
+
+.ui-header {
+    &_nav {
+        .setFlex(flex-start, center);
+        .setFont(16px, 22px, var(--ui-header-nav));
+
+        .header-nav_item {
+            padding: 0 10px;
+        }
+
+        .header-nav_link {
+            position: relative;
+            height: 30px;
+            padding: 8px 5px;
+            color: currentColor;
+
+            &:hover {
+                color: var(--ui-header-hover);
+            }
+
+            &::before {
+                .setPseudo();
+                
+                left: 50%;
+                bottom: 0;
+                transform: translate(-50%, 100%);
+                width: 0;
+                height: 4px;
+                border-radius: calc($height / 2);
+                background-color: var(--ui-header-hover);
+                transition: width var(--animation-duration);
+            }
+
+            &.active::before {
+                width: 100%;
+            }
+        }
+    }
+}
