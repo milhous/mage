@@ -5,10 +5,6 @@ import loadComponent from '@libs/loadComponent';
 import {UIType} from '@libs/config';
 import WidgetSpinner from '@widget/spinner';
 
-// import UIToolbar from 'ui';
-// import UIHeader from 'ul/header';
-// import UIFooter from '@ui/footer';
-
 import './Home.less';
 
 interface ISystem {

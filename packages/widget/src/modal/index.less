@@ -1,0 +1,58 @@
+
+@import (reference) '@libs/style/library.less';
+
+@prefixCls: widget-modal;
+
+.widget-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+
+    &_mask {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        opacity: 0;
+        transition: opacity var(--animation-duration);
+    }
+
+    &_container {
+        .setVerticalCenter();
+    }
+
+    &_content {
+        transform: scale(0.9);
+        background-color: #fff;
+        opacity: 0;
+        transition: transform var(--animation-duration), opacity var(--animation-duration);
+    }
+
+    &-enter-active,
+    &-enter-done,
+    &-exit {
+        .@{prefixCls}_mask {
+            opacity: 1;
+        }
+
+        .@{prefixCls}_content {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &-enter,
+    &-exit-active,
+    &-exit-done {
+        .@{prefixCls}_mask {
+            opacity: 0;
+        }
+
+        .@{prefixCls}_content {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+    }
+}

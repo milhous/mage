@@ -5,6 +5,7 @@
  * @property FOOTER 底部
  * @property LANGUAGES 语言
  * @property TIMEZONE 时区
+ * @property AUTH 授权
  */
 export enum UIType {
   TOOLBAR = 0,
@@ -12,6 +13,7 @@ export enum UIType {
   FOOTER,
   LANGUAGES,
   TIMEZONE,
+  AUTH,
 }
 
 /**
