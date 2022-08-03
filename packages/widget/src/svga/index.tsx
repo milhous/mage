@@ -133,7 +133,7 @@ type Props = {
 };
 
 // SVGA动画
-const Svga = (props: Props) => {
+const WidgetSvga = (props: Props) => {
   const {url, ref, time = 0, onEnd, onStart, onProcess, ...otherProps} = props;
   const [id, setId] = useState<string>(uuid());
   const [player, setPlayer] = useState<Player | null>(null);
@@ -163,4 +163,4 @@ const Svga = (props: Props) => {
   return <canvas className="widget-svga" ref={ref} id={id}></canvas>;
 };
 
-export default Svga;
+export default WidgetSvga;

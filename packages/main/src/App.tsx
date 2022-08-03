@@ -1,8 +1,8 @@
-import {Suspense, lazy, useState} from 'react';
+import {Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
-import loadComponent from '@libs/loadComponent';
 import WidgetSpinner from '@widget/spinner';
+import WidgetSystem from '@widget/system';
 
 import './App.less';
 
@@ -13,19 +13,6 @@ interface ISystemInfo {
   url: string;
   module: string;
 }
-
-const System = (props: {system: ISystemInfo}): JSX.Element => {
-  const {system} = props;
-  const {remote, module, url} = system;
-
-  const Component = lazy(loadComponent(remote, 'default', module, url));
-
-  return (
-    <Suspense fallback={<WidgetSpinner />}>
-      <Component />
-    </Suspense>
-  );
-};
 
 /**
  * 系统类型
@@ -62,8 +49,8 @@ const App = () => {
     <Suspense fallback={<WidgetSpinner />}>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="/referral/*" element={<System system={getSystemInfo(SystemType.REFERRAL)} />} />
-          <Route path="/affiliate/*" element={<System system={getSystemInfo(SystemType.AFFILIATE)} />} />
+          <Route path="/referral/*" element={<WidgetSystem info={getSystemInfo(SystemType.REFERRAL)} />} />
+          <Route path="/affiliate/*" element={<WidgetSystem info={getSystemInfo(SystemType.AFFILIATE)} />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
       </Routes>
