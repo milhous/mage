@@ -32,12 +32,14 @@ export enum BetType {
  * @property LANGUAGES_CHANGE 语言改变
  * @property TIMEZONE_CHANGE 时区改变
  * @property CURRENCY_CHANGE 币种改变
+ * @property MODAL_CHANGE 弹层改变
  */
 export const ChannelEventType = {
   ACCOUNT_CHANGE: 'channelAccountChange',
   LANGUAGES_CHANGE: 'channelLanguagesChange',
   TIMEZONE_CHANGE: 'channelTimezoneChange',
   CURRENCY_CHANGE: 'channelCurrencyChange',
+  MODAL_CHANGE: 'channelModalChange',
 };
 
 /**
@@ -46,6 +48,7 @@ export const ChannelEventType = {
  * @property LANGUAGES_CHANGE 语言改变
  * @property TIMEZONE_CHANGE 时区改变
  * @property CURRENCY_CHANGE 币种改变
+ * @property MODAL_CHANGE 弹层改变
  * @property BET_TYPE_CHANGE 投注类型改变
  */
 export const CustomEventType = {
@@ -53,6 +56,7 @@ export const CustomEventType = {
   LANGUAGES_CHANGE: 'customLanguagesChange',
   TIMEZONE_CHANGE: 'customTimezoneChange',
   CURRENCY_CHANGE: 'customCurrencyChange',
+  MODAL_CHANGE: 'channelModalChange',
   BET_TYPE_CHANGE: 'customBetTypeChange',
 };
 
