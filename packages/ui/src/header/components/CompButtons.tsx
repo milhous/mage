@@ -1,7 +1,8 @@
 import {useState} from 'react';
 
+import {ModalType} from '@libs/config';
 import {useTranslate} from '@libs/i18n';
-import WidgetModal from '@widget/modal';
+import {showModal} from '@libs/mediator';
 
 import './CompButtons.less';
 
@@ -10,11 +11,11 @@ const CompButtons = (): JSX.Element => {
   const t = useTranslate(['header']);
 
   const handleLogin = (): void => {
-    window.dispatchEvent(new CustomEvent('login', {detail: 0}));
+    showModal(ModalType.LOGIN);
   };
 
-  const handleRegister = (): void => {
-    window.dispatchEvent(new CustomEvent('login', {detail: 1}));
+  const handleSignup = (): void => {
+    showModal(ModalType.SIGN_UP);
   };
 
   return (
@@ -22,8 +23,8 @@ const CompButtons = (): JSX.Element => {
       <button className="header-btns_login" onClick={handleLogin}>
         {t('btn_login')}
       </button>
-      <button className="header-btns_register" onClick={handleRegister}>
-        {t('btn_register')}
+      <button className="header-btns_signup" onClick={handleSignup}>
+        {t('btn_signup')}
       </button>
     </div>
   );

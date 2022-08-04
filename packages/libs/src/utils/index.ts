@@ -62,6 +62,7 @@ export const isAndroid = (): boolean => {
  * 通过key获取url查询部分中value
  * @param {string} key 关键词
  * @param {number} search 查询部分
+ * @returns {string}
  */
 export const getQueryParams = (key = '', search?: string): string => {
   const paramsString = typeof search === 'string' && search !== '' ? search : location.search;
@@ -73,6 +74,46 @@ export const getQueryParams = (key = '', search?: string): string => {
   }
 
   return context;
+};
+
+/**
+ * 模板
+ * @param {Array<any>} params 数据
+ * @returns {string}
+ */
+export const template = (...params: any[]): string => {
+  const nargs = /\{([0-9a-zA-Z_]+)\}/g;
+  let args: any;
+
+  if (params.length === 2 && typeof params[1] === 'object') {
+    args = params[1];
+  } else {
+    args = new Array(params.length - 1);
+    for (let i = 1; i < params.length; ++i) {
+      args[i - 1] = params[i];
+    }
+  }
+
+  if (!args || !args.hasOwnProperty) {
+    args = {};
+  }
+
+  const str: string = params[0];
+
+  return str.replace(nargs, function replaceArg(match, i, index) {
+    let result;
+
+    if (str[index - 1] === '{' && str[index + match.length] === '}') {
+      return i;
+    } else {
+      result = args.hasOwnProperty(i) ? args[i] : null;
+      if (result === null || result === undefined) {
+        return '';
+      }
+
+      return result;
+    }
+  });
 };
 
 /**

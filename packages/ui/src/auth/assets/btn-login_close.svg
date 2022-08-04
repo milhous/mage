@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="btn-login_close-g" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+        <g id="2.0LOGIN备份" transform="translate(-1194.000000, -259.000000)">
+            <g id="编组-7" transform="translate(380.000000, 245.000000)">
+                <g id="关闭" transform="translate(70.000000, 0.000000)">
+                    <g transform="translate(740.000000, 10.000000)">
+                        <path d="M10,3 C10.5522847,3 11,3.44771525 11,4 L11,8.999 L16,9 C16.5522847,9 17,9.44771525 17,10 C17,10.5522847 16.5522847,11 16,11 L11,10.999 L11,16 C11,16.5522847 10.5522847,17 10,17 C9.44771525,17 9,16.5522847 9,16 L9,10.999 L4,11 C3.44771525,11 3,10.5522847 3,10 C3,9.44771525 3.44771525,9 4,9 L9,8.999 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" id="形状结合" fill="currentColor" fill-rule="evenodd" transform="translate(10.000000, 10.000000) rotate(-315.000000) translate(-10.000000, -10.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

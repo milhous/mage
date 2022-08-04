@@ -2506,6 +2506,8 @@ __metadata:
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-google-recaptcha-v3: ^1.10.0
+    react-hook-form: ^7.33.1
     react-i18next: ^11.18.3
     react-router-dom: ^6.3.0
     regenerator-runtime: ^0.13.9
@@ -8302,6 +8304,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fhoist-non-react-statics%2F-%2Fhoist-non-react-statics-3.3.2.tgz"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
+  languageName: node
+  linkType: hard
+
 "home-or-tmp@npm:^2.0.0":
   version: 2.0.0
   resolution: "home-or-tmp@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fhome-or-tmp%2F-%2Fhome-or-tmp-2.0.0.tgz"
@@ -12198,6 +12209,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-google-recaptcha-v3@npm:^1.10.0":
+  version: 1.10.0
+  resolution: "react-google-recaptcha-v3@npm:1.10.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-google-recaptcha-v3%2F-%2Freact-google-recaptcha-v3-1.10.0.tgz"
+  dependencies:
+    hoist-non-react-statics: ^3.3.2
+  peerDependencies:
+    react: ^17.0 || ^18.0
+    react-dom: ^17.0 || ^18.0
+  checksum: 43b19eba4e4ebf96f6d9256fcb5a93aabe69878ce9fe4a6c73a3175d0ec9990abb39302c361ca99d7f20b2401353dce69236f299e64ee23a61fc71633b9107f3
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.33.1":
+  version: 7.34.0
+  resolution: "react-hook-form@npm:7.34.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-hook-form%2F-%2Freact-hook-form-7.34.0.tgz"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 2b4a6f6ca5b3f729b88aa14a1a8c47ba86405d9c5fef2560b1dc85ac6fe1b105326571b8e1e857f8d8f3449636062d2d6201809918b5bb37f6f8f0b9c6cd6e2c
+  languageName: node
+  linkType: hard
+
 "react-i18next@npm:^11.18.3":
   version: 11.18.3
   resolution: "react-i18next@npm:11.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-i18next%2F-%2Freact-i18next-11.18.3.tgz"
@@ -12216,7 +12248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.12.0, react-is@npm:^16.13.1":
+"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-is%2F-%2Freact-is-16.13.1.tgz"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f

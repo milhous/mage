@@ -1,39 +1,73 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, Dispatch, SetStateAction} from 'react';
 
-import {CustomEventType} from '../config';
+import {CustomEventType, ModalType} from '../config';
 
 /**
- * 切换弹层
+ * 显示弹层
  * @param {number} type 类型
  * @param {string} data 数据
  */
-export const changeModal = (type: number, data?: any): void => {
+export const showModal = (type: number, data?: any): void => {
   const detail = {
     type,
     data,
   };
 
-  window.dispatchEvent(new CustomEvent(CustomEventType.MODAL_CHANGE, {detail}));
+  window.dispatchEvent(new CustomEvent(CustomEventType.MODAL_SHOW, {detail}));
 };
 
-// Hook - 弹层
-export const useModal = (): {type: number; data: any} => {
-  const [type, setType] = useState<number>(0);
+/**
+ * 关闭弹层
+ * @param {number} type 类型
+ */
+export const closeModal = (type: number): void => {
+  const detail = {
+    type,
+  };
+
+  window.dispatchEvent(new CustomEvent(CustomEventType.MODAL_CLOSE, {detail}));
+};
+
+/**
+ * hook - 弹层
+ * @param {number} targetType 当前弹层类型
+ */
+export const useModal = (
+  targetType: number,
+): {
+  visible: boolean;
+  setVisible: Dispatch<SetStateAction<boolean>>;
+  data: any;
+} => {
+  const [visible, setVisible] = useState<boolean>(false);
   const [data, setData] = useState<any>();
 
   useEffect(() => {
-    const onModal: EventListener = ({detail}: any) => {
-      setType(detail.type);
-      setData(detail.data);
+    const onShow: EventListener = ({detail}: any) => {
+      if (targetType === detail.type) {
+        setVisible(true);
+        setData(detail.data);
+      }
     };
 
-    window.addEventListener(CustomEventType.MODAL_CHANGE, onModal);
+    const onClose: EventListener = ({detail}: any) => {
+      if (targetType === detail.type || ModalType.NONE === detail.type) {
+        setVisible(false);
+      }
+    };
 
-    return () => window.removeEventListener(CustomEventType.MODAL_CHANGE, onModal);
+    window.addEventListener(CustomEventType.MODAL_SHOW, onShow);
+    window.addEventListener(CustomEventType.MODAL_CLOSE, onClose);
+
+    return () => {
+      window.removeEventListener(CustomEventType.MODAL_SHOW, onShow);
+      window.removeEventListener(CustomEventType.MODAL_CLOSE, onClose);
+    };
   }, []);
 
   return {
-    type,
+    visible,
+    setVisible,
     data,
   };
 };

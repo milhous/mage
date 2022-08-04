@@ -1,0 +1,23 @@
+@import (reference) '@libs/style/library.less';
+
+.ui-auth {
+    &_login {
+        width: 840px;
+        background: #08193a url('@app/auth/assets/login-bg.jpg') no-repeat center center;
+        background-size: cover;
+
+
+        .smallScreen({
+            width: 700px;
+        });
+
+        section > h2 {
+            padding: 64px 0 40px;
+
+
+            .smallScreen({
+                padding: 60px 0;
+            });
+        }
+    }
+}

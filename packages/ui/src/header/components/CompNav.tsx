@@ -53,8 +53,6 @@ const CompNav = (): JSX.Element => {
   const betType = 0;
   const headerRouters = routers[betType];
 
-  console.log(headerRouters);
-
   return (
     <nav className="ui-header_nav">
       {headerRouters.map((route, index) => (

@@ -33,13 +33,18 @@ class Requests implements IRequests {
     return Requests.instance;
   }
 
-  send(url: string, method: Method = 'get', data: any, headers: any = {}): AxiosPromise<any> {
+  send(
+    url: string,
+    method: Method = 'get',
+    data: {[key: string]: any} = {},
+    headers: {[key: string]: any} = {},
+  ): AxiosPromise<any> {
     const axiosPromise: AxiosPromise<any> = (this._axiosInstance as AxiosInstance)({
       baseURL: '//' + domain.apiHost,
       url,
       headers,
       method,
-      [['put', 'post', 'patch'].includes(String(method).toLowerCase()) ? 'data' : 'params']: data || {},
+      [['put', 'post', 'patch'].includes(String(method).toLowerCase()) ? 'data' : 'params']: data,
     });
 
     return axiosPromise;

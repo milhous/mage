@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {Trans} from 'react-i18next';
 
-import {ChannelEventType} from '@libs/config';
+import {ChannelEventType, ModalType} from '@libs/config';
 import {useThrottle} from '@libs/hooks';
 import {useTranslate} from '@libs/i18n';
 import {useAccount} from '@libs/account';
@@ -27,20 +27,20 @@ const HomeLogin = (): JSX.Element => {
       desc: '未登录状态下点击邀请页“立即邀请好友”按钮',
     });
 
-    // if (isLogin) {
-    //   return;
-    // }
+    if (isLogin) {
+      return;
+    }
 
-    // acct.login();
+    window.dispatchEvent(new CustomEvent('login', {detail: ModalType.LOGIN}));
 
-    channel.postMessage({
-      type: ChannelEventType.ACCOUNT_CHANGE,
-      payload: {
-        uid: 1,
-        username: 'Milhous',
-        email: 'milhous@sina.com',
-      },
-    });
+    // channel.postMessage({
+    //   type: ChannelEventType.ACCOUNT_CHANGE,
+    //   payload: {
+    //     uid: 1,
+    //     username: 'Milhous',
+    //     email: 'milhous@sina.com',
+    //   },
+    // });
   }, 1000);
 
   // 获取奖励提示

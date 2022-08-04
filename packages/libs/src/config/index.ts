@@ -1,22 +1,4 @@
 /**
- * UI类型
- * @property TOOLBAR 工具栏
- * @property HEADER 头部
- * @property FOOTER 底部
- * @property LANGUAGES 语言
- * @property TIMEZONE 时区
- * @property AUTH 授权
- */
-export enum UIType {
-  TOOLBAR = 0,
-  HEADER,
-  FOOTER,
-  LANGUAGES,
-  TIMEZONE,
-  AUTH,
-}
-
-/**
  * 投注类型
  * @property ACCOUNT 账户投注
  * @property CONTRACT 合约投注
@@ -27,19 +9,63 @@ export enum BetType {
 }
 
 /**
+ * UI类型
+ * @property TOOLBAR 工具栏
+ * @property HEADER 头部
+ * @property FOOTER 底部
+ * @property LANGUAGES 语言
+ * @property TIMEZONE 时区
+ * @property AUTH 授权
+ */
+export enum UIType {
+  TOOLBAR,
+  HEADER,
+  FOOTER,
+  LANGUAGES,
+  TIMEZONE,
+  AUTH,
+}
+
+/**
+ * UI授权类型
+ * NONE 无
+ * LOGIN 登录
+ * SIGN_UP 注册
+ * EMAIL_ACT 邮箱激活
+ * FORGET_PASSWORD 忘记密码
+ * BINDING 绑定邮箱
+ * MERGE 合并邮箱
+ * GOOGLE_AUTHENTICATOR 谷歌验证
+ * GOOGLE_HELP 谷歌帮助
+ */
+export enum ModalType {
+  NONE,
+  LOGIN,
+  SIGN_UP,
+  EMAIL_ACT,
+  FORGET_PASSWORD,
+  BINDING,
+  MERGE,
+  GOOGLE_AUTHENTICATOR,
+  GOOGLE_HELP,
+}
+
+/**
  * 频道事件类型
  * @property ACCOUNT_CHANGE 账户改变
  * @property LANGUAGES_CHANGE 语言改变
  * @property TIMEZONE_CHANGE 时区改变
  * @property CURRENCY_CHANGE 币种改变
- * @property MODAL_CHANGE 弹层改变
+ * @property MODAL_SHOW 弹层显示
+ * @property MODAL_CLOSE 弹层关闭
  */
 export const ChannelEventType = {
   ACCOUNT_CHANGE: 'channelAccountChange',
   LANGUAGES_CHANGE: 'channelLanguagesChange',
   TIMEZONE_CHANGE: 'channelTimezoneChange',
   CURRENCY_CHANGE: 'channelCurrencyChange',
-  MODAL_CHANGE: 'channelModalChange',
+  MODAL_SHOW: 'channelModalShow',
+  MODAL_CLOSE: 'channelModalClose',
 };
 
 /**
@@ -48,7 +74,8 @@ export const ChannelEventType = {
  * @property LANGUAGES_CHANGE 语言改变
  * @property TIMEZONE_CHANGE 时区改变
  * @property CURRENCY_CHANGE 币种改变
- * @property MODAL_CHANGE 弹层改变
+ * @property MODAL_SHOW 弹层显示
+ * @property MODAL_CLOSE 弹层关闭
  * @property BET_TYPE_CHANGE 投注类型改变
  */
 export const CustomEventType = {
@@ -56,7 +83,8 @@ export const CustomEventType = {
   LANGUAGES_CHANGE: 'customLanguagesChange',
   TIMEZONE_CHANGE: 'customTimezoneChange',
   CURRENCY_CHANGE: 'customCurrencyChange',
-  MODAL_CHANGE: 'channelModalChange',
+  MODAL_SHOW: 'customModalShow',
+  MODAL_CLOSE: 'customModalClose',
   BET_TYPE_CHANGE: 'customBetTypeChange',
 };
 

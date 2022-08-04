@@ -1,1 +1,98 @@
 @import (reference) '@libs/style/library.less';
+
+.ui-auth {
+    @titleColor: #fff;
+    @tipsColor: #ffab00;
+    @fontColor: #7fa0cd;
+    @promptColor: #81a0cb;
+    @promptTitleColor: #81a0cb;
+    @promptSubtitleColor: #6f8eb8;
+    @linkColor: #008aff;
+    @lineColor: #6f8eb8;
+    @btnLinkLinearGradient: to bottom, #05c9a3, #02996a;
+    @btnHoverLinearGradient: to bottom, #16e8be, #079a7d;
+    @btnDisableBackgroundColor: #1f3148;
+    @formInputBackgroundColor: #102c54;
+    @formInputColor: #fff;
+    @formInputFocusColor: #02996a;
+    @formInputPlaceholderColor: #7fa0cd;
+    @formInputErrroColor: #ee6d6d;
+    @formCheckboxBackgroundColor: #0f151f;
+    @formCheckboxBorderColor: #21385b;
+
+    .setFlex(flex-start, center);
+
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+    border-radius: var(--pc-box-radius);
+    background-color: #283c56;
+    background-size: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+
+    .smallScreen({
+        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.35);
+        border-radius: var(--h5-box-radius);
+    });
+
+    section {
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0 40px 40px;
+        border-radius: var(--pc-box-radius);
+        background-image: linear-gradient(to bottom, #32578e, #0f2b53);
+
+        .smallScreen({
+            padding: 0 50px 50px;
+            border-radius: 0;
+        });
+    
+        h2 {
+            .setFont(26px, 36px, @titleColor);
+
+            text-align: center;
+
+            .smallScreen({
+                font-size: 42px;
+                line-height: 52px;
+            });
+        }
+    
+        h3 {
+            .setFont(12px, 24px, @titleColor);
+
+            text-align: center;
+
+            .smallScreen({
+                font-size: 26px;
+                line-height: 36px;
+            });
+    
+            span {
+                color: @tipsColor;
+            }
+        }
+    }
+
+    &_content {
+        .setFlex(space-between, stretch);
+        
+        width: 100%;
+    
+        aside {
+            width: 50%;
+            min-width: $width;
+
+            .smallScreen({
+                display: none;
+            });
+        }
+    
+        article {
+            width: 100%;
+        }
+      }
+}

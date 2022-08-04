@@ -1,9 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import {useState, useEffect} from 'react';
+import {initReactI18next, useTranslation} from 'react-i18next';
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import Cookies from 'js-cookie';
-import {initReactI18next, useTranslation} from 'react-i18next';
+
+import {CustomEventType} from '../config';
 
 export type ILangType = 'en' | 'vi' | 'ja' | 'ko' | 'zh-Hans' | 'zh-Hant' | 'tr' | 'pt' | 'es';
 
@@ -62,6 +64,7 @@ export const getTranslate = (key: string, nsSeparator = ':'): string => {
  */
 export const useTranslate = (ns: string[]): any => {
   const {t} = useTranslation(ns, {i18n});
+
   return t;
 };
 
@@ -71,6 +74,25 @@ export const useTranslate = (ns: string[]): any => {
  */
 export const changeLang = (lang: string): void => {
   i18n.changeLanguage(lang);
+
+  window.dispatchEvent(new CustomEvent(CustomEventType.LANGUAGES_CHANGE, {detail: lang}));
+};
+
+// Hook - 语言
+export const useLang = (): string => {
+  const [lang, setLang] = useState<string>(getCurLang());
+
+  useEffect(() => {
+    const onChange: EventListener = ({detail}: any) => {
+      setLang(detail);
+    };
+
+    window.addEventListener(CustomEventType.LANGUAGES_CHANGE, onChange);
+
+    return () => window.removeEventListener(CustomEventType.LANGUAGES_CHANGE, onChange);
+  }, []);
+
+  return lang;
 };
 
 // 转换语言
