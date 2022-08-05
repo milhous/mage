@@ -3,14 +3,38 @@ import {useState, useEffect, Dispatch, SetStateAction} from 'react';
 import {CustomEventType, ModalType} from '../config';
 
 /**
+ * 声明 - 显示弹层数据
+ * @property {number} type 类型
+ * @property {string} data 数据
+ * @property {boolean} isOnly 是否唯一存在(默认true)
+ */
+interface IModalShowData {
+  type: number;
+  data?: any;
+  isOnly?: boolean;
+}
+
+/**
+ * 声明 - 关闭弹层数据
+ * @property {number} type 类型
+ * @property {boolean} isAll 是否关闭所有(默认false)
+ */
+interface IModalCloseData {
+  type: number;
+  isAll?: boolean;
+}
+
+/**
  * 显示弹层
  * @param {number} type 类型
  * @param {string} data 数据
+ * @param {boolean} isOnly 是否唯一存在
  */
-export const showModal = (type: number, data?: any): void => {
-  const detail = {
+export const showModal = (type: number, data?: any, isOnly = true): void => {
+  const detail: IModalShowData = {
     type,
     data,
+    isOnly,
   };
 
   window.dispatchEvent(new CustomEvent(CustomEventType.MODAL_SHOW, {detail}));
@@ -19,10 +43,12 @@ export const showModal = (type: number, data?: any): void => {
 /**
  * 关闭弹层
  * @param {number} type 类型
+ * @param {boolean} isAll 是否关闭所有
  */
-export const closeModal = (type: number): void => {
-  const detail = {
+export const closeModal = (type: number, isAll = false): void => {
+  const detail: IModalCloseData = {
     type,
+    isAll,
   };
 
   window.dispatchEvent(new CustomEvent(CustomEventType.MODAL_CLOSE, {detail}));
@@ -44,14 +70,20 @@ export const useModal = (
 
   useEffect(() => {
     const onShow: EventListener = ({detail}: any) => {
-      if (targetType === detail.type) {
+      const {type, isOnly} = detail as IModalShowData;
+
+      if (isOnly && targetType !== type) {
+        setVisible(false);
+      } else if (targetType === type) {
         setVisible(true);
         setData(detail.data);
       }
     };
 
     const onClose: EventListener = ({detail}: any) => {
-      if (targetType === detail.type || ModalType.NONE === detail.type) {
+      const {type, isAll} = detail as IModalCloseData;
+
+      if (isAll || targetType === type || ModalType.NONE === type) {
         setVisible(false);
       }
     };

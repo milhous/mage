@@ -10,5 +10,7 @@ import WidgetSpinner from './spinner';
 import WidgetSvga from './svga';
 // 提示
 import * as WidgetToastify from './toastify';
+// 加载按钮
+import WidgetButtonLoading from './buttonLoading';
 
-export {WidgetDropdown, WidgetFaq, WidgetQRCode, WidgetSpinner, WidgetSvga, WidgetToastify};
+export {WidgetDropdown, WidgetFaq, WidgetQRCode, WidgetSpinner, WidgetSvga, WidgetToastify, WidgetButtonLoading};

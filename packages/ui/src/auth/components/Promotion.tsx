@@ -24,7 +24,7 @@ export const Promotion = (): JSX.Element => {
   }, [lang]);
 
   return (
-    <div className="login-promotion">
+    <div className="ui-auth_promotion">
       <div>
         <Assets.IconLogo />
         {/* <h3>{t('register_get')}</h3> */}

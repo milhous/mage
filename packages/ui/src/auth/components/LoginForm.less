@@ -1,1 +1,29 @@
 @import (reference) '@libs/style/library.less';
+@import (reference) '@app/auth/theme.less';
+
+.ui-auth {
+    &_login {
+        .forget-password {
+            .setFont(14px, 18px, @linkColor);
+        
+            .smallScreen({
+                font-size: 26px;
+                line-height: 32px;
+            });
+
+            span {
+                cursor: pointer;
+            }
+        }
+      
+        .form-btn_login {
+          margin-top: 20px;
+          padding: 0!important;
+      
+          .smallScreen({
+            margin-top: 50px;
+          });
+        }
+      }
+}
+  

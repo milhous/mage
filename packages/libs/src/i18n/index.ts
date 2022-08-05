@@ -48,6 +48,25 @@ export const getCurLang = (): string => {
 };
 
 /**
+ * 获取语言旧称
+ * @param {string} lang 语言
+ * @returns {string}
+ */
+export const getOldStandard = (lang: string): string => {
+  let oldStandard = '';
+
+  for (const config of LangConfigs) {
+    if (config.lang === lang) {
+      oldStandard = config.oldStandard;
+
+      break;
+    }
+  }
+
+  return oldStandard;
+};
+
+/**
  * 获取翻译文案
  * @param {string} key 翻译key
  * @param {string | boolean} nsSeparator 命名空间分隔符

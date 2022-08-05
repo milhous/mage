@@ -17,12 +17,18 @@ interface IAuthInitProps {
  * 声明 - 授权
  * @method init 初始化
  * @method clear 清理
+ * @method getDeviceId 获取设备ID
  * @method getAccessToken 获取用户令牌
  * @method getAuthorization 获取平台授权码（默认不需要token)
  */
 declare interface IAuth {
   init(props: IAuthInitProps): void;
   clear(): void;
+  /**
+   * 获取设备ID
+   * @returns {string}
+   */
+  getDeviceId(): string;
   getAccessToken(): string | undefined;
   getAuthorization(isToken?: boolean): string;
 }

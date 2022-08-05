@@ -1,14 +1,30 @@
-import {useState, useEffect, useMemo} from 'react';
-
 import {ModalType} from '@libs/config';
 import {useTranslate} from '@libs/i18n';
-import {useModal} from '@libs/modal';
+import {useModal, showModal} from '@libs/modal';
 
 import WidgetModal from '@widget/modal';
 
+import LoginForm from './LoginForm';
 import Promotion from './Promotion';
 
 import './Login.less';
+
+// 引导注册
+const GuideSignUp = (): JSX.Element => {
+  const t = useTranslate(['auth']);
+  const onSignUp = (evt: React.MouseEvent) => {
+    evt.preventDefault();
+
+    showModal(ModalType.SIGN_UP);
+  };
+
+  return (
+    <p className="ui-auth_guide">
+      {t('noaccount')}
+      <span onClick={onSignUp}>{t('register_now')}</span>
+    </p>
+  );
+};
 
 // 登录
 const Login = (): JSX.Element => {
@@ -30,9 +46,9 @@ const Login = (): JSX.Element => {
           <article>
             <section>
               <h2>{t('title_login')}</h2>
-              {/* <LoginForm visible={!!visible} langConfig={langConfig} />
+              <LoginForm visible={!!visible} />
               <GuideSignUp />
-              <OAuthLogin type="login" /> */}
+              {/* <OAuthLogin type="login" /> */}
               {/* <WalletsLogin visible={!!visible} /> */}
             </section>
           </article>

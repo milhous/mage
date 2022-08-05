@@ -1,8 +1,9 @@
 import dayjs from 'dayjs';
 import Cookies from 'js-cookie';
+import {v5 as uuidv5} from 'uuid';
 
 import {CookiesKey} from '../config';
-import {AuthorizationsDev, AuthorizationsPre, AuthorizationsPrd} from '../config/auth';
+import {Authorizations} from '../config/auth';
 import {isMobile, isApp, isIOS} from '../utils';
 
 import './@types/auth.d';
@@ -11,6 +12,8 @@ import './@types/auth.d';
 class Auth implements IAuth {
   static VERSION = '1.0.0';
 
+  // 设备ID
+  private _deviceId = '';
   // 用户令牌
   private _accessToken: string | undefined = undefined;
   // 刷新令牌
@@ -105,6 +108,28 @@ class Auth implements IAuth {
   }
 
   /**
+   * 获取设备ID
+   * @returns {string}
+   */
+  public getDeviceId(): string {
+    if (this._deviceId === '') {
+      const deviceId = localStorage.getItem('deviceId');
+
+      if (!!deviceId && deviceId !== '' && deviceId !== 'b31cf631-5dc7-5e77-81b6-64d8f242ef9c') {
+        this._deviceId = deviceId;
+      } else {
+        const uuid = this._getUUID();
+
+        this._deviceId = uuidv5(window.location.origin, uuid);
+
+        localStorage.setItem('deviceId', this._deviceId);
+      }
+    }
+
+    return this._deviceId;
+  }
+
+  /**
    * 获取用户令牌
    * @returns {string | undefined}
    */
@@ -133,12 +158,10 @@ class Auth implements IAuth {
     if (isToken && !!token) {
       authorization = token;
     } else {
-      const authorizations = this._getAuthorizations();
-
       if (isApp()) {
-        authorization = isIOS() ? authorizations.IOS : authorizations.ANDROID;
+        authorization = isIOS() ? Authorizations.IOS : Authorizations.ANDROID;
       } else {
-        authorization = isMobile() ? authorizations.MOBILE : authorizations.PC;
+        authorization = isMobile() ? Authorizations.MOBILE : Authorizations.PC;
       }
     }
 
@@ -146,21 +169,17 @@ class Auth implements IAuth {
   }
 
   /**
-   * 获取平台授权信息
-   * @returns {Record<string, string>}
+   * 获取UUID
+   * @returns {string}
    */
-  private _getAuthorizations(): Record<string, string> {
-    let authorizations: Record<string, string> = {};
-
-    if (__isDEV__) {
-      authorizations = AuthorizationsDev;
-    } else if (window.location.origin.indexOf('prebitgame') >= 0) {
-      authorizations = AuthorizationsPre;
-    } else {
-      authorizations = AuthorizationsPrd;
-    }
-
-    return authorizations;
+  private _getUUID(): string {
+    let dt = new Date().getTime();
+    const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = (dt + Math.random() * 16) % 16 | 0;
+      dt = Math.floor(dt / 16);
+      return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+    });
+    return uuid;
   }
 }
 
