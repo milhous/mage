@@ -2504,15 +2504,19 @@ __metadata:
   dependencies:
     "@types/react": ^18
     "@types/react-dom": ^18.0.6
+    "@types/react-facebook-login": ^4
     bs58: ^5.0.0
     buffer-esm: ^1.2.0
     i18next: ^21.8.16
     mage: "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-facebook-login: ^4.1.1
+    react-google-login: ^5.2.2
     react-google-recaptcha-v3: ^1.10.0
     react-hook-form: ^7.34.0
     react-i18next: ^11.18.3
+    react-kakao-login: ^2.1.0
     react-router-dom: ^6.3.0
     regenerator-runtime: ^0.13.9
   languageName: unknown
@@ -3338,6 +3342,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: db571047af1a567631758700b9f7d143e566df939cfe5fbf7535347cc0c726a1cdbb5e3f8566d076e54cf708b6c1166689de194a9ba09ee35efc9e1d45911685
+  languageName: node
+  linkType: hard
+
+"@types/react-facebook-login@npm:^4":
+  version: 4.1.5
+  resolution: "@types/react-facebook-login@npm:4.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-facebook-login%2F-%2Freact-facebook-login-4.1.5.tgz"
+  dependencies:
+    "@types/react": "*"
+  checksum: eff7dc793f246031422ca2679298b73158c63f807b39f8e8320475ee5765bd38f0dc6362b366d9f4637165827722d86fdf2398d83d7321079b981cda86d6c46f
   languageName: node
   linkType: hard
 
@@ -11861,7 +11874,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprop-types%2F-%2Fprop-types-15.8.1.tgz"
   dependencies:
@@ -12243,6 +12256,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-facebook-login@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "react-facebook-login@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-facebook-login%2F-%2Freact-facebook-login-4.1.1.tgz"
+  peerDependencies:
+    react: ^16.0.0
+  checksum: e644da474c6bf308e9a862c55397d61fd876a088345f3e9d234ec457eb3c205d1deb1263c5000005adfc1899bf6774cf761ee670c33bd6b0887f0dfd3bdff957
+  languageName: node
+  linkType: hard
+
+"react-google-login@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "react-google-login@npm:5.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-google-login%2F-%2Freact-google-login-5.2.2.tgz"
+  dependencies:
+    "@types/react": "*"
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ^16 || ^17
+    react-dom: ^16 || ^17
+  checksum: 29199c7035c3c1070a82241dc4063628d693f35a1736d292e3db736e52da825e8a53f9287b0b12b08a50d676973ce1349a4d8243cd849ca25fed6a4284378880
+  languageName: node
+  linkType: hard
+
 "react-google-recaptcha-v3@npm:^1.10.0":
   version: 1.10.0
   resolution: "react-google-recaptcha-v3@npm:1.10.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-google-recaptcha-v3%2F-%2Freact-google-recaptcha-v3-1.10.0.tgz"
@@ -12286,6 +12321,15 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-is%2F-%2Freact-is-16.13.1.tgz"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-kakao-login@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "react-kakao-login@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-kakao-login%2F-%2Freact-kakao-login-2.1.0.tgz"
+  peerDependencies:
+    react: ">= 15.3.0"
+  checksum: be0cca1bbcecc8ba77b8882cd157356a95cd207719ceca3ea849032728576b9963109fea64a9dc66a58c8a341b2b5d1f788045574da39dece6a83384c7eb3047
   languageName: node
   linkType: hard
 

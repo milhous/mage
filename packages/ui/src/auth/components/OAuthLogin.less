@@ -1,0 +1,187 @@
+@import (reference) '@libs/style/library.less';
+
+.ui-auth {
+    input#OAuthLogin {
+        display: none;
+    }
+
+    input#OAuthLogin + &_OAuth {
+        & > div {
+            transform: translateY(200%);
+        }
+
+        & > ul,
+        .btn-login_more {
+            transform: translateY(0);
+        }
+    }
+
+    input#OAuthLogin:checked + &_OAuth {
+        & > div {
+            transform: translateY(0);
+        }
+
+        & > ul,
+        .btn-login_more {
+            transform: translateY(200%);
+        }
+    }
+
+    &_OAuth {
+        .setFlex(center, center);
+
+        margin-top: 25px;
+
+        & > ul,
+        & > div,
+        .btn-login_more {
+            transition: transform var(--animation-duration);
+        }
+
+        ul {
+            .setFlex(center, center);
+            
+            flex-wrap: wrap;
+        }
+
+        li {
+            .setFlex(center, center);
+
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            width: 40px;
+            height: $width;
+            margin: 0 10px;
+            border-radius:var(--pc-radius);
+            transition: transform var(--animation-duration);
+
+            .smallScreen({
+                width: 80px;
+                height:80px;
+                border-radius: var(--h5-radius);
+            });
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            svg {
+                width: 100%;
+                height: $width;
+            }
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            &.btn-login_facebook {
+                span {
+                    display: block;
+                    width: 100%;
+                    height: $width;
+                    opacity: 1!important;
+                }
+
+                button {
+                    width: 100%;
+                    height: $width;
+                }
+            }
+
+            &.btn-login_telegram {
+                div {
+                    overflow: hidden;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: $width;
+                }
+
+                iframe {
+                    transform: scale(2);
+                    opacity: 0.02;
+                }
+            }
+        }
+
+        .btn-login_more {
+            .setFlex(center, center);
+
+            box-sizing: border-box;
+            cursor: pointer;
+            min-width: 80px;
+            height: 40px;
+            margin-left: 10px;
+            padding: 0 6px;
+            border-radius: var(--pc-radius);
+            background-color: #1e4c7d;
+            color: #74a5dd;
+            font-size: 14px;
+            white-space: nowrap;
+
+            .smallScreen({
+                min-width: 160px;
+                height: 80px;
+                padding: 0 12px;
+                font-size: 24px;
+            });
+
+            svg {
+                width: 10px;
+                min-width: $width;
+                height: 6px;
+                margin-right: 10px;
+
+                .smallScreen({
+                    width: 18px;
+                    min-width: 18px;
+                    height: 12px;
+                    margin-right: 20px;
+                });
+            }
+        }
+
+        & > div {
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: translateY(100%);
+            padding: 15px 30px;
+            background-color: #102c54;
+
+            .smallScreen({
+                padding: 20px 50px;
+            });
+
+            li {
+                margin: 5px 10px;
+
+                .smallScreen({
+                    margin: 10px;
+                });
+            }
+
+            .btn-login_toggle {
+                cursor: pointer;
+                display: block;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+
+                svg {
+                    width: 20px;
+                    height: $width;
+
+                    .smallScreen({
+                        width: 40px;
+                        height: $width;
+                    });
+                }
+            }
+        }
+    }
+}
