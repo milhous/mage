@@ -130,6 +130,16 @@ class Auth implements IAuth {
   }
 
   /**
+   * 获取平台类型
+   * @returns {string}
+   */
+  public getPlatformType(): number {
+    const type = isMobile() ? 2 : 1;
+
+    return type;
+  }
+
+  /**
    * 获取用户令牌
    * @returns {string | undefined}
    */

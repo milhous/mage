@@ -1,9 +1,11 @@
 import bs58 from 'bs58';
 import {BufferShim} from 'buffer-esm';
 
-import requests, {OK_CODE} from '@libs/requests';
+import {WalletType} from '@libs/config';
+import {isMobile} from '@libs/utils';
 import auth from '@libs/auth';
 import {getCurLang} from '@libs/i18n';
+import requests, {OK_CODE} from '@libs/requests';
 
 /**
  * @param {string} rspCode 状态码
@@ -123,6 +125,120 @@ export const apiBetNum = (): Promise<number> => {
       } else {
         reject(res.rspCode);
       }
+    });
+  });
+};
+
+/**
+ * 声明
+ * @param {string} name 登录名称 google, facebook, line, kakao
+ * @param {string} token 第三方token
+ * @param {string} code 第三方临时授权码
+ * @param {string} email 邮箱地址:绑定需要，验证无需
+ * @param {string} otpCode 邮件验证码
+ * @param {string} googleOptCode 谷歌验证验证码
+ * @param {string | null} referrerUserId 推荐人ID
+ * @param {number} platform 平台
+ * @param {string} trackCode 渠道码
+ * @param {string} agencyUser 代理用户名
+ * @param {string} deviceId 设备ID
+ * @param {string} language 语言
+ */
+export interface IApiPassThirdParams {
+  name: string;
+  token?: string;
+  code?: string;
+  email?: string;
+  otpCode?: string;
+  googleOptCode?: string;
+  referrerUserId?: string | null;
+  platform?: number;
+  trackCode?: string;
+  agencyUser?: string;
+  deviceId?: string;
+  language?: string;
+  address?: string;
+}
+
+const wallets = ['binance_chain_wallet', 'metamask', 'tronlink'];
+
+// 第三方联合登录回调
+export const apiPassThird = (params: IApiPassThirdParams): Promise<IApiLoginResponse> => {
+  return new Promise((resolve, reject) => {
+    const marketingInfo = getMarketingInfo();
+
+    if (marketingInfo.trackCode !== '') {
+      params.trackCode = marketingInfo.trackCode;
+    }
+    if (marketingInfo.agencyUser !== '') {
+      params.agencyUser = marketingInfo.agencyUser;
+    }
+    if (!('referrerUserId' in params) && marketingInfo.invite !== '') {
+      params.referrerUserId = marketingInfo.invite;
+    }
+
+    if (!('deviceId' in params)) {
+      params.deviceId = auth.getDeviceId();
+    }
+
+    if (!('language' in params)) {
+      params.language = getCurLang();
+    }
+
+    if (!('platform' in params)) {
+      params.platform = auth.getPlatformType();
+    }
+    // setParamsWithStorage('apiPassThird', params);
+
+    // setLoginSceneType(LoginSceneType.OAUTH);
+
+    const name = params.name.toUpperCase();
+    const data = {...params};
+
+    if (isMobile() && !(name in WalletType)) {
+      data.code = data.token;
+
+      delete data.token;
+    }
+
+    if ('token' in data && data.name === 'line') {
+      data.code = data.token;
+
+      delete data.token;
+    }
+
+    requests.send(`/pass/third/callback/${params.name}`, 'POST', data).then((res: IApiLoginResponse) => {
+      if (res.rspCode === OK_CODE) {
+        // removeMarketingInfo(MarketingQueryKey.TRACK);
+        // //移除代理用户名
+        // removeMarketingInfo(MarketingQueryKey.AGENCY);
+      }
+
+      // 验证码错误或已过期
+      if (res.rspCode !== '3002') {
+        // setResponseWithStorage('apiPassThird', res);
+      }
+
+      // loginHandler(res);
+
+      resolve(res);
+    });
+  });
+};
+
+/**
+ * 声明
+ * @param {string} name 登录名称 google, facebook, line, kakao
+ */
+export interface IApiThirdAuthorizeParams {
+  name: string;
+}
+
+// 第三方授权登录
+export const apiThirdAuthorize = (params: IApiThirdAuthorizeParams): Promise<IApiResponse> => {
+  return new Promise((resolve, reject) => {
+    requests.send(`/pass/third/authorize/${params.name}`, 'POST', params).then((res: IApiResponse) => {
+      resolve(res);
     });
   });
 };

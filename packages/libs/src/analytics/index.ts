@@ -4,7 +4,7 @@ import {getAnalytics, logEvent, isSupported, Analytics} from 'firebase/analytics
 // These imports load individual services into the firebase namespace.
 import 'firebase/auth';
 
-import {isMobile, isApp, isIOS, getQueryParams} from '../utils';
+import {isMobile, isApp, isIOS, getQueryParam} from '../utils';
 import {getCurLang} from '../i18n';
 
 const firebaseConfig = {
@@ -197,7 +197,7 @@ class BTGAnalytics {
 
       logEvent(this._analytics, name, params);
 
-      const debug: string = getQueryParams('GodMode');
+      const debug: string = getQueryParam('GodMode');
 
       if (debug === '1' || __isDEV__) {
         console.log('BTGAnalytics eventName:', name);

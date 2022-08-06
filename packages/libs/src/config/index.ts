@@ -28,15 +28,15 @@ export enum UIType {
 
 /**
  * UI授权类型
- * NONE 无
- * LOGIN 登录
- * SIGN_UP 注册
- * EMAIL_ACT 邮箱激活
- * FORGET_PASSWORD 忘记密码
- * BINDING 绑定邮箱
- * MERGE 合并邮箱
- * GOOGLE_AUTHENTICATOR 谷歌验证
- * GOOGLE_HELP 谷歌帮助
+ * @property NONE 无
+ * @property LOGIN 登录
+ * @property SIGN_UP 注册
+ * @property EMAIL_ACT 邮箱激活
+ * @property FORGET_PASSWORD 忘记密码
+ * @property BINDING 绑定邮箱
+ * @property MERGE 合并邮箱
+ * @property GOOGLE_AUTHENTICATOR 谷歌验证
+ * @property GOOGLE_HELP 谷歌帮助
  */
 export enum ModalType {
   NONE,
@@ -49,6 +49,18 @@ export enum ModalType {
   GOOGLE_AUTHENTICATOR,
   GOOGLE_HELP,
 }
+
+/**
+ * 钱包类型
+ * @property METAMASK 狐狸
+ * @property BINANCE_CHAIN_WALLET 币安
+ * @property TRONLINK 波场
+ */
+export const WalletType = {
+  METAMASK: 'metamask',
+  BINANCE_CHAIN_WALLET: 'binance_chain_wallet',
+  TRONLINK: 'tronlink',
+};
 
 /**
  * 频道事件类型

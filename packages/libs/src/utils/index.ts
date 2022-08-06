@@ -30,7 +30,7 @@ export const debounce = <F extends (...args: any[]) => any>(func: F, delay = 300
 
 // 是否是APP
 export const isApp = (): boolean => {
-  const isNative = getQueryParams('isNative');
+  const isNative = getQueryParam('isNative');
 
   return 'native' in window || isNative === '1';
 };
@@ -59,12 +59,12 @@ export const isAndroid = (): boolean => {
 };
 
 /**
- * 通过key获取url查询部分中value
+ * 根据key获取相应查询部分
  * @param {string} key 关键词
  * @param {number} search 查询部分
  * @returns {string}
  */
-export const getQueryParams = (key = '', search?: string): string => {
+export const getQueryParam = (key = '', search?: string): string => {
   const paramsString = typeof search === 'string' && search !== '' ? search : location.search;
   const searchParams = new URLSearchParams(paramsString);
   let context = '';
@@ -74,6 +74,23 @@ export const getQueryParams = (key = '', search?: string): string => {
   }
 
   return context;
+};
+
+/**
+ * 根据key移除相应查询部分
+ * @param {string} key 关键词
+ * @param {number} search 查询部分
+ * @returns {string}
+ */
+export const removeQueryParam = (key: string, search?: string): string => {
+  const paramsString = typeof search === 'string' && search !== '' ? search : location.search;
+  const searchParams = new URLSearchParams(paramsString);
+
+  if (searchParams.has(key)) {
+    searchParams.delete(key);
+  }
+
+  return searchParams.toString();
 };
 
 /**
