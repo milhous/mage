@@ -32,10 +32,10 @@
 
 #### Interface: IMarketingItems
 
-| Property | Type   | Description |
-| -------- | ------ | ----------- |
-| code     | string | 码          |
-| from     | number | 来源        |
+| Property | Type   | Description                                   |
+| -------- | ------ | --------------------------------------------- |
+| code     | string | 码                                            |
+| from     | number | 来源(0: 默认无, 1: localStorage, 2: URL 参数) |
 
 #### Example
 
