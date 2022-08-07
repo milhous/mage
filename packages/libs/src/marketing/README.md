@@ -17,6 +17,26 @@
 | setKeyInfo(key, data)              | 设置 Key 信息 |
 | removeKeyInfo(key)                 | 移除 Key 信息 |
 
+#### interface: IMarketingInfo
+
+| Property       | Type   | Description |
+| -------------- | ------ | ----------- |
+| trackCode      | string | 渠道码      |
+| trackFrom      | number | 渠道来源    |
+| invite         | string | 邀请码      |
+| inviteFrom     | number | 邀请来源    |
+| share          | string | 分享码      |
+| shareFrom      | number | 分享来源    |
+| agencyUser     | string | 代理码      |
+| agencyUserFrom | number | 代理来源    |
+
+#### interface: IMarketingItems
+
+| Property | Type   | Description |
+| -------- | ------ | ----------- |
+| code     | string | 码          |
+| from     | number | 来源        |
+
 ## marketing.useMarketing
 
 营销信息，用于 react hook

@@ -4,8 +4,8 @@
  * @param {number} trackFrom 渠道来源
  * @param {string} invite 邀请码
  * @param {number} inviteFrom 邀请来源
- * @param {string} share 邀请码
- * @param {number} shareFrom 邀请来源
+ * @param {string} share 分享码
+ * @param {number} shareFrom 分享来源
  * @param {string} agencyUser 代理码
  * @param {number} agencyUserFrom 代理来源
  */
