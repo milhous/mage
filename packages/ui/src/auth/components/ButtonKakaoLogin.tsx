@@ -71,21 +71,23 @@ export const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
   });
 
   return (
-    <KakaoLogin
-      token={ThirdParty.KAKAO_JSKEY}
-      onSuccess={onLogin}
-      onFail={onLogin}
-      render={renderProps => {
-        return (
-          <Assets.BtnLoginKakao
-            onClick={(evt: React.MouseEvent) => {
-              evt.preventDefault();
+    <>
+      <KakaoLogin
+        token={ThirdParty.KAKAO_JSKEY}
+        onSuccess={onLogin}
+        onFail={onLogin}
+        render={renderProps => {
+          return (
+            <Assets.BtnLoginKakao
+              onClick={(evt: React.MouseEvent) => {
+                evt.preventDefault();
 
-              onClick(renderProps);
-            }}
-          />
-        );
-      }}
-    />
+                onClick(renderProps);
+              }}
+            />
+          );
+        }}
+      />
+    </>
   );
 };
