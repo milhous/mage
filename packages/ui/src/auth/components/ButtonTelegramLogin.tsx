@@ -1,7 +1,7 @@
 import {ThirdParty} from '@libs/config/auth';
 import {useThrottle} from '@libs/hooks';
-import {getQueryParam, isMobile} from '@libs/utils';
-import {useTranslate, useLang} from '@libs/i18n';
+import {isMobile} from '@libs/utils';
+import {useTranslate} from '@libs/i18n';
 import {OK_CODE} from '@libs/requests';
 import analytics from '@libs/analytics';
 
@@ -10,15 +10,14 @@ import TelegramLogin from '@widget/thirdParty/telegramLogin';
 
 // import {apiThirdAuthorize, apiPassThird, IApiLoginResponse, LoginSceneType, setLoginSceneType} from '@/api/login';
 
-import {apiThirdAuthorize, apiPassThird, IApiLoginResponse, LoginSceneType, setLoginSceneType} from '@app/auth/api';
+import {apiPassThird, IApiLoginResponse} from '@app/auth/api';
 import Assets from '@app/auth/assets';
-// Hook
 // import {showLoginToast} from './index';
 
 // Telegram Login
-export const ButtonTelegramLogin = (): JSX.Element => {
-  const {t} = useTranslate(['login']);
-  // const redirectUri = isMobile() ? `${window.location.origin}/${OAuthLoginType.TELEGRAM}/callback` : '';
+export const ButtonTelegramLogin = (props: {name: string}): JSX.Element => {
+  const {name} = props;
+  const t = useTranslate(['login']);
   const redirectUri = isMobile() ? `${window.location.origin}` : '';
 
   const onLogin = useThrottle(async (data: any): Promise<void> => {
@@ -30,9 +29,9 @@ export const ButtonTelegramLogin = (): JSX.Element => {
     const token = JSON.stringify(data);
 
     try {
-      const res: IApiLoginResponse = await apiPassThird({name: OAuthLoginType.TELEGRAM, token});
+      const res: IApiLoginResponse = await apiPassThird({name, token});
 
-      showLoginToast(res.rspCode);
+      // showLoginToast(res.rspCode);
 
       if (res.rspCode === OK_CODE && res.data.firstLogin) {
         analytics.customEvent('SignIn_success', {
@@ -40,11 +39,11 @@ export const ButtonTelegramLogin = (): JSX.Element => {
           oauthType: 'Telegram',
         });
 
-        window.dataLayer.push({
-          event: 'sign_up',
-          method: OAuthLoginType.TELEGRAM,
-          'country code': regionIp,
-        });
+        // window.dataLayer.push({
+        //   event: 'sign_up',
+        //   method: OAuthLoginType.TELEGRAM,
+        //   'country code': regionIp,
+        // });
       }
     } catch (err) {
       console.log(err);

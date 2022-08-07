@@ -49,11 +49,13 @@ export interface IApiLoginResponse extends IApiResponse {
  * @param {string} exp 用户令牌有效期
  * @param {string} access_token 用户令牌
  * @param {string} refresh_token 刷新令牌
+ * @param {string} firstLogin 是否首次登录 1:是, 0:否
  */
 export interface IApiLoginData {
   exp: string;
   access_token: string;
   refresh_token: string;
+  firstLogin: string;
 }
 
 // 登录
