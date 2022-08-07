@@ -62,15 +62,22 @@ export const isAndroid = (): boolean => {
  * 根据key获取相应查询部分
  * @param {string} key 关键词
  * @param {number} search 查询部分
+ * @param {boolean} isFuzzy 是否模糊查询
  * @returns {string}
  */
-export const getQueryParam = (key = '', search?: string): string => {
+export const getQueryParam = (key = '', search?: string, isFuzzy = false): string => {
   const paramsString = typeof search === 'string' && search !== '' ? search : location.search;
   const searchParams = new URLSearchParams(paramsString);
   let context = '';
 
   if (searchParams.has(key)) {
     context = searchParams.get(key) as string;
+  } else if (isFuzzy) {
+    const _key = key.toLowerCase();
+
+    if (searchParams.has(_key)) {
+      context = searchParams.get(_key) as string;
+    }
   }
 
   return context;

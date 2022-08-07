@@ -5,43 +5,6 @@ import {getQueryParam, removeQueryParam} from '../utils';
 import './@types/requests.d';
 
 /**
- * 声明
- * @param {string} trackCode 渠道码
- * @param {number} trackFrom 渠道来源
- * @param {string} invite 邀请码
- * @param {number} inviteFrom 邀请来源
- * @param {string} share 邀请码
- * @param {number} shareFrom 邀请来源
- * @param {string} agencyUser 代理码
- * @param {number} agencyUserFrom 代理来源
- */
-export interface IMarketingInfo {
-  trackCode: string;
-  trackCodeFrom: number;
-  invite: string;
-  inviteFrom: number;
-  share: string;
-  shareFrom: number;
-  agencyUser: string;
-  agencyUserFrom: number;
-}
-
-/**
- * 声明 - 单项
- * @property {string} code 码
- * @property {number} from 来源
- */
-export interface IMarketingItems {
-  code: string;
-  from: number;
-}
-
-// 事件类型
-const MarketingEventType = {
-  UPDATE: 'MARKETING_UPDATE',
-};
-
-/**
  * 营销码类型
  * @property TRACK 渠道码
  * @property AGENCY 代理码
@@ -67,6 +30,11 @@ enum MarketingSourceType {
   QUERY_PARAMETERS,
 }
 
+// 事件类型
+const MarketingEventType = {
+  UPDATE: 'MARKETING_UPDATE',
+};
+
 // 营销
 class Marketing implements IMarketing {
   static VERSION = '1.0.0';
@@ -84,6 +52,25 @@ class Marketing implements IMarketing {
   private _agencyUser = '';
   private _agencyUserFrom = MarketingSourceType.DEFAULT;
 
+  // hook
+  public useMarketingInfo = (): IMarketingInfo => {
+    const [info, setInfo] = useState<IMarketingInfo>(this.getInfo());
+
+    useEffect(() => {
+      const onUpdate = (evt: any) => {
+        setInfo(evt.detail);
+      };
+
+      window.addEventListener(MarketingEventType.UPDATE, onUpdate);
+
+      return () => {
+        window.removeEventListener(MarketingEventType.UPDATE, onUpdate);
+      };
+    }, []);
+
+    return {...info};
+  };
+
   constructor() {
     this._init();
   }
@@ -98,8 +85,8 @@ class Marketing implements IMarketing {
     return Marketing.instance;
   }
 
-  // 获取信息
-  public getInfos(): IMarketingInfo {
+  // 获取所有信息
+  public getInfo(): IMarketingInfo {
     return {
       trackCode: this._trackCode,
       trackCodeFrom: this._trackCodeFrom,
@@ -113,14 +100,24 @@ class Marketing implements IMarketing {
   }
 
   /**
-   * 根据key获取信息
+   * 获取Key信息
    * @param {string} key 键名
    * @param {boolean} isRemove 是否移除
-   * @param {number} from 信息来源  0:default, 1:localStorage, 2:query parameters
+   * @param {boolean} isFuzzy 是否模糊查询
+   * @returns {IMarketingItems}
    */
-  public getInfo(key: string, isRemove = true): IMarketingItems {
-    let code: string = getQueryParam(key);
+  public getKeyInfo(key: string, isRemove = true, isFuzzy = false): IMarketingItems {
+    let code = '';
     let from = MarketingSourceType.DEFAULT;
+
+    if (!this._checkKeyExists(key)) {
+      return {
+        code,
+        from,
+      };
+    }
+
+    code = getQueryParam(key, undefined, isFuzzy);
 
     if (code) {
       if (isRemove) {
@@ -142,109 +139,94 @@ class Marketing implements IMarketing {
   }
 
   /**
-   * 设置信息
+   * 设置Key信息
    * @param {string} key 键名
+   * @param {IMarketingItems} data 数据
    */
-  public setInfo(key: string, data: IMarketingItems): void {
+  public setKeyInfo(key: string, data: IMarketingItems): void {
+    if (!this._checkKeyExists(key)) {
+      return;
+    }
+
     this[`_${key}`] = data.code;
-    this[`_${key}From'`] = data.from;
+    this[`_${key}From`] = data.from;
 
     localStorage.setItem(key, data.code);
 
-    window.dispatchEvent(
-      new CustomEvent(MarketingEventType.UPDATE, {
-        detail: marketingInfo,
-      }),
-    );
+    this._dispatch();
   }
 
   /**
    * 移除信息
    * @param {string} key 键名
    */
-  public removeInfo(key: string): void {
-    marketingInfo[key] = '';
-    marketingInfo[key + 'From'] = MarketingSourceType.DEFAULT;
+  public removeKeyInfo(key: string): void {
+    if (!this._checkKeyExists(key)) {
+      return;
+    }
+
+    this[`_${key}`] = '';
+    this[`_${key}From`] = MarketingSourceType.DEFAULT;
 
     localStorage.removeItem(key);
 
-    window.dispatchEvent(
-      new CustomEvent(MarketingEventType.UPDATE, {
-        detail: marketingInfo,
-      }),
-    );
-  }
-
-  public getUrlTrackCodeKey(): string {
-    const queryParams = new URLSearchParams(location.search);
-    let trackCodeKey = MarketingCodeType.TRACK;
-    for (const [key, value] of queryParams) {
-      if (key.toLowerCase() == 'trackcode') {
-        trackCodeKey = key;
-      }
-    }
-    return trackCodeKey;
+    this._dispatch();
   }
 
   // 初始化
   private _init(): void {
-    const trackInfoKey = getUrlTrackCodeKey();
-    const trackInfo = this.getInfo(trackInfoKey, false);
-    const inviteInfo = this.getInfo(MarketingCodeType.INVITE);
-    const shareInfo = this.getInfo(MarketingCodeType.SHARE);
-    const agencyInfo = this.getInfo(MarketingCodeType.AGENCY);
+    const trackInfo = this.getKeyInfo(MarketingCodeType.TRACK, false, true);
+    const inviteInfo = this.getKeyInfo(MarketingCodeType.INVITE);
+    const shareInfo = this.getKeyInfo(MarketingCodeType.SHARE);
+    const agencyInfo = this.getKeyInfo(MarketingCodeType.AGENCY);
 
     // 渠道 & 邀请
     if (trackInfo.from === MarketingSourceType.QUERY_PARAMETERS) {
-      this.setInfo(MarketingCodeType.TRACK, trackInfo);
-      this.removeInfo(MarketingCodeType.INVITE);
+      this.setKeyInfo(MarketingCodeType.TRACK, trackInfo);
+      this.removeKeyInfo(MarketingCodeType.INVITE);
     } else if (inviteInfo.from === MarketingSourceType.QUERY_PARAMETERS) {
-      this.setInfo(MarketingCodeType.INVITE, inviteInfo);
-      this.removeInfo(MarketingCodeType.TRACK);
+      this.setKeyInfo(MarketingCodeType.INVITE, inviteInfo);
+      this.removeKeyInfo(MarketingCodeType.TRACK);
 
       localStorage.removeItem('trackCodeTurnTable');
     } else if (trackInfo.code !== '') {
-      2;
-      this.setInfo(MarketingCodeType.TRACK, trackInfo);
+      this.setKeyInfo(MarketingCodeType.TRACK, trackInfo);
     } else if (inviteInfo.code !== '') {
-      this.setInfo(MarketingCodeType.INVITE, inviteInfo);
+      this.setKeyInfo(MarketingCodeType.INVITE, inviteInfo);
     }
 
     // 分享
-    if (shareInfo.from === MarketingSourceType.QUERY_PARAMETERS) {
-      this.setInfo(MarketingCodeType.SHARE, shareInfo);
-    } else if (shareInfo.code !== '') {
-      this.setInfo(MarketingCodeType.SHARE, shareInfo);
+    if (shareInfo.from === MarketingSourceType.QUERY_PARAMETERS || shareInfo.code !== '') {
+      this.setKeyInfo(MarketingCodeType.SHARE, shareInfo);
     }
 
     // 代理
-    if (agencyInfo.from === MarketingSourceType.QUERY_PARAMETERS) {
-      this.setInfo(MarketingCodeType.AGENCY, agencyInfo);
-    } else if (agencyInfo.code !== '') {
-      this.setInfo(MarketingCodeType.AGENCY, agencyInfo);
+    if (agencyInfo.from === MarketingSourceType.QUERY_PARAMETERS || agencyInfo.code !== '') {
+      this.setKeyInfo(MarketingCodeType.AGENCY, agencyInfo);
     }
+  }
+
+  /**
+   * 检测key是否存在
+   * @param {string} key 键名
+   * @returns {boolean}
+   */
+  private _checkKeyExists(key: string): boolean {
+    return this.hasOwnProperty(`_${key}`);
+  }
+
+  // 发布数据更新
+  private _dispatch(): void {
+    const detail = this.getInfo();
+
+    window.dispatchEvent(
+      new CustomEvent(MarketingEventType.UPDATE, {
+        detail,
+      }),
+    );
   }
 }
 
 const marketing: IMarketing = Marketing.getInstance();
-
-// Hook
-export const useMarketingInfo = (): IMarketingInfo => {
-  const [info, setInfo] = useState<IMarketingInfo>(marketing.getInfo());
-
-  useEffect(() => {
-    const onUpdate = (evt: any) => {
-      setInfo(evt.detail);
-    };
-
-    window.addEventListener(MarketingEventType.UPDATE, onUpdate);
-
-    return () => {
-      window.removeEventListener(MarketingEventType.UPDATE, onUpdate);
-    };
-  }, []);
-
-  return {...info};
-};
 
 export default marketing;
