@@ -1,8 +1,6 @@
-## Marketing - 市场营销
-
-用来管理 url 特定参数，这些特定参数为市场营销的获客媒介，当前已有渠道码（trackCode）、邀请码（invite）、代理码（agencyUser）和分享码（share）。
-
 ## Marketing Interface
+
+用来管理 url 营销参数，这些营销参数为市场营销的获客媒介，当前已有渠道码（trackCode）、邀请码（invite）、代理码（agencyUser）和分享码（share）。
 
 #### Properties
 
