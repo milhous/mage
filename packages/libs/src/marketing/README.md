@@ -2,7 +2,7 @@
 
 用来管理 url 特定参数，这些特定参数为市场营销的获客媒介，当前已有渠道码（trackCode）、邀请码（invite）、代理码（agencyUser）和分享码（share）。
 
-### Marketing Interface
+## Marketing Interface
 
 #### Properties
 
@@ -19,7 +19,7 @@
 | setKeyInfo(key, data)              | 设置 Key 信息 |
 | removeKeyInfo(key)                 | 移除 Key 信息 |
 
-### marketing.useMarketing
+## marketing.useMarketing
 
 营销信息，用于 react hook
 
@@ -32,7 +32,7 @@ const { trackCode, trackCodeFrom } = marketing.useMarketing();
 
 ```
 
-### marketing.getInfo()
+## marketing.getInfo()
 
 获取所有信息
 
@@ -47,7 +47,7 @@ getInfo(): IMarketingInfo;
 
 IMarketingInfo
 
-### marketing.getKeyInfo()
+## marketing.getKeyInfo()
 
 获取 Key 信息
 
@@ -70,7 +70,7 @@ getKeyInfo(key: string, isRemove?: boolean, isFuzzy?: boolean): IMarketingItems;
 
 IMarketingItems
 
-### marketing.setKeyInfo()
+## marketing.setKeyInfo()
 
 设置 Key 信息
 
@@ -92,7 +92,7 @@ setKeyInfo(key: string, data: IMarketingItems): void;
 
 void
 
-### marketing.removeKeyInfo()
+## marketing.removeKeyInfo()
 
 移除 Key 信息
 
