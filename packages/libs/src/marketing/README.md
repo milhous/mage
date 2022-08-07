@@ -37,7 +37,7 @@
 | code     | string | 码          |
 | from     | number | 来源        |
 
-## marketing.useMarketing
+## marketing.useMarketingInfo
 
 营销信息，用于 react hook
 
