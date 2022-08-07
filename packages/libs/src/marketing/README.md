@@ -17,7 +17,7 @@
 | setKeyInfo(key, data)              | 设置 Key 信息 |
 | removeKeyInfo(key)                 | 移除 Key 信息 |
 
-#### interface: IMarketingInfo
+#### Interface: IMarketingInfo
 
 | Property       | Type   | Description |
 | -------------- | ------ | ----------- |
@@ -30,14 +30,20 @@
 | agencyUser     | string | 代理码      |
 | agencyUserFrom | number | 代理来源    |
 
-#### interface: IMarketingItems
+#### Interface: IMarketingItems
 
 | Property | Type   | Description |
 | -------- | ------ | ----------- |
 | code     | string | 码          |
 | from     | number | 来源        |
 
-## marketing.useMarketingInfo
+#### Example
+
+```
+import marketing from '@libs/marketing';
+```
+
+## marketing.useMarketingInfo()
 
 营销信息，用于 react hook
 
