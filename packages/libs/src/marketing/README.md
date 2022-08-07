@@ -29,7 +29,6 @@
 import marketing from '@libs/marketing';
 
 const { trackCode, trackCodeFrom } = marketing.useMarketing();
-
 ```
 
 ## marketing.getInfo()
@@ -40,7 +39,6 @@ const { trackCode, trackCodeFrom } = marketing.useMarketing();
 
 ```
 getInfo(): IMarketingInfo;
-
 ```
 
 #### Returns
@@ -55,7 +53,6 @@ IMarketingInfo
 
 ```
 getKeyInfo(key: string, isRemove?: boolean, isFuzzy?: boolean): IMarketingItems;
-
 ```
 
 #### Parameters
@@ -78,7 +75,6 @@ IMarketingItems
 
 ```
 setKeyInfo(key: string, data: IMarketingItems): void;
-
 ```
 
 #### Parameters
@@ -100,7 +96,6 @@ void
 
 ```
 removeKeyInfo(key: string): void;
-
 ```
 
 #### Parameters
