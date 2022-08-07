@@ -4,9 +4,9 @@
 
 #### Properties
 
-| Property     | Type | Description |
-| ------------ | ---- | ----------- |
-| useMarketing | Hook | 营销信息    |
+| Property         | Type | Description |
+| ---------------- | ---- | ----------- |
+| useMarketingInfo | Hook | 营销信息    |
 
 #### Methods
 
@@ -46,7 +46,7 @@
 ```
 import marketing from '@libs/marketing';
 
-const { trackCode, trackCodeFrom } = marketing.useMarketing();
+const { trackCode, trackCodeFrom } = marketing.useMarketingInfo();
 ```
 
 ## marketing.getInfo()
