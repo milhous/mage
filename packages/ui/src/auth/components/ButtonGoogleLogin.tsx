@@ -14,7 +14,7 @@ import Assets from '@app/auth/assets';
 // import {showLoginToast} from './index';
 
 // Google Login
-export const ButtonGoogleLogin = (props: {name: string}): JSX.Element => {
+const ButtonGoogleLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
   const t = useTranslate(['login']);
 
@@ -80,3 +80,5 @@ export const ButtonGoogleLogin = (props: {name: string}): JSX.Element => {
     />
   );
 };
+
+export default ButtonGoogleLogin;

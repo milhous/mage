@@ -9,7 +9,7 @@ import {apiThirdAuthorize, IApiResponse} from '@app/auth/api';
 import Assets from '@app/auth/assets';
 
 // Line Login
-export const ButtonLineLogin = (props: {name: string}): JSX.Element => {
+const ButtonLineLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
   const t = useTranslate(['login']);
 
@@ -37,3 +37,5 @@ export const ButtonLineLogin = (props: {name: string}): JSX.Element => {
 
   return <Assets.BtnLoginLine onClick={onLogin} />;
 };
+
+export default ButtonLineLogin;

@@ -15,7 +15,7 @@ import Assets from '@app/auth/assets';
 // import {showLoginToast} from './index';
 
 // Telegram Login
-export const ButtonTelegramLogin = (props: {name: string}): JSX.Element => {
+const ButtonTelegramLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
   const t = useTranslate(['login']);
   const redirectUri = isMobile() ? `${window.location.origin}` : '';
@@ -58,3 +58,5 @@ export const ButtonTelegramLogin = (props: {name: string}): JSX.Element => {
     </TelegramLogin>
   );
 };
+
+export default ButtonTelegramLogin;

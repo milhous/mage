@@ -14,7 +14,7 @@ import Assets from '@app/auth/assets';
 // import {showLoginToast} from './index';
 
 // Facebook Login
-export const ButtonFacebookLogin = (props: {name: string}): JSX.Element => {
+const ButtonFacebookLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
   const t = useTranslate(['login']);
   const redirectUri = `${window.location.origin}/${name}/callback`;
@@ -62,3 +62,5 @@ export const ButtonFacebookLogin = (props: {name: string}): JSX.Element => {
     />
   );
 };
+
+export default ButtonFacebookLogin;

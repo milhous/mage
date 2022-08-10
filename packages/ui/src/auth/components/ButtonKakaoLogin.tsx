@@ -22,7 +22,7 @@ declare global {
 }
 
 // Kakao Login
-export const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
+const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
   const t = useTranslate(['login']);
 
@@ -89,3 +89,5 @@ export const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
     />
   );
 };
+
+export default ButtonKakaoLogin;
