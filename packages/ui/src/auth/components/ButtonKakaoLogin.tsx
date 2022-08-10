@@ -46,7 +46,7 @@ export const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
 
     if (data.response.access_token) {
       try {
-        const res: any = await apiPassThird({name, token: data.response.access_token});
+        const res: IApiLoginResponse = await apiPassThird({name, token: data.response.access_token});
 
         // showLoginToast(res.rspCode);
 
@@ -71,23 +71,21 @@ export const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
   });
 
   return (
-    <>
-      <KakaoLogin
-        token={ThirdParty.KAKAO_JSKEY}
-        onSuccess={onLogin}
-        onFail={onLogin}
-        render={renderProps => {
-          return (
-            <Assets.BtnLoginKakao
-              onClick={(evt: React.MouseEvent) => {
-                evt.preventDefault();
+    <KakaoLogin
+      token={ThirdParty.KAKAO_JSKEY}
+      onSuccess={onLogin}
+      onFail={onLogin}
+      render={renderProps => {
+        return (
+          <Assets.BtnLoginKakao
+            onClick={(evt: React.MouseEvent) => {
+              evt.preventDefault();
 
-                onClick(renderProps);
-              }}
-            />
-          );
-        }}
-      />
-    </>
+              onClick(renderProps);
+            }}
+          />
+        );
+      }}
+    />
   );
 };

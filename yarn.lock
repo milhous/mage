@@ -2516,7 +2516,7 @@ __metadata:
     react-google-recaptcha-v3: ^1.10.0
     react-hook-form: ^7.34.0
     react-i18next: ^11.18.3
-    react-kakao-login: ^2.1.0
+    react-kakao-login: ^2.1.1
     react-router-dom: ^6.3.0
     regenerator-runtime: ^0.13.9
   languageName: unknown
@@ -12335,12 +12335,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-kakao-login@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "react-kakao-login@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-kakao-login%2F-%2Freact-kakao-login-2.1.0.tgz"
+"react-kakao-login@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "react-kakao-login@npm:2.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-kakao-login%2F-%2Freact-kakao-login-2.1.1.tgz"
   peerDependencies:
     react: ">= 15.3.0"
-  checksum: be0cca1bbcecc8ba77b8882cd157356a95cd207719ceca3ea849032728576b9963109fea64a9dc66a58c8a341b2b5d1f788045574da39dece6a83384c7eb3047
+  checksum: 45eb33bb22cc4fa19d04ec5eab94cceefa2c5b76c7d5c185283e0206f1d26c9e451b7ff9162b9402735c09e6ee817a3d9c148deec2be75981d734c836c51bf7a
   languageName: node
   linkType: hard
 
