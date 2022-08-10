@@ -1,9 +1,9 @@
-import { WalletsName, WalletsEventType } from '../config';
+import { WalletName, WalletEventType } from '../config';
 
 // 波场钱包
 export default class MethodTronlink {
   // 类型
-  static type = WalletsName.TRON_LINK;
+  static type = WalletName.TRON_LINK;
 
   constructor() {
     this._init();
@@ -27,7 +27,7 @@ export default class MethodTronlink {
         address,
       };
 
-      window.dispatchEvent(new CustomEvent(WalletsEventType.ACCOUNT_CHANGE, { detail }));
+      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, { detail }));
     });
   }
 

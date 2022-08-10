@@ -1,11 +1,11 @@
 import Web3Utils from 'web3-utils';
 
-import { WalletsName, WalletsEventType } from '../config';
+import { WalletName, WalletEventType } from '../config';
 
 // 狐狸钱包
 export default class MethodMetamask {
   // 类型
-  static type = WalletsName.META_MASK;
+  static type = WalletName.META_MASK;
 
   constructor() {
     this._init();
@@ -25,7 +25,7 @@ export default class MethodMetamask {
         address,
       };
 
-      window.dispatchEvent(new CustomEvent(WalletsEventType.ACCOUNT_CHANGE, { detail }));
+      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, { detail }));
     });
   }
 

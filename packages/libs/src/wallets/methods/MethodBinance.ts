@@ -1,11 +1,11 @@
 import Web3Utils from 'web3-utils';
 
-import { WalletsName, WalletsEventType } from '../config';
+import { WalletName, WalletEventType } from '../config';
 
 // 币安钱包
 export default class MethodBinance {
   // 类型
-  static type = WalletsName.BINANCE;
+  static type = WalletName.BINANCE;
 
   constructor() {
     this._init();
@@ -21,11 +21,11 @@ export default class MethodBinance {
     (window as any).BinanceChain.on('accountsChanged', (accounts: any) => {
       const address = this._getAddressByAccount(accounts);
       const detail = {
-        type: WalletsName.BINANCE,
+        type: WalletName.BINANCE,
         address,
       };
 
-      window.dispatchEvent(new CustomEvent(WalletsEventType.ACCOUNT_CHANGE, { detail }));
+      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, { detail }));
     });
   }
 
