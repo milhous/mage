@@ -26,7 +26,7 @@ wallets.WalletName;
 
 ##### Returns
 
-| Returns              | Type   | Description |
+| Property             | Type   | Description |
 | -------------------- | ------ | ----------- |
 | WalletName.META_MASK | string | Metamask    |
 | WalletName.BINANCE   | string | Binance     |
@@ -54,7 +54,7 @@ wallets.WalletEventType;
 
 ##### Returns
 
-| Returns                        | Type   | Description |
+| Property                       | Type   | Description |
 | ------------------------------ | ------ | ----------- |
 | WalletEventType.LOGIN          | string | 登录        |
 | WalletEventType.LOGIN_CANCEL   | string | 取消登录    |
@@ -111,7 +111,9 @@ wallets.canBeUsed(name);
 
 ##### Parameters
 
-string
+| Parameter | Type   | Description |
+| --------- | ------ | ----------- |
+| name      | string | 钱包名称    |
 
 ##### Returns
 
@@ -150,7 +152,9 @@ wallets.getAddress(name);
 
 ##### Parameters
 
-string
+| Parameter | Type   | Description |
+| --------- | ------ | ----------- |
+| name      | string | 钱包名称    |
 
 ##### Returns
 
