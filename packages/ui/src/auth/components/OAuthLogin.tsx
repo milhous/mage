@@ -131,7 +131,7 @@ const OAuthLogin = (props: {type: string}): JSX.Element => {
       <input id="OAuthLogin" type="checkbox" />
       <div className="ui-auth_OAuth">
         <ul id={id}>
-          <li className="btn-login_google">
+          {/* <li className="btn-login_google">
             <ButtonGoogleLogin name={OAuthLoginType.GOOGLE} />
           </li>
           {!isApp() && !telegramOAuthStatus && (
@@ -141,7 +141,7 @@ const OAuthLogin = (props: {type: string}): JSX.Element => {
           )}
           <li className="btn-login_facebook">
             <ButtonFacebookLogin name={OAuthLoginType.FACEBOOK} />
-          </li>
+          </li> */}
           <li className="btn-login_metamask">
             <ButtonMetaMaskLogin />
           </li>
@@ -158,7 +158,7 @@ const OAuthLogin = (props: {type: string}): JSX.Element => {
         </label>
         <div>
           <ul>
-            <li className="btn-login_google">
+            {/* <li className="btn-login_google">
               <ButtonGoogleLogin name={OAuthLoginType.GOOGLE} />
             </li>
             {!isApp() && telegramOAuthStatus && (
@@ -174,7 +174,7 @@ const OAuthLogin = (props: {type: string}): JSX.Element => {
             </li>
             <li className="btn-login_kakao">
               <ButtonKakaoLogin name={OAuthLoginType.FACEBOOK} />
-            </li>
+            </li> */}
             <li className="btn-login_tronlink">
               <ButtonTronLinkLogin />
             </li>
