@@ -69,14 +69,14 @@ import wallets from "@libs/wallets";
 // 钱包登录
 window.dispatchEvent(
   new CustomEvent(wallets.WalletEventType.LOGIN, {
-    detail: { type: wallets.WalletName.META_MASK },
+    detail: { name: wallets.WalletName.META_MASK },
   })
 );
 
 // 取消登录
 window.dispatchEvent(
   new CustomEvent(wallets.WalletEventType.LOGIN_CANCEL, {
-    detail: { type: wallets.WalletName.META_MASK },
+    detail: { name: wallets.WalletName.META_MASK },
   })
 );
 

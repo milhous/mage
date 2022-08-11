@@ -1,37 +1,13 @@
 import './@types/wallets.d';
 
+import {WalletName, WalletEventType} from './config';
+
 // 币安钱包
 import MethodBinance from './methods/MethodBinance';
 // 狐狸钱包
 import MethodMetamask from './methods/MethodMetamask';
 // 波场钱包
 import MethodTronlink from './methods/MethodTronlink';
-
-/**
- * 钱包名称
- * @property BINANCE 币安
- * @property META_MASK 狐狸
- * @property TRON_LINK 波场
- */
-const WalletName: IWalletName = {
-  BINANCE: 'binance_chain_wallet',
-  META_MASK: 'metamask',
-  TRON_LINK: 'tronlink',
-};
-
-/**
- * 事件类型
- * @property LOGIN 登录
- * @property CANCEL 取消登录
- * @property RESET 重置
- * @property CHANGE 账户更换
- */
-const WalletEventType: IWalletEventType = {
-  LOGIN: 'WALLETS_LOGIN',
-  LOGIN_CANCEL: 'WALLETS_LOGIN_CANCEL',
-  RESET: 'WALLETS_RESET',
-  ACCOUNT_CHANGE: 'WALLETS_ACCOUNT_CHANGE',
-};
 
 // 钱包管理
 class Wallets implements IWallets {

@@ -1,6 +1,6 @@
 import Web3Utils from 'web3-utils';
 
-import { WalletName, WalletEventType } from '../config';
+import {WalletName, WalletEventType} from '../config';
 
 // 狐狸钱包
 export default class MethodMetamask {
@@ -13,35 +13,7 @@ export default class MethodMetamask {
 
   // 是否可使用
   static canBeUsed(): boolean {
-    return typeof window !== 'undefined' && typeof (window as any).ethereum !== 'undefined';
-  }
-
-  // 初始化
-  private _init(): void {
-    (window as any).ethereum.on('accountsChanged', (accounts: any) => {
-      const address = this._getAddressByAccount(accounts);
-      const detail = {
-        type: MethodMetamask.type,
-        address,
-      };
-
-      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, { detail }));
-    });
-  }
-
-  /**
-   * 通过账户信息获取地址
-   * @param {Array<string>} accounts 账户信息
-   * @return {string} address
-   */
-  private _getAddressByAccount(accounts: string[]): string {
-    let address = '';
-
-    if (Array.isArray(accounts) && accounts.length && typeof accounts[0] === 'string') {
-      address = accounts[0];
-    }
-
-    return address;
+    return typeof window !== 'undefined' && 'ethereum' in window;
   }
 
   /**
@@ -49,7 +21,7 @@ export default class MethodMetamask {
    * @return {string} address
    */
   public async getAddress(): Promise<string> {
-    const accounts = await (window as any).ethereum.request({ method: 'eth_requestAccounts' });
+    const accounts = await (window as any).ethereum.request({method: 'eth_requestAccounts'});
     const address = this._getAddressByAccount(accounts);
 
     return address;
@@ -68,5 +40,33 @@ export default class MethodMetamask {
     });
 
     return signature;
+  }
+
+  // 初始化
+  private _init(): void {
+    (window as any).ethereum.on('accountsChanged', (accounts: any) => {
+      const address = this._getAddressByAccount(accounts);
+      const detail = {
+        name: WalletName.META_MASK,
+        address,
+      };
+
+      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, {detail}));
+    });
+  }
+
+  /**
+   * 通过账户信息获取地址
+   * @param {Array<string>} accounts 账户信息
+   * @return {string} address
+   */
+  private _getAddressByAccount(accounts: string[]): string {
+    let address = '';
+
+    if (Array.isArray(accounts) && accounts.length && typeof accounts[0] === 'string') {
+      address = accounts[0];
+    }
+
+    return address;
   }
 }

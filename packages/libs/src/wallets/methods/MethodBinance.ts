@@ -1,6 +1,6 @@
 import Web3Utils from 'web3-utils';
 
-import { WalletName, WalletEventType } from '../config';
+import {WalletName, WalletEventType} from '../config';
 
 // 币安钱包
 export default class MethodBinance {
@@ -13,7 +13,34 @@ export default class MethodBinance {
 
   // 是否可使用
   static canBeUsed(): boolean {
-    return typeof window !== 'undefined' && typeof (window as any).BinanceChain !== 'undefined';
+    return typeof window !== 'undefined' && 'BinanceChain' in window;
+  }
+
+  /**
+   * 获取钱包地址
+   * @return {string} address
+   */
+  public async getAddress(): Promise<string> {
+    const accounts = await (window as any).BinanceChain.request({method: 'eth_accounts'});
+    const address = this._getAddressByAccount(accounts);
+
+    return address;
+  }
+
+  /**
+   * 获取钱包签名
+   * @param {string} address 钱包地址
+   * @param {string} message 签名数据
+   * @returns {string} signature
+   */
+  public async getSignature(message: string, address: string): Promise<string> {
+    const signature = await (window as any).BinanceChain.bnbSign(address, Web3Utils.utf8ToHex(message)).then(
+      (res: any) => {
+        return res.signature;
+      },
+    );
+
+    return signature;
   }
 
   // 初始化
@@ -21,11 +48,11 @@ export default class MethodBinance {
     (window as any).BinanceChain.on('accountsChanged', (accounts: any) => {
       const address = this._getAddressByAccount(accounts);
       const detail = {
-        type: WalletName.BINANCE,
+        name: WalletName.BINANCE,
         address,
       };
 
-      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, { detail }));
+      window.dispatchEvent(new CustomEvent(WalletEventType.ACCOUNT_CHANGE, {detail}));
     });
   }
 
@@ -47,32 +74,5 @@ export default class MethodBinance {
     }
 
     return address;
-  }
-
-  /**
-   * 获取钱包地址
-   * @return {string} address
-   */
-  public async getAddress(): Promise<string> {
-    const accounts = await (window as any).BinanceChain.request({ method: 'eth_accounts' });
-    const address = this._getAddressByAccount(accounts);
-
-    return address;
-  }
-
-  /**
-   * 获取钱包签名
-   * @param {string} address 钱包地址
-   * @param {string} message 签名数据
-   * @returns {string} signature
-   */
-  public async getSignature(message: string, address: string): Promise<string> {
-    const signature = await (window as any).BinanceChain.bnbSign(address, Web3Utils.utf8ToHex(message)).then(
-      (res: any) => {
-        return res.signature;
-      },
-    );
-
-    return signature;
   }
 }
