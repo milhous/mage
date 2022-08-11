@@ -1,7 +1,9 @@
 import './@types/wallets.d';
 
+// 配置
 import {WalletName, WalletEventType} from './config';
-
+// hook
+import useWallets from './hook';
 // 币安钱包
 import MethodBinance from './methods/MethodBinance';
 // 狐狸钱包
@@ -40,6 +42,11 @@ class Wallets implements IWallets {
   // 钱包事件
   get WalletEventType(): IWalletEventType {
     return WalletEventType;
+  }
+
+  // 钱包hook
+  get useWallets(): (props: IWalletsProps) => boolean {
+    return useWallets;
   }
 
   /**

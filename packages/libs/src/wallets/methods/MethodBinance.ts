@@ -5,7 +5,7 @@ import {WalletName, WalletEventType} from '../config';
 // 币安钱包
 export default class MethodBinance {
   // 类型
-  static type = WalletName.BINANCE;
+  static WalletName = WalletName.BINANCE;
 
   constructor() {
     this._init();

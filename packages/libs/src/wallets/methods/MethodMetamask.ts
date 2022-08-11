@@ -5,7 +5,7 @@ import {WalletName, WalletEventType} from '../config';
 // 狐狸钱包
 export default class MethodMetamask {
   // 类型
-  static type = WalletName.META_MASK;
+  static WalletName = WalletName.META_MASK;
 
   constructor() {
     this._init();

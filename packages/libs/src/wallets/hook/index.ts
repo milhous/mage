@@ -1,67 +1,79 @@
 import {useState, useEffect} from 'react';
 
-import {WalletName, WalletEventType} from '../config';
+import {WalletEventType} from '../config';
 
-type IWalletFunc = () => void;
-
-type IWalletEventDetail = {
+/**
+ * 声明
+ * @property name 钱包名称
+ * @property onLogin 钱包登录
+ * @property onCancel 取消登录
+ * @property onChange 钱包更改
+ * @property onReset 钱包重置
+ */
+interface IWalletsProps {
   name: string;
-  address?: string;
-};
+  onLogin?: (name: string) => void;
+  onCancel?: () => void;
+  onChange?: (name: string, address: string) => void;
+  onReset?: () => void;
+}
 
-const useWallet = (props: {name: string}): any => {
-  const {name} = props;
+// 钱包 hook
+const useWallets = (props: IWalletsProps): boolean => {
+  const {name, onLogin, onCancel, onChange, onReset} = props;
   const [isLoading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     // 钱包登录
-    const onLogin = ({detail}: any) => {
-      if (detail.type === name && !walletState.lock) {
-        walletLogin(type);
-      }
+    const handleLogin = ({detail}: any) => {
+      if (detail.name === name) {
+        !!onLogin && onLogin(name);
 
-      if (walletState.name === type) {
         setLoading(true);
       }
     };
 
     // 取消登录
-    const onCanel = (evt: any) => {
-      resetWalletState();
+    const handleCanel = (evt: any) => {
+      !!onCancel && onCancel();
 
       setLoading(false);
     };
 
     // 钱包更改
-    const onChange = (evt: any) => {
+    const handleChange = (evt: any) => {
       const detail = evt.detail;
 
-      if (detail.type === type) {
-        walletChange(type, detail.address);
+      if (detail.name === name) {
+        !!onChange && onChange(name, detail.address);
+
+        setLoading(false);
       }
     };
 
-    // 重置
-    const onReset = (evt: any) => {
-      resetWalletState();
+    // 钱包重置
+    const handleReset = (evt: any) => {
+      !!onReset && onReset();
 
       setLoading(false);
     };
 
-    window.addEventListener(wallets.walletsEventType.LOGIN, onLogin);
-    window.addEventListener(wallets.walletsEventType.LOGIN_CANCEL, onCanel);
-    window.addEventListener(wallets.walletsEventType.ACCOUNT_CHANGE, onChange);
-    window.addEventListener(wallets.walletsEventType.RESET, onReset);
+    window.addEventListener(WalletEventType.LOGIN, handleLogin);
+    window.addEventListener(WalletEventType.LOGIN_CANCEL, handleCanel);
+    window.addEventListener(WalletEventType.ACCOUNT_CHANGE, handleChange);
+    window.addEventListener(WalletEventType.RESET, handleReset);
 
     return () => {
-      resetWalletState();
+      !!onReset && onReset();
 
-      window.removeEventListener(wallets.walletsEventType.LOGIN, onLogin);
-      window.removeEventListener(wallets.walletsEventType.LOGIN_CANCEL, onCanel);
-      window.removeEventListener(wallets.walletsEventType.ACCOUNT_CHANGE, onChange);
-      window.removeEventListener(wallets.walletsEventType.RESET, onReset);
+      window.removeEventListener(WalletEventType.LOGIN, handleLogin);
+      window.removeEventListener(WalletEventType.LOGIN_CANCEL, handleCanel);
+      window.removeEventListener(WalletEventType.ACCOUNT_CHANGE, handleChange);
+      window.removeEventListener(WalletEventType.RESET, handleReset);
     };
   }, []);
 
   return isLoading;
 };
+
+export default useWallets;

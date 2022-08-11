@@ -25,16 +25,35 @@ type IWalletEventType = {
 };
 
 /**
+ * hook属性
+ * @property name 钱包名称
+ * @property onLogin 钱包登录
+ * @property onCancel 取消登录
+ * @property onChange 钱包更改
+ * @property onReset 钱包重置
+ */
+interface IWalletsProps {
+  name: string;
+  onLogin?: (name: string) => void;
+  onCancel?: () => void;
+  onChange?: (name: string, address: string) => void;
+  onReset?: () => void;
+}
+
+/**
  * 声明 - 钱包管理
+ * @property {IWalletName} WalletName 钱包名称
+ * @property {IWalletEventType}  WalletEventType 钱包事件
+ * @property {(props: IWalletsProps) => boolean}  useWallets 钱包hook
  * @method canBeUsed 指定钱包是否可使用
  * @method getAddress 获取钱包地址
  * @method getSignature 获取钱包签名
  */
 declare interface IWallets {
-  // 钱包名称
   WalletName: IWalletName;
-  // 钱包事件
   WalletEventType: IWalletEventType;
+  useWallets: (props: IWalletsProps) => boolean;
+
   canBeUsed(name: string): boolean;
   getAddress(name: string): Promise<string>;
   getSignature(name: string, message: string, address: string): Promise<string>;

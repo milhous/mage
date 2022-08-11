@@ -3,7 +3,7 @@ import {WalletName, WalletEventType} from '../config';
 // 波场钱包
 export default class MethodTronlink {
   // 类型
-  static type = WalletName.TRON_LINK;
+  static WalletName = WalletName.TRON_LINK;
 
   constructor() {
     this._init();
