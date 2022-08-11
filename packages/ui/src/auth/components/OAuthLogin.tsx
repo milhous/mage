@@ -120,8 +120,10 @@ detectLogin();
 // 授权登录
 const OAuthLogin = (props: {type: string}): JSX.Element => {
   const {type} = props;
-  const [telegramOAuthStatus, setTelegramOAuthStatus] = useState(false);
   const t = useTranslate(['common']);
+
+  const [telegramOAuthStatus, setTelegramOAuthStatus] = useState(false);
+
   const id = useMemo((): string => {
     return type === 'login' ? 'login_others' : 'sign_up_others';
   }, [type]);
@@ -131,17 +133,13 @@ const OAuthLogin = (props: {type: string}): JSX.Element => {
       <input id="OAuthLogin" type="checkbox" />
       <div className="ui-auth_OAuth">
         <ul id={id}>
-          {/* <li className="btn-login_google">
-            <ButtonGoogleLogin name={OAuthLoginType.GOOGLE} />
-          </li>
+          {/* <li className="btn-login_google">{!isPending && <ButtonGoogleLogin name={OAuthLoginType.GOOGLE} />}</li> */}
           {!isApp() && !telegramOAuthStatus && (
             <li className="btn-login_telegram">
               <ButtonTelegramLogin name={OAuthLoginType.TELEGRAM} />
             </li>
           )}
-          <li className="btn-login_facebook">
-            <ButtonFacebookLogin name={OAuthLoginType.FACEBOOK} />
-          </li> */}
+          {/* <li className="btn-login_facebook">{!isPending && <ButtonFacebookLogin name={OAuthLoginType.FACEBOOK} />}</li> */}
           <li className="btn-login_metamask">
             <ButtonMetaMaskLogin />
           </li>
