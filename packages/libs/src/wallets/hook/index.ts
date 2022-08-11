@@ -2,22 +2,6 @@ import {useState, useEffect} from 'react';
 
 import {WalletEventType} from '../config';
 
-/**
- * 声明
- * @property name 钱包名称
- * @property onLogin 钱包登录
- * @property onCancel 取消登录
- * @property onChange 钱包更改
- * @property onReset 钱包重置
- */
-interface IWalletsProps {
-  name: string;
-  onLogin?: (name: string) => void;
-  onCancel?: () => void;
-  onChange?: (name: string, address: string) => void;
-  onReset?: () => void;
-}
-
 // 钱包 hook
 const useWallets = (props: IWalletsProps): boolean => {
   const {name, onLogin, onCancel, onChange, onReset} = props;

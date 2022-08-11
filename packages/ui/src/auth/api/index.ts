@@ -6,6 +6,7 @@ import {isMobile} from '@libs/utils';
 import auth from '@libs/auth';
 import {getCurLang} from '@libs/i18n';
 import requests, {OK_CODE} from '@libs/requests';
+import marketing from '@libs/marketing';
 
 /**
  * @param {string} rspCode 状态码
@@ -167,7 +168,7 @@ const wallets = ['binance_chain_wallet', 'metamask', 'tronlink'];
 // 第三方联合登录回调
 export const apiPassThird = (params: IApiPassThirdParams): Promise<IApiLoginResponse> => {
   return new Promise((resolve, reject) => {
-    const marketingInfo = getMarketingInfo();
+    const marketingInfo = marketing.getInfo();
 
     if (marketingInfo.trackCode !== '') {
       params.trackCode = marketingInfo.trackCode;

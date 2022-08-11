@@ -5,6 +5,7 @@ import {useModal, showModal} from '@libs/modal';
 import WidgetModal from '@widget/modal';
 
 import LoginForm from './LoginForm';
+import OAuthLogin from './OAuthLogin';
 import Promotion from './Promotion';
 
 import './Login.less';
@@ -48,7 +49,7 @@ const Login = (): JSX.Element => {
               <h2>{t('title_login')}</h2>
               <LoginForm visible={!!visible} />
               <GuideSignUp />
-              {/* <OAuthLogin type="login" /> */}
+              <OAuthLogin type="login" />
               {/* <WalletsLogin visible={!!visible} /> */}
             </section>
           </article>

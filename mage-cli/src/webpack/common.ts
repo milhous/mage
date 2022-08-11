@@ -1,9 +1,11 @@
 import * as url from 'url';
+import {createRequire} from 'module';
 
 import {resolveAppPath} from '../helpers/utils.js';
 import {IDevConfig, IBasicConfig} from '../helpers/store.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
+const require = createRequire(import.meta.url);
 
 /**
  * 通用
@@ -87,6 +89,14 @@ export default (devConfig: IDevConfig, basicConfig: IBasicConfig): any => {
         '@widget': resolveAppPath('../widget/src'),
         '@libs': resolveAppPath('../libs/src'),
         '@style': resolveAppPath('../style/src'),
+      },
+      fallback: {
+        assert: require.resolve('assert/'),
+        buffer: require.resolve('buffer/'),
+        events: require.resolve('events/'),
+        process: require.resolve('process/browser'),
+        stream: require.resolve('stream-browserify'),
+        string_decoder: require.resolve('string_decoder/'),
       },
     },
   };

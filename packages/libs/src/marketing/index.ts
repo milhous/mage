@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 import {getQueryParam, removeQueryParam} from '../utils';
 
-import './@types/requests.d';
+import './@types/marketing.d';
 
 /**
  * 营销码类型

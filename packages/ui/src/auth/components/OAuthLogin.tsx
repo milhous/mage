@@ -15,6 +15,9 @@ import ButtonTelegramLogin from './ButtonTelegramLogin';
 import ButtonFacebookLogin from './ButtonFacebookLogin';
 import ButtonLineLogin from './ButtonLineLogin';
 import ButtonKakaoLogin from './ButtonKakaoLogin';
+import ButtonMetaMaskLogin from './ButtonMetaMaskLogin';
+import ButtonBinanceLogin from './ButtonBinanceLogin';
+import ButtonTronLinkLogin from './ButtonTronLinkLogin';
 
 /*------ 组件相关 ------*/
 // 样式
@@ -115,7 +118,8 @@ const detectLogin = async (): Promise<void> => {
 detectLogin();
 
 // 授权登录
-const OAuthLogin = (type: string): JSX.Element => {
+const OAuthLogin = (props: {type: string}): JSX.Element => {
+  const {type} = props;
   const [telegramOAuthStatus, setTelegramOAuthStatus] = useState(false);
   const t = useTranslate(['common']);
   const id = useMemo((): string => {
@@ -139,7 +143,7 @@ const OAuthLogin = (type: string): JSX.Element => {
             <ButtonFacebookLogin name={OAuthLoginType.FACEBOOK} />
           </li>
           <li className="btn-login_metamask">
-            <WalletButton.ButtonMetaMaskLogin />
+            <ButtonMetaMaskLogin />
           </li>
         </ul>
         <label
@@ -172,13 +176,13 @@ const OAuthLogin = (type: string): JSX.Element => {
               <ButtonKakaoLogin name={OAuthLoginType.FACEBOOK} />
             </li>
             <li className="btn-login_tronlink">
-              <WalletButton.ButtonTronLinkLogin />
+              <ButtonTronLinkLogin />
             </li>
             <li className="btn-login_metamask">
-              <WalletButton.ButtonMetaMaskLogin />
+              <ButtonMetaMaskLogin />
             </li>
             <li className="btn-login_binance">
-              <WalletButton.ButtonBinanceLogin />
+              <ButtonBinanceLogin />
             </li>
           </ul>
           <label

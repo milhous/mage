@@ -58,6 +58,7 @@ export default async (
     new webpack.DefinePlugin({
       APP_GITHASH: JSON.stringify(hash),
       APP_NAME: basicConfig.name,
+      'process.env': JSON.stringify(process.env),
       // 'process.env.DEV_SERVER': JSON.stringify(process.env.DEV_SERVER),
       // 'process.env.BTG_ENV': JSON.stringify(process.env.BTG_ENV),
       __isDEV__: devConfig.isDev,
