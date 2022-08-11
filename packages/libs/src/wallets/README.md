@@ -14,7 +14,7 @@ import wallets from "@libs/wallets";
 
 ## 属性
 
-#### WalletName
+#### wallets.WalletName
 
 钱包名称
 
@@ -42,7 +42,7 @@ const canBeUsed = wallets.canBeUsed(wallets.WalletName.META_MASK);
 
 ---
 
-#### WalletEventType
+#### wallets.WalletEventType
 
 钱包事件类型
 
@@ -97,9 +97,48 @@ window.addEventListener(wallets.WalletEventType.ACCOUNT_CHANGE, (evt: any) => {
 
 ---
 
+#### wallets.useWallets
+
+钱包 Hook，一般用于更新钱包状态
+
+##### Usage
+
+```js
+wallets.useWallets({ name, onLogin, onCancel, onChange, onReset });
+```
+
+##### Returns
+
+| Property                | Type                                    | Description        |
+| ----------------------- | --------------------------------------- | ------------------ |
+| name                    | string                                  | 钱包名称           |
+| onLogin(name)           | (name: string) => void                  | 钱包登录（非必传） |
+| onCancel                | () => void                              | 取消登录（非必传） |
+| onChange(name, address) | (name: string, address: string) => void | 钱包更改（非必传） |
+| onReset                 | () => void                              | 钱包重置（非必传） |
+
+##### Example
+
+```js
+import wallets from "@libs/wallets";
+
+// MetaMask
+export const ButtonMetaMaskLogin = (): JSX.Element => {
+  const isLoading = useWallet({ type: wallets.walletsName.META_MASK });
+
+  return (
+    <div className={isLoading ? "walletLoginBtn loading" : "walletLoginBtn"}>
+      <SVG src={Assets.btnMetamask} />
+    </div>
+  );
+};
+```
+
+---
+
 ## 方法
 
-#### wallets.canBeUsed
+#### wallets.canBeUsed()
 
 判断钱包是否可用
 
@@ -140,7 +179,7 @@ if (!canBeUsed) {
 
 ---
 
-#### wallets.getAddress
+#### wallets.getAddress()
 
 获取钱包地址
 
@@ -184,7 +223,7 @@ import wallets from "@libs/wallets";
 
 ---
 
-#### wallets.getSignature
+#### wallets.getSignature()
 
 获取钱包签名
 
