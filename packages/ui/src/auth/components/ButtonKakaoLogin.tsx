@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import KakaoLogin from 'react-kakao-login';
 
 import {ThirdParty} from '@libs/config/auth';
@@ -69,6 +70,15 @@ const ButtonKakaoLogin = (props: {name: string}): JSX.Element => {
       }
     }
   });
+
+  useEffect(() => {
+    return () => {
+      // 移除Kakao sdk, 避免无限加载
+      const sdk = document.getElementById('kakao-sdk');
+
+      !!sdk && sdk.remove();
+    };
+  }, []);
 
   return (
     <KakaoLogin
