@@ -7,6 +7,7 @@ import WidgetModal from '@widget/modal';
 import LoginForm from './LoginForm';
 import OAuthLogin from './OAuthLogin';
 import Promotion from './Promotion';
+import ButtonClose from './ButtonClose';
 
 import './Login.less';
 
@@ -32,13 +33,12 @@ const Login = (): JSX.Element => {
   const t = useTranslate(['auth']);
   const {visible, setVisible, data} = useModal(ModalType.LOGIN);
 
+  const handleClose = () => {
+    setVisible(false);
+  };
+
   return (
-    <WidgetModal
-      isActive={visible}
-      onClose={() => {
-        setVisible(false);
-      }}
-    >
+    <WidgetModal isActive={visible} onClose={handleClose}>
       <div className="ui-auth ui-auth_login">
         <div className="ui-auth_content">
           <aside>
@@ -54,7 +54,7 @@ const Login = (): JSX.Element => {
             </section>
           </article>
         </div>
-        {/* {btnClose !== undefined ? btnClose : <BtnClose id="login_closed" />} */}
+        <ButtonClose id="login_closed" onClose={handleClose} />
       </div>
     </WidgetModal>
   );
