@@ -11,7 +11,7 @@ import Assets from '@app/auth/assets';
 // Line Login
 const ButtonLineLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
-  const t = useTranslate(['login']);
+  const t = useTranslate(['auth']);
 
   const onLogin = useThrottle(async (): Promise<void> => {
     analytics.customEvent('Login_socialMediaLogin', {

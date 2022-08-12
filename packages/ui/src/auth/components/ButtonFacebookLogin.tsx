@@ -16,7 +16,7 @@ import Assets from '@app/auth/assets';
 // Facebook Login
 const ButtonFacebookLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
-  const t = useTranslate(['login']);
+  const t = useTranslate(['auth']);
   const redirectUri = `${window.location.origin}/${name}/callback`;
 
   const onLogin = useThrottle(async (data: any): Promise<void> => {

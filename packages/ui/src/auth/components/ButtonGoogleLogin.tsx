@@ -16,7 +16,7 @@ import Assets from '@app/auth/assets';
 // Google Login
 const ButtonGoogleLogin = (props: {name: string}): JSX.Element => {
   const {name} = props;
-  const t = useTranslate(['login']);
+  const t = useTranslate(['auth']);
 
   const onClick = useThrottle((renderProps: any): void => {
     analytics.customEvent('Login_socialMediaLogin', {
