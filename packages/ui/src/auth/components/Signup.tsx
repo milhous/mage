@@ -1,4 +1,3 @@
-import {useState, useEffect, useMemo} from 'react';
 import {Trans} from 'react-i18next';
 
 import {ModalType} from '@libs/config';
@@ -7,11 +6,30 @@ import {useModal, showModal} from '@libs/modal';
 
 import WidgetModal from '@widget/modal';
 
+import SignUpForm from './SignUpForm';
 import OAuthLogin from './OAuthLogin';
 import Promotion from './Promotion';
 import ButtonClose from './ButtonClose';
 
 import './Signup.less';
+
+// 引导登录
+const GuideLogin = (): JSX.Element => {
+  const t = useTranslate(['auth']);
+
+  const onLogin = (evt: React.MouseEvent) => {
+    evt.preventDefault();
+
+    showModal(ModalType.LOGIN);
+  };
+
+  return (
+    <p className="ui-auth_guide">
+      {t('has_account')}
+      <span onClick={onLogin}>{t('login_submit')}</span>
+    </p>
+  );
+};
 
 // 注册
 const Signup = (): JSX.Element => {
@@ -32,15 +50,16 @@ const Signup = (): JSX.Element => {
           <article>
             <section>
               <h2>{t('title_register')}</h2>
-              <LoginForm visible={!!visible} />
-              <GuideSignUp />
-              <OAuthLogin type="login" />
               <h3>
-                {tips[0]}
-                <span>10000 BUSDT</span>
-                {!!tips[1] ? tips[1] : ''}
+                <Trans
+                  t={t}
+                  i18nKey="tips_title"
+                  values={{
+                    amount: `<span>10000 BUSDT</span>`,
+                  }}
+                />
               </h3>
-              {/* <SignUpForm visible={visible} /> */}
+              <SignUpForm visible={visible} />
               <GuideLogin />
               <OAuthLogin type="signup" />
               {/* <WalletsLogin visible={!!visible} /> */}

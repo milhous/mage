@@ -134,6 +134,97 @@ export const apiBetNum = (): Promise<number> => {
 
 /**
  * 声明
+ * @param {string} email 邮件
+ * @param {string} password 密码
+ * @param {string} otpCode 邮件验证码
+ * @param {string | null} referrerUserId 推荐人ID
+ * @param {string} trackCode 渠道码
+ * @param {string} agencyUser 代理用户名
+ * @param {string} deviceId 设备ID
+ * @param {string} language 语言
+ */
+export interface IApiRegisterParams {
+  email: string;
+  password: string;
+  otpCode: string;
+  referrerUserId?: string | null;
+  trackCode?: string;
+  agencyUser?: string | null;
+  deviceId?: string;
+  language?: string;
+}
+
+// 用户注册
+export const apiRegister = (params: IApiRegisterParams): Promise<IApiResponse> => {
+  return new Promise((resolve, reject) => {
+    if (!('deviceId' in params)) {
+      params.deviceId = auth.getDeviceId();
+    }
+    if (!params.language) {
+      params.language = getCurLang();
+    }
+
+    const data = Object.assign({}, params, {password: bs58.encode(BufferShim.from(params.password))});
+
+    requests
+      .send(`/pass/register`, 'PUT', data, {
+        Authorization: true,
+      })
+      .then((res: IApiLoginResponse) => {
+        //loginHandler(res);
+
+        resolve(res);
+      });
+  });
+};
+
+/**
+ * 声明
+ * @param {string} email 邮件
+ * @param {string} password 密码
+ * @param {string} captcha 人机验证码
+ * @param {string | null} referrerUserId 推荐人ID
+ * @param {string} trackCode 渠道码
+ * @param {string} agencyUser 代理用户名
+ * @param {string} deviceId 设备ID
+ * @param {string} language 语言
+ */
+export interface IApiSendEmailParams {
+  email: string;
+  password: string;
+  captcha: string;
+  referrerUserId: string | null;
+  trackCode?: string;
+  agencyUser?: string;
+  deviceId?: string;
+  language?: string;
+}
+
+//用户注册--发送激活邮件
+export const apiSendEmail = (params: IApiSendEmailParams): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    params.email = params.email.trim();
+
+    if (!('deviceId' in params)) {
+      params.deviceId = auth.getDeviceId();
+    }
+
+    if (!('language' in params)) {
+      params.language = getCurLang();
+    }
+
+    // setParamsWithStorage('apiSendEmail', params);
+
+    const data = Object.assign({}, params, {password: bs58.encode(BufferShim.from(params.password))});
+
+    requests.send(`/pass/sign/sendEmail`, 'POST', data).then((res: IApiResponse) => {
+      resolve(res);
+    });
+  });
+};
+
+/**
+ * 声明
  * @param {string} name 登录名称 google, facebook, line, kakao
  * @param {string} token 第三方token
  * @param {string} code 第三方临时授权码
@@ -243,5 +334,26 @@ export const apiThirdAuthorize = (params: IApiThirdAuthorizeParams): Promise<IAp
     requests.send(`/pass/third/authorize/${params.name}`, 'POST', params).then((res: IApiResponse) => {
       resolve(res);
     });
+  });
+};
+
+/**
+ * 声明
+ * @param {string} email 邮箱
+ */
+interface IApiCheckEamilValidParams {
+  email: string;
+}
+
+// 邮箱有效性检查
+export const apiCheckEamilValid = (params: IApiCheckEamilValidParams): Promise<IApiResponse> => {
+  return new Promise((resolve, reject) => {
+    requests
+      .send(`/pass/register/checkEamilValid`, 'GET', params, {
+        Authorization: false,
+      })
+      .then((res: IApiResponse) => {
+        resolve(res);
+      });
   });
 };

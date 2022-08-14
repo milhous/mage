@@ -15,10 +15,8 @@ import ButtonLoading, {ButtonLoadingState} from '@widget/buttonLoading';
 import {error} from '@widget/toastify';
 
 import {apiLogin} from '@app/auth/api';
-
 import Assets from '@app/auth/assets/index';
 
-// 样式
 import './LoginForm.less';
 
 /**

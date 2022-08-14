@@ -5,7 +5,7 @@ import {useState, useEffect, useRef, useCallback} from 'react';
  * @param {function} cb 回调函数
  * @param {number} delay 延迟时间（毫秒）
  */
-export const useInterval = (cb: () => void, delay: number) => {
+export const useInterval = (cb: () => void, delay: number | null) => {
   const savedCallback = useRef<() => void>();
 
   useEffect(() => {

@@ -14,6 +14,7 @@ import './Login.less';
 // 引导注册
 const GuideSignUp = (): JSX.Element => {
   const t = useTranslate(['auth']);
+
   const onSignUp = (evt: React.MouseEvent) => {
     evt.preventDefault();
 
