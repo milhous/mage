@@ -13,19 +13,19 @@
     "dependencies": {
         "qrcode.react": "^3.1.0",
         "rc-dropdown": "^4.0.1",
-        "rc-menu": "^9.6.4",
+        "rc-menu": "^9.8.0",
         "rc-scrollbars": "^1.1.5",
         "rc-tooltip": "^5.2.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-toastify": "^9.0.8",
+        "react-toastify": "^9.1.1",
         "react-transition-group": "^4.4.5",
-        "regenerator-runtime": "^0.13.10",
+        "regenerator-runtime": "^0.13.11",
         "svga.lite": "^1.6.1"
     },
     "devDependencies": {
         "@types/react": "^18",
-        "@types/react-dom": "^18.0.7",
+        "@types/react-dom": "^18.0.9",
         "@types/react-transition-group": "^4",
         "mage": "workspace:^"
     }

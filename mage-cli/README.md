@@ -60,6 +60,9 @@
 
 ```
 yarn set version berry
+
+// 更新最新版本
+yarn set version latest
 ```
 
 2. 设置源地址
