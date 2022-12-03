@@ -19,10 +19,10 @@
         "react-facebook-login": "^4.1.1",
         "react-google-login": "^5.2.2",
         "react-google-recaptcha-v3": "^1.10.0",
-        "react-hook-form": "^7.39.5",
+        "react-hook-form": "^7.40.0",
         "react-i18next": "^12.0.0",
         "react-kakao-login": "^2.1.1",
-        "react-router-dom": "^6.4.3",
+        "react-router-dom": "^6.4.4",
         "regenerator-runtime": "^0.13.11"
     },
     "devDependencies": {
