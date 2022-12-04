@@ -3,6 +3,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 
 import '@libs/mediator';
 import {UIType} from '@libs/config';
+import {getRemoteURL} from '@libs/utils';
 import WidgetSpinner from '@widget/spinner';
 import WidgetSystem from '@widget/system';
 
@@ -12,7 +13,7 @@ import Home from './pages/Home';
 // UI 系统信息
 const systemInfoUI = {
   remote: 'ui',
-  url: 'https://www.local.devbitgame.com:9001/remoteEntry.js',
+  url: getRemoteURL('ui', 9001),
   module: './App',
 };
 

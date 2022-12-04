@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Outlet} from 'react-router-dom';
 
 import {UIType} from '@libs/config';
+import {getRemoteURL} from '@libs/utils';
 import WidgetSystem from '@widget/system';
 
 import './Home.less';
@@ -9,7 +10,7 @@ import './Home.less';
 // UI 系统信息
 const systemInfoUI = {
   remote: 'ui',
-  url: 'https://www.local.devbitgame.com:9001/remoteEntry.js',
+  url: getRemoteURL('ui', 9001),
   module: './App',
 };
 

@@ -1,6 +1,7 @@
 import {Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
+import {getRemoteURL} from '@libs/utils';
 import WidgetSpinner from '@widget/spinner';
 import WidgetSystem from '@widget/system';
 
@@ -31,36 +32,14 @@ const SystemPorts = {
 };
 
 /**
- * 获取remoteEntry url
- * @param {string} type 系统类型
- * @returns {string}
- */
-const getRemoteURL = (type: number): string => {
-  let url = '';
-
-  if (__isDEV__) {
-    const port = SystemPorts[type];
-    const protocol = location.protocol;
-
-    url = `${protocol}//www.local.devbitgame.com:${port}/remoteEntry.js`;
-  } else {
-    const name = SystemType[type].toLowerCase();
-    const origin = location.origin;
-
-    url = `${origin}/${name}/remoteEntry.js`;
-  }
-
-  return url;
-};
-
-/**
  * 获取系统信息
  * @param type
  * @returns {ISystemInfo}
  */
 const getSystemInfo = (type: number): ISystemInfo => {
   const remote = SystemType[type].toLowerCase();
-  const url = getRemoteURL(type);
+  const port = SystemPorts[type];
+  const url = getRemoteURL(remote, port);
   const module = './App';
 
   return {

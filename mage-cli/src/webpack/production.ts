@@ -1,7 +1,5 @@
-import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 // 生产
 export default () => {

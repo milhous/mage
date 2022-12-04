@@ -18,6 +18,8 @@ export const getOrLoadRemote = (remote: string, shareScope: string, remoteFallba
       const onload = async () => {
         // check if it was initialized
         if (!window[remote].__initialized) {
+          await __webpack_init_sharing__(shareScope);
+
           await window[remote].init(__webpack_share_scopes__[shareScope]);
 
           // mark remote as initialized

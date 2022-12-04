@@ -268,3 +268,25 @@ export const share = (type: string, data: {title?: string; desc?: string; url?: 
     location.href = shareUrl;
   }
 };
+
+/**
+ * 获取remoteEntry url
+ * @param {string} name 应用名
+ * @param {number} port 端口号
+ * @returns {string}
+ */
+export const getRemoteURL = (name: string, port: number): string => {
+  let url = '';
+
+  if (__isDEV__) {
+    const protocol = location.protocol;
+
+    url = `${protocol}//www.local.devbitgame.com:${port}/remoteEntry.js`;
+  } else {
+    const origin = location.origin;
+
+    url = `${origin}/${name}/remoteEntry.js`;
+  }
+
+  return url;
+};
