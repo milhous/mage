@@ -18,11 +18,14 @@ const getLangsList = () => {
 
 // footer
 const UILanguages = (): JSX.Element => {
+  const list = getLangsList();
+  const selected = getCurLang();
+
   const handleSelect = (data: IWidgetDropdownList): void => {
     changeLang(data.val);
   };
 
-  return <WidgetDropdown list={getLangsList()} selected={getCurLang()} onSelect={handleSelect} />;
+  return <WidgetDropdown list={list} selected={selected} onSelect={handleSelect} />;
 };
 
 export default UILanguages;

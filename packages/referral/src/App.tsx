@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {StrictMode, Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
 import '@libs/mediator';
@@ -19,14 +19,16 @@ const systemInfoUI = {
 
 const App = () => {
   return (
-    <Suspense fallback={<WidgetSpinner />}>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="*" element={<Navigate replace to="/" />} />
-        </Route>
-      </Routes>
-      <WidgetSystem info={systemInfoUI} type={UIType.AUTH} />
-    </Suspense>
+    <StrictMode>
+      <Suspense fallback={<WidgetSpinner />}>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Route>
+        </Routes>
+        <WidgetSystem info={systemInfoUI} type={UIType.AUTH} />
+      </Suspense>
+    </StrictMode>
   );
 };
 

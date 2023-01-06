@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {StrictMode, Suspense} from 'react';
 import {Route, Routes, Navigate} from 'react-router-dom';
 
 import {getRemoteURL} from '@libs/utils';
@@ -51,15 +51,17 @@ const getSystemInfo = (type: number): ISystemInfo => {
 
 const App = () => {
   return (
-    <Suspense fallback={<WidgetSpinner />}>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="/referral/*" element={<WidgetSystem info={getSystemInfo(SystemType.REFERRAL)} />} />
-          <Route path="/affiliate/*" element={<WidgetSystem info={getSystemInfo(SystemType.AFFILIATE)} />} />
-          <Route path="*" element={<Navigate replace to="/" />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <StrictMode>
+      <Suspense fallback={<WidgetSpinner />}>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route path="/referral/*" element={<WidgetSystem info={getSystemInfo(SystemType.REFERRAL)} />} />
+            <Route path="/affiliate/*" element={<WidgetSystem info={getSystemInfo(SystemType.AFFILIATE)} />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </StrictMode>
   );
 };
 

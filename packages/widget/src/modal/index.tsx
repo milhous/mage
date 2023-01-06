@@ -58,8 +58,6 @@ const WidgetModal = (props: IWidgetModalProps): JSX.Element => {
     if (counter < 0) {
       counter = 0;
     }
-
-    console.log('counter', counter);
   }, [visible]);
 
   // 关闭

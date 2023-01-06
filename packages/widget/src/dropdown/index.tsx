@@ -110,7 +110,9 @@ const DropdownMenu = (props: {
       const itemHeight = height / list.length;
       const nums = Math.min(list.length, max);
 
-      setMenuHeight(itemHeight * nums);
+      if (itemHeight > 0) {
+        setMenuHeight(itemHeight * nums);
+      }
     }
   }, []);
 
